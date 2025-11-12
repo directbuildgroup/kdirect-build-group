@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — DIRECT BUILD GROUP</title>
+
+  <!-- Minimal meta for social / favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+  <style>
+    /* ---------------- Theme (neutral adaptive light/dark) ---------------- */
+    :root{
+      --bg-light: #f6f7f8;
+      --panel-light: #ffffff;
+      --text-light: #0f1720;
+      --muted-light: #4b5563;
+
+      --bg-dark: #0f1720;
+      --panel-dark: #12171c;
+      --text-dark: #ffffff;
+      --muted-dark: #9aa4ad;
+
+      --accent: #ffcc00;
+      --accent-strong: #e6b800;
+
+      --nav-width: 200px;
+      --max-width: 1150px;
+      --transition: 0.28s ease;
+    }
+
+    /* system preference */
+    @media (prefers-color-scheme: dark){
+      :root { color-scheme: dark; }
+      body { --bg: var(--bg-dark); --panel: var(--panel-dark); --text: var(--text-dark); --muted: var(--muted-dark); }
+    }
+    @media (prefers-color-scheme: light){
+      :root { color-scheme: light; }
+      body { --bg: var(--bg-light); --panel: var(--panel-light); --text: var(--text-light); --muted: var(--muted-light); }
+    }
+
+    /* override via .light-mode / .dark-mode classes */
+    body{ --bg: var(--bg-dark); --panel: var(--panel-dark); --text: var(--text-dark); --muted: var(--muted-dark); }
+    body.light-mode{ --bg: var(--bg-light); --panel: var(--panel-light); --text: var(--text-light); --muted: var(--muted-light); }
+
+    /* base */
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; font-family:"Poppins", Inter, system-ui, Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+    a{ color:var(--accent); text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    /* ---------- Preloader (logo-first zoom+glow) ---------- */
+    .preloader{
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+      background:var(--bg); z-index:6500; transition:opacity .45s ease, visibility .45s;
+    }
+    .preloader.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
+    .preloader .logo-wrap{ text-align:center; animation:preloadZoom 1.8s cubic-bezier(.2,.9,.2,1) both; }
+    .preloader img{ width:140px; border-radius:8px; filter: drop-shadow(0 18px 40px rgba(0,0,0,0.12)); }
+    .preloader .caption{ margin-top:10px; color:var(--muted); font-weight:700; letter-spacing:.4px; }
+    @keyframes preloadZoom {
+      0%{ transform:scale(.68); opacity:0; filter: blur(2px); }
+      45%{ transform:scale(1.08); opacity:1; filter:none; }
+      100%{ transform:scale(1); opacity:1; }
+    }
+
+    /* progress bar */
+    #progressBar{ position:fixed; top:0; left:0; height:4px; width:0; background:var(--accent); z-index:6200; transition:width .12s linear; }
+
+    /* header */
+    header{
+      position:sticky; top:0; z-index:3000; display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    body.light-mode header{ background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01)); }
+
+    .left-header{ display:flex; align-items:center; gap:12px; }
+    .logo{ display:flex; align-items:center; gap:10px; }
+    .logo img{ width:72px; border-radius:6px; }
+    .brand{ font-weight:800; color:var(--accent); }
+
+    /* desktop nav */
+    nav.desktop{ display:flex; gap:14px; margin-left:12px; align-items:center; }
+    nav.desktop a{ color:var(--text); font-weight:600; padding:8px 10px; border-radius:8px; }
+    nav.desktop a:hover{ background: rgba(0,0,0,0.04); color:var(--accent-strong); }
+
+    /* social icons */
+    .social-icons{ display:flex; gap:10px; align-items:center; margin-left:12px; }
+    .social-icons img{ width:20px; height:20px; transition:transform var(--transition), filter var(--transition); filter: brightness(.9) invert(.9); }
+    .social-icons a:hover img{ transform:scale(1.08); filter: drop-shadow(0 10px 30px rgba(255,204,0,0.12)); }
+
+    /* hamburger */
+    .hamburger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; background:transparent; border:0; cursor:pointer; }
+    .hamburger .bar{ width:22px; height:2.6px; background:var(--text); margin:4px 0; border-radius:2px; transition: transform .35s ease, opacity .2s; }
+    .hamburger.active .bar.b1{ transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.active .bar.b2{ opacity:0; transform: translateX(8px); }
+    .hamburger.active .bar.b3{ transform: rotate(-45deg) translate(4px,-4px); }
+
+    /* mobile menu (right slide in) */
+    .menu-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,0.22); opacity:0; pointer-events:none; transition:opacity .32s; z-index:2800; }
+    .menu-backdrop.visible{ opacity:1; pointer-events:auto; }
+    .mobile-menu-wrap{ position:fixed; top:0; right:0; height:100vh; width:var(--nav-width); transform:translateX(110%); transition:transform .36s cubic-bezier(.2,.9,.2,1); z-index:2900; pointer-events:none; }
+    .mobile-menu-wrap.open{ transform:translateX(0); pointer-events:auto; }
+    .mobile-menu{ height:100%; padding:18px; background: rgba(255,255,255,0.92); color:#111; backdrop-filter: blur(10px); border-left:1px solid rgba(255,255,255,0.6); display:flex; flex-direction:column; gap:12px; }
+    body.light-mode .mobile-menu{ background: rgba(255,255,255,0.98); color: #111; }
+    body:not(.light-mode) .mobile-menu{ background: rgba(12,12,12,0.92); color: var(--text); border-left:1px solid rgba(255,255,255,0.04); }
+
+    .mobile-menu a{ display:block; padding:10px; border-radius:8px; font-weight:700; color:inherit; }
+    .mobile-menu a:hover{ background: rgba(0,0,0,0.04); }
+
+    /* main content spacing */
+    main{ padding:88px 12px 48px; max-width:1200px; margin:0 auto; }
+
+    .hero{
+      height:34vh; min-height:200px; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden;
+      border-radius:12px;
+    }
+    .hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; border-radius:12px; }
+    .hero-bg img{ width:100%; height:100%; object-fit:cover; transform-origin:center center; filter:brightness(.62); }
+    .bg-zoom{ animation: bg-zoom 18s linear infinite alternate; will-change:transform; }
+    @keyframes bg-zoom{ from{ transform:scale(1); } to{ transform:scale(1.06); } }
+
+    .hero .inner{ position:relative; z-index:2; color:var(--text); padding:18px; }
+    .hero h1{ margin:0; font-size:clamp(20px, 2.6vw, 32px); }
+    .hero p{ margin-top:8px; color:var(--muted); }
+
+    /* two-column wrap */
+    .wrap{ max-width:var(--max-width); margin:-44px auto 40px; display:grid; grid-template-columns: 1fr 420px; gap:22px; align-items:start; }
+    @media (max-width:980px){ .wrap{ grid-template-columns:1fr; margin:-20px 12px 32px; } .hero{ min-height:170px; } }
+
+    .card{ background:var(--panel); border-radius:12px; padding:18px; box-shadow:0 12px 30px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.03); }
+    .card h2{ margin:0 0 10px 0; color:var(--text); }
+    .lead{ color:var(--muted); margin-bottom:14px; }
+
+    label{ display:block; font-size:0.9rem; color:var(--muted); margin-bottom:6px; }
+    input, textarea, select{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:rgba(0,0,0,0.12); color:var(--text); margin-bottom:12px; outline:none; }
+    input:focus, textarea:focus{ box-shadow:0 10px 28px rgba(0,0,0,0.25); transform:translateY(-1px); }
+
+    textarea{ min-height:130px; resize:vertical; }
+
+    .btn{ display:inline-block; padding:10px 18px; border-radius:999px; background: linear-gradient(90deg,var(--accent),var(--accent-strong)); color:#111; font-weight:800; border:0; cursor:pointer; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
+
+    .info-panel .info-row{ display:flex; gap:10px; align-items:flex-start; margin-bottom:8px; color:var(--muted); }
+    .info-label{ color:var(--accent); font-weight:700; min-width:88px; }
+
+    .small-muted{ font-size:0.86rem; color:var(--muted); }
+
+    /* lazy fade */
+    img.lazy{ opacity:0; transform:translateY(6px); transition:opacity .55s ease, transform .45s; }
+    img.lazy.visible{ opacity:1; transform:none; }
+
+    /* scroll-top */
+    #scrollTopBtn{ position:fixed; bottom:18px; right:18px; width:44px; height:44px; border-radius:8px; background:var(--accent); color:#111; border:0; font-size:18px; display:none; align-items:center; justify-content:center; z-index:3200; }
+
+    /* responsive header */
+    @media (max-width:860px){
+      nav.desktop{ display:none; }
+      .hamburger{ display:flex; }
+      .social-icons{ display:none; }
+    }
+
+    /* subtle hover glow */
+    a:hover, .btn:hover{ box-shadow:0 12px 36px rgba(255,204,0,0.08); }
+    .brand-glow:hover{ text-shadow:0 8px 30px rgba(255,204,0,0.10); }
+  </style>
+</head>
+<body class="dark-mode">
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader" role="status" aria-live="polite">
+    <div class="logo-wrap">
+      <img src="assets/images/logo.jpg" alt="DIRECT BUILD GROUP logo" loading="lazy">
+      <div class="caption">DIRECT BUILD GROUP</div>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div id="progressBar" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header role="banner" aria-label="Primary header">
+    <div class="left-header">
+      <div class="logo">
+        <a href="index.html"><img src="assets/images/logo.jpg" alt="logo" loading="lazy"></a>
+        <div class="brand">DIRECT BUILD GROUP</div>
+      </div>
+
+      <nav class="desktop" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="social-icons" aria-hidden="false">
+        <a href="https://facebook.com" target="_blank" title="Facebook" class="brand-glow"><img src="assets/images/Facebook logo.png" alt="Facebook" loading="lazy"></a>
+        <a href="https://www.instagram.com/directbuildgroup" target="_blank" title="Instagram" class="brand-glow"><img src="assets/images/instagram.jpg" alt="Instagram" loading="lazy"></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn" class="brand-glow"><img src="assets/images/linkendin.png" alt="LinkedIn" loading="lazy"></a>
+      </div>
+
+      <button id="themeToggle" title="Toggle light/dark" style="background:transparent;border:0;font-size:18px;cursor:pointer;">🌗</button>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile menu backdrop + right slide-in menu -->
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  <div class="mobile-menu-wrap" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu" aria-label="Mobile primary">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+      <div style="flex:1"></div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><img src="assets/images/Facebook logo.png" alt="Facebook" style="width:20px;height:20px;"></a>
+        <a href="https://www.instagram.com/directbuildgroup" target="_blank" title="Instagram"><img src="assets/images/instagram.jpg" alt="Instagram" style="width:20px;height:20px;"></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><img src="assets/images/linkendin.png" alt="LinkedIn" style="width:20px;height:20px;"></a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-label="Contact hero">
+      <div class="hero-bg" aria-hidden="true">
+        <!-- lazy background image -->
+        <img data-src="assets/images/contact-hero.jpg" alt="Contact hero" class="bg-zoom lazy">
+      </div>
+      <div class="inner">
+        <h1>Talk to our team — let's build it right.</h1>
+        <p class="small-muted">Send project details or request a quote. We reply within 1 business day.</p>
+      </div>
+    </section>
+
+    <!-- WRAP -->
+    <section class="wrap" aria-labelledby="contact-heading">
+      <!-- LEFT: Form -->
+      <div class="card" role="region" aria-label="Contact form">
+        <h2 id="contact-heading">Get in touch</h2>
+        <p class="lead">Fill the form and we’ll respond quickly. For urgent requests call <strong style="color:var(--accent)">+1 555 123 4567</strong></p>
+
+        <!--
+          Using Formsubmit.co to send directly to info@directbuildgroup.com without server-side code.
+          If you prefer Formspree, replace action with your Formspree endpoint (e.g. https://formspree.io/f/yourFormId)
+        -->
+        <form id="contactForm" action="https://formsubmit.co/info@directbuildgroup.com" method="POST" enctype="multipart/form-data">
+          <!-- honeypot -->
+          <div style="position:absolute;left:-5000px;top:auto;overflow:hidden;">
+            <label>Leave this field blank</label>
+            <input type="text" name="company_website" autocomplete="off">
+          </div>
+
+          <label for="name">Name *</label>
+          <input id="name" name="name" type="text" required placeholder="Your full name">
+
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 123 4567">
+
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Project or inquiry subject">
+
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required placeholder="Tell us about your project (budget, location, timeline)..."></textarea>
+
+          <label for="attachment">Attachment (optional)</label>
+          <input id="attachment" name="attachment" type="file" accept=".jpg,.jpeg,.png,.gif,.pdf">
+
+          <!-- optional: redirect after submit (commented out). Formsubmit also supports &honeypot and _next -->
+          <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
+
+          <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+            <button type="submit" class="btn" id="sendBtn">Send Message</button>
+            <div class="meta"><span class="small-muted">We reply within 1 business day</span></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- RIGHT: Info + Map -->
+      <aside class="card info-panel" aria-label="Contact information and location">
+        <div class="info-row"><div class="info-label">Email :</div><div>info@directbuildgroup.com</div></div>
+        <div class="info-row"><div class="info-label">Phone :</div><div>Toll free (888-803-5693)</div></div>
+        <div class="info-row"><div class="info-label">Address :</div><div>1711 W Irving Blvd st. 205</div></div>
+
+        <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0;">
+
+        <div id="mapWrap" style="width:100%;height:260px;border-radius:8px;overflow:hidden;">
+          <img data-src="assets/images/map-placeholder.jpg" alt="Map placeholder" class="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="margin-top:12px" class="small-muted">Map centered on: <strong id="mapQueryText">United States</strong></div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- success popup -->
+  <div id="successPopup" class="success-popup" role="status" aria-live="polite">Message sent — thanks!</div>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/your-number-here" class="whatsapp-icon" target="_blank" aria-label="Contact on WhatsApp" style="position:fixed;right:18px;bottom:18px;z-index:3200;">
+    <img src="assets/images/whatsapp.jpg" alt="WhatsApp" loading="lazy" style="width:46px;height:46px;border-radius:8px;">
+  </a>
+
+  <!-- scroll to top -->
+  <button id="scrollTopBtn" aria-label="Scroll to top">⬆</button>
+
+  <script>
+    /* ---------------- Globals & elements ---------------- */
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progressBar');
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenuWrap = document.getElementById('mobileMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const themeToggle = document.getElementById('themeToggle');
+    const form = document.getElementById('contactForm');
+    const successPopup = document.getElementById('successPopup');
+
+    /* ---------------- Preloader ---------------- */
+    window.addEventListener('load', () => {
+      // show preloader logo for a brief cinematic moment, then hide
+      setTimeout(() => preloader.classList.add('hidden'), 1400);
+      // fallback ensure it's hidden eventually
+      setTimeout(() => preloader.classList.add('hidden'), 4000);
+      // trigger initial lazy load for visible images
+      lazyLoadVisible();
+    });
+
+    /* ---------------- Scroll progress & top button ---------------- */
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const pct = (window.scrollY / (docHeight || 1)) * 100;
+      progressBar.style.width = Math.min(100, pct) + '%';
+      scrollTopBtn.style.display = window.scrollY > 260 ? 'flex' : 'none';
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+    /* ---------------- Mobile menu: open/close ---------------- */
+    function openMenu(){
+      mobileMenuWrap.classList.add('open');
+      menuBackdrop.classList.add('visible');
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      mobileMenuWrap.classList.remove('open');
+      menuBackdrop.classList.remove('visible');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => mobileMenuWrap.classList.contains('open') ? closeMenu() : openMenu());
+    menuBackdrop.addEventListener('click', closeMenu);
+    // close on link click
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
+    // esc closes menu
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+
+    /* ---------------- Theme toggle (adaptive) ---------------- */
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      // optional: persist
+      // localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+    // optionally restore:
+    // if(localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+
+    /* ---------------- Lazy loading images ---------------- */
+    const lazyImgs = Array.from(document.querySelectorAll('img.lazy, img.bg-zoom'));
+    function loadImage(img){
+      const src = img.dataset.src || img.getAttribute('src');
+      if(!src) return;
+      if(img.src !== src) img.src = src;
+      img.addEventListener('load', () => img.classList.add('visible'));
+    }
+    function lazyLoadVisible(){
+      lazyImgs.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if(rect.top < window.innerHeight + 200) loadImage(img);
+      });
+    }
+    if('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            loadImage(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '200px 0px' });
+      lazyImgs.forEach(i => io.observe(i));
+    } else {
+      lazyImgs.forEach(i => loadImage(i));
+    }
+
+    /* ---------------- Map embed (replace placeholder) ---------------- */
+    (function initMap(){
+      try {
+        var q = encodeURIComponent(window.MAP_QUERY || 'United States');
+        var iframe = document.createElement('iframe');
+        iframe.src = "https://www.google.com/maps?q=" + q + "&output=embed";
+        iframe.width = "100%";
+        iframe.height = "260";
+        iframe.style.border = "0";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
+        var wrap = document.getElementById('mapWrap');
+        if(wrap){ wrap.innerHTML = ''; wrap.appendChild(iframe); }
+        var qText = document.getElementById('mapQueryText');
+        if(qText) qText.textContent = decodeURIComponent(q);
+      } catch(e){ console.warn('Map failed', e); }
+    })();
+
+    /* ---------------- Form submission via Formsubmit.co ----------------
+       Notes:
+       - This form posts to https://formsubmit.co/info@directbuildgroup.com (sends to that email)
+       - If you'd rather use Formspree, replace form.action with your Formspree endpoint:
+         e.g. form.action = 'https://formspree.io/f/yourFormId'
+       - Formsubmit will send a verification email the first time to confirm the recipient.
+    ------------------------------------------------------------------ */
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const sendBtn = document.getElementById('sendBtn');
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+
+      try {
+        // Formsubmit supports multipart form posts (files). We forward the FormData directly.
+        const res = await fetch(form.action="https://formspree.io/f/xjkpndgp", { method:'POST', body: new FormData(form), headers: { 'Accept':'application/json' } });
+        if(res.ok){
+          form.reset();
+          successPopup.classList.add('show');
+          setTimeout(()=> successPopup.classList.remove('show'), 5000);
+        } else {
+          // Formsubmit may return validation error; show generic fallback
+          const data = await res.json().catch(()=>null);
+          alert(data && data.message ? data.message : 'Error sending message. Please try again.');
+        }
+      } catch(err){
+        console.error(err);
+        alert('Network error. Please try again.');
+      } finally {
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Send Message';
+      }
+    });
+
+    /* ---------------- file input: show selected filename (basic) ---------------- */
+    (function(){
+      const fileInput = document.getElementById('attachment');
+      const preview = document.getElementById('filePreview') || null;
+      if(!fileInput) return;
+      fileInput.addEventListener('change', () => {
+        if(!preview) return;
+        const f = fileInput.files[0];
+        if(!f) { preview.textContent = ''; return; }
+        if(f.size > 8 * 1024 * 1024){ preview.textContent = 'File too large — max 8MB.'; fileInput.value=''; return; }
+        preview.textContent = 'Selected: ' + f.name + ' (' + Math.round(f.size/1024) + ' KB)';
+      });
+    })();
+
+    /* ---------------- touch: swipe to close menu on backdrop ---------------- */
+    (function touchClose(){
+      let startX = 0;
+      menuBackdrop.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+      menuBackdrop.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if(dx > 40) closeMenu();
+      }, {passive:true});
+    })();
+
+    /* safety: hide preloader if JS errors or slow networks */
+    setTimeout(()=> { if(preloader && !preloader.classList.contains('hidden')) preloader.classList.add('hidden'); }, 7000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* ===============================
+   Global Construction Theme
+   =============================== */
+:root {
+  --primary: #fcb900; /* Construction yellow */
+  --accent: #ff7b00;  /* Orange accent */
+  --dark-bg: #1e1e1e;
+  --light-text: #f4f4f4;
+  --gray: #555;
+  --transition: 0.3s ease;
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--dark-bg);
+  color: var(--light-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   Header & Navigation
+   =============================== */
+header {
+  background: rgba(20, 20, 20, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  box-shadow: var(--shadow);
+}
+
+header .logo img {
+  height: 60px;
+  width: auto;
+  border-radius: var(--radius);
+}
+
+nav a {
+  color: var(--light-text);
+  margin: 0 1rem;
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition);
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+  margin: auto;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+nav a:hover {
+  color: var(--primary);
+}
+
+/* ===============================
+   Landing Page
+   =============================== */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to bottom right, #111, #2a2a2a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--light-text);
+  margin-top: 1rem;
+  opacity: 0.85;
+}
+
+.hero .cta {
+  margin-top: 2rem;
+}
+
+.cta a {
+  background: var(--primary);
+  color: #000;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background var(--transition);
+  text-decoration: none;
+}
+
+.cta a:hover {
+  background: var(--accent);
+}
+
+/* ===============================
+   Work / Gallery
+   =============================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 5rem 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.1);
+}
+
+/* Hover description */
+.gallery-item .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--light-text);
+  padding: 0.8rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.gallery-item:hover .desc {
+  opacity: 1;
+}
+
+/* ===============================
+   Contact Form
+   =============================== */
+.contact {
+  padding: 8rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact form {
+  background: #262626;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact input,
+.contact textarea,
+.contact select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  border-radius: var(--radius);
+  border: none;
+  background: #333;
+  color: var(--light-text);
+  outline: none;
+  transition: background var(--transition);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  background: #404040;
+}
+
+.contact button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary);
+  color: #000;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.contact button:hover {
+  background: var(--accent);
+}
+
+/* File upload styling */
+.file-upload {
+  position: relative;
+  display: block;
+  margin-top: 1rem;
+  border: 2px dashed var(--gray);
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: border var(--transition), background var(--transition);
+}
+
+.file-upload:hover {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.file-upload p {
+  color: var(--light-text);
+}
+
+/* Map styling */
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* ===============================
+   Footer
+   =============================== */
+footer {
+  background: #111;
+  text-align: center;
+  color: var(--gray);
+  padding: 1.5rem;
+  margin-top: 3rem;
+  border-top: 2px solid #333;
+}
+
+/* ===============================
+   Animations
+   =============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   Responsive Design
+   =============================== */
+@media (max-width: 900px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav a {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
