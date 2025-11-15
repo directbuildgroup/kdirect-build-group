@@ -1,486 +1,542 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — DIRECT BUILD GROUP</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Direct Build Group – Texas Remodeling Experts</title>
+<meta name="description" content="Get a free quote for kitchen, bath, deck, or painting projects in Austin, Dallas, Houston, San Antonio. Licensed & insured." />
+<link rel="canonical" href="https://directbuildgroup.com/contact.html" />
 
-  <!-- Minimal meta for social / favicon -->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+<!-- Open Graph -->
+<meta property="og:title" content="Contact | Direct Build Group" />
+<meta property="og:description" content="Send us your project details. We reply within 1 business day." />
+<meta property="og:image" content="https://directbuildgroup.com/assets/images/og-contact.jpg" />
+<meta property="og:url" content="https://directbuildgroup.com/contact.html" />
 
-  <style>
-    /* ---------------- Theme (neutral adaptive light/dark) ---------------- */
-    :root{
-      --bg-light: #f6f7f8;
-      --panel-light: #ffffff;
-      --text-light: #0f1720;
-      --muted-light: #4b5563;
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =================== PROFESSIONAL DARK THEME =================== */
+:root{
+  --accent: #17d4b5;
+  --gold: #ffcc00;
+  --bg: #0b1414;
+  --surface: #111a1a;
+  --text: #f0f4f4;
+  --muted: #94a3a8;
+  --border: rgba(255,255,255,0.08);
+  --shadow: rgba(0,0,0,0.45);
+  --radius: 20px;
+  --transition: .5s cubic-bezier(.2,.8,.2,1);
+  --max-width: 1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:"Poppins",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;transition:var(--transition);}
+img{display:block;width:100%;height:auto;border-radius:var(--radius);object-fit:cover;}
 
-      --bg-dark: #0f1720;
-      --panel-dark: #12171c;
-      --text-dark: #ffffff;
-      --muted-dark: #9aa4ad;
+/* HEADER & MENU (unchanged – same as before) */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;gap:16px;
+  background:rgba(11,20,20,0.96);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.left-header{display:flex;align-items:center;gap:16px;}
+.logo img{width:68px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+.brand{font-weight:900;color:var(--gold);font-size:1.15rem;letter-spacing:0.8px;}
+nav.desktop-nav{display:none;gap:32px;align-items:center;}
+nav.desktop-nav a{font-weight:600;color:var(--text);padding:8px 16px;border-radius:14px;transition:var(--transition);}
+nav.desktop-nav a:hover,nav.desktop-nav a.active{color:var(--accent);background:rgba(23,212,181,0.1);}
+.hamburger{
+  position:relative;width:60px;height:60px;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:7px;padding:12px;border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);cursor:pointer;transition:all .4s cubic-bezier(.2,.8,.2,1);box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+.hamburger:hover{background:rgba(23,212,181,0.15);border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 35px rgba(23,212,181,0.25);}
+.hamburger .bar{width:30px;height:4px;background:var(--text);border-radius:4px;transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease, background .35s;}
+.hamburger.active .bar:nth-child(1){transform:rotate(45deg) translate(9px,9px);background:var(--accent);}
+.hamburger.active .bar:nth-child(2){opacity:0;transform:scale(0);}
+.hamburger.active .bar:nth-child(3){transform:rotate(-45deg) translate(9px,-9px);background:var(--accent);}
+.hamburger-label{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);font-size:0.82rem;color:var(--muted);font-weight:600;opacity:0;transition:opacity .35s ease, color .35s;white-space:nowrap;letter-spacing:0.5px;text-transform:uppercase;}
+.hamburger:hover .hamburger-label,.hamburger.active .hamburger-label{opacity:1;color:var(--accent);}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.96);opacity:0;visibility:hidden;transition:opacity .55s var(--ease),visibility .55s;z-index:1299;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(12px);}
+.menu-overlay.open{opacity:1;visibility:visible;}
+.menu-panel{width:100%;max-width:420px;background:var(--surface);backdrop-filter:blur(26px);border-radius:var(--radius);padding:75px 44px 55px;text-align:center;border:1px solid var(--border);box-shadow:0 45px 110px var(--shadow);transform:scale(0.92);transition:transform .55s var(--ease);}
+.menu-overlay.open .menu-panel{transform:scale(1);}
+.menu-panel h3{font-size:2.4rem;color:var(--gold);margin-bottom:44px;letter-spacing:1.5px;font-weight:900;position:relative;}
+.menu-panel h3::after{content:'';position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);width:100px;height:5.5px;background:var(--accent);border-radius:5px;}
+.menu-panel nav{display:flex;flex-direction:column;gap:14px;margin-bottom:44px;}
+.menu-panel a{font-weight:700;font-size:1.5rem;color:var(--text);padding:20px 28px;border-radius:16px;transition:.45s;background:rgba(255,255,255,0.06);border:1px solid transparent;position:relative;overflow:hidden;}
+.menu-panel a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-5px);box-shadow:0 12px 35px rgba(23,212,181,0.28);}
+.menu-close{position:absolute;top:24px;right:24px;width:56px;height:56px;background:rgba(255,255,255,0.14);border-radius:50%;font-size:2rem;color:var(--text);display:grid;place-items:center;transition:.4s;border:1px solid rgba(255,255,255,0.18);}
+.menu-close:hover{background:var(--accent);color:#000;transform:rotate(90deg) scale(1.15);box-shadow:0 0 25px rgba(23,212,181,0.45);}
 
-      --accent: #ffcc00;
-      --accent-strong: #e6b800;
+/* FLOATING BUTTONS */
+.whatsapp-float{position:fixed;bottom:20px;left:20px;z-index:1100;width:58px;height:58px;background:#25D366;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,0.42);animation:float 3s ease-in-out infinite;transition:.35s;}
+.whatsapp-float:hover{transform:scale(1.1);background:#128C7E;}
+.back-to-top{position:fixed;bottom:20px;right:20px;z-index:1100;width:52px;height:52px;background:var(--accent);color:#000;border-radius:50%;display:none;place-items:center;font-size:1.45rem;box-shadow:0 8px 22px rgba(23,212,181,0.35);transition:.35s;}
+.back-to-top.show{display:grid;}
+.back-to-top:hover{transform:translateY(-5px);background:#14b89a;}
 
-      --nav-width: 200px;
-      --max-width: 1150px;
-      --transition: 0.28s ease;
-    }
+/* HERO */
+.hero{position:relative;height:60vh;min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.6);}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.65));}
+.hero-inner{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;max-width:900px;}
+.hero h1{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:16px;text-shadow:0 4px 20px rgba(0,0,0,0.6);}
+.hero p{font-size:1.2rem;color:#e0e0e0;max-width:700px;margin:0 auto;}
 
-    /* system preference */
-    @media (prefers-color-scheme: dark){
-      :root { color-scheme: dark; }
-      body { --bg: var(--bg-dark); --panel: var(--panel-dark); --text: var(--text-dark); --muted: var(--muted-dark); }
-    }
-    @media (prefers-color-scheme: light){
-      :root { color-scheme: light; }
-      body { --bg: var(--bg-light); --panel: var(--panel-light); --text: var(--text-light); --muted: var(--muted-light); }
-    }
+/* CONTENT */
+main{max-width:var(--max-width);margin:0 auto;padding:100px 20px 80px;}
+.section{margin:80px 0;}
 
-    /* override via .light-mode / .dark-mode classes */
-    body{ --bg: var(--bg-dark); --panel: var(--panel-dark); --text: var(--text-dark); --muted: var(--muted-dark); }
-    body.light-mode{ --bg: var(--bg-light); --panel: var(--panel-light); --text: var(--text-light); --muted: var(--muted-light); }
+/* CONTACT GRID */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:40px;
+  align-items:start;
+}
+@media (max-width:992px){
+  .contact-grid{grid-template-columns:1fr;gap:32px;}
+}
 
-    /* base */
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; margin:0; font-family:"Poppins", Inter, system-ui, Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
-    a{ color:var(--accent); text-decoration:none; }
-    img{ max-width:100%; display:block; }
+/* FORM CARD */
+.form-card{
+  background:var(--surface);
+  padding:40px;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:0 20px 50px var(--shadow);
+}
+.form-card h2{
+  font-size:2.2rem;
+  color:var(--gold);
+  margin-bottom:16px;
+}
+.form-card p{
+  color:var(--muted);
+  margin-bottom:28px;
+  font-size:1.05rem;
+}
+.form-group{margin-bottom:20px;}
+.form-group label{
+  display:block;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:8px;
+  font-size:0.95rem;
+}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:14px 18px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.06);
+  color:var(--text);
+  font-size:1rem;
+  transition:var(--transition);
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  background:rgba(23,212,181,0.08);
+  box-shadow:0 0 0 4px rgba(23,212,181,0.2);
+}
+textarea{min-height:140px;resize:vertical;}
 
-    /* ---------- Preloader (logo-first zoom+glow) ---------- */
-    .preloader{
-      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
-      background:var(--bg); z-index:6500; transition:opacity .45s ease, visibility .45s;
-    }
-    .preloader.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
-    .preloader .logo-wrap{ text-align:center; animation:preloadZoom 1.8s cubic-bezier(.2,.9,.2,1) both; }
-    .preloader img{ width:140px; border-radius:8px; filter: drop-shadow(0 18px 40px rgba(0,0,0,0.12)); }
-    .preloader .caption{ margin-top:10px; color:var(--muted); font-weight:700; letter-spacing:.4px; }
-    @keyframes preloadZoom {
-      0%{ transform:scale(.68); opacity:0; filter: blur(2px); }
-      45%{ transform:scale(1.08); opacity:1; filter:none; }
-      100%{ transform:scale(1); opacity:1; }
-    }
+/* FILE INPUT */
+.file-input{
+  position:relative;
+  display:inline-block;
+  width:100%;
+}
+.file-input input[type=file]{
+  position:absolute;
+  left:0;
+  top:0;
+  opacity:0;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+}
+.file-label{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  border-radius:14px;
+  border:1px dashed var(--border);
+  background:rgba(255,255,255,0.04);
+  color:var(--muted);
+  font-size:0.95rem;
+  transition:var(--transition);
+}
+.file-label:hover{
+  border-color:var(--accent);
+  background:rgba(23,212,181,0.06);
+}
+.file-name{color:var(--accent);font-weight:600;}
 
-    /* progress bar */
-    #progressBar{ position:fixed; top:0; left:0; height:4px; width:0; background:var(--accent); z-index:6200; transition:width .12s linear; }
+/* SUBMIT BUTTON */
+.submit-btn{
+  background:var(--accent);
+  color:#000;
+  padding:16px 40px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:1.1rem;
+  border:none;
+  cursor:pointer;
+  transition:.4s;
+  box-shadow:0 10px 35px rgba(23,212,181,0.35);
+  width:100%;
+  margin-top:12px;
+}
+.submit-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 45px rgba(23,212,181,0.5);
+}
+.submit-btn:disabled{
+  opacity:0.6;
+  cursor:not-allowed;
+  transform:none;
+}
 
-    /* header */
-    header{
-      position:sticky; top:0; z-index:3000; display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:12px 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-    body.light-mode header{ background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01)); }
+/* INFO CARD – RESIZED & CLEAN */
+.info-card{
+  background:var(--surface);
+  padding:40px;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:0 20px 50px var(--shadow);
+}
+.info-card h3{
+  color:var(--gold);
+  margin-bottom:20px;
+  font-size:1.6rem;
+}
+.info-item{
+  display:flex;
+  gap:14px;
+  margin-bottom:20px;
+  align-items:flex-start;
+}
+.info-icon{
+  width:36px;           /* RESIZED */
+  height:36px;          /* RESIZED */
+  background:var(--accent);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  font-size:1.1rem;     /* Smaller icon font */
+  color:#000;
+  font-weight:700;
+}
+.info-content h4{
+  color:var(--text);
+  margin-bottom:3px;
+  font-size:1rem;
+  font-weight:600;
+}
+.info-content p{
+  color:var(--muted);
+  font-size:0.92rem;
+  line-height:1.5;
+  margin:0;
+}
+.info-content a{
+  color:var(--accent);
+  font-weight:600;
+}
 
-    .left-header{ display:flex; align-items:center; gap:12px; }
-    .logo{ display:flex; align-items:center; gap:10px; }
-    .logo img{ width:72px; border-radius:6px; }
-    .brand{ font-weight:800; color:var(--accent); }
+/* MAP */
+.map-container{
+  height:300px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-top:24px;
+  border:1px solid var(--border);
+}
+.map-container iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
 
-    /* desktop nav */
-    nav.desktop{ display:flex; gap:14px; margin-left:12px; align-items:center; }
-    nav.desktop a{ color:var(--text); font-weight:600; padding:8px 10px; border-radius:8px; }
-    nav.desktop a:hover{ background: rgba(0,0,0,0.04); color:var(--accent-strong); }
+/* SUCCESS TOAST */
+.success-toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:var(--accent);
+  color:#000;
+  padding:16px 32px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:1.1rem;
+  box-shadow:0 15px 40px rgba(23,212,181,0.4);
+  z-index:2000;
+  opacity:0;
+  visibility:hidden;
+  transition:all .6s cubic-bezier(.2,.8,.2,1);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.success-toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+  visibility:visible;
+}
+.success-toast svg{
+  width:24px;
+  height:24px;
+}
 
-    /* social icons */
-    .social-icons{ display:flex; gap:10px; align-items:center; margin-left:12px; }
-    .social-icons img{ width:20px; height:20px; transition:transform var(--transition), filter var(--transition); filter: brightness(.9) invert(.9); }
-    .social-icons a:hover img{ transform:scale(1.08); filter: drop-shadow(0 10px 30px rgba(255,204,0,0.12)); }
+/* ANIMATIONS */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-    /* hamburger */
-    .hamburger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; background:transparent; border:0; cursor:pointer; }
-    .hamburger .bar{ width:22px; height:2.6px; background:var(--text); margin:4px 0; border-radius:2px; transition: transform .35s ease, opacity .2s; }
-    .hamburger.active .bar.b1{ transform: rotate(45deg) translate(4px,4px); }
-    .hamburger.active .bar.b2{ opacity:0; transform: translateX(8px); }
-    .hamburger.active .bar.b3{ transform: rotate(-45deg) translate(4px,-4px); }
+.animate{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.animate.visible{opacity:1;transform:none;}
 
-    /* mobile menu (right slide in) */
-    .menu-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,0.22); opacity:0; pointer-events:none; transition:opacity .32s; z-index:2800; }
-    .menu-backdrop.visible{ opacity:1; pointer-events:auto; }
-    .mobile-menu-wrap{ position:fixed; top:0; right:0; height:100vh; width:var(--nav-width); transform:translateX(110%); transition:transform .36s cubic-bezier(.2,.9,.2,1); z-index:2900; pointer-events:none; }
-    .mobile-menu-wrap.open{ transform:translateX(0); pointer-events:auto; }
-    .mobile-menu{ height:100%; padding:18px; background: rgba(255,255,255,0.92); color:#111; backdrop-filter: blur(10px); border-left:1px solid rgba(255,255,255,0.6); display:flex; flex-direction:column; gap:12px; }
-    body.light-mode .mobile-menu{ background: rgba(255,255,255,0.98); color: #111; }
-    body:not(.light-mode) .mobile-menu{ background: rgba(12,12,12,0.92); color: var(--text); border-left:1px solid rgba(255,255,255,0.04); }
-
-    .mobile-menu a{ display:block; padding:10px; border-radius:8px; font-weight:700; color:inherit; }
-    .mobile-menu a:hover{ background: rgba(0,0,0,0.04); }
-
-    /* main content spacing */
-    main{ padding:88px 12px 48px; max-width:1200px; margin:0 auto; }
-
-    .hero{
-      height:34vh; min-height:200px; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden;
-      border-radius:12px;
-    }
-    .hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; border-radius:12px; }
-    .hero-bg img{ width:100%; height:100%; object-fit:cover; transform-origin:center center; filter:brightness(.62); }
-    .bg-zoom{ animation: bg-zoom 18s linear infinite alternate; will-change:transform; }
-    @keyframes bg-zoom{ from{ transform:scale(1); } to{ transform:scale(1.06); } }
-
-    .hero .inner{ position:relative; z-index:2; color:var(--text); padding:18px; }
-    .hero h1{ margin:0; font-size:clamp(20px, 2.6vw, 32px); }
-    .hero p{ margin-top:8px; color:var(--muted); }
-
-    /* two-column wrap */
-    .wrap{ max-width:var(--max-width); margin:-44px auto 40px; display:grid; grid-template-columns: 1fr 420px; gap:22px; align-items:start; }
-    @media (max-width:980px){ .wrap{ grid-template-columns:1fr; margin:-20px 12px 32px; } .hero{ min-height:170px; } }
-
-    .card{ background:var(--panel); border-radius:12px; padding:18px; box-shadow:0 12px 30px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.03); }
-    .card h2{ margin:0 0 10px 0; color:var(--text); }
-    .lead{ color:var(--muted); margin-bottom:14px; }
-
-    label{ display:block; font-size:0.9rem; color:var(--muted); margin-bottom:6px; }
-    input, textarea, select{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:rgba(0,0,0,0.12); color:var(--text); margin-bottom:12px; outline:none; }
-    input:focus, textarea:focus{ box-shadow:0 10px 28px rgba(0,0,0,0.25); transform:translateY(-1px); }
-
-    textarea{ min-height:130px; resize:vertical; }
-
-    .btn{ display:inline-block; padding:10px 18px; border-radius:999px; background: linear-gradient(90deg,var(--accent),var(--accent-strong)); color:#111; font-weight:800; border:0; cursor:pointer; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
-
-    .info-panel .info-row{ display:flex; gap:10px; align-items:flex-start; margin-bottom:8px; color:var(--muted); }
-    .info-label{ color:var(--accent); font-weight:700; min-width:88px; }
-
-    .small-muted{ font-size:0.86rem; color:var(--muted); }
-
-    /* lazy fade */
-    img.lazy{ opacity:0; transform:translateY(6px); transition:opacity .55s ease, transform .45s; }
-    img.lazy.visible{ opacity:1; transform:none; }
-
-    /* scroll-top */
-    #scrollTopBtn{ position:fixed; bottom:18px; right:18px; width:44px; height:44px; border-radius:8px; background:var(--accent); color:#111; border:0; font-size:18px; display:none; align-items:center; justify-content:center; z-index:3200; }
-
-    /* responsive header */
-    @media (max-width:860px){
-      nav.desktop{ display:none; }
-      .hamburger{ display:flex; }
-      .social-icons{ display:none; }
-    }
-
-    /* subtle hover glow */
-    a:hover, .btn:hover{ box-shadow:0 12px 36px rgba(255,204,0,0.08); }
-    .brand-glow:hover{ text-shadow:0 8px 30px rgba(255,204,0,0.10); }
-  </style>
+/* RESPONSIVE */
+@media (max-width:992px){
+  .hero{min-height:420px;}
+  .hero h1{font-size:2.8rem;}
+  main{padding:80px 16px 60px;}
+}
+@media (max-width:768px){
+  .form-card,.info-card{padding:32px;}
+  .contact-grid{gap:28px;}
+}
+@media (max-width:480px){
+  .hero{min-height:380px;}
+  .hero h1{font-size:2.4rem;}
+  .form-card,.info-card{padding:24px;}
+  .info-icon{width:32px;height:32px;font-size:1rem;}
+  .info-content h4{font-size:0.98rem;}
+  .info-content p{font-size:0.9rem;}
+  .submit-btn{padding:14px 32px;font-size:1rem;}
+  .whatsapp-float,.back-to-top{width:52px;height:52px;}
+}
+</style>
 </head>
-<body class="dark-mode">
-  <!-- PRELOADER -->
-  <div class="preloader" id="preloader" role="status" aria-live="polite">
-    <div class="logo-wrap">
-      <img src="assets/images/logo.jpg" alt="DIRECT BUILD GROUP logo" loading="lazy">
-      <div class="caption">DIRECT BUILD GROUP</div>
-    </div>
+<body>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/15125551234?text=Hi%20Direct%20Build%20Group!" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.202h-.004c-.673 0-1.34-.164-1.967-.483l-.141-.085c-1.648-.973-2.714-2.702-2.714-4.646 0-2.786 2.271-5.056 5.057-5.056 1.348 0 2.615.524 3.567 1.475 1.952 1.952 1.952 5.118 0 7.07-.951.951-2.218 1.475-3.567 1.475m6.384-11.126c-2.342-2.342-5.462-3.634-8.784-3.634-6.84 0-12.398 5.558-12.398 12.4 0 2.19.582 4.315 1.688 6.182l-1.8 5.379 5.512-1.792c1.802 1.005 3.854 1.538 5.95 1.538 6.84 0 12.398-5.558 12.398-12.4 0-3.322-1.292-6.442-3.638-8.784"/></svg>
+</a>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">Up</button>
+
+<!-- HEADER -->
+<header>
+  <div class="left-header">
+    <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="Direct Build Group Logo"></a>
+    <div class="brand">DIRECT BUILD GROUP</div>
   </div>
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="work.html">Our Work</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    <span class="hamburger-label">Menu</span>
+  </button>
+</header>
 
-  <!-- PROGRESS BAR -->
-  <div id="progressBar" aria-hidden="true"></div>
-
-  <!-- HEADER -->
-  <header role="banner" aria-label="Primary header">
-    <div class="left-header">
-      <div class="logo">
-        <a href="index.html"><img src="assets/images/logo.jpg" alt="logo" loading="lazy"></a>
-        <div class="brand">DIRECT BUILD GROUP</div>
-      </div>
-
-      <nav class="desktop" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="work.html">Work</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html" aria-current="page">Contact</a>
-      </nav>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:8px;">
-      <div class="social-icons" aria-hidden="false">
-        <a href="https://facebook.com" target="_blank" title="Facebook" class="brand-glow"><img src="assets/images/Facebook logo.png" alt="Facebook" loading="lazy"></a>
-        <a href="https://www.instagram.com/directbuildgroup" target="_blank" title="Instagram" class="brand-glow"><img src="assets/images/instagram.jpg" alt="Instagram" loading="lazy"></a>
-        <a href="https://linkedin.com" target="_blank" title="LinkedIn" class="brand-glow"><img src="assets/images/linkendin.png" alt="LinkedIn" loading="lazy"></a>
-      </div>
-
-      <button id="themeToggle" title="Toggle light/dark" style="background:transparent;border:0;font-size:18px;cursor:pointer;">🌗</button>
-
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
-        <span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- mobile menu backdrop + right slide-in menu -->
-  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-  <div class="mobile-menu-wrap" id="mobileMenu" aria-hidden="true">
-    <nav class="mobile-menu" aria-label="Mobile primary">
+<!-- MOBILE MENU -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+  <div class="menu-panel">
+    <h3>MENU</h3>
+    <nav>
       <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
+      <a href="work.html">Our Work</a>
       <a href="contact.html" class="active">Contact</a>
-      <div style="flex:1"></div>
-      <div style="display:flex;gap:10px;align-items:center;">
-        <a href="https://facebook.com" target="_blank" title="Facebook"><img src="assets/images/Facebook logo.png" alt="Facebook" style="width:20px;height:20px;"></a>
-        <a href="https://www.instagram.com/directbuildgroup" target="_blank" title="Instagram"><img src="assets/images/instagram.jpg" alt="Instagram" style="width:20px;height:20px;"></a>
-        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><img src="assets/images/linkendin.png" alt="LinkedIn" style="width:20px;height:20px;"></a>
-      </div>
     </nav>
   </div>
+</div>
 
-  <!-- MAIN -->
-  <main>
-    <!-- HERO -->
-    <section class="hero" aria-label="Contact hero">
-      <div class="hero-bg" aria-hidden="true">
-        <!-- lazy background image -->
-        <img data-src="assets/images/contact-hero.jpg" alt="Contact hero" class="bg-zoom lazy">
-      </div>
-      <div class="inner">
-        <h1>Talk to our team — let's build it right.</h1>
-        <p class="small-muted">Send project details or request a quote. We reply within 1 business day.</p>
-      </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="assets/images/contact-hero.jpg">
+    <source src="assets/videos/back5.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <div class="hero-inner">
+    <h1>Get Your Free Quote</h1>
+    <p>We reply within 1 business day. Licensed & insured in Texas.</p>
+  </div>
+</section>
 
-    <!-- WRAP -->
-    <section class="wrap" aria-labelledby="contact-heading">
-      <!-- LEFT: Form -->
-      <div class="card" role="region" aria-label="Contact form">
-        <h2 id="contact-heading">Get in touch</h2>
-        <p class="lead">Fill the form and we’ll respond quickly. For urgent requests call <strong style="color:var(--accent)">+1 555 123 4567</strong></p>
-
-        <!--
-          Using Formsubmit.co to send directly to info@directbuildgroup.com without server-side code.
-          If you prefer Formspree, replace action with your Formspree endpoint (e.g. https://formspree.io/f/yourFormId)
-        -->
-        <form id="contactForm" action="https://formsubmit.co/info@directbuildgroup.com" method="POST" enctype="multipart/form-data">
-          <!-- honeypot -->
-          <div style="position:absolute;left:-5000px;top:auto;overflow:hidden;">
-            <label>Leave this field blank</label>
-            <input type="text" name="company_website" autocomplete="off">
+<main>
+  <section class="section animate">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="form-card">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form below and we'll get back to you promptly.</p>
+        <form id="contactForm" action="https://formspree.io/f/xjkpndgp" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
           </div>
-
-          <label for="name">Name *</label>
-          <input id="name" name="name" type="text" required placeholder="Your full name">
-
-          <label for="email">Email *</label>
-          <input id="email" name="email" type="email" required placeholder="you@example.com">
-
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" placeholder="+1 555 123 4567">
-
-          <label for="subject">Subject</label>
-          <input id="subject" name="subject" type="text" placeholder="Project or inquiry subject">
-
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" required placeholder="Tell us about your project (budget, location, timeline)..."></textarea>
-
-          <label for="attachment">Attachment (optional)</label>
-          <input id="attachment" name="attachment" type="file" accept=".jpg,.jpeg,.png,.gif,.pdf">
-
-          <!-- optional: redirect after submit (commented out). Formsubmit also supports &honeypot and _next -->
-          <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
-
-          <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
-            <button type="submit" class="btn" id="sendBtn">Send Message</button>
-            <div class="meta"><span class="small-muted">We reply within 1 business day</span></div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
           </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Kitchen Remodel in Dallas">
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea id="message" name="message" required placeholder="Tell us about your project, budget, timeline, location..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Attachment (optional)</label>
+            <div class="file-input">
+              <input type="file" id="attachment" name="attachment" accept=".jpg,.jpeg,.png,.pdf">
+              <div class="file-label">
+                <span>Upload File</span>
+                <span class="file-name" id="fileName"></span>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
         </form>
       </div>
 
-      <!-- RIGHT: Info + Map -->
-      <aside class="card info-panel" aria-label="Contact information and location">
-        <div class="info-row"><div class="info-label">Email :</div><div>info@directbuildgroup.com</div></div>
-        <div class="info-row"><div class="info-label">Phone :</div><div>Toll free (888-803-5693)</div></div>
-        <div class="info-row"><div class="info-label">Address :</div><div>1711 W Irving Blvd st. 205</div></div>
-
-        <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0;">
-
-        <div id="mapWrap" style="width:100%;height:260px;border-radius:8px;overflow:hidden;">
-          <img data-src="assets/images/map-placeholder.jpg" alt="Map placeholder" class="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <!-- INFO – RESIZED & CLEAN -->
+      <div class="info-card">
+        <h3>Contact Information</h3>
+        <div class="info-item">
+          <div class="info-icon">Email</div>
+          <div class="info-content">
+            <h4>Email</h4>
+            <p><a href="mailto:info@directbuildgroup.com">info@directbuildgroup.com</a></p>
+          </div>
         </div>
-        <div style="margin-top:12px" class="small-muted">Map centered on: <strong id="mapQueryText">United States</strong></div>
-      </aside>
-    </section>
-  </main>
+        <div class="info-item">
+          <div class="info-icon">Phone</div>
+          <div class="info-content">
+            <h4>Call</h4>
+            <p><a href="tel:8888035693">(888) 803-5693</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">Location</div>
+          <div class="info-content">
+            <h4>Visit</h4>
+            <p>1711 W Irving Blvd, Suite 205<br>Irving, TX 75061</p>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.895360271586!2d-96.945156084948!3d32.814259480956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f0b5f5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s1711%20W%20Irving%20Blvd%20%23205%2C%20Irving%2C%20TX%2075061!5e0!3m2!1sen!2sus!4v1698765432100!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <!-- success popup -->
-  <div id="successPopup" class="success-popup" role="status" aria-live="polite">Message sent — thanks!</div>
+<!-- SUCCESS TOAST -->
+<div class="success-toast" id="successToast">
+  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+  <span>Message sent successfully! We'll reply soon.</span>
+</div>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/your-number-here" class="whatsapp-icon" target="_blank" aria-label="Contact on WhatsApp" style="position:fixed;right:18px;bottom:18px;z-index:3200;">
-    <img src="assets/images/whatsapp.jpg" alt="WhatsApp" loading="lazy" style="width:46px;height:46px;border-radius:8px;">
-  </a>
+<script>
+// MENU
+const hamburger = document.getElementById('hamburgerBtn');
+const menuOverlay = document.getElementById('menuOverlay');
+const menuClose = document.getElementById('menuClose');
+function openMenu(){ menuOverlay.classList.add('open'); hamburger.classList.add('active'); document.body.style.overflow='hidden'; }
+function closeMenu(){ menuOverlay.classList.remove('open'); hamburger.classList.remove('active'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => menuOverlay.classList.contains('open') ? closeMenu() : openMenu());
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', e => { if(e.target === menuOverlay) closeMenu(); });
 
-  <!-- scroll to top -->
-  <button id="scrollTopBtn" aria-label="Scroll to top">⬆</button>
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, {threshold:0.15});
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
-  <script>
-    /* ---------------- Globals & elements ---------------- */
-    const preloader = document.getElementById('preloader');
-    const progressBar = document.getElementById('progressBar');
-    const hamburger = document.getElementById('hamburgerBtn');
-    const mobileMenuWrap = document.getElementById('mobileMenu');
-    const menuBackdrop = document.getElementById('menuBackdrop');
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    const themeToggle = document.getElementById('themeToggle');
-    const form = document.getElementById('contactForm');
-    const successPopup = document.getElementById('successPopup');
+// BACK TO TOP
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 400));
+backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
-    /* ---------------- Preloader ---------------- */
-    window.addEventListener('load', () => {
-      // show preloader logo for a brief cinematic moment, then hide
-      setTimeout(() => preloader.classList.add('hidden'), 1400);
-      // fallback ensure it's hidden eventually
-      setTimeout(() => preloader.classList.add('hidden'), 4000);
-      // trigger initial lazy load for visible images
-      lazyLoadVisible();
+// FILE INPUT PREVIEW
+const fileInput = document.getElementById('attachment');
+const fileName = document.getElementById('fileName');
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  if (file) {
+    if (file.size > 8 * 1024 * 1024) {
+      alert('File too large. Max 8MB.');
+      fileInput.value = '';
+      fileName.textContent = '';
+      return;
+    }
+    fileName.textContent = file.name;
+  } else {
+    fileName.textContent = '';
+  }
+});
+
+// FORM SUBMISSION
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const successToast = document.getElementById('successToast');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  try {
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
     });
 
-    /* ---------------- Scroll progress & top button ---------------- */
-    window.addEventListener('scroll', () => {
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const pct = (window.scrollY / (docHeight || 1)) * 100;
-      progressBar.style.width = Math.min(100, pct) + '%';
-      scrollTopBtn.style.display = window.scrollY > 260 ? 'flex' : 'none';
-    });
-    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
-
-    /* ---------------- Mobile menu: open/close ---------------- */
-    function openMenu(){
-      mobileMenuWrap.classList.add('open');
-      menuBackdrop.classList.add('visible');
-      hamburger.classList.add('active');
-      hamburger.setAttribute('aria-expanded','true');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu(){
-      mobileMenuWrap.classList.remove('open');
-      menuBackdrop.classList.remove('visible');
-      hamburger.classList.remove('active');
-      hamburger.setAttribute('aria-expanded','false');
-      document.body.style.overflow = '';
-    }
-    hamburger.addEventListener('click', () => mobileMenuWrap.classList.contains('open') ? closeMenu() : openMenu());
-    menuBackdrop.addEventListener('click', closeMenu);
-    // close on link click
-    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
-    // esc closes menu
-    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
-
-    /* ---------------- Theme toggle (adaptive) ---------------- */
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      // optional: persist
-      // localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-    });
-    // optionally restore:
-    // if(localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
-
-    /* ---------------- Lazy loading images ---------------- */
-    const lazyImgs = Array.from(document.querySelectorAll('img.lazy, img.bg-zoom'));
-    function loadImage(img){
-      const src = img.dataset.src || img.getAttribute('src');
-      if(!src) return;
-      if(img.src !== src) img.src = src;
-      img.addEventListener('load', () => img.classList.add('visible'));
-    }
-    function lazyLoadVisible(){
-      lazyImgs.forEach(img => {
-        const rect = img.getBoundingClientRect();
-        if(rect.top < window.innerHeight + 200) loadImage(img);
-      });
-    }
-    if('IntersectionObserver' in window){
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            loadImage(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '200px 0px' });
-      lazyImgs.forEach(i => io.observe(i));
+    if (response.ok) {
+      form.reset();
+      fileName.textContent = '';
+      successToast.classList.add('show');
+      setTimeout(() => successToast.classList.remove('show'), 5000);
     } else {
-      lazyImgs.forEach(i => loadImage(i));
+      throw new Error('Failed');
     }
-
-    /* ---------------- Map embed (replace placeholder) ---------------- */
-    (function initMap(){
-      try {
-        var q = encodeURIComponent(window.MAP_QUERY || 'United States');
-        var iframe = document.createElement('iframe');
-        iframe.src = "https://www.google.com/maps?q=" + q + "&output=embed";
-        iframe.width = "100%";
-        iframe.height = "260";
-        iframe.style.border = "0";
-        iframe.loading = "lazy";
-        iframe.referrerPolicy = "no-referrer-when-downgrade";
-        var wrap = document.getElementById('mapWrap');
-        if(wrap){ wrap.innerHTML = ''; wrap.appendChild(iframe); }
-        var qText = document.getElementById('mapQueryText');
-        if(qText) qText.textContent = decodeURIComponent(q);
-      } catch(e){ console.warn('Map failed', e); }
-    })();
-
-    /* ---------------- Form submission via Formsubmit.co ----------------
-       Notes:
-       - This form posts to https://formsubmit.co/info@directbuildgroup.com (sends to that email)
-       - If you'd rather use Formspree, replace form.action with your Formspree endpoint:
-         e.g. form.action = 'https://formspree.io/f/yourFormId'
-       - Formsubmit will send a verification email the first time to confirm the recipient.
-    ------------------------------------------------------------------ */
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const sendBtn = document.getElementById('sendBtn');
-      sendBtn.disabled = true;
-      sendBtn.textContent = 'Sending...';
-
-      try {
-        // Formsubmit supports multipart form posts (files). We forward the FormData directly.
-        const res = await fetch(form.action="https://formspree.io/f/xjkpndgp", { method:'POST', body: new FormData(form), headers: { 'Accept':'application/json' } });
-        if(res.ok){
-          form.reset();
-          successPopup.classList.add('show');
-          setTimeout(()=> successPopup.classList.remove('show'), 5000);
-        } else {
-          // Formsubmit may return validation error; show generic fallback
-          const data = await res.json().catch(()=>null);
-          alert(data && data.message ? data.message : 'Error sending message. Please try again.');
-        }
-      } catch(err){
-        console.error(err);
-        alert('Network error. Please try again.');
-      } finally {
-        sendBtn.disabled = false;
-        sendBtn.textContent = 'Send Message';
-      }
-    });
-
-    /* ---------------- file input: show selected filename (basic) ---------------- */
-    (function(){
-      const fileInput = document.getElementById('attachment');
-      const preview = document.getElementById('filePreview') || null;
-      if(!fileInput) return;
-      fileInput.addEventListener('change', () => {
-        if(!preview) return;
-        const f = fileInput.files[0];
-        if(!f) { preview.textContent = ''; return; }
-        if(f.size > 8 * 1024 * 1024){ preview.textContent = 'File too large — max 8MB.'; fileInput.value=''; return; }
-        preview.textContent = 'Selected: ' + f.name + ' (' + Math.round(f.size/1024) + ' KB)';
-      });
-    })();
-
-    /* ---------------- touch: swipe to close menu on backdrop ---------------- */
-    (function touchClose(){
-      let startX = 0;
-      menuBackdrop.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
-      menuBackdrop.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - startX;
-        if(dx > 40) closeMenu();
-      }, {passive:true});
-    })();
-
-    /* safety: hide preloader if JS errors or slow networks */
-    setTimeout(()=> { if(preloader && !preloader.classList.contains('hidden')) preloader.classList.add('hidden'); }, 7000);
-  </script>
+  } catch (err) {
+    alert('Failed to send message. Please try again.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  }
+});
+</script>
 </body>
 </html>
