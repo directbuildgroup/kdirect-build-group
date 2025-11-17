@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Work | Direct Build Group – Texas Remodeling Portfolio</title>
+<meta name="description" content="Explore our portfolio of kitchen remodels, bathroom renovations, custom decks, porches, and painting projects in Austin, Dallas, Houston, San Antonio. Licensed & insured." />
+<link rel="canonical" href="https://directbuildgroup.com/work.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Our Work | Direct Build Group – Texas Remodeling Portfolio" />
+<meta property="og:description" content="Premium kitchen, bath, deck, porch, and painting projects across Texas. View before & afters." />
+<meta property="og:image" content="https://directbuildgroup.com/assets/images/og-work.jpg" />
+<meta property="og:url" content="https://directbuildgroup.com/work.html" />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent: #17d4b5;
+  --gold: #ffcc00;
+  --bg: #0b1414;
+  --surface: #111a1a;
+  --text: #f0f4f4;
+  --muted: #94a3a8;
+  --border: rgba(255,255,255,0.08);
+  --shadow: rgba(0,0,0,0.45);
+  --radius: 20px;
+  --transition: .6s cubic-bezier(.2,.8,.2,1);
+  --max-width: 1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:"Poppins",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;transition:var(--transition);}
+img{display:block;width:100%;height:100%;border-radius:var(--radius);object-fit:cover;}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;gap:16px;
+  background:rgba(11,20,20,0.96);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.left-header{display:flex;align-items:center;gap:16px;}
+.logo img{width:68px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+.brand{font-weight:900;color:var(--gold);font-size:1.15rem;letter-spacing:0.8px;}
+nav.desktop-nav{display:none;gap:32px;align-items:center;}
+nav.desktop-nav a{font-weight:600;color:var(--text);padding:8px 16px;border-radius:14px;transition:var(--transition);}
+nav.desktop-nav a:hover,nav.desktop-nav a.active{color:var(--accent);background:rgba(23,212,181,0.1);}
+.hamburger{
+  position:relative;width:60px;height:60px;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:7px;padding:12px;border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);cursor:pointer;transition:all .4s cubic-bezier(.2,.8,.2,1);box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+.hamburger:hover{background:rgba(23,212,181,0.15);border-color:var(--accent);transform:translateY(-3px);}
+.hamburger .bar{width:30px;height:4px;background:var(--text);border-radius:4px;transition:transform .45s, opacity .35s, background .35s;}
+.hamburger.active .bar:nth-child(1){transform:rotate(45deg) translate(9px,9px);background:var(--accent);}
+.hamburger.active .bar:nth-child(2){opacity:0;transform:scale(0);}
+.hamburger.active .bar:nth-child(3){transform:rotate(-45deg) translate(9px,-9px);background:var(--accent);}
+.hamburger-label{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);font-size:0.82rem;color:var(--muted);font-weight:600;opacity:0;transition:opacity .35s;}
+.hamburger:hover .hamburger-label,.hamburger.active .hamburger-label{opacity:1;color:var(--accent);}
+
+/* MENU */
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.96);opacity:0;visibility:hidden;transition:opacity .55s;z-index:1299;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(12px);}
+.menu-overlay.open{opacity:1;visibility:visible;}
+.menu-panel{width:100%;max-width:420px;background:var(--surface);border-radius:var(--radius);padding:75px 44px 55px;text-align:center;border:1px solid var(--border);box-shadow:0 45px 110px var(--shadow);transform:scale(0.92);transition:transform .55s;}
+.menu-overlay.open .menu-panel{transform:scale(1);}
+.menu-panel h3{font-size:2.4rem;color:var(--gold);margin-bottom:44px;}
+.menu-panel nav{display:flex;flex-direction:column;gap:14px;}
+.menu-panel a{font-weight:700;font-size:1.5rem;color:var(--text);padding:20px 28px;border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid transparent;}
+.menu-panel a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-5px);}
+.menu-close{position:absolute;top:24px;right:24px;width:56px;height:56px;background:rgba(255,255,255,0.14);border-radius:50%;font-size:2rem;color:var(--text);display:grid;place-items:center;}
+.menu-close:hover{background:var(--accent);color:#000;transform:rotate(90deg) scale(1.15);}
+
+/* FLOATING */
+.whatsapp-float{position:fixed;bottom:20px;left:20px;z-index:1100;width:58px;height:58px;background:#25D366;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,0.42);}
+.whatsapp-float:hover{transform:scale(1.1);}
+.back-to-top{position:fixed;bottom:20px;right:20px;z-index:1100;width:52px;height:52px;background:var(--accent);color:#000;border-radius:50%;display:none;place-items:center;font-size:1.45rem;}
+.back-to-top.show{display:grid;}
+.back-to-top:hover{transform:translateY(-5px);}
+
+/* HERO */
+.hero{position:relative;height:70vh;min-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.6);}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.65));}
+.hero-inner{position:relative;z-index:2;text-align:center;color:#fff;padding:0 20px;max-width:900px;}
+.hero h1{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:16px;}
+.hero p{font-size:1.2rem;color:#e0e0e0;}
+
+/* CONTENT */
+main{max-width:var(--max-width);margin:0 auto;padding:100px 20px 80px;}
+.section{margin:100px 0;}
+h2{text-align:center;font-size:2.8rem;color:var(--gold);margin-bottom:50px;position:relative;}
+h2::after{content:'';position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:100px;height:5px;background:var(--accent);border-radius:5px;}
+
+/* STATS */
+.stats-bar{background:var(--surface);padding:30px 20px;border-radius:var(--radius);text-align:center;margin:60px 0;border:1px solid var(--border);}
+.stats-bar h2{color:var(--accent);margin-bottom:30px;font-size:2.2rem;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;}
+.stat-item h3{font-size:2.6rem;color:var(--gold);font-weight:800;margin-bottom:6px;}
+.stat-item p{color:var(--muted);font-size:0.95rem;}
+
+/* FILTERS */
+.filters{text-align:center;margin-bottom:40px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.filter-btn{background:var(--surface);color:var(--text);border:1px solid var(--border);padding:9px 18px;border-radius:30px;font-weight:600;transition:.4s;cursor:pointer;font-size:0.95rem;}
+.filter-btn.active,.filter-btn:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  margin-top:50px;
+}
+.project{
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius);
+  cursor:pointer;
+  background:var(--surface);
+  box-shadow:0 8px 30px var(--shadow);
+  transition:transform .5s var(--transition),opacity .6s var(--transition);
+}
+.project img{
+  height:230px;
+  transition:transform .6s var(--transition);
+}
+.project:hover img{transform:scale(1.07);}
+.project .caption{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  background:linear-gradient(0deg,rgba(0,0,0,0.78),transparent);
+  color:#fff;
+  padding:16px 20px;
+  font-weight:600;
+  font-size:0.98rem;
+}
+.project[data-filter-hidden]{
+  opacity:0;visibility:hidden;height:0;padding:0;margin:0;overflow:hidden;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;
+  z-index:2000;padding:20px;cursor:zoom-out;
+}
+.lightbox img{max-width:92%;max-height:88vh;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,0.7);}
+.lightbox.visible{display:flex;}
+
+/* LOADING */
+.loading{text-align:center;color:var(--muted);font-style:italic;margin:20px 0;}
+
+/* RESPONSIVE */
+@media (min-width:992px){nav.desktop-nav{display:flex;}.hamburger{display:none;}}
+@media (max-width:992px){.gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}.project img{height:210px;}}
+@media (max-width:768px){.gallery{grid-template-columns:1fr;}.project img{height:260px;}}
+</style>
+</head>
+<body>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/15125551234?text=Hi%20Direct%20Build%20Group!" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.202h-.004c-.673 0-1.34-.164-1.967-.483l-.141-.085c-1.648-.973-2.714-2.702-2.714-4.646 0-2.786 2.271-5.056 5.057-5.056 1.348 0 2.615.524 3.567 1.475 1.952 1.952 1.952 5.118 0 7.07-.951.951-2.218 1.475-3.567 1.475m6.384-11.126c-2.342-2.342-5.462-3.634-8.784-3.634-6.84 0-12.398 5.558-12.398 12.4 0 2.19.582 4.315 1.688 6.182l-1.8 5.379 5.512-1.792c1.802 1.005 3.854 1.538 5.95 1.538 6.84 0 12.398-5.558 12.398-12.4 0-3.322-1.292-6.442-3.638-8.784"/></svg>
+</a>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">Up</button>
+
+<!-- HEADER -->
+<header>
+  <div class="left-header">
+    <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="Direct Build Group Logo"></a>
+    <div class="brand">DIRECT BUILD GROUP</div>
+  </div>
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="work.html" class="active">Our Work</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    <span class="hamburger-label">Menu</span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+  <div class="menu-panel">
+    <h3>MENU</h3>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html" class="active">Our Work</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="assets/images/work-hero.jpg">
+    <source src="assets/videos/back20.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <div class="hero-inner">
+    <h1>Crafted Projects. Proven Quality.</h1>
+    <p>Explore our premium remodeling work across Texas</p>
+  </div>
+</section>
+
+<main>
+  <!-- STATS -->
+  <section class="stats-bar animate">
+    <h2>By the Numbers</h2>
+    <div class="stats-grid">
+      <div class="stat-item"><h3 class="counter" data-target="500">0</h3><p>Projects Completed</p></div>
+      <div class="stat-item"><h3 class="counter" data-target="10">0</h3><p>Years in Business</p></div>
+      <div class="stat-item"><h3 class="counter" data-target="380">0</h3><p>Happy Clients</p></div>
+      <div class="stat-item"><h3 class="counter" data-target="100">0</h3><p>5-Star Reviews</p></div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters animate">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="kitchen">Kitchens</button>
+    <button class="filter-btn" data-filter="bath">Bathrooms</button>
+    <button class="filter-btn" data-filter="deck">Decks & Porches</button>
+    <button class="filter-btn" data-filter="paint">Painting</button>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section animate">
+    <h2>Our Recent Projects</h2>
+    <div class="gallery" id="gallery">
+      <!-- Fallback projects -->
+      <div class="project" data-category="kitchen"><img src="assets/images/luxury kitchen remodels.jpg" alt="Kitchen"><div class="caption">Modern Kitchen – Dallas</div></div>
+      <div class="project" data-category="bath"><img src="assets/images/bathroom3.jpg" alt="Bath"><div class="caption">Spa Bath – Austin</div></div>
+      <div class="project" data-category="deck"><img src="assets/images/custom outdoor decks.jpg" alt="Deck"><div class="caption">Timber Deck – Houston</div></div>
+    </div>
+    <p class="loading" id="loadingMsg">Loading photos from Services page...</p>
+  </section>
+</main>
+
+<footer>
+  <div style="max-width:1200px;margin:auto;text-align:center;padding:20px 0;">
+    <small>© 2025 DIRECT BUILD GROUP – Texas Licensed & Insured</small>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox"><img src="" alt=""></div>
+
+<script>
+// MENU
+const hamburger = document.getElementById('hamburgerBtn');
+const menuOverlay = document.getElementById('menuOverlay');
+const menuClose = document.getElementById('menuClose');
+function openMenu(){ menuOverlay.classList.add('open'); hamburger.classList.add('active'); document.body.style.overflow='hidden'; }
+function closeMenu(){ menuOverlay.classList.remove('open'); hamburger.classList.remove('active'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => menuOverlay.classList.contains('open') ? closeMenu() : openMenu());
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', e => { if(e.target===menuOverlay) closeMenu(); });
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, {threshold:0.15});
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+// BACK TO TOP
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 400));
+backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+// COUNTER
+document.querySelectorAll('.counter').forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const inc = target / 200;
+    if (count < target) {
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(updateCount, 20);
+    } else counter.innerText = target + '+';
+  };
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { updateCount(); obs.unobserve(counter.parentElement); }
+  }, {threshold:0.7});
+  obs.observe(counter.parentElement);
+});
+
+// FETCH PHOTOS FROM services.html
+const gallery = document.getElementById('gallery');
+const loadingMsg = document.getElementById('loadingMsg');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+let serviceImages = {}; // {kitchen: [img, img], bath: [...]}
+let fallbackProjects = [...gallery.children];
+
+async function loadServiceImages() {
+  try {
+    const res = await fetch('services.html');
+    if (!res.ok) throw new Error();
+    const html = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    const imgs = doc.querySelectorAll('img[data-service]');
+    imgs.forEach(img => {
+      const cat = img.getAttribute('data-service');
+      if (!serviceImages[cat]) serviceImages[cat] = [];
+      serviceImages[cat].push({src: img.src, alt: img.alt || ''});
+    });
+    loadingMsg.style.display = 'none';
+  } catch (e) {
+    console.warn('Could not load services.html – using fallback');
+    loadingMsg.textContent = 'Using local gallery';
+  }
+}
+
+// BUILD GALLERY
+function renderGallery(filter) {
+  gallery.innerHTML = '';
+  let items = [];
+
+  if (filter === 'all') {
+    // Show all from services
+    Object.keys(serviceImages).forEach(cat => {
+      serviceImages[cat].forEach(img => items.push({cat, ...img}));
+    });
+    // Fallback if no data
+    if (items.length === 0) items = fallbackProjects.map(p => ({cat: p.dataset.category, src: p.querySelector('img').src, alt: p.querySelector('img').alt}));
+  } else {
+    items = serviceImages[filter] || [];
+    if (items.length === 0) {
+      fallbackProjects.forEach(p => {
+        if (p.dataset.category === filter) items.push({src: p.querySelector('img').src, alt: p.querySelector('img').alt});
+      });
+    }
+  }
+
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'project';
+    div.dataset.category = item.cat || filter;
+
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.alt;
+    img.loading = 'lazy';
+
+    const cap = document.createElement('div');
+    cap.className = 'caption';
+    cap.textContent = item.alt || `${filter.charAt(0).toUpperCase() + filter.slice(1)} Project`;
+
+    div.appendChild(img);
+    div.appendChild(cap);
+    gallery.appendChild(div);
+  });
+
+  attachLightbox();
+}
+
+// FILTER BUTTONS
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGallery(btn.dataset.filter);
+  });
+});
+
+// LIGHTBOX
+function attachLightbox() {
+  document.querySelectorAll('.project').forEach(p => {
+    p.onclick = () => {
+      lightboxImg.src = p.querySelector('img').src;
+      lightboxImg.alt = p.querySelector('img').alt;
+      lightbox.classList.add('visible');
+    };
+  });
+}
+lightbox.onclick = () => lightbox.classList.remove('visible');
+
+// INIT
+loadServiceImages().then(() => renderGallery('all'));
+</script>
+</body>
+</html>
