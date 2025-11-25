@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- SEO BOOST -->
 <title>Direct Build Group | Premium Home Construction, Remodeling & Painting in Texas</title>
 <meta name="description" content="Top-rated construction company serving all of Texas. Expert painting, kitchen/bathroom remodels, decks, porches, and flooring. Free quotes – licensed & insured.">
 <meta name="keywords" content="Texas home builders, painting contractor Texas, kitchen remodel Texas, deck builder Texas, construction company Texas">
@@ -24,18 +23,14 @@
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Direct Build Group",
-  "image": "https://directbuildgroup.com/assets/images/logo.jpg",
-  "telephone": "+1-512-555-0198",
+  "image": "https://ddirectbuildgroup.com/assets/images/logo.jpg",
+  "telephone": "+1(888)803-5693",
   "email": "info@directbuildgroup.com",
-  "url": "https://directbuildgroup.com",
+  "url": "https://ddirectbuildgroup.com",
   "description": "Full-service construction company specializing in painting, remodeling, decks, porches, and flooring across Texas.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "TX",
-    "addressCountry": "US"
-  },
+  "address": { "@type": "PostalAddress", "addressRegion": "TX", "addressCountry": "US" },
   "serviceArea": "Texas",
-  "openingHours": "Mo-Fr 08:00-18:00",
+  "openingHours": "Mo-Su 08:00-18:00",
   "priceRange": "$$"
 }
 </script>
@@ -43,150 +38,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <style>
-/* ==== COLOR PALETTE – Texas Professional (2025 standard) ==== */
 :root {
-  --bg: #f8fafc;
-  --surface: #ffffff;
-  --gold: #ffcc00;
-  --muted: #64748b;
-  --primary: #003366;      /* Deep Texas navy */
-  --accent: #c8102e;       /* Texas flag red */
-  --border: #e2e8f0;
-  --shadow: rgba(0,0,0,0.08);
-  --radius: 18px;
-  --transition: 0.4s ease;
+  --bg: #f8fafc; --surface: #ffffff; --muted: #64748b;
+  --primary: #003366; --accent: #c8102e; --border: #e2e8f0;
+  --shadow: rgba(0,0,0,0.08); --radius: 18px; --transition: 0.4s ease;
 }
-
-/* Dark mode */
 .dark {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --primary: #60a5fa;
-  --accent: #f43f5e;
-  --border: #334155;
-  --shadow: rgba(0,0,0,0.4);
+  --bg: #0f172a; --surface: #1e293b; --text: #e2e8f0;
+  --muted: #94a3b8; --primary: #60a5fa; --accent: #f43f5e;
+  --border: #334155; --shadow: rgba(0,0,0,0.4);
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg); color: var(--text);
   transition: background 0.4s, color 0.4s;
-  line-height: 1.7;
-  overflow-x: hidden;
+  line-height: 1.7; overflow-x: hidden;
 }
 
-/* Video Background */
 .video-bg {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
   filter: brightness(1.1) contrast(1.15) saturate(1.2);
 }
-.video-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: transparent;
-  z-index: -1; transition: background 0.4s;
-}
 
-/* Header */
 header {
   position: sticky; top: 0; z-index: 1000; padding: 18px 24px;
   background: rgba(255,255,255,0.92); backdrop-filter: blur(15px);
   box-shadow: 0 4px 20px var(--shadow);
   display: flex; justify-content: space-between; align-items: center;
-  transition: var(--transition);
 }
-.dark header {
-  background: rgba(30,41,59,0.92);
-}
-.logo {
-  display: flex; align-items: center; gap: 12px;
-}
-.logo img {
-  width: 70px; border-radius: 12px;
-}
+.dark header { background: rgba(30,41,59,0.92); }
+
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo img { width: 100px; border-radius: 20px; }
 .logo span {
-  font-weight: 900; font-size: 1.6rem; color: var(--primary); letter-spacing: 1px;
+  font-weight: 900; font-size: 1.6rem;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
+  letter-spacing: 1px;
 }
 
-/* Hamburger Menu */
-.hamburger {
-  background: none; border: none; cursor: pointer; padding: 10px;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  width: 44px; height: 44px; z-index: 1100; position: relative;
-}
-.hamburger .bar {
-  width: 24px; height: 3px; background: var(--primary); border-radius: 3px;
-  transition: all 0.3s ease; margin: 3px 0; position: relative;
-}
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-}
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-}
-.hamburger:hover .bar {
-  background: var(--accent);
-}
+.hamburger { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; width: 44px; height: 44px; z-index: 1100; }
+.hamburger .bar { width: 24px; height: 3px; background: var(--primary); border-radius: 3px; transition: all 0.3s ease; margin: 3px 0; }
+.hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-/* Navigation */
 nav {
   position: fixed; top: 0; left: 100%; width: 100%; height: 100vh;
   background: var(--surface); padding: 80px 20px; transition: transform 0.4s ease;
   z-index: 1000; display: flex; flex-direction: column; align-items: center;
   box-shadow: -10px 0 30px var(--shadow);
 }
-nav.open {
-  transform: translateX(-100%);
-}
+nav.open { transform: translateX(-100%); }
 nav a {
   display: block; padding: 20px 0; font-weight: 700; color: var(--text);
-  font-size: 1.4rem; text-align: center; transition: 0.3s; width: 100%;
-  text-decoration: none; border-bottom: 1px solid var(--border);
+  font-size: 1.4rem; text-align: center; width: 100%; text-decoration: none;
+  border-bottom: 1px solid var(--border);
 }
-nav a:hover {
-  color: var(--accent); background: rgba(200,16,46,0.05);
-}
-nav a.active {
-  color: var(--accent); font-weight: 800;
-}
+nav a:hover { color: var(--accent); background: rgba(200,16,46,0.05); }
+nav a.active { color: var(--accent); font-weight: 800; }
 
-/* Dark Mode Toggle */
 .theme-toggle {
   background: none; border: none; font-size: 1.6rem; cursor: pointer;
   padding: 8px; border-radius: 50%; transition: var(--transition);
 }
-.theme-toggle:hover { background: rgba(0,0,0,0.05); }
-.dark .theme-toggle:hover { background: rgba(255,255,255,0.1); }
 
-/* Hero */
 .hero {
-  height: 80vh; display: grid; place-items: center; text-align: center; position: relative;
+  height: 80vh; display: grid; place-items: center; text-align: center;
 }
-.hero h1 {
-  font-size: clamp(2.8rem,7vw,5.5rem); font-weight: 900;
-  background: linear-gradient(120deg, var(--primary), var(--accent));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: fadeInUp 1.5s ease-out;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+.hero h1, .hero p {
+  color: #ffffff !important;
+  text-shadow: 3px 3px 12px rgba(0,0,0,0.9) !important;
 }
-.hero p {
-  font-size: 1.3rem; color: var(--muted); max-width: 700px; margin: 25px auto 0;
-  animation: fadeInUp 1.8s ease-out;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
+.hero h1 { font-size: clamp(2.8rem,7vw,5.5rem); font-weight: 900; margin: 0; }
+.hero p { font-size: 1.3rem; max-width: 700px; margin: 25px auto 0; }
 
-/* Sections */
-section {
-  max-width: 1200px; margin: 120px auto; padding: 0 20px;
-  opacity: 0; transform: translateY(50px); transition: 1s ease-out;
-}
-section.visible { opacity: 1; transform: translateY(0); }
+section { max-width: 1200px; margin: 120px auto; padding: 0 20px; }
 section h2 {
   text-align: center; font-size: 2.9rem; color: var(--primary); margin-bottom: 70px; position: relative;
 }
@@ -195,189 +124,146 @@ section h2::after {
   width: 130px; height: 6px; background: var(--accent); border-radius: 6px;
 }
 
-/* Service Grid */
-.service-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px;
-}
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px; }
 .service-card {
   background: var(--surface); border-radius: var(--radius); overflow: hidden;
   box-shadow: 0 10px 30px var(--shadow); border: 1px solid var(--border);
   transition: var(--transition); cursor: pointer;
 }
-.service-card:hover {
-  transform: translateY(-12px); border-color: var(--accent);
-  box-shadow: 0 25px 50px rgba(200,16,46,0.15);
-}
-.service-card img {
-  width: 100%; height: 240px; object-fit: cover; transition: var(--transition);
-}
+.service-card:hover { transform: translateY(-12px); border-color: var(--accent); }
+.service-card img { width: 100%; height: 240px; object-fit: cover; transition: var(--transition); }
 .service-card:hover img { transform: scale(1.1); }
-.service-card h3 {
-  padding: 25px 25px 10px; font-size: 1.6rem; color: var(--primary);
-}
-.service-card p {
-  padding: 0 25px 25px; color: var(--muted);
-}
+.service-card h3 { padding: 25px 25px 10px; font-size: 1.6rem; color: var(--primary); }
+.service-card p { padding: 0 25px 25px; color: var(--muted); }
 
-/* Stats */
 .stats {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; text-align: center;
   background: var(--surface); padding: 80px 20px; border-radius: var(--radius);
   box-shadow: 0 15px 40px var(--shadow); margin: 100px auto; max-width: 1200px;
 }
-.stat-item h3 {
-  font-size: 3rem; color: var(--accent); margin-bottom: 10px;
-}
-.stat-item p {
-  color: var(--muted); font-weight: 600;
-}
+.stat-item h3 { font-size: 3rem; color: var(--accent); }
+.stat-item p { color: var(--muted); font-weight: 600; }
 
-/* Testimonials */
-.testimonials {
-  background: #edf2f7; padding: 90px 20px; margin: 100px 0;
-}
+.testimonials { background: #edf2f7; padding: 90px 20px; margin: 100px 0; }
 .dark .testimonials { background: #1e293b; }
-.swiper-container { max-width: 900px; margin: 0 auto; }
-.testimonial {
-  text-align: center; padding: 30px; background: var(--surface); border-radius: var(--radius);
-  box-shadow: 0 10px 30px var(--shadow);
-}
-.testimonial p { font-style: italic; color: var(--text); margin-bottom: 20px; }
-.testimonial cite { color: var(--accent); font-weight: 600; }
 
-/* CTA */
 .cta {
   text-align: center; max-width: 800px; margin: 120px auto; padding: 60px 40px;
   background: linear-gradient(135deg, var(--surface), #fef5e7); border: 2px solid var(--accent);
   border-radius: var(--radius); box-shadow: 0 20px 50px rgba(200,16,46,0.15);
 }
-.cta h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 20px; }
-.cta p { color: var(--muted); margin-bottom: 25px; }
 .cta a {
   display: inline-block; background: var(--accent); color: white;
   padding: 18px 50px; border-radius: 50px; font-weight: 900; font-size: 1.3rem;
   transition: var(--transition); animation: pulse 2s infinite;
 }
-.cta a:hover { background: #a10e28; transform: scale(1.1); box-shadow: 0 20px 40px rgba(200,16,46,0.3); }
+.cta a:hover { background: #a10e28; transform: scale(1.1); }
 
-/* Footer */
-footer {
-  padding: 40px; text-align: center; background: var(--surface); color: var(--muted);
-  border-top: 1px solid var(--border);
-}
+footer { padding: 40px; text-align: center; background: var(--surface); color: var(--muted); border-top: 1px solid var(--border); }
 
-/* WhatsApp Button */
 .whatsapp-btn {
   position: fixed; bottom: 20px; left: 20px; z-index: 1000;
   width: 60px; height: 60px; background: #25D366; color: white;
   border-radius: 50%; display: grid; place-items: center; font-size: 1.8rem;
-  box-shadow: 0 8px 25px rgba(37,211,102,0.3); transition: var(--transition);
-  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 8px 25px rgba(37,211,102,0.3); animation: float 3s ease-in-out infinite;
 }
-.whatsapp-btn:hover { transform: scale(1.15); background: #128C7E; }
-
-/* Back to Top */
 .back-to-top {
   position: fixed; bottom: 20px; right: 20px; z-index: 1000;
   width: 50px; height: 50px; background: var(--accent); color: white;
   border-radius: 50%; display: none; place-items: center; font-size: 1.5rem;
-  box-shadow: 0 6px 15px rgba(200,16,46,0.3); transition: 0.3s;
 }
 .back-to-top.show { display: grid; }
-.back-to-top:hover { transform: translateY(-5px); background: #a10e28; }
 
-/* Modal */
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* MODAL – FULL SCREEN PHOTOS ONLY */
 .modal {
   display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 2000;
-  align-items: center; justify-content: center; padding: 20px; overflow-y: auto;
+  align-items: center; justify-content: center; padding: 0;
 }
 .modal.active { display: flex; }
 .modal-content {
-  background: var(--surface); max-width: 1100px; width: 100%; border-radius: var(--radius);
-  overflow: hidden; position: relative; animation: fadeInUp 1s ease-out;
-  border: 3px solid transparent; background-clip: padding-box;
-  box-shadow: 0 0 80px rgba(200,16,46,0.3);
+  background: transparent; width: 100%; height: 100%; position: relative; display: flex; flex-direction: column;
 }
 .close-modal {
-  position: absolute; top: 20px; right: 25px; width: 60px; height: 60px;
-  background: rgba(0,0,0,0.6); border-radius: 50%; font-size: 3rem; color: white;
-  cursor: pointer; z-index: 10; transition: var(--transition); display: grid; place-items: center;
+  position: absolute; top: 20px; right: 20px; width: 60px; height: 60px;
+  background: rgba(0,0,0,0.7); border-radius: 50%; font-size: 3rem; color: white;
+  cursor: pointer; z-index: 10; display: grid; place-items: center;
 }
 .close-modal:hover { background: var(--accent); transform: rotate(90deg) scale(1.2); }
-.modal-main-img { width: 100%; height: 500px; object-fit: cover; animation: fadeInUp 1.2s ease-out; }
-.modal-body { padding: 50px; text-align: center; }
+
+.modal-main-img {
+  width: 100%;
+  height: calc(100vh - 140px); /* Full height minus title & thumbnails */
+  object-fit: contain;
+  background: black;
+}
+
+.modal-body {
+  padding: 20px;
+  text-align: center;
+  background: var(--surface);
+}
 .modal-body h3 {
-  font-size: 3rem; color: var(--primary); margin-bottom: 20px;
+  font-size: 2.4rem; margin-bottom: 15px;
   background: linear-gradient(120deg, var(--primary), var(--accent));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.modal-body p { font-size: 1.2rem; line-height: 1.9; color: var(--text); max-width: 800px; margin: 0 auto 50px; }
+#modalDesc { display: none !important; }
 
-/* Gallery */
+/* THUMBNAILS – FULL WIDTH, HORIZONTAL, NO SCROLL NEEDED */
 .gallery {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 40px;
+  display: flex;
+  gap: 10px;
+  padding: 15px 20px;
+  overflow-x: auto;
+  background: var(--surface);
+  scrollbar-width: thin;
 }
 .gallery-item {
-  position: relative; border-radius: 12px; overflow: hidden; cursor: pointer;
-  transition: var(--transition); box-shadow: 0 10px 30px var(--shadow);
+  flex: 0 0 120px;
+  height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: 0.3s;
 }
-.gallery-item:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 25px 50px rgba(200,16,46,0.3); }
-.gallery-item img { width: 100%; height: 180px; object-fit: cover; transition: var(--transition); }
-.gallery-item:hover img { transform: scale(1.15); }
-.caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white;
-  padding: 30px 15px 15px; font-size: 1rem; font-weight: 600; transition: var(--transition);
+.gallery-item.active,
+.gallery-item:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
 }
-
-/* Animations */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+}
 
 /* Responsive */
-@media (min-width: 768px) {
-  header { padding: 18px 40px; }
-  .hamburger { display: none; }
-  nav {
-    position: static; width: auto; height: auto; background: none; padding: 0;
-    display: flex; flex-direction: row; gap: 40px; transform: none; box-shadow: none;
-  }
-  nav a {
-    padding: 0; font-size: 1.1rem; border-bottom: none; width: auto;
-  }
-  nav a:hover {
-    background: none; padding-left: 0;
-  }
-}
-
-/* Mobile-specific adjustments */
 @media (max-width: 767px) {
   header { padding: 12px 16px; }
   .logo img { width: 50px; }
   .logo span { font-size: 1.2rem; }
-  .theme-toggle { font-size: 1.4rem; padding: 6px; }
-  nav { padding-top: 100px; }
-  nav a { font-size: 1.2rem; padding: 15px 0; }
+  .modal-body h3 { font-size: 1.8rem; }
+}
+@media (min-width: 768px) {
+  header { padding: 18px 40px; }
+  .hamburger { display: none; }
+  nav { position: static; width: auto; height: auto; background: none; padding: 0; display: flex; flex-direction: row; gap: 40px; box-shadow: none; }
+  nav a { padding: 0; font-size: 1.1rem; border: none; width: auto; }
 }
 </style>
 </head>
-<body>
+<body class="dark">
 
-<!-- VIDEO BACKGROUND (upload your own .mp4) -->
 <video class="video-bg" autoplay muted loop playsinline>
   <source src="assets/videos/back17.mp4" type="video/mp4">
-  Your browser does not support the video tag.
 </video>
 
-<!-- WhatsApp Button (Texas number) -->
 <a href="https://wa.me/15125550198?text=Hi!%20I%20need%20a%20free%20quote%20for%20my%20project%20in%20Texas." class="whatsapp-btn" target="_blank">
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.202h-.004c-.673 0-1.34-.164-1.967-.483l-.141-.085c-1.648-.973-2.714-2.702-2.714-4.646 0-2.786 2.271-5.056 5.057-5.056 1.348 0 2.615.524 3.567 1.475 1.952 1.952 1.952 5.118 0 7.07-.951.951-2.218 1.475-3.567 1.475m6.384-11.126c-2.342-2.342-5.462-3.634-8.784-3.634-6.84 0-12.398 5.558-12.398 12.4 0 2.19.582 4.315 1.688 6.182l-1.8 5.379 5.512-1.792c1.802 1.005 3.854 1.538 5.95 1.538 6.84 0 12.398-5.558 12.398-12.4 0-3.322-1.292-6.442-3.638-8.784"/>
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.202h-.004c-.673 0-1.34-.164-1.967-.483l-.141-.085c-1.648-.973-2.714-2.702-2.714-4.646 0-2.786 2.271-5.056 5.057-5.056 1.348 0 2.615.524 3.567 1.475 1.952 1.952 1.952 5.118 0 7.07-.951.951-2.218 1.475-3.567 1.475m6.384-11.126c-2.342-2.342-5.462-3.634-8.784-3.634-6.84 0-12.398 5.558-12.398 12.4 0 2.19.582 4.315 1.688 6.182l-1.8 5.379 5.512-1.792c1.802 1.005 3.854 1.538 5.95 1.538 6.84 0 12.398-5.558 12.398-12.4 0-3.322-1.292-6.442-3.638-8.784"/></svg>
 </a>
 
-<!-- Back to Top -->
 <button class="back-to-top" id="backToTop">Up</button>
 
 <header>
@@ -386,7 +272,7 @@ footer {
     <span>DIRECT BUILD GROUP</span>
   </div>
   <div style="display:flex; align-items:center; gap:16px;">
-    <button class="theme-toggle" id="themeToggle">Moon</button>
+    <button class="theme-toggle" id="themeToggle">Sun</button>
     <button class="hamburger" id="menuBtn">
       <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </button>
@@ -405,87 +291,60 @@ footer {
   <p>Licensed contractors delivering premium construction & remodeling throughout the Lone Star State</p>
 </section>
 
-<!-- Stats -->
 <section class="stats">
-  <div class="stat-item"><h3 class="counter" data-target="250">0</h3><p>Projects Completed</p></div>
-  <div class="stat-item"><h3 class="counter" data-target="180">0</h3><p>Happy Clients</p></div>
-  <div class="stat-item"><h3 class="counter" data-target="12">0</h3><p>Years Experience</p></div>
-  <div class="stat-item"><h3 class="counter" data-target="15">0</h3><p>Awards Won</p></div>
+  <div class="stat-item"><h3 class="counter" data-target="179">0</h3><p>Projects Completed</p></div>
+  <div class="stat-item"><h3 class="counter" data-target="179">0</h3><p>Happy Clients</p></div>
+  <div class="stat-item"><h3 class="counter" data-target="7">0</h3><p>Awards Won</p></div>
 </section>
 
-<!-- Painting -->
-<section id="painting"><h2>Painting</h2><div class="service-grid">
-  <div class="service-card" data-service="exterior-painting">
-    <img src="assets/images/ex2.webp" alt="Professional exterior painting in Texas"><h3>Exterior Finishes</h3><p>Durable coatings that stand up to Texas heat, storms & sun.</p>
-  </div>
-  <div class="service-card" data-service="interior-painting">
-    <img src="assets/images/interior painting.jpg" alt="Interior house painting in Texas"><h3>Interior Detailing</h3><p>Flawless finishes with premium low-VOC paints.</p>
-  </div>
-</div></section>
+<section id="painting"><h2>Painting</h2>
+<div class="service-grid">
+  <div class="service-card" data-service="exterior-painting"><img src="assets/images/ex2.webp" alt=""><h3>Exterior Finishes</h3><p>Durable coatings that stand up to Texas heat, storms & sun.</p></div>
+  <div class="service-card" data-service="interior-painting"><img src="assets/images/interior painting.jpg" alt=""><h3>Interior Detailing</h3><p>Flawless finishes with premium low-VOC paints.</p></div>
+</div>
+</section>
 
-<!-- Remodels -->
-<section id="remodels"><h2>Remodels</h2><div class="service-grid">
-  <div class="service-card" data-service="kitchen">
-    <img src="assets/images/remodel.jpeg" alt="Kitchen remodeling in Texas"><h3>Kitchen Upgrades</h3><p>Modern Texas-style kitchens built for family & entertaining.</p>
-  </div>
-  <div class="service-card" data-service="bathroom">
-    <img src="assets/images/bathroom4.jpg" alt="Bathroom renovation in Texas"><h3>Bathroom Renovations</h3><p>Luxury spa-like bathrooms tailored to your taste.</p>
-  </div>
-</div></section>
+<section id="remodels"><h2>Remodels</h2>
+<div class="service-grid">
+  <div class="service-card" data-service="kitchen"><img src="assets/images/remodel.jpeg" alt=""><h3>Kitchen Upgrades</h3><p>Modern Texas-style kitchens built for family & entertaining.</p></div>
+  <div class="service-card" data-service="bathroom"><img src="assets/images/bathroom4.jpg" alt=""><h3>Bathroom Renovations</h3><p>Luxury spa-like bathrooms tailored to your taste.</p></div>
+</div>
+</section>
 
-<!-- Porches -->
-<section id="porches"><h2>Porches</h2><div class="service-grid">
-  <div class="service-card" data-service="timber-porch">
-    <img src="assets/images/porch.jpeg" alt="Custom porch builder in Texas"><h3>Timber Porch Design</h3><p>Classic Texas front porches perfect for evening sunsets.</p>
-  </div>
-  <div class="service-card" data-service="screened-porch">
-    <img src="assets/images/screened porches.jpg" alt="Screened porch in Texas"><h3>Screened Porches</h3><p>Bug-free outdoor living all year round.</p>
-  </div>
-</div></section>
+<section id="porches"><h2>Porches</h2>
+<div class="service-grid">
+  <div class="service-card" data-service="timber-porch"><img src="assets/images/porch.jpeg" alt=""><h3>Timber Porch Design</h3><p>Classic Texas front porches perfect for evening sunsets.</p></div>
+  <div class="service-card" data-service="screened-porch"><img src="assets/images/screened porches.jpg" alt=""><h3>Screened Porches</h3><p>Bug-free outdoor living all year round.</p></div>
+</div>
+</section>
 
-<!-- Decks -->
-<section id="decks"><h2>Decks</h2><div class="service-grid">
-  <div class="service-card" data-service="composite-deck">
-    <img src="assets/images/deck.jpeg" alt="Composite deck installation in Texas"><h3>Composite Decks</h3><p>Low-maintenance decks that handle Texas weather.</p>
-  </div>
-  <div class="service-card" data-service="custom-deck">
-    <img src="assets/images/custom build.jpg" alt="Custom deck builder in Texas"><h3>Custom Builds</h3><p>Elevated designs for BBQs & stargazing.</p>
-  </div>
-</div></section>
+<section id="decks"><h2>Decks</h2>
+<div class="service-grid">
+  <div class="service-card" data-service="composite-deck"><img src="assets/images/deck.jpeg" alt=""><h3>Composite Decks</h3><p>Low-maintenance decks that handle Texas weather.</p></div>
+  <div class="service-card" data-service="custom-deck"><img src="assets/images/custom build.jpg" alt=""><h3>Custom Builds</h3><p>Elevated designs for BBQs & stargazing.</p></div>
+</div>
+</section>
 
-<!-- Flooring -->
-<section id="flooring"><h2>Flooring</h2><div class="service-grid">
-  <div class="service-card" data-service="hardwood">
-    <img src="assets/images/floor1.jpg" alt="Hardwood flooring in Texas"><h3>Hardwood Finishes</h3><p>Timeless Texas ranch-style hardwood.</p>
-  </div>
-  <div class="service-card" data-service="vinyl">
-    <img src="assets/images/floor3.jpg" alt="Luxury vinyl plank in Texas"><h3>Luxury Vinyl Options</h3><p>Waterproof & beautiful for active families.</p>
-  </div>
-</div></section>
+<section id="flooring"><h2>Flooring</h2>
+<div class="service-grid">
+  <div class="service-card" data-service="hardwood"><img src="assets/images/floor1.jpg" alt=""><h3>Hardwood Finishes</h3><p>Timeless Texas ranch-style hardwood.</p></div>
+  <div class="service-card" data-service="vinyl"><img src="assets/images/floor3.jpg" alt=""><h3>Luxury Vinyl Options</h3><p>Waterproof & beautiful for active families.</p></div>
+  <div class="service-card" data-service="carpet"><img src="assets/images/carpet flooring1.jpg" alt=""><h3>carpet flooring</h3></div>
+</div>
+</section>
 
-<!-- Testimonials -->
 <section class="testimonials">
   <h2 style="color: var(--primary); margin-bottom: 40px;">What Texas Homeowners Say</h2>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><div class="testimonial">
-        <p>"Direct Build transformed our Austin home with flawless painting and attention to detail. Highly recommend!"</p>
-        <cite>— Sarah T., Austin, TX</cite>
-      </div></div>
-      <div class="swiper-slide"><div class="testimonial">
-        <p>"Professional team, on-time delivery, and stunning kitchen remodel in Dallas. 10/10!"</p>
-        <cite>— Mike R., Dallas, TX</cite>
-      </div></div>
-      <div class="swiper-slide"><div class="testimonial">
-        <p>"Best deck builders in Houston. Love our new outdoor space!"</p>
-        <cite>— Lisa K., Houston, TX</cite>
-      </div></div>
+      <div class="swiper-slide"><div class="testimonial"><p>"Direct Build transformed our Austin home with flawless painting and attention to detail. Highly recommend!"</p><cite>— Sarah T., Austin, TX</cite></div></div>
+      <div class="swiper-slide"><div class="testimonial"><p>"Professional team, on-time delivery, and stunning kitchen remodel in Dallas. 10/10!"</p><cite>— Mike R., Dallas, TX</cite></div></div>
+      <div class="swiper-slide"><div class="testimonial"><p>"Best deck builders in Houston. Love our new outdoor space!"</p><cite>— Lisa K., Houston, TX</cite></div></div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
 </section>
 
-<!-- CTA -->
 <div class="cta">
   <h2>Ready to Build Your Texas Dream Home?</h2>
   <p>Free consultation & quote – serving all of Texas</p>
@@ -494,10 +353,9 @@ footer {
 
 <footer><small>© 2025 DIRECT BUILD GROUP – Building Texas Strong</small></footer>
 
-<!-- MODAL -->
 <div class="modal" id="serviceModal">
   <div class="modal-content">
-    <span class="close-modal" id="closeModal">×</span>
+    <span class="close-modal" id="closeModal">x</span>
     <img class="modal-main-img" id="modalMainImg" src="" alt="">
     <div class="modal-body">
       <h3 id="modalTitle"></h3>
@@ -509,221 +367,99 @@ footer {
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-// Dark Mode Toggle + Persistence (now defaults correctly)
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-
-// On first visit → light mode (as you wanted), saved preference respected
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark');
-  themeToggle.textContent = 'Sun';
-} else {
-  themeToggle.textContent = 'Moon';   // default light
+// Default Dark Mode
+if (!localStorage.getItem('theme') || localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+  document.getElementById('themeToggle').textContent = 'Sun';
+  localStorage.setItem('theme', 'dark');
 }
 
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  const isDark = body.classList.contains('dark');
-  themeToggle.textContent = isDark ? 'Sun' : 'Moon';
+// Theme Toggle
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  document.getElementById('themeToggle').textContent = isDark ? 'Sun' : 'Moon';
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
 // Mobile Menu
-const menuBtn = document.getElementById('menuBtn');
-const navMenu = document.getElementById('navMenu');
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('active');
-  navMenu.classList.toggle('open');
-  body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('menuBtn').classList.toggle('active');
+  document.getElementById('navMenu').classList.toggle('open');
 });
 
-navMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menuBtn.classList.remove('active');
-    navMenu.classList.remove('open');
-    body.style.overflow = '';
-  });
-});
-
-// Scroll Animations & Back-to-Top (fixed 'scrolled' → 'scroll')
+// Back to Top
 window.addEventListener('scroll', () => {
-  document.querySelectorAll('section').forEach(s => {
-    if (s.getBoundingClientRect().top < window.innerHeight * 0.8) s.classList.add('visible');
-  });
   document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
 });
-document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+document.getElementById('backToTop').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 // Counter Animation
-document.querySelectorAll('.counter').forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const speed = 200;
-    const inc = target / speed;
+document.querySelectorAll('.counter').forEach(c => {
+  const update = () => {
+    const target = +c.dataset.target;
+    const count = +c.innerText;
+    const inc = target / 200;
     if (count < target) {
-      counter.innerText = Math.ceil(count + inc);
-      setTimeout(updateCount, 20);
-    } else counter.innerText = target;
+      c.innerText = Math.ceil(count + inc);
+      setTimeout(update, 20);
+    } else c.innerText = target;
   };
-  const observer = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) updateCount();
-  }, { threshold: 0.5 });
-  observer.observe(counter.parentElement);
+  new IntersectionObserver(e => e[0].isIntersecting && update(), { threshold: 0.5 }).observe(c.parentElement);
 });
 
 // Swiper
-new Swiper('.swiper-container', {
-  loop: true,
-  autoplay: { delay: 5000 },
-  pagination: { el: '.swiper-pagination', clickable: true }
-});
+new Swiper('.swiper-container', { loop: true, autoplay: { delay: 5000 }, pagination: { el: '.swiper-pagination', clickable: true } });
 
-// Service Data & Modal (exactly as you wrote it)
+// FULL SCREEN PHOTOS ONLY
 const servicesData = {
-  "exterior-painting": {
-    title: "Exterior Finishes",
-    desc: "We use premium weather-resistant paints that withstand Texas heat, sun, and storms.",
-    mainImg: "assets/images/ex2.webp",
-    gallery: [
-      { src: "assets/images/exterior1.jpg", caption: "Two-coat system with anti-fade technology" },
-      { src: "assets/images/exterior2.jpg", caption: "Proper surface preparation before painting" },
-      { src: "assets/images/exterior3.jpg", caption: "Clean lines and perfect finishing" },
-      { src: "assets/images/exterior4.jpg", caption: "10-year warranty on all exterior work" },
-      { src: "assets/images/exterior5.jpg", caption: "Enhanced curb appeal" }
-    ]
-  },
-  "interior-painting": {
-    title: "Interior Detailing",
-    desc: "Flawless finishes using low-VOC, child-safe paints for vibrant and safe interiors.",
-    mainImg: "assets/images/interior painting.jpg",
-    gallery: [
-      { src: "assets/images/interior1.jpg", caption: "Smooth wall finishes" },
-      { src: "assets/images/interior2.jpg", caption: "Accent wall designs" },
-      { src: "assets/images/interior3.jpg", caption: "Precision trim painting" },
-      { src: "assets/images/interior4.jpg", caption: "Custom color matching" },
-      { src: "assets/images/interior5.jpg", caption: "Eco-friendly paint options" }
-    ]
-  },
-  "kitchen": {
-    title: "Kitchen Upgrades",
-    desc: "Complete kitchen remodeling from layout to finishing, tailored for Texas homes.",
-    mainImg: "assets/images/remodel.jpeg",
-    gallery: [
-      { src: "assets/images/kitchen1.jpg", caption: "Modern open-plan kitchen" },
-      { src: "assets/images/kitchen2.jpg", caption: "Custom cabinetry installation" },
-      { src: "assets/images/kitchen3.jpg", caption: "High-end countertops" },
-      { src: "assets/images/kitchen4.jpg", caption: "Smart kitchen appliances" },
-      { src: "assets/images/kitchen6.jpg", caption: "Stylish backsplashes" },
-      { src: "assets/images/kitchen7.jpg", caption: "Functional island designs" },
-      { src: "assets/images/kitchen8.jpg", caption: "Energy-efficient lighting" }
-    ]
-  },
-  "bathroom": {
-    title: "Bathroom Renovations",
-    desc: "Luxury spa-like bathrooms with custom fixtures and modern designs.",
-    mainImg: "assets/images/bathroom4.jpg",
-    gallery: [
-      { src: "assets/images/bathroom1.jpg", caption: "Walk-in shower installation" },
-      { src: "assets/images/bathroom2.jpg", caption: "Custom vanity designs" },
-      { src: "assets/images/bathroom3.jpg", caption: "Heated flooring options" },
-      { src: "assets/images/bathroom5.jpg", caption: "Modern tile work" }
-    ]
-  },
-  "timber-porch": {
-    title: "Timber Porch Design",
-    desc: "Classic Texas front porches built for durability and charm.",
-    mainImg: "assets/images/porch.jpeg",
-    gallery: [
-      { src: "assets/images/porch1.jpg", caption: "Sturdy timber construction" },
-      { src: "assets/images/porch2.jpg", caption: "Custom railing designs" },
-      { src: "assets/images/porch3.jpg", caption: "Weather-treated finishes" },
-      { src: "assets/images/porch4.jpg", caption: "Spacious porch layouts" }
-    ]
-  },
-  "screened-porch": {
-    title: "Screened Porches",
-    desc: "Enjoy bug-free outdoor living with custom screened porches.",
-    mainImg: "assets/images/screened porches.jpg",
-    gallery: [
-      { src: "assets/images/screened1.jpg", caption: "High-quality mesh screens" },
-      { src: "assets/images/screened2.jpg", caption: "Comfortable outdoor seating" },
-      { src: "assets/images/screened3.jpg", caption: "All-season usability" },
-      { src: "assets/images/screened4.jpg", caption: "Integrated lighting" }
-    ]
-  },
-  "composite-deck": {
-    title: "Composite Decks",
-    desc: "Low-maintenance, weather-resistant decks perfect for Texas climates.",
-    mainImg: "assets/images/deck.jpeg",
-    gallery: [
-      { src: "assets/images/deck1.jpg", caption: "Fade-resistant composite materials" },
-      { src: "assets/images/deck2.jpg", caption: "Non-slip surface designs" },
-      { src: "assets/images/deck3.jpg", caption: "Custom deck layouts" },
-      { src: "assets/images/deck4.jpg", caption: "Long-lasting durability" }
-    ]
-  },
-  "custom-deck": {
-    title: "Custom Deck Builds",
-    desc: "Unique deck designs for BBQs, entertaining, and stargazing.",
-    mainImg: "assets/images/custom build.jpg",
-    gallery: [
-      { src: "assets/images/custom1.jpg", caption: "Multi-level deck designs" },
-      { src: "assets/images/custom2.jpg", caption: "Integrated pergolas" },
-      { src: "assets/images/custom3.jpg", caption: "Custom lighting solutions" },
-      { src: "assets/images/custom4.jpg", caption: "Personalized deck features" }
-    ]
-  },
-  "hardwood": {
-    title: "Hardwood Finishes",
-    desc: "Timeless Texas ranch-style hardwood flooring for elegance and durability.",
-    mainImg: "assets/images/floor1.jpg",
-    gallery: [
-      { src: "assets/images/hardwood1.jpg", caption: "Oak hardwood installation" },
-      { src: "assets/images/hardwood2.jpg", caption: "Custom stain finishes" },
-      { src: "assets/images/hardwood3.jpg", caption: "Polished hardwood surfaces" },
-      { src: "assets/images/hardwood4.jpg", caption: "Durable protective coatings" }
-    ]
-  },
-  "vinyl": {
-    title: "Luxury Vinyl Options",
-    desc: "Waterproof, stylish vinyl flooring ideal for active Texas families.",
-    mainImg: "assets/images/floor3.jpg",
-    gallery: [
-      { src: "assets/images/vinyl1.jpg", caption: "Realistic wood-look vinyl" },
-      { src: "assets/images/vinyl2.jpg", caption: "Waterproof plank installation" },
-      { src: "assets/images/vinyl3.jpg", caption: "Scratch-resistant surfaces" },
-      { src: "assets/images/vinyl4.jpg", caption: "Easy-maintenance flooring" }
-    ]
-  }
+  "exterior-painting": { title: "Exterior Finishes", mainImg: "assets/images/ex2.webp", gallery: ["assets/images/exterior1.jpg","assets/images/exterior2.jpg","assets/images/exterior3.jpg","assets/images/exterior4.jpg","assets/images/exterior5.jpg"] },
+  "interior-painting": { title: "Interior Detailing", mainImg: "assets/images/interior painting.jpg", gallery: ["assets/images/interior1.jpg","assets/images/interior2.jpg","assets/images/interior3.jpg","assets/images/interior4.jpg","assets/images/interior5.jpg"] },
+  "kitchen": { title: "Kitchen Upgrades", mainImg: "assets/images/kitchen remodel1.jpg", gallery: ["assets/images/kitchen remodel2.jpg","assets/images/kitchen remodel3.jpg","assets/images/kitchen remodel4.jpg","assets/images/kitchen remodel5.jpg","assets/images/kitchen remodel6.jpg"] },
+  "bathroom": { title: "Bathroom Renovations", mainImg: "assets/images/bathroom4.jpg", gallery: ["assets/images/bathroom1.jpg","assets/images/bathroom2.jpg","assets/images/bathroom3.jpg","assets/images/bathroom5.jpg"] },
+  "timber-porch": { title: "Timber Porch Design", mainImg: "assets/images/porch.jpeg", gallery: ["assets/images/porch1.jpg","assets/images/porch2.jpg","assets/images/porch3.jpg","assets/images/porch4.jpg"] },
+  "screened-porch": { title: "Screened Porches", mainImg: "assets/images/screened porches1.jpg", gallery: ["assets/images/screened porches2.jpg","assets/images/screened porches3.jpg","assets/images/screened porches4.jpg","assets/images/screened porches5.jpg"] },
+  "composite-deck": { title: "Composite Decks", mainImg: "assets/images/deck.jpeg", gallery: ["assets/images/deck1.jpg","assets/images/deck2.jpg","assets/images/deck3.jpg","assets/images/deck4.jpg"] },
+  "custom-deck": { title: "Custom Deck Builds", mainImg: "assets/images/custom deck1.jpg", gallery: ["assets/images/custom deck2.jpg","assets/images/custom deck3.jpg","assets/images/custom deck4.jpg","assets/images/custom deck5.jpg"] },
+  "hardwood": { title: "Hardwood Finishes", mainImg: "assets/images/hardwood flooring1.jpg", gallery: ["assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg","assets/images/hardwood flooring4.jpg","assets/images/hardwood flooring5.jpg"] },
+"vinyl": { title: "Luxury Vinyl Options", mainImg: "assets/images/luxury finishes1.jpg", gallery: ["assets/images/luxury finishes2.jpg","assets/images/luxury finishes3.jpg","assets/images/luxury finishes4.jpg","assets/images/luxury finishes6.jpg","assets/images/luxury finishes5.jpg"] },
+  "carpet": { title: "carpet flooring", mainImg: "assets/images/carpet flooring1.jpg", gallery: ["assets/images/carpet flooring2.jpg","assets/images/carpet flooring3.jpg","assets/images/carpet flooring4.jpg","assets/images/carpet flooring5.jpg"] }
 };
+
 
 document.querySelectorAll('.service-card').forEach(card => {
   card.addEventListener('click', () => {
-    const key = card.dataset.service;
-    const s = servicesData[key];
+    const s = servicesData[card.dataset.service];
     if (!s) return;
+
     document.getElementById('modalMainImg').src = s.mainImg;
     document.getElementById('modalTitle').textContent = s.title;
-    document.getElementById('modalDesc').textContent = s.desc;
+    document.getElementById('modalDesc').textContent = '';
+
     const gallery = document.getElementById('modalGallery');
     gallery.innerHTML = '';
-    s.gallery.forEach(item => {
+
+    s.gallery.forEach((src, index) => {
       const div = document.createElement('div');
       div.className = 'gallery-item';
-      div.innerHTML = `<img src="${item.src}" alt="">
-                       <div class="caption">${item.caption}</div>`;
-      div.onclick = () => document.getElementById('modalMainImg').src = item.src;
+      if (index === 0) div.classList.add('active');
+      div.innerHTML = `<img src="${src}" alt="">`;
+      div.onclick = () => {
+        document.getElementById('modalMainImg').src = src;
+        document.querySelectorAll('.gallery-item').forEach(item => item.classList.remove('active'));
+        div.classList.add('active');
+      };
       gallery.appendChild(div);
     });
+
     document.getElementById('serviceModal').classList.add('active');
   });
 });
 
 // Close Modal
 document.getElementById('closeModal').onclick = () => document.getElementById('serviceModal').classList.remove('active');
-document.getElementById('serviceModal').onclick = e => { if (e.target === e.currentTarget) e.currentTarget.classList.remove('active'); };
-document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('serviceModal').classList.remove('active'); });
+document.getElementById('serviceModal').onclick = e => e.target === e.currentTarget && document.getElementById('serviceModal').classList.remove('active');
+document.addEventListener('keydown', e => e.key === 'Escape' && document.getElementById('serviceModal').classList.remove('active'));
 </script>
 </body>
 </html>
