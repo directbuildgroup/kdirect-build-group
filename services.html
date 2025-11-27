@@ -6,400 +6,517 @@
 <title>Direct Build Group | Premium Services in Texas</title>
 <meta name="description" content="Top-rated licensed contractors in Texas. Expert painting, kitchen & bath remodels, decks, porches, and flooring. Free quotes.">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  font-family: 'Inter', sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-  line-height: 1.7;
-  overflow-x: hidden;
+  font-family: 'Satoshi', sans-serif;
+  background:#ffffff;
+  color:#1a1a1a;
+  line-height:1.7;
+  overflow-x:hidden;
 }
 
-/* COLORFUL ANIMATED TOP BANNER - ABOVE HEADER */
+/* RAINBOW BANNER */
 #topQuoteBanner {
-  position: relative;
-  background: linear-gradient(90deg, #ff4d4d, #ff8c1a, #ffd11a, #4dff4d, #1ad1ff, #9966ff, #ff4da6);
-  background-size: 300% 300%;
-  animation: rainbowFlow 12s ease infinite, gentleWave 7s ease-in-out infinite;
-  color: #fff;
-  text-align: center;
-  padding: 18px 20px;
-  font-weight: 900;
-  font-size: 1.25rem;
-  letter-spacing: 1.4px;
-  z-index: 1290;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
-  overflow: hidden;
-  transform: translateY(0);
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  position:relative;
+  background:linear-gradient(90deg,#ff4d4d,#ff8c1a,#ffd11a,#4dff4d,#1ad1ff,#9966ff,#ff4da6);
+  background-size:300% 300%;
+  animation:rainbowFlow 14s ease infinite;
+  color:#fff;
+  text-align:center;
+  padding:22px 20px;
+  font-weight:900;
+  font-size:1.35rem;
+  letter-spacing:1.4px;
+  z-index:1290;
+  box-shadow:0 8px 40px rgba(0,0,0,0.4);
+  overflow:hidden;
 }
-
-#topQuoteBanner.hidden {
-  transform: translateY(-120%);
-  opacity: 0;
-  pointer-events: none;
-}
-
+#topQuoteBanner.hidden { transform:translateY(-120%); opacity:0; pointer-events:none; transition:all .6s ease; }
 #topQuoteBanner::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-  animation: shine 4s infinite;
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
+  animation:shine 5s infinite;
 }
-
 .banner-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:36px;
+  flex-wrap:wrap;
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
 }
-
 .banner-text strong {
-  color: #000;
-  text-shadow: 0 0 14px rgba(255,255,255,0.95);
-  font-size: 1.5rem;
+  color:#000;
+  text-shadow:0 0 16px rgba(255,255,255,0.95);
+  font-size:1.7rem;
 }
-
 .banner-btn {
-  background: #000;
-  color: #fff;
-  padding: 14px 36px;
-  border-radius: 50px;
-  font-weight: 900;
-  font-size: 1.15rem;
-  text-decoration: none;
-  transition: all .35s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  background:#000;
+  color:#fff;
+  padding:18px 48px;
+  border-radius:50px;
+  font-weight:900;
+  font-size:1.3rem;
+  text-decoration:none;
+  box-shadow:0 12px 35px rgba(0,0,0,0.6);
+  transition:all .4s;
 }
-
 .banner-btn:hover {
-  transform: scale(1.18) translateY(-6px);
-  background: #fff;
-  color: #000;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  transform:scale(1.2) translateY(-8px);
+  background:#fff;
+  color:#000;
 }
-
 .banner-close {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.55);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .3s;
+  position:absolute;
+  top:50%;
+  right:20px;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  color:white;
+  border:none;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  font-size:2.2rem;
+  cursor:pointer;
 }
-
 .banner-close:hover {
-  background: rgba(0,0,0,0.9);
-  transform: translateY(-50%) rotate(180deg);
+  background:#c8102e;
+  transform:translateY(-50%) rotate(180deg);
 }
+@keyframes rainbowFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes shine { 0%{left:-100%} 100%{left:100%} }
 
-/* Animations */
-@keyframes rainbowFlow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes gentleWave {
-  0%, 100% { transform: translateY(0) rotate(0.6deg); }
-  50%      { transform: translateY(-7px) rotate(-0.6deg); }
-}
-@keyframes shine {
-  0%   { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Video Background */
-.video-bg {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;
-  filter: brightness(0.7);
-}
-
-/* Header - Fixed Top (now below banner) */
+/* HEADER */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 16px 20px;
-  background: rgba(15,23,42,0.96);
-  backdrop-filter: blur(20px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1100;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:20px 30px;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(20px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1100;
+  border-bottom:2px solid #fbbf24;
+  box-shadow:0 10px 50px rgba(0,0,0,0.12);
 }
-
-/* Logo */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 1101;
+  display:flex;
+  align-items:center;
+  gap:16px;
 }
 .logo img {
-  width: 68px;
-  border-radius: 14px;
-  border: 3px solid #fbbf24;
+  width:76px;
+  border-radius:16px;
+  border:4px solid #fbbf24;
 }
 .logo span {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.85rem;
-  font-weight: 700;
-  color: white;
-}
-
-/* Desktop Navigation */
-.desktop-nav {
-  display: flex;
-  gap: 32px;
+  font-family:'Cinzel',serif;
+  font-size:2.2rem;
+  font-weight:900;
+  color:#1a1a1a;
 }
 .desktop-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  position: relative;
-  transition: color 0.3s;
+  color:#1a1a1a;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1.1rem;
+  margin:0 20px;
+  position:relative;
 }
 .desktop-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: #fbbf24;
-  transition: width 0.4s;
+  content:'';
+  position:absolute;
+  bottom:-12px;
+  left:0;
+  width:0;
+  height:4px;
+  background:#fbbf24;
+  transition:width .4s;
 }
 .desktop-nav a:hover::after,
-.desktop-nav a.active::after { width: 100%; }
-.desktop-nav a:hover,
-.desktop-nav a.active { color: #fbbf24; }
-
-/* HAMBURGER MENU */
+.desktop-nav a.active::after {
+  width:100%;
+}
+.desktop-nav a.active,
+.desktop-nav a:hover {
+  color:#c8102e;
+}
 .hamburger {
-  display: none;
-  place-items: center;
-  background: rgba(251,191,36,0.3);
-  color: white;
-  border: 4px solid #fbbf24;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  font-size: 2.1rem;
-  cursor: pointer;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 0 20px rgba(251,191,36,0.3);
-  transition: all 0.4s ease;
-  z-index: 1101;
+  display:none;
+  place-items:center;
+  background:#fbbf24;
+  color:#1a1a1a;
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  font-size:2.4rem;
+  cursor:pointer;
+  box-shadow:0 12px 40px rgba(251,191,36,0.5);
+  transition:all .4s;
 }
 .hamburger:hover {
-  background: #fbbf24;
-  color: #0f172a;
-  transform: scale(1.12);
-  box-shadow: 0 0 40px rgba(251,191,36,0.8);
-}
-.hamburger:active {
-  transform: scale(0.95);
+  transform:scale(1.18);
+  box-shadow:0 0 60px rgba(251,191,36,0.9);
 }
 
-/* Mobile Menu */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  height: 100vh;
-  background: rgba(10,14,26,0.99);
-  backdrop-filter: blur(40px);
-  z-index: 1099;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  transition: left 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+/* HERO CAROUSEL - 100% CRYSTAL CLEAR PHOTOS (NO OVERLAY) */
+.hero-carousel {
+  height:94vh;
+  min-height:720px;
+  position:relative;
+  margin-top:90px;
+  overflow:hidden;
 }
-.mobile-menu.open { left: 0; }
-.mobile-menu a {
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 20px 60px;
-  width: 88%;
-  text-align: center;
-  border-radius: 50px;
-  background: rgba(255,255,255,0.1);
-  transition: all 0.4s;
-  backdrop-filter: blur(10px);
+.swiper {
+  width:100%;
+  height:100%;
 }
-.mobile-menu a:hover,
-.mobile-menu a.active {
-  background: #fbbf24;
-  color: #0f172a;
-  transform: scale(1.08);
+.swiper-slide {
+  position:relative;
 }
-
-/* Page Header */
-.page-header {
-  text-align: center;
-  padding: 180px 20px 100px; /* Increased top padding because of banner */
-  color: white;
+.swiper-slide img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
-.page-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 8vw, 5rem);
-  font-weight: 700;
-  margin-bottom: 16px;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+.slide-overlay {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  background:transparent; /* COMPLETELY REMOVED ANY OVERLAY */
 }
-.page-header p {
-  font-size: 1.15rem;
-  max-width: 800px;
-  margin: 0 auto 32px;
-  opacity: 0.95;
+.slide-content h2 {
+  font-family:'Cinzel',serif;
+  font-size:clamp(4.5rem,11vw,11rem);
+  margin-bottom:20px;
+  color:#ffffff;
+  font-weight:900;
+  text-shadow: 
+    0 0 20px rgba(0,0,0,0.9),
+    0 4px 10px rgba(0,0,0,0.8),
+    0 0 40px rgba(0,0,0,0.6);
+  -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
 }
-.cta-btn {
-  background: #c8102e;
-  color: white;
-  padding: 16px 48px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 10px 30px rgba(200,16,46,0.4);
-  transition: all 0.4s;
+.slide-content p {
+  font-size:2rem;
+  margin-bottom:48px;
+  color:#ffffff;
+  font-weight:700;
+  letter-spacing:0.6px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.9);
 }
-.cta-btn:hover {
-  background: #a10e28;
-  transform: translateY(-4px);
+.slide-content a {
+  background:#c8102e;
+  color:white;
+  padding:26px 80px;
+  border-radius:50px;
+  font-weight:800;
+  font-size:1.6rem;
+  text-decoration:none;
+  box-shadow:0 30px 80px rgba(200,16,46,0.6);
+  transition:all .5s;
+}
+.slide-content a:hover {
+  background:#a10e28;
+  transform:translateY(-12px) scale(1.06);
+  box-shadow:0 40px 100px rgba(200,16,46,0.7);
 }
 
-/* All your original styles below (unchanged) */
-.filter-bar { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; }
-.search-box { position: relative; flex: 1; min-width: 280px; max-width: 460px; }
-.search-box input { width: 100%; padding: 16px 56px 16px 22px; border: none; border-radius: 50px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); color: white; font-size: 1rem; }
-.search-box i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #fbbf24; font-size: 1.3rem; }
-.filter-select { padding: 16px 26px; border: none; border-radius: 50px; background: rgba(255,255,255,0.15); color: white; font-size: 1rem; cursor: pointer; min-width: 200px; }
-.results-info { width: 100%; text-align: center; color: #94a3b8; font-size: 1rem; margin-top: 10px; }
-
-#all-services { max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
-.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
-.service-card { background: rgba(255,255,255,0.08); border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s ease; cursor: pointer; }
-.service-card:hover { transform: translateY(-16px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); border-color: #fbbf24; }
-.service-card img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.6s; }
-.service-card:hover img { transform: scale(1.15); }
-.service-card h3 { padding: 24px 24px 8px; font-size: 1.5rem; color: white; font-weight: 700; }
-.service-card p { padding: 0 24px 24px; font-size: 1rem; color: #cbd5e1; }
-.no-results { grid-column: 1/-1; text-align: center; padding: 80px 20px; font-size: 1.3rem; color: #94a3b8; display: none; }
-.no-results.show { display: block; }
-
-.stats { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 100px 20px; text-align: center; }
-.stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 50px; }
-.stat-item h3 { font-size: 3.8rem; color: #fbbf24; font-weight: 700; }
-.stat-item p { font-size: 1.1rem; color: #e2e8f0; font-weight: 600; }
-
-.testimonials { max-width: 1200px; margin: 100px auto; padding: 0 20px; }
-.testimonials h2 { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.6rem; color: white; margin-bottom: 60px; }
-.testimonial { background: rgba(255,255,255,0.08); padding: 32px; border-radius: 24px; text-align: center; font-size: 1.05rem; }
-.testimonial cite { color: #fbbf24; font-style: normal; font-size: 1rem; }
-
-.cta { text-align: center; padding: 90px 20px; background: rgba(200,16,46,0.1); }
-.cta h2 { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: white; margin-bottom: 16px; }
-.cta p { font-size: 1.15rem; margin-bottom: 32px; }
-.cta a { background: #c8102e; padding: 18px 56px; border-radius: 50px; color: white; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
-
-footer { background: #0a0e1a; padding: 70px 20px 40px; }
-.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 40px; color: #94a3b8; }
-.footer-col h3 { color: #fbbf24; font-size: 1.3rem; margin-bottom: 18px; }
-.footer-col a, .footer-col p { font-size: 0.98rem; margin: 8px 0; }
-.footer-bottom { text-align: center; margin-top: 50px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); color: #64748b; font-size: 0.9rem; }
-
-.whatsapp-btn, .back-to-top {
-  position: fixed; bottom: 20px; z-index: 1000;
-  width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
-  font-size: 2rem; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+/* FILTER BAR */
+.filter-bar {
+  position:sticky;
+  top:90px;
+  background:white;
+  padding:36px 20px 24px;
+  text-align:center;
+  z-index:1000;
+  box-shadow:0 15px 50px rgba(0,0,0,0.1);
+  margin-bottom:60px;
 }
-.whatsapp-btn { left: 20px; background: #25D366; }
-.back-to-top { right: 20px; background: #c8102e; display: none; }
-.back-to-top.show { display: grid; }
-
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
-.modal.active { display: flex; }
-.modal-content { max-width: 1100px; width: 100%; background: #1e293b; border-radius: 28px; overflow: hidden; position: relative; box-shadow: 0 20px 80px rgba(0,0,0,0.8); }
-.close-modal { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; font-size: 2.5rem; cursor: pointer; z-index: 10; }
-.close-modal:hover { background: #c8102e; transform: rotate(90deg); }
-.modal-main-img { width: 100%; height: 70vh; object-fit: contain; background: black; }
-.modal-body h3 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #fbbf24; padding: 30px 20px 20px; text-align: center; }
-.gallery { display: flex; gap: 16px; overflow-x: auto; padding: 20px; background: #0f172a; border-radius: 16px; }
-.gallery-item { flex: 0 0 140px; height: 100px; border-radius: 16px; overflow: hidden; cursor: pointer; border: 4px solid transparent; transition: all 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.gallery-item:hover img, .gallery-item.active img { transform: scale(1.1); }
-.gallery-item.active, .gallery-item:hover { border-color: #fbbf24; }
-
-@media (max-width: 992px) {
-  .desktop-nav { display: none; }
-  .hamburger { display: grid; }
+.filter-btn {
+  margin:0 12px 14px;
+  padding:16px 36px;
+  border-radius:50px;
+  background:rgba(251,191,36,0.15);
+  color:#1a1a1a;
+  font-weight:700;
+  font-size:1.1rem;
+  cursor:pointer;
+  transition:all .4s;
+  border:2px solid transparent;
 }
-@media (max-width: 640px) {
-  #topQuoteBanner { font-size: 1.1rem; padding: 16px; }
-  .banner-text strong { font-size: 1.3rem; }
-  .banner-btn { padding: 12px 28px; font-size: 1rem; }
-  .banner-close { right: 14px; width: 36px; height: 36px; font-size: 1.7rem; }
+.filter-btn.active,
+.filter-btn:hover {
+  background:#fbbf24;
+  color:#1a1a1a;
+  transform:translateY(-6px);
+  box-shadow:0 12px 35px rgba(251,191,36,0.4);
 }
-@media (max-width: 480px) {
-  .logo span { font-size: 1.6rem; }
-  .hamburger { width: 68px; height: 68px; font-size: 2rem; }
-  .mobile-menu a { font-size: 1.7rem; padding: 18px 50px; }
-  .page-header h1 { font-size: 2.6rem; }
-  .modal-body h3 { font-size: 2rem; }
-  .gallery-item { flex: 0 0 120px; height: 85px; }
+
+/* SERVICES GRID SECTION */
+#all-services {
+  max-width:1800px;
+  margin:0 auto 160px;
+  padding:100px 30px;
+  background:linear-gradient(135deg,#fdfbfb,#f8f9fa);
+  border-radius:40px;
+}
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+  gap:48px;
+}
+.service-card {
+  border-radius:36px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 25px 70px rgba(0,0,0,0.14);
+  transition:all .8s cubic-bezier(0.23,1,0.32,1);
+  background:white;
+}
+.service-card:hover {
+  transform:translateY(-28px);
+  box-shadow:0 60px 120px rgba(251,191,36,0.4);
+}
+.service-card img {
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  transition:transform 1.4s ease;
+}
+.service-card:hover img {
+  transform:scale(1.18);
+}
+.service-card h3 {
+  padding:32px 32px 14px;
+  font-size:1.9rem;
+  font-weight:700;
+  color:#1a1a1a;
+}
+.service-card p {
+  padding:0 32px 36px;
+  font-size:1.15rem;
+  color:#555;
+}
+
+/* STATS SECTION */
+.stats {
+  background:#c8102e;
+  padding:140px 20px;
+  text-align:center;
+  color:white;
+}
+.stats-grid {
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:70px;
+}
+.stat-item h3 {
+  font-size:5.5rem;
+  color:#fbbf24;
+  font-weight:900;
+}
+.stat-item p {
+  font-size:1.4rem;
+  font-weight:600;
+  opacity:0.95;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials {
+  background:#f8f9fa;
+  padding:140px 20px;
+}
+.testimonials h2 {
+  text-align:center;
+  font-family:'Cinzel',serif;
+  font-size:4rem;
+  color:#1a1a1a;
+  margin-bottom:90px;
+}
+.testimonial {
+  background:white;
+  padding:50px;
+  border-radius:36px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.1);
+  text-align:center;
+  font-size:1.3rem;
+}
+.testimonial cite {
+  color:#fbbf24;
+  font-weight:700;
+  font-size:1.1rem;
+  display:block;
+  margin-top:20px;
+}
+
+/* CTA SECTION */
+.cta {
+  background:#c8102e;
+  text-align:center;
+  padding:140px 20px;
+}
+.cta h2 {
+  font-family:'Cinzel',serif;
+  font-size:4.5rem;
+  color:white;
+  margin-bottom:24px;
+}
+.cta p {
+  font-size:1.7rem;
+  color:#ffebee;
+  margin-bottom:50px;
+}
+.cta a {
+  background:white;
+  color:#c8102e;
+  padding:28px 90px;
+  border-radius:50px;
+  font-weight:800;
+  font-size:1.7rem;
+  text-decoration:none;
+  box-shadow:0 25px 70px rgba(0,0,0,0.4);
+  transition:all .5s;
+}
+.cta a:hover {
+  transform:scale(1.1);
+}
+
+/* LUXURY FOOTER */
+footer {
+  background:#ffffff;
+  padding:120px 20px 80px;
+  border-top:6px solid #fbbf24;
+  text-align:center;
+}
+.footer-inner {
+  max-width:1200px;
+  margin:0 auto;
+}
+.footer-logo {
+  font-family:'Cinzel',serif;
+  font-size:4.8rem;
+  font-weight:900;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:16px;
+}
+.footer-tagline {
+  font-size:1.5rem;
+  color:#555;
+  margin-bottom:50px;
+  font-weight:500;
+}
+.footer-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  justify-content:center;
+  margin-bottom:50px;
+}
+.footer-links a {
+  color:#111;
+  font-weight:600;
+  font-size:1.3rem;
+  text-decoration:none;
+  transition:.3s;
+}
+.footer-links a:hover {
+  color:#c8102e;
+}
+.footer-bottom {
+  color:#777;
+  font-size:1.1rem;
+  padding-top:30px;
+  border-top:1px solid #eee;
+}
+
+/* FLOATING BUTTONS */
+.whatsapp-btn,
+.back-to-top {
+  position:fixed;
+  bottom:30px;
+  z-index:1000;
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:2.7rem;
+  color:white;
+  box-shadow:0 18px 60px rgba(0,0,0,0.5);
+  transition:all .4s;
+}
+.whatsapp-btn {
+  left:30px;
+  background:#25D366;
+}
+.back-to-top {
+  right:30px;
+  background:#c8102e;
+  display:none;
+}
+.back-to-top.show {
+  display:grid;
+}
+.whatsapp-btn:hover,
+.back-to-top:hover {
+  transform:scale(1.2);
+}
+
+/* RESPONSIVE */
+@media (max-width:992px) {
+  .desktop-nav { display:none; }
+  .hamburger { display:grid; }
+}
+@media (max-width:640px) {
+  .slide-content h2 { font-size:4rem !important; }
+  .slide-content p { font-size:1.5rem; }
+  .service-card h3 { font-size:1.6rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- COLORFUL ANIMATED BANNER - APPEARS EVERY REFRESH -->
+<!-- RAINBOW BANNER -->
 <div id="topQuoteBanner">
   <div class="banner-content">
-    <span class="banner-text">
-      <strong>GET YOUR FREE QUOTE NOW</strong> – Limited Spots This Week in Texas!
-    </span>
+    <span class="banner-text"><strong>FREE QUOTE THIS WEEK ONLY</strong> – Texas Spots Filling Fast!</span>
     <a href="contact.html" class="banner-btn">GET QUOTE</a>
-    <button class="banner-close" aria-label="Close banner">×</button>
+    <button class="banner-close">×</button>
   </div>
 </div>
 
-<video class="video-bg" autoplay muted loop playsinline>
-  <source src="assets/videos/back17.mp4" type="video/mp4">
-</video>
-
-<a href="https://wa.me/15125550198?text=Hi! I need a free quote!" class="whatsapp-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
+<!-- HEADER -->
 <header>
   <div class="logo">
     <img src="assets/images/logo.jpg" alt="Direct Build Group">
@@ -412,80 +529,150 @@ footer { background: #0a0e1a; padding: 70px 20px 40px; }
     <a href="work.html">Our Work</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <button class="hamburger" id="menuBtn" aria-label="Menu">
-    <i class="fas fa-bars"></i>
-  </button>
+  <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html" class="active">Services</a>
-  <a href="work.html">Our Work</a>
-  <a href="contact.html">Contact</a>
-</div>
-
-<div class="page-header">
-  <h1>Our Premium Services</h1>
-  <p>Licensed contractors delivering excellence across Texas</p>
-  <a href="contact.html" class="cta-btn">Get Free Quote</a>
-</div>
-
-<div class="filter-bar">
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search services...">
-    <i class="fas fa-search"></i>
+<!-- HERO CAROUSEL - 100% CRYSTAL CLEAR PHOTOS -->
+<div class="hero-carousel">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="assets/images/remodel.jpeg" alt="Luxury Kitchen Remodel">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <h2>Luxury Kitchens</h2>
+            <p>Modern • Timeless • Texas</p>
+            <a href="contact.html">Start Your Kitchen</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/bathroom4.jpg" alt="Spa Bathroom">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <h2>Spa Bathrooms</h2>
+            <p>Relaxation Redefined</p>
+            <a href="contact.html">Transform Your Bath</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/custom build.jpg" alt="Custom Deck">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <h2>Outdoor Living</h2>
+            <p>Decks • Porches • Patios</p>
+            <a href="contact.html">Build Your Oasis</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/ex2.webp" alt="Exterior Painting">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <h2>Premium Painting</h2>
+            <p>Interior • Exterior • Perfection</p>
+            <a href="contact.html">Refresh Your Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/floor3.jpg" alt="Luxury Flooring">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <h2>Flooring Excellence</h2>
+            <p>Hardwood • Vinyl • Tile</p>
+            <a href="contact.html">Upgrade Your Floors</a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/porch.jpeg" alt="Texas Porch">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <h2>Classic Porches</h2>
+            <p>True Texas Tradition</p>
+            <a href="contact.html">Build Your Porch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
-  <select id="categoryFilter" class="filter-select">
-    <option value="all">All Services</option>
-    <option value="painting">Painting</option>
-    <option value="remodels">Remodeling</option>
-    <option value="porches">Porches</option>
-    <option value="decks">Decks</option>
-    <option value="flooring">Flooring</option>
-  </select>
 </div>
-<div class="results-info" id="resultsInfo">Showing all 11 premium services</div>
 
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All Services</button>
+  <button class="filter-btn" data-filter="painting">Painting</button>
+  <button class="filter-btn" data-filter="remodels">Remodeling</button>
+  <button class="filter-btn" data-filter="porches">Porches</button>
+  <button class="filter-btn" data-filter="decks">Decks</button>
+  <button class="filter-btn" data-filter="flooring">Flooring</button>
+</div>
+
+<!-- ALL SERVICES -->
 <section id="all-services">
   <div class="service-grid" id="servicesGrid">
-    <div class="service-card" data-service="exterior-painting" data-category="painting">
-      <img src="assets/images/ex2.webp" alt="Exterior Painting"><h3>Exterior Finishes</h3><p>Durable coatings for Texas weather</p>
+    <div class="service-card" data-category="painting">
+      <img src="assets/images/ex2.webp" alt="Exterior Painting">
+      <h3>Exterior Finishes</h3>
+      <p>Durable coatings for Texas weather</p>
     </div>
-    <div class="service-card" data-service="interior-painting" data-category="painting">
-      <img src="assets/images/interior painting.jpg" alt="Interior Painting"><h3>Interior Detailing</h3><p>Flawless premium finishes</p>
+    <div class="service-card" data-category="painting">
+      <img src="assets/images/interior painting.jpg" alt="Interior Painting">
+      <h3>Interior Detailing</h3>
+      <p>Flawless premium finishes</p>
     </div>
-    <div class="service-card" data-service="kitchen" data-category="remodels">
-      <img src="assets/images/remodel.jpeg" alt="Kitchen Remodel"><h3>Kitchen Upgrades</h3><p>Modern Texas-style kitchens</p>
+    <div class="service-card" data-category="remodels">
+      <img src="assets/images/remodel.jpeg" alt="Kitchen Remodel">
+      <h3>Kitchen Upgrades</h3>
+      <p>Modern Texas-style kitchens</p>
     </div>
-    <div class="service-card" data-service="bathroom" data-category="remodels">
-      <img src="assets/images/bathroom4.jpg" alt="Bathroom Remodel"><h3>Bathroom Renovations</h3><p>Luxury spa-like bathrooms</p>
+    <div class="service-card" data-category="remodels">
+      <img src="assets/images/bathroom4.jpg" alt="Bathroom Remodel">
+      <h3>Bathroom Renovations</h3>
+      <p>Luxury spa-like bathrooms</p>
     </div>
-    <div class="service-card" data-service="timber-porch" data-category="porches">
-      <img src="assets/images/porch.jpeg" alt="Timber Porch"><h3>Timber Porch Design</h3><p>Classic Texas front porches</p>
+    <div class="service-card" data-category="porches">
+      <img src="assets/images/porch.jpeg" alt="Timber Porch">
+      <h3>Timber Porch Design</h3>
+      <p>Classic Texas front porches</p>
     </div>
-    <div class="service-card" data-service="screened-porch" data-category="porches">
-      <img src="assets/images/screened porches.jpg" alt="Screened Porch"><h3>Screened Porches</h3><p>Bug-free outdoor living</p>
+    <div class="service-card" data-category="porches">
+      <img src="assets/images/screened porches.jpg" alt="Screened Porch">
+      <h3>Screened Porches</h3>
+      <p>Bug-free outdoor living</p>
     </div>
-    <div class="service-card" data-service="composite-deck" data-category="decks">
-      <img src="assets/images/deck.jpeg" alt="Composite Deck"><h3>Composite Decks</h3><p>Low-maintenance & durable</p>
+    <div class="service-card" data-category="decks">
+      <img src="assets/images/deck.jpeg" alt="Composite Deck">
+      <h3>Composite Decks</h3>
+      <p>Low-maintenance & durable</p>
     </div>
-    <div class="service-card" data-service="custom-deck" data-category="decks">
-      <img src="assets/images/custom build.jpg" alt="Custom Deck"><h3>Custom Deck Builds</h3><p>Elevated outdoor living</p>
+    <div class="service-card" data-category="decks">
+      <img src="assets/images/custom build.jpg" alt="Custom Deck">
+      <h3>Custom Deck Builds</h3>
+      <p>Elevated outdoor living</p>
     </div>
-    <div class="service-card" data-service="hardwood" data-category="flooring">
-      <img src="assets/images/floor1.jpg" alt="Hardwood Flooring"><h3>Hardwood Finishes</h3><p>Timeless Texas ranch style</p>
+    <div class="service-card" data-category="flooring">
+      <img src="assets/images/floor1.jpg" alt="Hardwood Flooring">
+      <h3>Hardwood Finishes</h3>
+      <p>Timeless Texas ranch style</p>
     </div>
-    <div class="service-card" data-service="vinyl" data-category="flooring">
-      <img src="assets/images/floor3.jpg" alt="Luxury Vinyl"><h3>Luxury Vinyl</h3><p>Waterproof & beautiful</p>
+    <div class="service-card" data-category="flooring">
+      <img src="assets/images/floor3.jpg" alt="Luxury Vinyl">
+      <h3>Luxury Vinyl</h3>
+      <p>Waterproof & beautiful</p>
     </div>
-    <div class="service-card" data-service="carpet" data-category="flooring">
-      <img src="assets/images/carpet flooring1.jpg" alt="Carpet Flooring"><h3>Carpet Flooring</h3><p>Cozy & durable</p>
+    <div class="service-card" data-category="flooring">
+      <img src="assets/images/carpet flooring1.jpg" alt="Carpet Flooring">
+      <h3>Carpet Flooring</h3>
+      <p>Cozy & durable</p>
     </div>
   </div>
-  <div class="no-results" id="noResults">No services found. Try different keywords.</div>
 </section>
 
+<!-- STATS -->
 <section class="stats">
   <div class="stats-grid">
     <div class="stat-item"><h3 class="counter" data-target="179">0</h3><p>Projects Completed</p></div>
@@ -494,9 +681,10 @@ footer { background: #0a0e1a; padding: 70px 20px 40px; }
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section class="testimonials">
   <h2>What Texas Homeowners Say</h2>
-  <div class="swiper-container">
+  <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><div class="testimonial"><p>"Direct Build transformed our Austin home with flawless painting and attention to detail. Highly recommend!"</p><cite>— Sarah T., Austin, TX</cite></div></div>
       <div class="swiper-slide"><div class="testimonial"><p>"Professional team, on-time delivery, and stunning kitchen remodel in Dallas. 10/10!"</p><cite>— Mike R., Dallas, TX</cite></div></div>
@@ -506,142 +694,101 @@ footer { background: #0a0e1a; padding: 70px 20px 40px; }
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta">
   <h2>Ready to Build Your Texas Dream Home?</h2>
   <p>Free consultation & quote – serving all of Texas</p>
   <a href="contact.html">Get Your Free Quote</a>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-col"><h3>About Us</h3><p>Direct Build Group is a top-rated construction company serving all of Texas with premium services.</p></div>
-    <div class="footer-col"><h3>Services</h3><a href="#">Painting</a><a href="#">Remodeling</a><a href="#">Porches</a><a href="#">Decks</a><a href="#">Flooring</a></div>
-    <div class="footer-col"><h3>Contact</h3><p>Phone: +1(888)803-5693</p><p>Email: info@directbuildgroup.com</p><p>Service Area: All of Texas</p></div>
-    <div class="footer-col"><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Our Work</a><a href="contact.html">Contact</a></div>
-  </div>
-  <div class="footer-bottom">© 2025 DIRECT BUILD GROUP – Building Texas Strong</div>
-</footer>
-
-<div class="modal" id="serviceModal">
-  <div class="modal-content">
-    <button class="close-modal" id="closeModal">×</button>
-    <img class="modal-main-img" id="modalMainImg" src="" alt="Service Image">
-    <div class="modal-body">
-      <h3 id="modalTitle">Service Name</h3>
-      <div class="gallery" id="modalGallery"></div>
+  <div class="footer-inner">
+    <div class="footer-logo">DIRECT BUILD GROUP</div>
+    <p class="footer-tagline">Texas Elite Remodeling • Licensed & Insured Since 2018</p>
+    <div class="footer-links">
+      <a href="services.html">Our Services</a>
+      <a href="work.html">Portfolio</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Get Free Quote</a>
+      <a href="tel:+15125550198">Call (512) 555-0198</a>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Direct Build Group • Proudly Serving All of Texas
     </div>
   </div>
-</div>
+</footer>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// BANNER: Show every refresh, hide only until refresh
-document.addEventListener('DOMContentLoaded', () => {
-  const banner = document.getElementById('topQuoteBanner');
-  const closeBtn = banner.querySelector('.banner-close');
-  
-  // Always show on load
-  banner.classList.remove('hidden');
-  
-  closeBtn.addEventListener('click', () => {
-    banner.classList.add('hidden');
-    // No localStorage → reappears on next load
-  });
+// Banner Close
+document.querySelector('.banner-close').onclick = () => {
+  document.getElementById('topQuoteBanner').classList.add('hidden');
+};
+
+// Hero Carousel - Crystal Clear
+new Swiper('.hero-carousel .swiper', {
+  loop: true,
+  autoplay: { delay: 6000, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  effect: 'fade',
+  fadeEffect: { crossFade: true },
+  speed: 1200
 });
 
-// All your original working JavaScript (unchanged)
-document.getElementById('menuBtn').addEventListener('click', function(e) {
-  e.stopPropagation();
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('mobileMenu');
-  if (menu.classList.contains('open') && !e.target.closest('#menuBtn') && !e.target.closest('.mobile-menu')) {
-    menu.classList.remove('open');
-  }
-});
-
-window.addEventListener('scroll', () => {
-  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
-});
-document.getElementById('backToTop').onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
-
-document.querySelectorAll('.counter').forEach(counter => {
-  const update = () => {
-    const target = +counter.dataset.target;
-    const count = +counter.innerText;
-    const inc = target / 200;
-    if (count < target) {
-      counter.innerText = Math.ceil(count + inc);
-      setTimeout(update, 20);
-    } else counter.innerText = target;
-  };
-  new IntersectionObserver(e => e[0].isIntersecting && update(), {threshold: 0.5})
-    .observe(counter.parentElement);
-});
-
-new Swiper('.swiper-container', {
+// Testimonials Carousel
+new Swiper('.testimonials .swiper', {
   loop: true,
   autoplay: { delay: 5000 },
   pagination: { el: '.swiper-pagination', clickable: true },
   slidesPerView: 1,
-  breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+  breakpoints: {
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  }
 });
 
-const searchInput = document.getElementById('searchInput');
-const categoryFilter = document.getElementById('categoryFilter');
-const cards = document.querySelectorAll('.service-card');
-const resultsInfo = document.getElementById('resultsInfo');
-const noResults = document.getElementById('noResults');
+// Back to Top
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
+});
+document.getElementById('backToTop').onclick = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
-function filterServices() {
-  const query = searchInput.value.toLowerCase().trim();
-  const category = categoryFilter.value;
-  let visible = 0;
-  cards.forEach(card => {
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    const desc = card.querySelector('p').textContent.toLowerCase();
-    const cat = card.dataset.category;
-    const matches = (title.includes(query) || desc.includes(query)) && (category === 'all' || cat === category);
-    card.style.display = matches ? 'block' : 'none';
-    if (matches) visible++;
-  });
-  resultsInfo.textContent = `Showing ${visible} service${visible !== 1 ? 's' : ''}`;
-  noResults.classList.toggle('show', visible === 0);
-}
-searchInput.addEventListener('input', filterServices);
-categoryFilter.addEventListener('change', filterServices);
-filterServices();
-
-const servicesData = { /* your full gallery data object - unchanged */ };
-
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('click', () => {
-    if (card.style.display === 'none') return;
-    const data = servicesData[card.dataset.service];
-    if (!data) return;
-    document.getElementById('modalMainImg').src = data.mainImg;
-    document.getElementById('modalTitle').textContent = data.title;
-    const gallery = document.getElementById('modalGallery');
-    gallery.innerHTML = '';
-    data.gallery.forEach((src, i) => {
-      const div = document.createElement('div');
-      div.className = 'gallery-item' + (i === 0 ? ' active' : '');
-      div.innerHTML = `<img src="${src}" alt="Project ${i+1}">`;
-      div.onclick = () => {
-        document.getElementById('modalMainImg').src = src;
-        document.querySelectorAll('.gallery-item').forEach(g => g.classList.remove('active'));
-        div.classList.add('active');
-      };
-      gallery.appendChild(div);
+// Filter Buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelector('.filter-btn.active').classList.remove('active');
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
     });
-    document.getElementById('serviceModal').classList.add('active');
-  });
+  };
 });
 
-document.getElementById('closeModal').onclick = () => document.getElementById('serviceModal').classList.remove('active');
-document.getElementById('serviceModal').onclick = e => e.target === e.currentTarget && document.getElementById('serviceModal').classList.remove('active');
-document.addEventListener('keydown', e => e.key === 'Escape' && document.getElementById('serviceModal').classList.remove('active'));
+// Counter Animation
+document.querySelectorAll('.counter').forEach(counter => {
+  const updateCounter = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 200;
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCounter, 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      updateCounter();
+      observer.unobserve(counter.parentElement);
+    }
+  }, { threshold: 0.6 });
+  observer.observe(counter.parentElement);
+});
 </script>
 </body>
 </html>
