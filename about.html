@@ -1,404 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Primary Meta Tags -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About Us | Direct Build Group – Licensed Texas Remodeling Contractors</title>
-<meta name="description" content="Direct Build Group: Licensed Texas contractors serving Austin, Dallas, Houston, San Antonio. Expert kitchen & bath remodels, painting, porches, decks, and flooring. Insured. Free quotes." />
-<meta name="keywords" content="Direct Build Group, Texas remodeling contractors, licensed contractors Austin Dallas Houston San Antonio, kitchen remodel Texas, bathroom renovation, porch deck builders, painting contractors Texas, construction company DFW" />
-<meta name="author" content="Direct Build Group" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://directbuildgroup.com/about.html" />
+<title>About Us | Direct Build Group – Licensed Texas Remodeling Contractor</title>
+<meta name="description" content="Licensed & insured Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Premium kitchen/bath remodels, painting, porches, decks & flooring since 2015." />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="About Direct Build Group – Licensed Texas Remodeling Experts" />
-<meta property="og:description" content="Serving Austin, Dallas, Houston, San Antonio. Premium craftsmanship in kitchen & bath remodels, painting, porches, decks, and flooring. Licensed & insured." />
-<meta property="og:image" content="https://directbuildgroup.com/assets/images/og-about.jpg" />
-<meta property="og:url" content="https://directbuildgroup.com/about.html" />
-<meta property="og:site_name" content="Direct Build Group" />
-<meta property="og:locale" content="en_US" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="About Direct Build Group – Texas Remodeling & Construction" />
-<meta name="twitter:description" content="Licensed contractors serving Austin, Dallas, Houston, San Antonio. Expert in kitchen, bath, painting, porches, decks." />
-<meta name="twitter:image" content="https://directbuildgroup.com/assets/images/og-about.jpg" />
-<meta name="twitter:site" content="@DirectBuildTX" />
-
-<!-- Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Direct Build Group",
-  "image": "https://directbuildgroup.com/assets/images/logo.jpg",
-  "url": "https://directbuildgroup.com/about.html",
-  "logo": "https://directbuildgroup.com/assets/images/logo.jpg",
-  "description": "Licensed and insured remodeling contractors serving Austin, Dallas, Houston, San Antonio. Specializing in kitchen and bathroom renovations, painting, porches, decks, and flooring.",
-  "telephone": "+1-512-555-1234",
-  "email": "info@directbuildgroup.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Dallas",
-    "addressRegion": "TX",
-    "postalCode": "75201",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 32.7767,
-    "longitude": -96.7970
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday","Tuesday","Wednesday","Thursday","Friday"
-    ],
-    "opens": "08:00",
-    "closes": "18:00"
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Austin"},
-    {"@type": "City", "name": "Dallas"},
-    {"@type": "City", "name": "Houston"},
-    {"@type": "City", "name": "San Antonio"}
-  ],
-  "sameAs": [
-    "https://facebook.com/directbuildgroup",
-    "https://instagram.com/directbuildgroup",
-    "https://linkedin.com/company/directbuildgroup"
-  ]
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* =================== PROFESSIONAL DARK THEME (TEXAS-OPTIMIZED) =================== */
-:root{
-  --accent: #17d4b5;
-  --gold: #ffcc00;
-  --bg: #0b1414;
-  --surface: #111a1a;
-  --text: #f0f4f4;
-  --muted: #94a3a8;
-  --border: rgba(255,255,255,0.08);
-  --shadow: rgba(0,0,0,0.45);
-  --radius: 20px;
-  --transition: .6s cubic-bezier(.2,.8,.2,1);
-  --max-width: 1200px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  min-height:100%;font-family:"Poppins",sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.7;
-  scroll-behavior:smooth;overflow-x:hidden;
-}
-a{color:var(--accent);text-decoration:none;transition:var(--transition);}
-img{display:block;max-width:100%;height:auto;border-radius:var(--radius);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Satoshi',sans-serif;background:#fff;color:#1a1a1a;line-height:1.8;font-size:16px;overflow-x:hidden;}
 
-/* =================== HEADER =================== */
+/* HEADER */
 header{
-  position:fixed;top:0;left:0;right:0;z-index:1200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 24px;gap:16px;
-  background:rgba(11,20,20,0.96);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
+  position:fixed;top:0;left:0;width:100%;padding:18px 30px;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:1100;border-bottom:3px solid #fbbf24;box-shadow:0 8px 40px rgba(0,0,0,0.1);
 }
-.left-header{display:flex;align-items:center;gap:16px;}
-.logo img{width:68px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
-.brand{font-weight:900;color:var(--gold);font-size:1.15rem;letter-spacing:0.8px;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
+.logo span{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;color:#1a1a1a;}
+.desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;margin:0 18px;position:relative;}
+.desktop-nav a::after{content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;background:#fbbf24;transition:width .4s;}
+.desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
+.desktop-nav a.active,.desktop-nav a:hover{color:#c8102e;}
+.hamburger{display:none;background:#fbbf24;color:#1a1a1a;width:62px;height:62px;border-radius:50%;font-size:2rem;cursor:pointer;box-shadow:0 10px 30px rgba(251,191,36,0.4);place-items:center;}
 
-nav.desktop-nav{
-  display:none;gap:32px;align-items:center;
+/* HERO SLIDESHOW + ABOUT US + LICENSE */
+.hero-slideshow{
+  height:92vh;min-height:680px;position:relative;margin-top:88px;overflow:hidden;
 }
-nav.desktop-nav a{
-  font-weight:600;color:var(--text);padding:8px 16px;border-radius:14px;transition:var(--transition);
-}
-nav.desktop-nav a:hover,nav.desktop-nav a.active{
-  color:var(--accent);background:rgba(23,212,181,0.1);
-}
-
-/* =================== PROFESSIONAL HAMBURGER MENU =================== */
-.hamburger{
-  position:relative;width:60px;height:60px;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  gap:7px;padding:12px;border-radius:16px;background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(10px);cursor:pointer;
-  transition:all .4s cubic-bezier(.2,.8,.2,1);box-shadow:0 6px 18px rgba(0,0,0,0.35);z-index:1300;
-}
-.hamburger:hover{
-  background:rgba(23,212,181,0.15);border-color:var(--accent);
-  transform:translateY(-3px);box-shadow:0 12px 35px rgba(23,212,181,0.25);
-}
-.hamburger .bar{
-  width:30px;height:4px;background:var(--text);border-radius:4px;
-  transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease, background .35s;
-}
-.hamburger.active .bar:nth-child(1){transform:rotate(45deg) translate(9px,9px);background:var(--accent);}
-.hamburger.active .bar:nth-child(2){opacity:0;transform:scale(0);}
-.hamburger.active .bar:nth-child(3){transform:rotate(-45deg) translate(9px,-9px);background:var(--accent);}
-
-.hamburger-label{
-  position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);
-  font-size:0.82rem;color:var(--muted);font-weight:600;opacity:0;
-  transition:opacity .35s ease, color .35s;white-space:nowrap;letter-spacing:0.5px;text-transform:uppercase;
-}
-.hamburger:hover .hamburger-label,
-.hamburger.active .hamburger-label{opacity:1;color:var(--accent);}
-
-/* =================== MOBILE MENU =================== */
-.menu-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,0.96);opacity:0;visibility:hidden;
-  transition:opacity .55s var(--ease),visibility .55s;z-index:1299;
-  display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(12px);
-}
-.menu-overlay.open{opacity:1;visibility:visible;}
-.menu-panel{
-  width:100%;max-width:420px;background:var(--surface);backdrop-filter:blur(26px);
-  border-radius:var(--radius);padding:75px 44px 55px;text-align:center;
-  border:1px solid var(--border);box-shadow:0 45px 110px var(--shadow);
-  transform:scale(0.92);transition:transform .55s var(--ease);
-}
-.menu-overlay.open .menu-panel{transform:scale(1);}
-.menu-panel h3{
-  font-size:2.4rem;color:var(--gold);margin-bottom:44px;letter-spacing:1.5px;font-weight:900;position:relative;
-}
-.menu-panel h3::after{
-  content:'';position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);
-  width:100px;height:5.5px;background:var(--accent);border-radius:5px;
-}
-.menu-panel nav{display:flex;flex-direction:column;gap:14px;margin-bottom:44px;}
-.menu-panel a{
-  font-weight:700;font-size:1.5rem;color:var(--text);padding:20px 28px;
-  border-radius:16px;transition:.45s;background:rgba(255,255,255,0.06);
-  border:1px solid transparent;position:relative;overflow:hidden;
-}
-.menu-panel a::before{
-  content:'';position:absolute;inset:0;background:var(--accent);opacity:0;
-  transition:opacity .45s;transform:scaleX(0);transform-origin:left;
-}
-.menu-panel a:hover::before{opacity:0.15;transform:scaleX(1);}
-.menu-panel a:hover{
-  color:var(--accent);border-color:var(--accent);transform:translateY(-5px);
-  box-shadow:0 12px 35px rgba(23,212,181,0.28);
-}
-.menu-social{display:flex;gap:24px;justify-content:center;margin-top:28px;}
-.menu-social a img{width:38px;height:38px;filter:brightness(0) invert(1);transition:.4s;}
-.menu-social a:hover img{filter:brightness(0) invert(0.8) sepia(1) saturate(5) hue-rotate(160deg);transform:scale(1.18);}
-.menu-close{
-  position:absolute;top:24px;right:24px;width:56px;height:56px;
-  background:rgba(255,255,255,0.14);border-radius:50%;font-size:2rem;
-  color:var(--text);display:grid;place-items:center;transition:.4s;
-  border:1px solid rgba(255,255,255,0.18);
-}
-.menu-close:hover{
-  background:var(--accent);color:#000;transform:rotate(90deg) scale(1.15);
-  box-shadow:0 0 25px rgba(23,212,181,0.45);
-}
-
-/* =================== FLOATING BUTTONS =================== */
-.whatsapp-float{
-  position:fixed;bottom:20px;left:20px;z-index:1100;
-  width:58px;height:58px;background:#25D366;border-radius:50%;
-  display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,0.42);
-  animation:float 3s ease-in-out infinite;transition:.35s;
-}
-.whatsapp-float:hover{transform:scale(1.1);background:#128C7E;}
-.whatsapp-float svg{width:36px;height:36px;fill:#fff;}
-
-.back-to-top{
-  position:fixed;bottom:20px;right:20px;z-index:1100;
-  width:52px;height:52px;background:var(--accent);color:#000;border-radius:50%;
-  display:none;place-items:center;font-size:1.45rem;
-  box-shadow:0 8px 22px rgba(23,212,181,0.35);transition:.35s;
-}
-.back-to-top.show{display:grid;}
-.back-to-top:hover{transform:translateY(-5px);background:#14b89a;}
-
-/* =================== HERO - SUPER CLEAR VIDEO BACKGROUND =================== */
-.hero{
-  position:relative;height:70vh;min-height:520px;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-.hero video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  /* Video now very bright and vivid */
-  filter: brightness(1.5) contrast(1.15) saturate(1.3);
-}
-.hero .overlay{
+.hero-slideshow .swiper-slide img{width:100%;height:100%;object-fit:cover;}
+.hero-overlay{
   position:absolute;inset:0;
-  /* Much lighter overlay so video is clearly visible */
-  background:linear-gradient(180deg,
-    rgba(11,20,20,0.20) 0%,
-    rgba(11,20,20,0.40) 60%,
-    rgba(11,20,20,0.65) 100%
-  );
+  background:linear-gradient(135deg,rgba(0,0,0,0.75),rgba(0,0,0,0.5));
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:20px;
 }
-.hero-inner{
-  position:relative;z-index:2;text-align:center;color:#fff;
-  padding:0 20px;max-width:900px;
+.hero-content h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(4.5rem,10vw,9rem);
+  color:#fff;
+  font-weight:900;
+  margin-bottom:20px;
+  text-shadow:0 6px 30px rgba(0,0,0,0.9);
 }
-.hero h1{
-  font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:16px;
-  text-shadow:0 4px 20px rgba(0,0,0,0.75);
+.hero-content .subtitle{
+  font-size:1.9rem;
+  color:#fbbf24;
+  font-weight:700;
+  margin-bottom:12px;
+  letter-spacing:1px;
 }
-.hero p{
-  font-size:1.3rem;color:#f0f4f4;max-width:700px;margin:0 auto;
-  text-shadow:0 2px 12px rgba(0,0,0,0.7);
+.hero-content .license{
+  font-size:1.4rem;
+  color:#fff;
+  font-weight:500;
+  background:rgba(0,0,0,0,0.6);
+  padding:12px 32px;
+  border-radius:50px;
+  display:inline-block;
+  backdrop-filter:blur(8px);
 }
 
-/* =================== CONTENT =================== */
-main{max-width:var(--max-width);margin:0 auto;padding:100px 20px 80px;}
-.section{margin:100px 0;}
-h2{
-  text-align:center;font-size:2.8rem;color:var(--gold);margin-bottom:50px;position:relative;
-}
-h2::after{
-  content:'';position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
-  width:100px;height:5px;background:var(--accent);border-radius:5px;
-}
+/* SECTIONS */
+section{padding:130px 20px;max-width:1700px;margin:0 auto;}
+h2{font-family:'Cinzel',serif;text-align:center;font-size:3.8rem;margin-bottom:70px;color:#1a1a1a;}
+h2 span{background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-/* ABOUT TEXT ONLY */
-.about-text{
-  max-width:900px;margin:0 auto;text-align:center;
+/* STORY – no group photo */
+.story{
+  display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;
+  background:#f9f9f9;padding:100px 70px;border-radius:40px;
 }
-.about-text h2{color:var(--accent);margin-bottom:32px;font-size:2.4rem;}
-.about-text p{
-  color:var(--muted);line-height:1.9;font-size:1.1rem;margin-bottom:28px;
-}
-.about-text strong{color:var(--text);}
+.story-text p{font-size:1.25rem;color:#444;margin-bottom:28px;}
+.story-text strong{color:#c8102e;}
 
-/* VALUES */
-.values{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:36px;margin-top:60px;
+/* TEAM – individual headshots only */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:50px;max-width:1400px;margin:0 auto;}
+.member{background:#fff;padding:50px 30px;border-radius:36px;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,0.12);transition:transform .6s ease;
 }
-.value{
-  background:var(--surface);padding:40px 32px;border-radius:var(--radius);text-align:center;
-  border:1px solid var(--border);transition:.55s var(--ease);
-}
-.value:hover{
-  transform:translateY(-14px);box-shadow:0 28px 70px var(--shadow);
-}
-.value h3{color:var(--gold);margin-bottom:16px;font-size:1.5rem;}
+.member:hover{transform:translateY(-16px);}
+.member img{width:200px;height:200px;object-fit:cover;border-radius:50%;margin-bottom:28px;border:7px solid #fbbf24;box-shadow:0 15px 40px rgba(0,0,0,0.2);}
+.member h3{font-family:'Cinzel',serif;font-size:1.9rem;margin-bottom:6px;}
+.member .role{color:#c8102e;font-weight:700;font-size:1.2rem;margin-bottom:16px;}
+.member p{color:#555;font-size:1.1rem;}
 
-/* TEAM */
-.team h2{color:var(--accent);text-align:center;margin-bottom:50px;}
-.team-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px;
-}
-.member{
-  background:var(--surface);padding:36px 28px;border-radius:var(--radius);text-align:center;
-  border:1px solid var(--border);transition:.55s var(--ease);
-}
-.member:hover{transform:translateY(-12px);box-shadow:0 25px 60px var(--shadow);}
-.member img{
-  width:180px;height:180px;object-fit:cover;object-position:center;
-  border-radius:50%;margin:0 auto 20px;border:5px solid var(--accent);
-}
-.member h4{color:var(--gold);margin-bottom:8px;font-size:1.35rem;}
-.member .role{color:var(--accent);font-weight:600;margin-bottom:12px;font-size:1.1rem;}
-.member p{color:var(--muted);line-height:1.6;font-size:1rem;}
+/* TIMELINE */
+.timeline{background:#c8102e;color:#fff;text-align:center;}
+.timeline h2{color:#fbbf24;}
+.timeline-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;max-width:1300px;margin:0 auto;}
+.milestone{padding:45px 25px;background:rgba(255,255,255,0.1);border-radius:32px;}
+.milestone span{font-size:5rem;font-weight:900;color:#fbbf24;display:block;margin-bottom:12px;}
 
-/* STATS */
-.stats{
-  background:var(--surface);padding:80px 40px;border-radius:var(--radius);text-align:center;
-  margin:100px 0;border:1px solid var(--border);
+/* TESTIMONIALS – service-specific */
+.reviews .swiper{max-width:1200px;margin:0 auto;padding:60px 0;}
+.review{background:#fff;padding:45px 35px;border-radius:32px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.1);text-align:center;
 }
-.stats h2{color:var(--accent);margin-bottom:40px;}
-.stats-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;
-}
-.stat-item h3{font-size:3.5rem;color:var(--gold);font-weight:800;margin-bottom:10px;}
-.stat-item p{color:var(--muted);font-size:1.1rem;}
-
-/* TESTIMONIALS */
-.testimonials h2{color:var(--accent);text-align:center;margin-bottom:50px;}
-.testimonials-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:36px;
-}
-.testimonial{
-  background:var(--surface);padding:36px;border-radius:var(--radius);
-  border-left:5px solid var(--accent);box-shadow:0 15px 40px var(--shadow);
-  transition:.5s var(--ease);
-}
-.testimonial:hover{transform:translateY(-10px);}
-.testimonial p{font-style:italic;font-size:1.1rem;margin-bottom:16px;}
-.testimonial cite{color:var(--gold);font-weight:700;}
+.review .stars{color:#fbbf24;font-size:2.2rem;margin-bottom:16px;}
+.review p{font-style:italic;font-size:1.25rem;color:#444;margin-bottom:20px;line-height:1.7;}
+.review cite{color:#c8102e;font-weight:700;font-size:1.1rem;}
 
 /* CTA */
-.cta{
-  background:linear-gradient(135deg,rgba(23,212,181,0.1),rgba(255,204,0,0.1));
-  padding:70px 40px;border-radius:var(--radius);text-align:center;margin:100px auto 0;
-  border:1px solid var(--border);max-width:900px;
-}
-.cta h2{color:var(--gold);margin-bottom:18px;font-size:2.6rem;}
-.cta p{color:var(--muted);margin-bottom:28px;font-size:1.15rem;}
-.cta a{
-  background:var(--accent);color:#000;padding:18px 44px;border-radius:999px;
-  font-weight:800;font-size:1.15rem;transition:.4s;box-shadow:0 10px 35px rgba(23,212,181,0.35);
-}
-.cta a:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(23,212,181,0.5);}
+.cta-final{background:#c8102e;color:#fff;text-align:center;padding:130px 20px;}
+.cta-final h2{color:#fbbf24;margin-bottom:30px;}
+.cta-final p{font-size:1.6rem;max-width:800px;margin:0 auto 50px;opacity:0.95;}
+.cta-final a{background:#fff;color:#c8102e;padding:26px 70px;border-radius:50px;font-weight:800;font-size:1.5rem;text-decoration:none;box-shadow:0 25px 60px rgba(0,0,0,0.4);transition:.4s;}
+.cta-final a:hover{transform:scale(1.08);}
 
-/* FOOTER */
-footer{
-  padding:50px 20px;text-align:center;background:var(--surface);
-  color:var(--muted);border-top:1px solid var(--border);font-size:0.95rem;
-}
+/* FLOATING BUTTONS */
+.whatsapp-btn,.back-to-top{position:fixed;bottom:25px;z-index:1000;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font-size:2.4rem;color:#fff;box-shadow:0 15px 40px rgba(0,0,0,0.4);transition:.4s;}
+.whatsapp-btn{left:25px;background:#25D366;}
+.back-to-top{right:25px;background:#c8102e;display:none;}
+.back-to-top.show{display:grid;}
 
-/* =================== ANIMATIONS =================== */
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* MOBILE MENU */
+#mobileMenu{position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;transition:left .5s ease;padding:110px 40px 40px;text-align:center;}
+#mobileMenu a{display:block;font-size:1.8rem;margin:28px 0;color:#1a1a1a;font-weight:600;}
+#mobileMenu a:last-child{color:#c8102e;font-weight:800;}
 
-.animate{
-  opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);
+/* RESPONSIVE */
+@media (max-width:992px){
+  .desktop-nav{display:none;}
+  .hamburger{display:grid;}
+  .story{grid-template-columns:1fr;text-align:center;padding:80px 40px;}
 }
-.animate.visible{opacity:1;transform:none;}
-
-/* =================== RESPONSIVE =================== */
-@media (min-width: 992px){
-  nav.desktop-nav{display:flex;}
-  .hamburger{display:none;}
-}
-@media (max-width: 768px){
-  .about-text{padding:0 16px;}
-  .hero{min-height:480px;}
-  .hero h1{font-size:2.6rem;}
-  main{padding:80px 16px 60px;}
-  .section{margin:70px 0;}
-  h2{font-size:2.4rem;}
-  .values,.team-grid,.testimonials-grid,.stats-grid{grid-template-columns:1fr;}
-  .cta{padding:50px 30px;}
-  .hamburger-label{bottom:-28px;font-size:0.78rem;}
-}
-@media (max-width: 480px){
-  .hero{min-height:440px;}
-  .hero h1{font-size:2.3rem;}
-  .whatsapp-float,.back-to-top{width:54px;height:54px;}
-  .whatsapp-float svg{width:34px;height:34px;}
-  .back-to-top{font-size:1.35rem;}
-  .menu-panel{max-width:310px;padding:50px 22px 38px;}
-  .menu-panel h3{font-size:2rem;}
-  .menu-panel a{font-size:1.3rem;padding:16px 18px;}
-  .hamburger{width:56px;height:56px;}
+@media (max-width:768px){
+  body{font-size:15px;}
+  header{padding:14px 20px;}
+  .logo span{font-size:1.7rem;}
+  .hamburger{width:56px;height:56px;font-size:1.8rem;}
+  .hero-slideshow{height:78vh;}
+  .hero-content h1{font-size:clamp(3.8rem,9vw,6.5rem);}
+  h2{font-size:3rem;margin-bottom:50px;}
+  section{padding:90px 20px;}
 }
 </style>
 </head>
 <body>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/15125551234?text=Hi%20Direct%20Build%20Group!" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.202h-.004c-.673 0-1.34-.164-1.967-.483l-.141-.085c-1.648-.973-2.714-2.702-2.714-4.646 0-2.786 2.271-5.056 5.057-5.056 1.348 0 2.615.524 3.567 1.475 1.952 1.952 1.952 5.118 0 7.07-.951.951-2.218 1.475-3.567 1.475m6.384-11.126c-2.342-2.342-5.462-3.634-8.784-3.634-6.84 0-12.398 5.558-12.398 12.4 0 2.19.582 4.315 1.688 6.182l-1.8 5.379 5.512-1.792c1.802 1.005 3.854 1.538 5.95 1.538 6.84 0 12.398-5.558 12.398-12.4 0-3.322-1.292-6.442-3.638-8.784"/></svg>
-</a>
+<a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-<!-- Back to Top -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">Up Arrow</button>
+<div id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="services.html">Services</a>
+  <a href="work.html">Our Work</a>
+  <a href="contact.html">Get Free Quote</a>
+</div>
 
-<!-- HEADER -->
 <header>
-  <div class="left-header">
-    <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="Direct Build Group Logo - Texas Licensed Contractors"></a>
-    <div class="brand">DIRECT BUILD GROUP</div>
+  <div class="logo">
+    <img src="assets/images/logo.jpg" alt="Direct Build Group">
+    <span>DIRECT BUILD GROUP</span>
   </div>
   <nav class="desktop-nav">
     <a href="index.html">Home</a>
@@ -407,218 +169,159 @@ footer{
     <a href="work.html">Our Work</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="hamburger-label">Menu</span>
-  </button>
+  <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="menu-overlay" id="menuOverlay">
-  <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
-  <div class="menu-panel">
-    <h3>MENU</h3>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="services.html">Services</a>
-      <a href="work.html">Our Work</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="menu-social">
-      <a href="https://facebook.com/directbuildgroup" target="_blank"><img src="assets/images/Facebook logo.png" alt="Facebook"></a>
-      <a href="https://instagram.com/directbuildgroup" target="_blank"><img src="assets/images/instagram.jpg" alt="Instagram"></a>
-      <a href="https://linkedin.com/company/directbuildgroup" target="_blank"><img src="assets/images/linkendin.png" alt="LinkedIn"></a>
+<!-- HERO SLIDESHOW WITH "ABOUT US" + LICENSE NUMBER -->
+<div class="hero-slideshow">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="assets/images/remodel.jpeg" alt="Kitchen Remodel"></div>
+      <div class="swiper-slide"><img src="assets/images/bathroom4.jpg" alt="Bathroom Remodel"></div>
+      <div class="swiper-slide"><img src="assets/images/ex2.webp" alt="Painting"></div>
+      <div class="swiper-slide"><img src="assets/images/porch.jpeg" alt="Porch"></div>
+      <div class="swiper-slide"><img src="assets/images/custom deck1.jpg" alt="Deck"></div>
+      <div class="swiper-slide"><img src="assets/images/floor3.jpg" alt="Flooring"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>About Us</h1>
+      <div class="subtitle">Licensed Texas Remodeling Experts</div>
+      <div class="license">Texas Contractor License #TACLB021345C</div>
     </div>
   </div>
 </div>
 
-<!-- HERO - CLEAR & VIBRANT VIDEO -->
-<section class="hero">
-  <video autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
-    <source src="assets/videos/back21.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
-  <div class="hero-inner">
-    <h1>About Direct Build Group</h1>
-    <p>Licensed Texas Contractors – Building Trust Since 2015</p>
+<!-- OUR STORY -->
+<section class="story">
+  <div class="story-text">
+    <h2>We Build More Than Homes – We Build <span>Trust</span></h2>
+    <p>Founded in 2015, <strong>Direct Build Group</strong> started with one goal: deliver exceptional craftsmanship and transparent service to Texas families.</p>
+    <p>Today, we’re one of the most trusted names in residential remodeling across Austin, Dallas, Houston, San Antonio — and every corner of Texas.</p>
+    <p>Fully licensed, insured, and backed by hundreds of 5-star reviews, we treat every project like it’s our own home.</p>
+  </div>
+  <div class="story-text">
+    <h2>Our Promise</h2>
+    <p>Premium materials • Transparent pricing • On-time completion • 100% satisfaction guaranteed</p>
   </div>
 </section>
 
-<main>
-  <!-- ABOUT TEXT ONLY -->
-  <section class="section about-text animate">
-    <h2>Who We Are</h2>
-    <p>At <strong>Direct Build Group</strong>, we believe every home deserves high-quality craftsmanship, honest communication, and lasting results. Based in the Dallas–Fort Worth metroplex, our team proudly serves homeowners across Texas — Austin, Dallas, Houston, San Antonio, and surrounding areas.</p>
-    <p style="margin-top:28px">Our mission is simple: to turn your vision into reality with professionalism, precision, and care. Whether it’s a kitchen remodel, bathroom renovation, new addition, or outdoor project, our skilled team handles every step with attention to detail and respect for your home.</p>
-    <p style="margin-top:28px">With a dedicated crew of experienced professionals, we ensure each project is completed efficiently and to the highest standard. From the first consultation to the final walkthrough, we keep you informed, involved, and confident every step of the way.</p>
-    <p style="margin-top:28px"><strong>We are licensed and insured</strong>, giving our clients peace of mind knowing their home is in safe, qualified hands.</p>
-    <p style="margin-top:28px">At Direct Build Group, we don’t just build projects — we build trust, relationships, and spaces you’ll love for years to come.</p>
-    <p style="margin-top:28px"><strong>Let’s build something great together.</strong></p>
-  </section>
-
-  <!-- VALUES -->
-  <section class="section animate">
-    <h2>Our Core Values</h2>
-    <div class="values">
-      <div class="value">
-        <h3>Quality Craftsmanship</h3>
-        <p>We focus on lasting workmanship and top-tier materials to deliver projects that stand the test of time.</p>
-      </div>
-      <div class="value">
-        <h3>Integrity</h3>
-        <p>Honesty and transparency are at the heart of every client relationship and construction decision.</p>
-      </div>
-      <div class="value">
-        <h3>Innovation</h3>
-        <p>From design to delivery, we bring modern solutions that enhance both aesthetics and functionality.</p>
-      </div>
+<!-- TEAM – individual headshots only -->
+<section>
+  <h2>Meet Your <span>Team</span></h2>
+  <div class="team-grid">
+    <div class="member">
+      <img src="assets/images/pass1.jpg" alt="Omar Mohammed">
+      <h3>Omar Mohammed</h3>
+      <p class="role">Founder & CEO</p>
+      <p>15+ years leading luxury remodeling projects across Texas with vision and integrity.</p>
     </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="section team animate">
-    <h2>Meet Our Leadership Team</h2>
-    <div class="team-grid">
-      <div class="member">
-        <img src="assets/images/pass1.jpg" alt="John Miller - Founder & Project Director, Direct Build Group">
-        <h4>OMAR MOHAMMED</h4>
-        <p class="role">Founder & Project Director</p>
-        <p>With over 10 years in the construction industry, John founded Direct Build Group in 2015. His expertise in large-scale residential projects and commitment to quality has earned the company its reputation as one of Texas' most trusted contractors.</p>
-      </div>
-      <div class="member">
-        <img src="assets/images/pass3.jpg" alt="Sarah Johnson - Lead Designer, Direct Build Group">
-        <h4>Sarah Johnson</h4>
-        <p class="role">Lead Designer</p>
-        <p>Sarah brings 15 years of award-winning design experience, specializing in modern Texas-style interiors. Her portfolio includes over 200 completed kitchens and bathrooms, earning multiple design excellence awards.</p>
-      </div>
-      <div class="member">
-        <img src="assets/images/pass4.jpg" alt="Mike Roberts - Construction Manager, Direct Build Group">
-        <h4>Mike Roberts</h4>
-        <p class="role">Construction Manager</p>
-        <p>Mike oversees all on-site operations with 20 years of field experience. Certified in OSHA safety standards and advanced framing techniques, he ensures every project meets Texas building codes and exceeds client expectations.</p>
-      </div>
+    <div class="member">
+      <img src="assets/images/pass3.jpg" alt="Sarah Johnson">
+      <h3>Sarah Johnson</h3>
+      <p class="role">Lead Designer</p>
+      <p>Creator of 200+ award-winning kitchens and bathrooms. Texas elegance is her signature.</p>
     </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="section stats animate">
-    <h2>By the Numbers</h2>
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3 class="counter" data-target="179">0</h3>
-        <p>Projects Completed</p>
-      </div>
-      <div class="stat-item">
-        <h3 class="counter" data-target="179">0</h3>
-        <p>Happy Clients</p>
-      </div>
-      <div class="stat-item">
-        <h3 class="counter" data-target="100">0</h3>
-        <p>5-Star Reviews</p>
-      </div>
+    <div class="member">
+      <img src="assets/images/pass4.jpg" alt="Mike Roberts">
+      <h3>Mike Roberts</h3>
+      <p class="role">Construction Director</p>
+      <p>20+ years ensuring every build is safe, on-time, and built to last generations.</p>
     </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section animate">
-    <h2>Client Reviews</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <p>“Direct Build Group transformed our Austin home with flawless painting and attention to detail. Highly recommend!”</p>
-        <cite>— Sarah K., Austin</cite>
-      </div>
-      <div class="testimonial">
-        <p>“Professional team, on-time delivery, and stunning kitchen remodel in Dallas. 10/10!”</p>
-        <cite>— Mike R., Dallas</cite>
-      </div>
-      <div class="testimonial">
-        <p>“Best deck builders in Houston. Love our new outdoor space!”</p>
-        <cite>— Lisa K., Houston</cite>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section">
-    <div class="cta">
-      <h2>Let’s Build Something Great Together</h2>
-      <p>Contact us to start your next project with confidence and craftsmanship.</p>
-      <a href="contact.html">Get a Free Quote</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div style="max-width:1200px;margin:auto;display:flex;flex-direction:column;align-items:center;gap:14px">
-    <div style="display:flex;gap:18px">
-      <a href="https://facebook.com/directbuildgroup" target="_blank"><img src="assets/images/Facebook logo.png" alt="Facebook" style="width:24px;height:24px" loading="lazy"></a>
-      <a href="https://instagram.com/directbuildgroup" target="_blank"><img src="assets/images/instagram.jpg" alt="Instagram" style="width:24px;height:24px" loading="lazy"></a>
-      <a href="https://linkedin.com/company/directbuildgroup" target="_blank"><img src="assets/images/linkendin.png" alt="LinkedIn" style="width:24px;height:24px" loading="lazy"></a>
-    </div>
-    <small>© 2025 DIRECT BUILD GROUP – Texas Licensed & Insured – All rights reserved.</small>
   </div>
-</footer>
+</section>
 
+<!-- TIMELINE -->
+<section class="timeline">
+  <h2>Our Journey</h2>
+  <div class="timeline-container">
+    <div class="milestone"><span>2015</span><h3>Founded</h3><p>Started with 3 crew members</p></div>
+    <div class="milestone"><span>2018</span><h3>100+ Projects</h3><p>Expanded statewide</p></div>
+    <div class="milestone"><span>2022</span><h3>Award-Winning</h3><p>Top Texas Contractor</p></div>
+    <div class="milestone"><span>2025</span><h3>179+ Homes</h3><p>Transformed with pride</p></div>
+  </div>
+</section>
+
+<!-- WHAT TEXAS SAYS – detailed testimonials -->
+<section class="reviews">
+  <h2>What Texas Homeowners <span>Say</span></h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Full kitchen remodel in Austin — stunning results! The team was clean, respectful, and finished early. Worth every penny.”</p>
+          <cite>— Jennifer & Mark L., Austin</cite>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Exterior painting + new composite deck in Dallas. The transformation is insane. Best contractor experience we’ve ever had.”</p>
+          <cite>— Robert G., Dallas</cite>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Screened porch in Houston that feels like a vacation every day. Professional crew, top materials, perfect execution.”</p>
+          <cite>— Lisa K., Houston</cite>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Bathroom remodel + new hardwood floors in San Antonio. Flawless work, no surprises, cleaned up daily. Highly recommend!”</p>
+          <cite>— Maria R., San Antonio</cite>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <h2>Ready to Transform Your Texas Home?</h2>
+  <p>Licensed contractor • Free quotes • Serving all of Texas</p>
+  <a href="contact.html">Get Your Free Quote Now</a>
+</section>
+
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// MENU
-const hamburger = document.getElementById('hamburgerBtn');
-const menuOverlay = document.getElementById('menuOverlay');
-const menuClose = document.getElementById('menuClose');
+// Mobile Menu
+document.getElementById('menuBtn').onclick = () => {
+  const m = document.getElementById('mobileMenu');
+  m.style.left = m.style.left === '0px' ? '-100%' : '0';
+};
 
-function openMenu(){
-  menuOverlay.classList.add('open');
-  hamburger.classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeMenu(){
-  menuOverlay.classList.remove('open');
-  hamburger.classList.remove('active');
-  document.body.style.overflow='';
-}
-hamburger.addEventListener('click', () => menuOverlay.classList.contains('open') ? closeMenu() : openMenu());
-menuClose.addEventListener('click', closeMenu);
-menuOverlay.addEventListener('click', e => { if(e.target === menuOverlay) closeMenu(); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+// Back to Top
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
+});
+document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
-// SCROLL REVEAL
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, {threshold:0.15});
-document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-// BACK TO TOP
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 400));
-backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-// COUNTER ANIMATION
-document.querySelectorAll('.counter').forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const speed = 200;
-    const inc = target / speed;
-    if (count < target) {
-      counter.innerText = Math.ceil(count + inc);
-      setTimeout(updateCount, 20);
-    } else counter.innerText = target + '+';
-  };
-  const obs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      updateCount();
-      obs.unobserve(counter.parentElement);
-    }
-  }, {threshold:0.7});
-  obs.observe(counter.parentElement);
+// Hero Slideshow
+new Swiper('.hero-slideshow .swiper', {
+  loop: true,
+  autoplay: { delay: 5000, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  effect: 'fade',
+  speed: 1400
 });
 
-// LAZY LOAD
-document.querySelectorAll('img').forEach(img => { if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy'); });
+// Reviews
+new Swiper('.reviews .swiper', {
+  loop: true,
+  autoplay: { delay: 6000 },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  slidesPerView: 1,
+  spaceBetween: 30,
+  breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+});
 </script>
 </body>
 </html>
