@@ -22,25 +22,25 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Direct Build Group",
-  "image": "https://directbuildgroup.com/assets/images/logo.jpg",
-  "telephone": "+15125551234",
-  "email": "info@directbuildgroup.com",
-  "url": "https://directbuildgroup.com",
-  "description": "Licensed & insured Texas contractor specializing in interior/exterior painting, kitchen & bathroom remodeling, custom porches, composite & wood decks, and premium flooring installation. Proudly serving Austin, Dallas, Houston, San Antonio and all of Texas.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "123 Construction Lane",
-    "addressLocality": "Austin",
-    "addressRegion": "TX",
-    "postalCode": "78701",
-    "addressCountry": "US"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": 30.2711, "longitude": -97.7431 },
-  "areaServed": { "@type": "State", "name": "Texas" },
-  "openingHours": "Mo-Fr 07:00-18:00, Sa 08:00-16:00",
-  "priceRange": "$$"
+ "@type": "HomeAndConstructionBusiness",
+ "name": "Direct Build Group",
+ "image": "https://directbuildgroup.com/assets/images/logo.jpg",
+ "telephone": "+15125551234",
+ "email": "info@directbuildgroup.com",
+ "url": "https://directbuildgroup.com",
+ "description": "Licensed & insured Texas contractor specializing in interior/exterior painting, kitchen & bathroom remodeling, custom porches, composite & wood decks, and premium flooring installation. Proudly serving Austin, Dallas, Houston, San Antonio and all of Texas.",
+ "address": {
+   "@type": "PostalAddress",
+   "streetAddress": "123 Construction Lane",
+   "addressLocality": "Austin",
+   "addressRegion": "TX",
+   "postalCode": "78701",
+   "addressCountry": "US"
+ },
+ "geo": { "@type": "GeoCoordinates", "latitude": 30.2711, "longitude": -97.7431 },
+ "areaServed": { "@type": "State", "name": "Texas" },
+ "openingHours": "Mo-Fr 07:00-18:00, Sa 08:00-16:00",
+ "priceRange": "$$"
 }
 </script>
 
@@ -59,32 +59,51 @@ body {
   overflow-x:hidden;
 }
 
-/* RAINBOW BANNER */
-#topQuoteBanner {
-  position:relative;
-  background:linear-gradient(90deg,#ff4d4d,#ff8c1a,#ffd11a,#4dff4d,#1ad1ff,#9966ff,#ff4da6);
-  background-size:300% 300%;
-  animation:rainbowFlow 14s ease infinite;
-  color:#fff; text-align:center; padding:22px 20px;
-  font-weight:900; font-size:1.35rem; letter-spacing:1.4px;
-  z-index:1290; box-shadow:0 8px 40px rgba(0,0,0,0.4); overflow:hidden;
+/* EPIC 360° ROTATING + ZOOM PRELOADER */
+#preloader {
+  position:fixed; inset:0; background:#ffffff; z-index:9999;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; transition:opacity 1.6s ease;
 }
-#topQuoteBanner.hidden { transform:translateY(-120%); opacity:0; pointer-events:none; transition:all .6s ease; }
-#topQuoteBanner::before {
-  content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
-  animation:shine 5s infinite;
-}
-.banner-content { display:flex; align-items:center; justify-content:center; gap:36px; flex-wrap:wrap; max-width:1200px; margin:0 auto; position:relative; }
-.banner-text strong { color:#000; text-shadow:0 0 16px rgba(255,255,255,0.95); font-size:1.7rem; }
-.banner-btn { background:#000; color:#fff; padding:18px 48px; border-radius:50px; font-weight:900; font-size:1.3rem; text-decoration:none; box-shadow:0 12px 35px rgba(0,0,0,0.6); transition:all .4s; }
-.banner-btn:hover { transform:scale(1.2) translateY(-8px); background:#fff; color:#000; }
-.banner-close { position:absolute; top:50%; right:20px; transform:translateY(-50%); background:rgba(0,0,0,0.6); color:white; border:none; width:48px; height:48px; border-radius:50%; font-size:2.2rem; cursor:pointer; }
-.banner-close:hover { background:#c8102e; transform:translateY(-50%) rotate(180deg); }
-@keyframes rainbowFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-@keyframes shine { 0%{left:-100%} 100%{left:100%} }
+#preloader.hidden { opacity:0; pointer-events:none; }
 
-/* HEADER */
+.preloader-logo {
+  width:240px; height:240px; border-radius:50%; border:9px solid #fbbf24;
+  display:grid; place-items:center;
+  box-shadow:0 40px 100px rgba(251,191,36,0.6);
+  animation: rotateZoom 3.6s ease-in-out infinite;
+  margin-bottom:50px;
+}
+.preloader-logo img {
+  width:150px; border-radius:50%;
+  animation: spinLogo 4s linear infinite;
+}
+.preloader-text {
+  font-family:'Cinzel',serif; font-size:4rem; font-weight:900;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  animation: pulseGlow 2.6s ease-in-out infinite;
+}
+
+@keyframes rotateZoom {
+  0%   { transform:scale(0.7) rotate(0deg); }
+  50%  { transform:scale(1.3) rotate(180deg); }
+  100% { transform:scale(0.7) rotate(360deg); }
+}
+@keyframes spinLogo {
+  from { transform:rotate(0deg); }
+  to   { transform:rotate(360deg); }
+}
+@keyframes pulseGlow {
+  0%,100% { opacity:0.8; text-shadow:0 0 20px rgba(251,191,36,0); }
+  50%     { opacity:1;   text-shadow:0 0 60px rgba(251,191,36,1); }
+}
+
+/* MAIN CONTENT - FADE IN AFTER PRELOADER */
+.main-content { opacity:0; transition:opacity 1.8s ease; }
+.main-content.visible { opacity:1; }
+
+/* HEADER - STARTS AT VERY TOP */
 header {
   position:fixed; top:0; left:0; width:100%; padding:20px 30px;
   background:rgba(255,255,255,0.98); backdrop-filter:blur(20px);
@@ -102,11 +121,11 @@ header {
 .hamburger { display:none; place-items:center; background:#fbbf24; color:#1a1a1a; width:76px; height:76px; border-radius:50%; font-size:2.4rem; cursor:pointer; box-shadow:0 12px 40px rgba(251,191,36,0.5); transition:all .4s; }
 .hamburger:hover { transform:scale(1.18); box-shadow:0 0 60px rgba(251,191,36,0.9); }
 
-/* HERO CAROUSEL - REDUCED SIZE (NOT TOO BIG ANYMORE) */
+/* HERO CAROUSEL - YOUR EXACT FAVORITE VERSION (kept 100%) */
 .hero-carousel {
-  height:80vh;                 /* Reduced from 96vh */
-  min-height:620px;            /* Smaller minimum */
-  max-height:800px;            /* Never too tall */
+  height:80vh;
+  min-height:620px;
+  max-height:800px;
   position:relative;
   margin-top:90px;
   overflow:hidden;
@@ -152,7 +171,7 @@ header {
   box-shadow:0 35px 90px rgba(200,16,46,0.7);
 }
 
-/* REST OF PAGE */
+/* REST OF THE PAGE - YOUR ORIGINAL STYLE */
 main { max-width:1800px; margin:0 auto; padding:80px 30px 160px; }
 .section { padding:120px 0; text-align:center; background:#f8f9fa; margin:40px 0; border-radius:40px; }
 .section h2 {
@@ -169,7 +188,6 @@ main { max-width:1800px; margin:0 auto; padding:80px 30px 160px; }
   box-shadow:0 25px 70px rgba(0,0,0,0.1); transition:all .6s;
 }
 .service-card:hover, .why-card:hover { transform:translateY(-18px); }
-
 .projects-grid {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:32px;
 }
@@ -177,7 +195,6 @@ main { max-width:1800px; margin:0 auto; padding:80px 30px 160px; }
 .proj img { width:100%; height:380px; object-fit:cover; transition:transform 1s; }
 .proj:hover img { transform:scale(1.15); }
 .proj .tag { position:absolute; left:20px; bottom:20px; background:#c8102e; color:white; padding:10px 20px; border-radius:50px; font-weight:800; }
-
 .cta-block {
   background:#c8102e; color:white; padding:110px 40px; border-radius:50px; text-align:center; margin:60px 0;
 }
@@ -217,155 +234,171 @@ footer {
 </head>
 <body>
 
-<!-- RAINBOW BANNER -->
-<div id="topQuoteBanner">
-  <div class="banner-content">
-    <span class="banner-text"><strong>FREE QUOTE THIS WEEK ONLY</strong> – Texas Spots Filling Fast!</span>
-    <a href="contact.html" class="banner-btn">GET QUOTE</a>
-    <button class="banner-close">×</button>
+<!-- EPIC PRELOADER WITH 360° ROTATION + ZOOM -->
+<div id="preloader">
+  <div class="preloader-logo">
+    <img src="assets/images/logo.jpg" alt="Direct Build Group">
   </div>
+  <div class="preloader-text">DIRECT BUILD GROUP</div>
 </div>
 
-<a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<!-- MAIN CONTENT WRAPPER -->
+<div class="main-content" id="mainContent">
 
-<header>
-  <div class="logo">
-    <img src="assets/images/logo.jpg" alt="Direct Build Group">
-    <span>DIRECT BUILD GROUP</span>
-  </div>
-  <nav class="desktop-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="work.html">Our Work</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
-</header>
+  <!-- FLOATING BUTTONS -->
+  <a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-<!-- HERO CAROUSEL - PERFECT SIZE NOW -->
-<div class="hero-carousel">
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="assets/images/remodel.jpeg" alt="Luxury Kitchen Remodel">
-        <div class="hero-overlay">
-          <div class="hero-content">
-            <h1>DIRECT BUILD GROUP</h1>
-            <p class="tagline">Texas Elite Remodeling & Construction</p>
-            <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
-            <div class="hero-buttons">
-              <a href="contact.html">Free Texas Quote</a>
-              <a href="work.html" class="ghost">View Our Work</a>
+  <!-- BACK TO TOP -->
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.jpg" alt="Direct Build Group">
+      <span>DIRECT BUILD GROUP</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Our Work</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- YOUR EXACT HERO CAROUSEL (100% UNTOUCHED) -->
+  <div class="hero-carousel">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/images/remodel.jpeg" alt="Luxury Kitchen Remodel">
+          <div class="hero-overlay">
+            <div class="hero-content">
+              <h1>DIRECT BUILD GROUP</h1>
+              <p class="tagline">Texas Elite Remodeling & Construction</p>
+              <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
+              <div class="hero-buttons">
+                <a href="contact.html">Free Texas Quote</a>
+                <a href="work.html" class="ghost">View Our Work</a>
+              </div>
             </div>
           </div>
         </div>
+        <div class="swiper-slide">
+          <img src="assets/images/bathroom4.jpg" alt="Spa Bathroom Remodel">
+          <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/custom build.jpg" alt="Custom Deck & Porch">
+          <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/ex2.webp" alt="Premium Painting">
+          <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/floor3.jpg" alt="Luxury Flooring">
+          <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/porch.jpeg" alt="Classic Texas Porch">
+          <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <img src="assets/images/bathroom4.jpg" alt="Spa Bathroom Remodel">
-        <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/images/custom build.jpg" alt="Custom Deck & Porch">
-        <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/images/ex2.webp" alt="Premium Painting">
-        <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/images/floor3.jpg" alt="Luxury Flooring">
-        <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/images/porch.jpeg" alt="Classic Texas Porch">
-        <div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div>
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
-
-<main>
-  <section class="section" id="about">
-    <h2>Licensed Texas Contractor – Statewide Service</h2>
-    <p style="max-width:900px;margin:0 auto 40px;font-size:1.3rem;line-height:1.8;">We proudly serve <strong>all of Texas</strong>: Austin, Dallas, Houston, San Antonio, Fort Worth, El Paso, Corpus Christi, Lubbock, and everywhere in between. From Hill Country ranches to Gulf Coast homes, we bring premium craftsmanship to every corner of the Lone Star State.</p>
-    <div style="background:rgba(251,191,36,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
-      <p style="font-size:1.25rem;font-weight:600;color:#c8102e;">We proudly serve all of Texas. Out-of-state projects by special invitation only.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Our Texas Services</h2>
-    <div class="service-grid">
-      <div class="service-card"><h3>Painting</h3><p>Interior & exterior painting – flawless finishes</p></div>
-      <div class="service-card"><h3>Remodeling</h3><p>Kitchen & bathroom transformations</p></div>
-      <div class="service-card"><h3>Porches</h3><p>Custom screened & timber porches</p></div>
-      <div class="service-card"><h3>Decks</h3><p>Composite decks built for Texas</p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Recent Projects Across Texas</h2>
-    <div class="projects-grid">
-      <div class="proj" data-src="assets/images/custom deck1.jpg"><img src="assets/images/custom deck1.jpg" alt="Custom Deck"><div class="tag">Deck</div></div>
-      <div class="proj" data-src="assets/images/remodel.jpeg"><img src="assets/images/remodel.jpeg" alt="Kitchen Remodel"><div class="tag">Kitchen</div></div>
-      <div class="proj" data-src="assets/images/porch3.jpg"><img src="assets/images/porch3.jpg" alt="Custom Porch"><div class="tag">Porch</div></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Why Texas Homeowners Trust Us</h2>
-    <div class="why-grid">
-      <div class="why-card"><h3>Licensed & Insured</h3><p>Fully compliant in Texas</p></div>
-      <div class="why-card"><h3>Transparent Pricing</h3><p>No surprises, ever</p></div>
-      <div class="why-card"><h3>Premium Materials</h3><p>Sherwin-Williams, Trex, LVP</p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Texas Client Reviews</h2>
-    <div class="testimonials">
-      <div class="testimonial"><p>“Best painting crew in Austin — transformed our home!”</p><cite>— Sarah K., Austin</cite></div>
-      <div class="testimonial"><p>“Stunning deck in Dallas — worth every penny.”</p><cite>— Mike R., Dallas</cite></div>
-      <div class="testimonial"><p>“Professional porch build in Houston — on time & on budget.”</p><cite>— Lisa M., Houston</cite></div>
-    </div>
-  </section>
-
-  <div class="cta-block">
-    <h3>Start Your Texas Project Today</h3>
-    <p style="font-size:1.7rem;margin:20px 0 40px;">Licensed contractor • Free quote in 24h • Serving ALL of Texas</p>
-    <a href="contact.html">Get Your Free Quote Now</a>
-  </div>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">DIRECT BUILD GROUP</div>
-    <p class="footer-tagline">Texas Elite Remodeling • Licensed & Insured Since 2018</p>
-    <div class="footer-links">
-      <a href="services.html">Our Services</a>
-      <a href="work.html">Portfolio</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Get Free Quote</a>
-      <a href="tel:+15125550198">Call (512) 555-0198</a>
-    </div>
-    <div style="color:#777;font-size:1.1rem;margin-top:40px;">
-      © 2025 Direct Build Group • Proudly Serving All of Texas
+      <div class="swiper-pagination"></div>
     </div>
   </div>
-</footer>
 
-<div class="lightbox" id="lightbox">
-  <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:white;width:60px;height:60px;border-radius:50%;font-size:2rem;border:none;cursor:pointer;z-index:10;">×</button>
-  <img id="lbImg" src="" alt="Enlarged project">
-</div>
+  <!-- YOUR ORIGINAL MAIN CONTENT (100% PRESERVED) -->
+  <main>
+    <section class="section" id="about">
+      <h2>Licensed Texas Contractor – Statewide Service</h2>
+      <p style="max-width:900px;margin:0 auto 40px;font-size:1.3rem;line-height:1.8;">We proudly serve <strong>all of Texas</strong>: Austin, Dallas, Houston, San Antonio, Fort Worth, El Paso, Corpus Christi, Lubbock, and everywhere in between. From Hill Country ranches to Gulf Coast homes, we bring premium craftsmanship to every corner of the Lone Star State.</p>
+      <div style="background:rgba(251,191,36,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
+        <p style="font-size:1.25rem;font-weight:600;color:#c8102e;">We proudly serve all of Texas. Out-of-state projects by special invitation only.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Our Texas Services</h2>
+      <div class="service-grid">
+        <div class="service-card"><h3>Painting</h3><p>Interior & exterior painting – flawless finishes</p></div>
+        <div class="service-card"><h3>Remodeling</h3><p>Kitchen & bathroom transformations</p></div>
+        <div class="service-card"><h3>Porches</h3><p>Custom screened & timber porches</p></div>
+        <div class="service-card"><h3>Decks</h3><p>Composite decks built for Texas</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recent Projects Across Texas</h2>
+      <div class="projects-grid">
+        <div class="proj" data-src="assets/images/custom deck1.jpg"><img src="assets/images/custom deck1.jpg" alt="Custom Deck"><div class="tag">Deck</div></div>
+        <div class="proj" data-src="assets/images/remodel.jpeg"><img src="assets/images/remodel.jpeg" alt="Kitchen Remodel"><div class="tag">Kitchen</div></div>
+        <div class="proj" data-src="assets/images/porch3.jpg"><img src="assets/images/porch3.jpg" alt="Custom Porch"><div class="tag">Porch</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why Texas Homeowners Trust Us</h2>
+      <div class="why-grid">
+        <div class="why-card"><h3>Licensed & Insured</h3><p>Fully compliant in Texas</p></div>
+        <div class="why-card"><h3>Transparent Pricing</h3><p>No surprises, ever</p></div>
+        <div class="why-card"><h3>Premium Materials</h3><p>Sherwin-Williams, Trex, LVP</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Texas Client Reviews</h2>
+      <div class="testimonials">
+        <div class="testimonial"><p>“Best painting crew in Austin — transformed our home!”</p><cite>— Sarah K., Austin</cite></div>
+        <div class="testimonial"><p>“Stunning deck in Dallas — worth every penny.”</p><cite>— Mike R., Dallas</cite></div>
+        <div class="testimonial"><p>“Professional porch build in Houston — on time & on budget.”</p><cite>— Lisa M., Houston</cite></div>
+      </div>
+    </section>
+
+    <div class="cta-block">
+      <h3>Start Your Texas Project Today</h3>
+      <p style="font-size:1.7rem;margin:20px 0 40px;">Licensed contractor • Free quote in 24h • Serving ALL of Texas</p>
+      <a href="contact.html">Get Your Free Quote Now</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">DIRECT BUILD GROUP</div>
+      <p class="footer-tagline">Texas Elite Remodeling • Licensed & Insured Since 2018</p>
+      <div class="footer-links">
+        <a href="services.html">Our Services</a>
+        <a href="work.html">Portfolio</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Get Free Quote</a>
+        <a href="tel:+15125550198">Call (512) 555-0198</a>
+      </div>
+      <div style="color:#777;font-size:1.1rem;margin-top:40px;">
+        © 2025 Direct Build Group • Proudly Serving All of Texas
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:white;width:60px;height:60px;border-radius:50%;font-size:2rem;border:none;cursor:pointer;z-index:10;">×</button>
+    <img id="lbImg" src="" alt="Enlarged project">
+  </div>
+
+</div> <!-- END MAIN CONTENT -->
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// Banner closes but reappears on refresh
-document.querySelector('.banner-close').onclick = () => document.getElementById('topQuoteBanner').classList.add('hidden');
+// PRELOADER - 360° SPIN + ZOOM THEN FADE IN SITE
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('hidden');
+    document.getElementById('mainContent').classList.add('visible');
+  }, 3800); // Full animation time
+});
 
 // Hero Carousel
 new Swiper('.hero-carousel .swiper', {
