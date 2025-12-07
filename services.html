@@ -12,11 +12,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css">
 
 <style>
-/* PRELOADER */
-#preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 1s ease 1.5s,visibility 0s 2.5s}
-#preloader.hidden{opacity:0;visibility:hidden}
-.preloader-logo{width:220px}
-.preloader-logo img{width:100%;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,0.25)}
+/* BIG RESPONSIVE PRELOADER - Same as work.html */
+#preloader{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;
+  display:grid;place-items:center;transition:opacity 1s ease;
+}
+#preloader.fade-out{opacity:0;pointer-events:none;}
+#preloader img{
+  width:70vmin;max-width:420px;min-width:220px;
+  border-radius:50%;box-shadow:0 30px 100px rgba(0,0,0,0.2);
+  animation:gentlePulse 2s infinite alternate;
+}
+@keyframes gentlePulse{from{transform:scale(0.95);}to{transform:scale(1.02);}}
 
 /* GENERAL */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -24,7 +31,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Satoshi',sans-serif;background:#fff;color:#1a1a1a;line-height:1.7;overflow-x:hidden}
 
 /* HEADER */
-header{position:fixed;top:0;left:0;width:100%;padding:14px 20px;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);display:flex;justify-content:space-between;align-items:center;z-index:1100;border-bottom:3px solid #fbbf24;box-shadow:0 10px 50px rgba(0,0,0,0.12);transition:all .4s}
+header{position:fixed;top:0;left:0;width:100%;padding:14px 20px;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);display:flex;justify-content:space-between;align-items:center;z-index:1100;border-bottom:3px solid #fbbf24;box-shadow:0 10px 50px rgba(0,0,0,0.12)}
 .logo{display:flex;align-items:center;gap:12px}
 .logo img{width:62px;height:62px;border-radius:14px;border:3px solid #fbbf24;object-fit:cover}
 .logo span{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:900;color:#1a1a1a}
@@ -65,7 +72,7 @@ header{position:fixed;top:0;left:0;width:100%;padding:14px 20px;background:rgba(
 .service-card h3{padding:28px 28px 12px;font-size:1.8rem;font-weight:700}
 .service-card p{padding:0 28px 32px;font-size:1.1rem;color:#555}
 
-/* THUMBNAIL GALLERY */
+/* THUMBNAIL LIGHTBOX */
 .gallery-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.98);z-index:2000;display:none;overflow-y:auto;padding:100px 20px 60px}
 .gallery-lightbox.open{display:block}
 .gallery-header{position:fixed;top:0;left:0;width:100%;height:90px;background:rgba(0,0,0,0.94);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:10}
@@ -86,18 +93,15 @@ header{position:fixed;top:0;left:0;width:100%;padding:14px 20px;background:rgba(
 .stats-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:50px}
 .stat-item h3{font-size:5rem;color:#fbbf24;font-weight:900}
 .stat-item p{font-size:1.3rem;font-weight:600;opacity:0.95}
-
 .testimonials{background:#f8f9fa;padding:110px 20px}
 .testimonials h2{text-align:center;font-family:'Cinzel',serif;font-size:3.4rem;margin-bottom:70px;color:#1a1a1a}
 .testimonial{background:white;padding:40px;border-radius:32px;box-shadow:0 20px 60px rgba(0,0,0,0.1);text-align:center;font-size:1.25rem}
 .testimonial cite{color:#fbbf24;font-weight:700;margin-top:18px;display:block}
-
 .cta{background:#c8102e;text-align:center;padding:110px 20px}
 .cta h2{font-family:'Cinzel',serif;font-size:3.8rem;color:white;margin-bottom:20px}
 .cta p{font-size:1.5rem;color:#ffebee;margin-bottom:45px}
 .cta a{background:white;color:#c8102e;padding:24px 80px;border-radius:50px;font-weight:800;font-size:1.6rem;text-decoration:none;box-shadow:0 25px 70px rgba(0,0,0,0.4);transition:all .5s}
 .cta a:hover{transform:scale(1.1)}
-
 footer{background:#fff;padding:100px 20px 70px;border-top:6px solid #fbbf24;text-align:center}
 .footer-inner{max-width:1200px;margin:auto}
 .footer-logo{font-family:'Cinzel',serif;font-size:4.2rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -105,24 +109,22 @@ footer{background:#fff;padding:100px 20px 70px;border-top:6px solid #fbbf24;text
 .footer-links a{margin:0 18px;color:#111;font-weight:600;font-size:1.2rem;text-decoration:none}
 .footer-links a:hover{color:#c8102e}
 .footer-bottom{color:#777;font-size:1rem;padding-top:25px;border-top:1px solid #eee}
-
 .whatsapp-btn,.back-to-top{position:fixed;bottom:24px;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:2.4rem;color:white;box-shadow:0 16px 55px rgba(0,0,0,0.5);z-index:1000;transition:all .4s}
 .whatsapp-btn{left:20px;background:#25D366}
 .back-to-top{right:20px;background:#c8102e;display:none}
 .back-to-top.show{display:grid}
 .whatsapp-btn:hover,.back-to-top:hover{transform:scale(1.2)}
-
 @media (max-width:992px){.desktop-nav{display:none}.hamburger{display:grid}header{padding:12px 16px}.logo img{width:56px;height:56px}.logo span{font-size:1.7rem}}
 @media (max-width:640px){.hero-carousel{height:80vh;margin-top:76px}.filter-bar{top:76px}.gallery-grid{grid-template-columns:1fr}.gallery-grid img{height:300px}}
 </style>
 </head>
 <body>
 
+<!-- BIG PRELOADER -->
 <div id="preloader">
-  <div class="preloader-logo"><img src="assets/images/logo.jpg" alt="Direct Build Group"></div>
+  <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
-<div class="main-content">
 <a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
@@ -188,7 +190,7 @@ footer{background:#fff;padding:100px 20px 70px;border-top:6px solid #fbbf24;text
   </div>
 </section>
 
-<!-- THUMBNAIL GALLERY LIGHTBOX -->
+<!-- THUMBNAIL LIGHTBOX -->
 <div class="gallery-lightbox" id="galleryLightbox">
   <div class="gallery-header">
     <h2 class="gallery-title" id="galleryTitle">Our Projects</h2>
@@ -261,95 +263,102 @@ footer{background:#fff;padding:100px 20px 70px;border-top:6px solid #fbbf24;text
     <div class="footer-bottom">© 2025 Direct Build Group • Proudly Serving All of Texas</div>
   </div>
 </footer>
-</div>
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.min.js"></script>
 
 <script>
-// Preloader
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('preloader').classList.add('hidden'),2000));
+// BIG PRELOADER - 3 seconds then fade out
+setTimeout(() => {
+  const preloader = document.getElementById('preloader');
+  preloader.classList.add('fade-out');
+  setTimeout(() => preloader.remove(), 1000);
+}, 3000);
 
 // Mobile Menu
-document.getElementById('menuBtn').onclick=()=>{document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('menuBtn').innerHTML=document.getElementById('mobileMenu').classList.contains('open')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';};
+document.getElementById('menuBtn').onclick = () => {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  document.getElementById('menuBtn').innerHTML = menu.classList.contains('open') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+};
 
 // Swipers
-new Swiper('.hero-carousel .swiper',{loop:true,autoplay:{delay:6000},pagination:{el:'.swiper-pagination',clickable:true},effect:'fade',speed:1200});
-new Swiper('.testimonials .swiper',{loop:true,autoplay:{delay:5000},pagination:{el:'.swiper-pagination',clickable:true},slidesPerView:1,spaceBetween:30,breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}});
+new Swiper('.hero-carousel .swiper', {loop:true, autoplay:{delay:6000}, pagination:{el:'.swiper-pagination',clickable:true}, effect:'fade', speed:1200});
+new Swiper('.testimonials .swiper', {loop:true, autoplay:{delay:5000}, pagination:{el:'.swiper-pagination',clickable:true}, slidesPerView:1, spaceBetween:30, breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}});
 
 // Filter
-document.querySelectorAll('.filter-btn').forEach(b=>b.onclick=()=>{document.querySelector('.filter-btn.active')?.classList.remove('active');b.classList.add('active');const f=b.dataset.filter;document.querySelectorAll('.service-card').forEach(c=>c.style.display=(f==='all'||c.dataset.gallery.includes(f))?'block':'none');});
+document.querySelectorAll('.filter-btn').forEach(b => b.onclick = () => {
+  document.querySelector('.filter-btn.active')?.classList.remove('active');
+  b.classList.add('active');
+  const f = b.dataset.filter;
+  document.querySelectorAll('.service-card').forEach(c => c.style.display = (f==='all' || c.dataset.gallery.includes(f)) ? 'block' : 'none');
+});
 
 // Gallery Data
-const galleries={ "exterior-painting":["assets/images/ex2.webp","assets/images/paint1.jpg","assets/images/paint2.jpg","assets/images/paint3.jpg","assets/images/paint4.jpg","assets/images/paint5.jpg"],
-"interior-painting":["assets/images/interior1.jpg","assets/images/interior2.jpg","assets/images/interior3.jpg","assets/images/interior4.jpg","assets/images/interior5.jpg"],
-"kitchen":["assets/images/kitchen remodel1.jpg","assets/images/kitchen remodel2.jpg","assets/images/kitchen remodel3.jpg","assets/images/kitchen remodel4.jpg","assets/images/kitchen remodel5.jpg"],
-"bathroom":["assets/images/bathroom remodel.jpg","assets/images/bathroom remodel1.jpg","assets/images/bathroom remodel2.jpg","assets/images/bathroom remodel3.jpg","assets/images/bathroom remodel4.jpg"],
-"timber-porch":["assets/images/timber porch1.jpeg","assets/images/timber porch2.jpeg","assets/images/timber porch3.jpeg","assets/images/timber porch4.jpeg","assets/images/timber porch5.jpeg"],
-"screened-porch":["assets/images/screened porches.jpg","assets/images/screened porches1.jpg","assets/images/screened porches2.jpg","assets/images/screened porches3.jpg","assets/images/screened porches4.jpg"],
-"composite-deck":["assets/images/deck.jpeg","assets/images/deck1.jpg","assets/images/deck2.jpg","assets/images/deck3.jpg","assets/images/deck4.jpg","assets/images/deck5.jpg"],
-"custom-deck":["assets/images/custom deck1.jpg","assets/images/custom deck2.jpg","assets/images/custom deck3.jpg","assets/images/custom deck4.jpg","assets/images/custom deck5.jpg"],
-"hardwood":["assets/images/hardwood flooring1.jpg","assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg","assets/images/hardwood flooring4.jpg","assets/images/hardwood flooring5.jpg"],
-"vinyl":["assets/images/luxury finishes1.jpg","assets/images/luxury finishes2.jpg","assets/images/luxury finishes3.jpg","assets/images/luxury finishes4.jpg","assets/images/luxury finishes5.jpg"],
-"carpet":["assets/images/carpet flooring1.jpg","assets/images/Carpet flooring2.jpg","assets/images/Carpet flooring3.jpg","assets/images/Carpet flooring4.jpg","assets/images/Carpet flooring5.jpg"] };
+const galleries = {
+  "exterior-painting":["assets/images/Exterior home finishes.jpeg","assets/images/Exterior home finishes1.jpeg","assets/images/Exterior home finishes2.jpeg","assets/images/Exterior home finishes3.jpeg","assets/images/Exterior home finishes4.jpeg","assets/images/Exterior home finishes5.jpeg"],
+  "interior-painting":["assets/images/interior1.jpg","assets/images/interior2.jpg","assets/images/interior3.jpg","assets/images/interior4.jpg","assets/images/interior5.jpg"],
+  "kitchen":["assets/images/kitchen remodel1.jpg","assets/images/kitchen remodel2.jpg","assets/images/kitchen remodel3.jpg","assets/images/kitchen remodel4.jpg","assets/images/kitchen remodel5.jpg"],
+  "bathroom":["assets/images/bathroom remodel.jpg","assets/images/bathroom remodel1.jpg","assets/images/bathroom remodel2.jpg","assets/images/bathroom remodel3.jpg","assets/images/bathroom remodel4.jpg"],
+  "timber-porch":["assets/images/timber porch1.jpeg","assets/images/timber porch2.jpeg","assets/images/timber porch3.jpeg","assets/images/timber porch4.jpeg","assets/images/timber porch5.jpeg"],
+  "screened-porch":["assets/images/screened porches.jpg","assets/images/screened porches1.jpg","assets/images/screened porches2.jpg","assets/images/screened porches3.jpg","assets/images/screened porches4.jpg"],
+  "composite-deck":["assets/images/composite desks.jpeg","assets/images/composite desks1.jpeg","assets/images/composite desks2.jpeg","assets/images/composite desks3.jpeg","assets/images/composite desks4.jpeg","assets/images/composite desks5.jpeg"],
+  "custom-deck":["assets/images/custom deck1.jpg","assets/images/custom deck2.jpg","assets/images/custom deck3.jpg","assets/images/custom deck4.jpg","assets/images/custom deck5.jpg"],
+  "hardwood":["assets/images/hardwood flooring1.jpg","assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg","assets/images/hardwood flooring4.jpg","assets/images/hardwood flooring5.jpg"],
+  "vinyl":["assets/images/luxury finishes1.jpg","assets/images/luxury finishes2.jpg","assets/images/luxury finishes3.jpg","assets/images/luxury finishes4.jpg","assets/images/luxury finishes5.jpg"],
+  "carpet":["assets/images/carpet flooring1.jpg","assets/images/Carpet flooring2.jpg","assets/images/Carpet flooring3.jpg","assets/images/Carpet flooring4.jpg","assets/images/Carpet flooring5.jpg"]
+};
 
 let currentLightbox = null;
 
-// Open thumbnail gallery + enable fullscreen (NO NEW TAB)
-document.querySelectorAll('.service-card').forEach(card=>{
-  card.onclick=()=>{
-    const key=card.dataset.gallery;
-    const title=card.querySelector('h3').textContent;
-    const images=galleries[key]||[];
+// Click service → thumbnails → click photo → HUGE fullscreen PhotoSwipe (NO NEW TAB)
+document.querySelectorAll('.service-card').forEach(card => {
+  card.onclick = () => {
+    const key = card.dataset.gallery;
+    const title = card.querySelector('h3').textContent;
+    const images = galleries[key] || [];
 
-    document.getElementById('galleryTitle').textContent=title;
-    const grid=document.getElementById('galleryGrid');
-    grid.innerHTML='';
+    document.getElementById('galleryTitle').textContent = title;
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
 
-    images.forEach(src=>{
-      const div=document.createElement('div');
-      div.className='pswp-gallery__item';
-
-      const a=document.createElement('a');
-      a.href=src;
-      a.setAttribute('data-pswp-width','1920');
-      a.setAttribute('data-pswp-height','1280');
-
-      const img=document.createElement('img');
-      img.src=src;
-      img.alt=title;
-      img.loading='lazy';
-
-      a.appendChild(img);
-      div.appendChild(a);
-      grid.appendChild(div);
+    images.forEach(src => {
+      const a = document.createElement('a');
+      a.href = src;
+      a.setAttribute('data-pswp-width', '1920');
+      a.setAttribute('data-pswp-height', '1280');
+      // REMOVED target="_blank" — NO NEW TAB!
+      a.innerHTML = `<img src="${src}" alt="${title}" loading="lazy">`;
+      grid.appendChild(a);
     });
 
     document.getElementById('galleryLightbox').classList.add('open');
-    document.body.style.overflow='hidden';
+    document.body.style.overflow = 'hidden';
 
-    // Initialize PhotoSwipe Lightbox
+    if (currentLightbox) currentLightbox.destroy();
+
     currentLightbox = new PhotoSwipeLightbox({
       gallery: '#galleryGrid',
       children: 'a',
       pswpModule: PhotoSwipe,
-      bgOpacity: 0.95,
-      spacing: 0.1,
-      loop: true
+      bgOpacity: 0.96,
+      spacing: 0.12,
+      loop: true,
+      showHideAnimationType: 'zoom'
     });
 
-    // Huge logo + title in fullscreen
     currentLightbox.on('uiRegister', () => {
       currentLightbox.pswp.ui.registerElement({
         name: 'custom-caption',
         order: 9,
         isButton: false,
         appendTo: 'root',
-        html: `<div class="pswp__custom-caption">
-                 <img src="assets/images/logo.jpg" alt="Direct Build Group">
-                 <h3>${title}</h3>
-               </div>`
+        html: `
+          <div class="pswp__custom-caption">
+            <img src="assets/images/logo.jpg" alt="Direct Build Group">
+            <h3>${title}</h3>
+          </div>`
       });
     });
 
@@ -357,24 +366,38 @@ document.querySelectorAll('.service-card').forEach(card=>{
   };
 });
 
-// Close gallery
-document.getElementById('galleryClose').onclick=()=>{
-  if(currentLightbox){currentLightbox.destroy();currentLightbox=null;}
+// Close lightbox
+document.getElementById('galleryClose').onclick = () => {
+  if (currentLightbox) { currentLightbox.destroy(); currentLightbox = null; }
   document.getElementById('galleryLightbox').classList.remove('open');
-  document.body.style.overflow='';
+  document.body.style.overflow = '';
 };
 
-document.getElementById('galleryLightbox').onclick=e=>{
-  if(e.target===document.getElementById('galleryLightbox')) document.getElementById('galleryClose').click();
+// Click outside to close
+document.getElementById('galleryLightbox').onclick = (e) => {
+  if (e.target === document.getElementById('galleryLightbox')) document.getElementById('galleryClose').click();
 };
 
 // Counters & back to top
-document.querySelectorAll('.counter').forEach(c=>{
-  const update=()=>{const t=+c.dataset.target,n=+c.innerText,i=t/120;n<t?(c.innerText=Math.ceil(n+i),setTimeout(update,20)):c.innerText=t+(t===100?'%':'+');};
-  new IntersectionObserver(e=>e[0].isIntersecting&&update(),{threshold:0.6}).observe(c.parentElement);
+document.querySelectorAll('.counter').forEach(c => {
+  const update = () => {
+    const t = +c.dataset.target;
+    let n = +c.innerText;
+    const i = t / 120;
+    if (n < t) {
+      c.innerText = Math.ceil(n + i);
+      setTimeout(update, 20);
+    } else {
+      c.innerText = t + (t === 100 ? '%' : '+');
+    }
+  };
+  new IntersectionObserver(e => e[0].isIntersecting && update(), {threshold: 0.6}).observe(c.parentElement);
 });
-window.addEventListener('scroll',()=>{document.getElementById('backToTop').classList.toggle('show',window.scrollY>600);});
-document.getElementById('backToTop').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});};
+
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
+});
+document.getElementById('backToTop').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
 </script>
 </body>
 </html>
