@@ -14,69 +14,91 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Satoshi',sans-serif;background:#fafafa;color:#1a1a1a;overflow-x:hidden;}
-@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
 
-/* PRELOADER - Clean, no yellow ring */
+/* BIG RESPONSIVE PRELOADER */
 #preloader{
   position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;
-  display:grid;place-items:center;pointer-events:none;overflow:hidden;
+  display:grid;place-items:center;transition:opacity 1s ease;
 }
-#preloader .preloader-logo{
-  width:340px;height:340px;border-radius:50%;
-  display:grid;place-items:center;
-  background:#fff;
-  box-shadow:0 60px 180px rgba(0,0,0,0.15);
-  animation: bigZoom 3.4s ease-in-out forwards, flyToCorner 1.3s 3.4s cubic-bezier(0.7,0,0.3,1) forwards;
-}
+#preloader.fade-out{opacity:0;pointer-events:none;}
 #preloader img{
-  width:230px;
-  border-radius:50%;
-  filter:drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+  width:70vmin;max-width:420px;min-width:220px;
+  border-radius:50%;box-shadow:0 30px 100px rgba(0,0,0,0.2);
+  animation:gentlePulse 2s infinite alternate;
 }
-@keyframes bigZoom{
-  0%   {transform:scale(0.4);opacity:0;}
-  45%  {transform:scale(2.8);opacity:1;}
-  100% {transform:scale(1);opacity:1;}
-}
-@keyframes flyToCorner{
-  0%   {transform:scale(1) translate(0,0);}
-  100% {transform:scale(0.12) translate(-50vw,-50vh);opacity:0;}
+@keyframes gentlePulse{from{transform:scale(0.95);}to{transform:scale(1.02);}}
+
+/* HEADER - NAV NOW ON THE RIGHT */
+header{
+  position:fixed;top:0;left:0;right:0;
+  padding:18px 40px;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(20px);
+  display:flex;
+  justify-content:space-between;   /* logo left, nav right */
+  align-items:center;
+  z-index:1100;
+  border-bottom:5px solid #fbbf24;
+  box-shadow:0 15px 60px rgba(0,0,0,0.12);
 }
 
-/* HEADER + ANIMATED GRADIENT LOGO */
-header{position:fixed;top:0;left:0;right:0;padding:18px 30px;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);
-  display:flex;justify-content:space-between;align-items:center;z-index:1100;border-bottom:5px solid #fbbf24;
-  box-shadow:0 15px 60px rgba(0,0,0,0.12);}
+/* Logo on the left */
 .logo{display:flex;align-items:center;gap:16px;}
 .logo img{width:72px;border-radius:18px;border:5px solid #fbbf24;}
-.logo span{font-family:'Cinzel',serif;font-size:2.1rem;font-weight:900;
+.logo span{
+  font-family:'Cinzel',serif;font-size:2.1rem;font-weight:900;color:#000;
+}
+
+/* Gradient text animation */
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
+.logo span{
   background:linear-gradient(var(--angle),#c8102e 0%,#f59e0b 15%,#fbbf24 30%,#fde047 50%,#fbbf24 70%,#f59e0b 85%,#c8102e 100%);
   background-size:300% 300%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  animation:gradientFlow 8s ease infinite;}
-@keyframes gradientFlow{0%,100%{--angle:0deg}50%{--angle:360deg}from{background-position:0% 50%}to{background-position:100% 50%}}
+  animation:gradientFlow 8s ease infinite;
+}
+@keyframes gradientFlow{0%,100%{--angle:0deg}50%{--angle:360deg}}
 
-.desktop-nav a{color:#1a1a1a;font-weight:700;font-size:1.1rem;margin:0 18px;position:relative;}
-.desktop-nav a::after{content:'';position:absolute;bottom:-14px;left:0;width:0;height:5px;background:#fbbf24;transition:.5s;}
+/* Desktop Navigation - pushed to the right */
+.desktop-nav{
+  display:flex;
+  align-items:center;
+}
+.desktop-nav a{
+  color:#1a1a1a;font-weight:700;font-size:1.1rem;margin:0 20px;position:relative;
+}
+.desktop-nav a::after{
+  content:'';position:absolute;bottom:-14px;left:0;width:0;height:5px;background:#fbbf24;transition:.5s;
+}
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
 .desktop-nav a.active,.desktop-nav a:hover{color:#c8102e;}
 
-.hamburger{display:none;width:64px;height:64px;background:#fbbf24;border-radius:50%;cursor:pointer;
-  place-items:center;font-size:2.4rem;color:#fff;box-shadow:0 15px 40px rgba(251,191,36,0.5);transition:all .4s;}
+/* Hamburger (mobile only) */
+.hamburger{
+  display:none;width:64px;height:64px;background:#fbbf24;border-radius:50%;cursor:pointer;
+  place-items:center;font-size:2.4rem;color:#fff;box-shadow:0 15px 40px rgba(251,191,36,0.5);transition:all .4s;
+}
 .hamburger.active{background:#c8102e;transform:rotate(90deg);}
 
-.mobile-menu{position:fixed;inset:0;background:#fff;z-index:1199;display:flex;flex-direction:column;
-  justify-content:center;align-items:center;gap:40px;transform:translateY(-100%);opacity:0;transition:all .6s ease;}
+/* Mobile Menu */
+.mobile-menu{
+  position:fixed;inset:0;background:#fff;z-index:1199;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;gap:40px;transform:translateY(-100%);opacity:0;transition:all .6s ease;
+}
 .mobile-menu.active{transform:translateY(0);opacity:1;}
 .mobile-menu a{font-family:'Cinzel',serif;font-size:3.5rem;font-weight:900;color:#1a1a1a;transition:.4s;}
 .mobile-menu a:hover,.mobile-menu a.active{color:#c8102e;transform:scale(1.15);}
 
 main{margin-top:100px;padding:60px 20px 120px;text-align:center;}
-.page-title{font-family:'Cinzel',serif;font-size:clamp(4rem,10vw,7rem);font-weight:900;margin-bottom:20px;
-  background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.page-title{
+  font-family:'Cinzel',serif;font-size:clamp(4rem,10vw,7rem);font-weight:900;margin-bottom:20px;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
 .page-subtitle{font-size:1.8rem;color:#555;margin-bottom:60px;}
 
-.contact-card{max-width:1000px;margin:0 auto;background:#fff;padding:90px 70px;border-radius:60px;
-  box-shadow:0 90px 250px rgba(0,0,0,0.22);border:8px solid #fbbf24;position:relative;overflow:hidden;}
+.contact-card{
+  max-width:1000px;margin:0 auto;background:#fff;padding:90px 70px;border-radius:60px;
+  box-shadow:0 90px 250px rgba(0,0,0,0.22);border:8px solid #fbbf24;position:relative;overflow:hidden;
+}
 .contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:14px;
   background:linear-gradient(90deg,#c8102e,#fbbf24);}
 
@@ -88,59 +110,75 @@ main{margin-top:100px;padding:60px 20px 120px;text-align:center;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
   outline:none;border-color:#fbbf24;box-shadow:0 0 0 10px rgba(251,191,36,0.22);}
 textarea{height:160px;resize:none;}
-.submit-btn{width:100%;background:#c8102e;color:#fff;padding:30px;font-size:2.1rem;font-weight:900;
-  border:none;border-radius:70px;box-shadow:0 40px 120px rgba(200,16,46,0.6);transition:.6s;cursor:pointer;}
+
+.submit-btn{
+  width:100%;background:#c8102e;color:#fff;padding:30px;font-size:2.1rem;font-weight:900;
+  border:none;border-radius:70px;box-shadow:0 40px 120px rgba(200,16,46,0.6);transition:.6s;cursor:pointer;
+}
 .submit-btn:hover{transform:translateY(-12px);background:#a10e28;box-shadow:0 60px 160px rgba(200,16,46,0.7);}
 .submit-btn:disabled{background:#999;cursor:not-allowed;transform:none;}
 
-.success-msg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:#fff;padding:50px 70px;border-radius:30px;box-shadow:0 30px 100px rgba(0,0,0,0.4);
-  font-size:2rem;font-weight:700;color:#c8102e;z-index:10000;text-align:center;line-height:1.4;
-  opacity:0;pointer-events:none;transition:opacity .6s;}
+.success-msg{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:#fff;padding:60px 80px;border-radius:30px;box-shadow:0 30px 100px rgba(0,0,0,0.4);
+  font-size:2.4rem;font-weight:700;color:#c8102e;z-index:10000;text-align:center;line-height:1.4;
+  opacity:0;pointer-events:none;transition:opacity .6s;
+}
 .success-msg.show{opacity:1;pointer-events:all;}
 
-.whatsapp-btn,.back-to-top{position:fixed;bottom:25px;z-index:1000;width:70px;height:70px;border-radius:50%;
-  display:grid;place-items:center;font-size:2.6rem;color:#fff;box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:.4s;}
-.whatsapp-btn{left:20px;background:#25D366;}
-.back-to-top{right:20px;background:#c8102e;display:none;}
+.back-to-top{
+  position:fixed;bottom:25px;right:20px;z-index:1000;width:70px;height:70px;border-radius:50%;
+  display:none;place-items:center;font-size:2.6rem;color:#fff;background:#c8102e;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:.4s;cursor:pointer;
+}
 .back-to-top.show{display:grid;}
 
-@media(max-width:992px){.desktop-nav{display:none;}.hamburger{display:grid;}.form-grid{grid-template-columns:1fr;}.contact-card{padding:70px 40px;}}
-@media(max-width:640px){.contact-card{padding:60px 30px;border-radius:40px;}.page-title{font-size:4.5rem;}.submit-btn{font-size:1.9rem;padding:26px;}}
+/* RESPONSIVE */
+@media(max-width:992px){
+  header{padding:18px 20px;}
+  .desktop-nav{display:none;}
+  .hamburger{display:grid;}
+  .form-grid{grid-template-columns:1fr;}
+  .contact-card{padding:70px 40px;}
+}
+@media(max-width:640px){
+  .contact-card{padding:60px 30px;border-radius:40px;}
+  .page-title{font-size:4.5rem;}
+  .submit-btn{font-size:1.9rem;padding:26px;}
+}
 </style>
 </head>
 <body>
 
-<!-- PRELOADER - Clean, no yellow ring -->
+<!-- BIG PRELOADER - 3 seconds -->
 <div id="preloader">
-  <div class="preloader-logo">
-    <img src="assets/images/logo.jpg" alt="Direct Build Group">
-  </div>
+  <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
-<!-- SUCCESS POPUP -->
+<!-- SUCCESS MESSAGE -->
 <div class="success-msg" id="successMsg">
   Thank You!<br>
-  <span style="font-size:1.3rem;color:#555;">Opening WhatsApp chat... Just tap Send!</span>
+  <span style="font-size:1.4rem;color:#555;">Your message was sent successfully.<br>We’ll contact you very soon!</span>
 </div>
 
-<!-- FLOATING BUTTONS -->
-<a href="https://wa.me/14695710545" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- Back to Top -->
 <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-<!-- HEADER -->
+<!-- HEADER - Nav on the right -->
 <header>
   <div class="logo">
     <img src="assets/images/logo.jpg" alt="Direct Build Group">
-    <span style="color: black;">DIRECT BUILD GROUP</span>
+    <span>DIRECT BUILD GROUP</span>
   </div>
+
   <nav class="desktop-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="work.html">Our Work</a>
+    <a href="work.html">Gallery</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
+
   <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
 </header>
 
@@ -186,11 +224,12 @@ textarea{height:160px;resize:none;}
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-// Remove preloader after animation
+// PRELOADER - 3 seconds then fade out
 setTimeout(() => {
-  const p = document.getElementById('preloader');
-  if (p) p.remove();
-}, 4700);
+  const preloader = document.getElementById('preloader');
+  preloader.classList.add('fade-out');
+  setTimeout(() => preloader.remove(), 1000);
+}, 3000);
 
 // Mobile Menu
 document.getElementById('hamburgerBtn').onclick = () => {
@@ -209,34 +248,39 @@ flatpickr("#callTime", {
   disable: [d => d.getDay() === 0]
 });
 
-// FORM SUBMISSION
+// FORM → ONLY FORMSPREE
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.submit-btn');
-  const ogText = btn.innerHTML;
+  const originalText = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = 'Sending...';
 
-  const data = new FormData(this);
-  const payload = Object.fromEntries(data);
+  const formData = new FormData(this);
 
-  // Send to Formspree
   try {
-    await fetch(this.action, {method:'POST', body:data, headers:{'Accept':'application/json'}});
-  } catch(err) {}
+    const response = await fetch(this.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
 
-  // Open WhatsApp pre-filled
-  const msg = encodeURIComponent(`*NEW LEAD - Direct Build Group*\n\n*Name:* ${payload.name}\n*Phone:* ${payload.phone}\n*Email:* ${payload.email||'—'}\n*Call Time:* ${payload.call_time}\n*Service:* ${payload.service}\n*Message:* ${payload.message||'—'}`);
-  window.open(`https://wa.me/14695710545?text=${msg}`, '_blank');
-
-  // Success
-  document.getElementById('successMsg').classList.add('show');
-  setTimeout(() => {
-    document.getElementById('successMsg').classList.remove('show');
+    if (response.ok) {
+      document.getElementById('successMsg').classList.add('show');
+      this.reset();
+      setTimeout(() => {
+        document.getElementById('successMsg').classList.remove('show');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }, 4000);
+    } else {
+      throw new Error();
+    }
+  } catch (err) {
+    alert('Oops! Something went wrong. Please try again.');
     btn.disabled = false;
-    btn.innerHTML = ogText;
-    this.reset();
-  }, 3500);
+    btn.innerHTML = originalText;
+  }
 });
 
 // Back to top
