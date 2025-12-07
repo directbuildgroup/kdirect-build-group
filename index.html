@@ -49,22 +49,42 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
 <style>
-/* BIG RESPONSIVE PRELOADER */
+/* PRELOADER - NO ANIMATION, FIXED 3 SECONDS, ALWAYS FITS IN FRAME */
 #preloader{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;
-  display:grid;place-items:center;transition:opacity 1s ease;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background:#fff;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  transition:opacity 1s ease;
+  overflow:hidden;
 }
-#preloader.fade-out{opacity:0;pointer-events:none;}
+#preloader.fade-out{
+  opacity:0;
+  pointer-events:none;
+}
 #preloader img{
-  width:70vmin;max-width:420px;min-width:220px;
-  border-radius:50%;box-shadow:0 30px 100px rgba(0,0,0,0.2);
-  animation:gentlePulse 2s infinite alternate;
+  width:70vmin;
+  max-width:380px;
+  min-width:180px;
+  height:auto;
+  border-radius:50%;
+  box-shadow:0 30px 100px rgba(0,0,0,0.2);
+  /* ALL ANIMATION REMOVED */
 }
-@keyframes gentlePulse{from{transform:scale(0.95);}to{transform:scale(1.02);}}
 
 /* MAIN CONTENT FADE IN */
-.main-content { opacity:0; transition:opacity 1.8s ease 0.4s; }
-.main-content.visible { opacity:1; }
+.main-content {
+  opacity:0;
+  transition:opacity 1.8s ease 0.4s;
+}
+.main-content.visible {
+  opacity:1;
+}
 
 /* HEADER */
 header {
@@ -109,7 +129,7 @@ header {
   paint-order: stroke fill;
   text-shadow: 
     0 0 30px rgba(0,0,0,0.9),
-    0 8px 20px rgba(0,0,0,0,0.8);
+    0 8px 20px rgba(0,0,0,0.8);
   line-height:1.1;
 }
 .hero-content .tagline { 
@@ -172,7 +192,7 @@ main { max-width:1800px; margin:0 auto; padding:80px 30px 160px; }
 .proj:hover img { transform:scale(1.15); }
 .proj .tag { position:absolute; left:20px; bottom:20px; background:#c8102e; color:white; padding:10px 20px; border-radius:50px; font-weight:800; }
 
-/* START YOUR PROJECT CTA - PERFECT ON MOBILE */
+/* START YOUR PROJECT CTA */
 .cta-block {
   background:#c8102e; color:white; padding:100px 40px; border-radius:50px; text-align:center; margin:80px auto; max-width:1100px;
   box-shadow:0 30px 90px rgba(200,16,46,0.4);
@@ -225,7 +245,7 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
 .lightbox.open{display:flex;}
 .lightbox img{max-width:100%;max-height:88vh;border-radius:14px;box-shadow:0 20px 80px rgba(0,0,0,0.7);}
 
-/* MOBILE RESPONSIVE - HERO + CTA PERFECT ON MOBILE */
+/* MOBILE RESPONSIVE */
 @media (max-width: 992px) {
   .desktop-nav { display:none; }
   .hamburger { display:grid; }
@@ -293,7 +313,7 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
 </head>
 <body>
 
-<!-- BIG BEAUTIFUL PRELOADER -->
+<!-- PRELOADER - 3 SECONDS, NO ANIMATION, ALWAYS FITS -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
@@ -323,13 +343,13 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="work.html">Gallery</a>
+      <a href="work.html">Our Work</a>
       <a href="contact.html">Contact</a>
     </nav>
     <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- HERO CAROUSEL - NOW PERFECT ON MOBILE -->
+  <!-- HERO CAROUSEL -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -355,6 +375,7 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
   </div>
 
   <!-- MAIN CONTENT -->
+  albany
   <main>
     <section class="section" id="about">
       <h2>Licensed Texas Contractor – Statewide Service</h2>
@@ -401,7 +422,6 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
       </div>
     </section>
 
-    <!-- START YOUR PROJECT - PERFECT ON MOBILE -->
     <div class="cta-block">
       <h3>Start Your Texas Project Today</h3>
       <p>Licensed contractor • Free quote in 24h • Serving ALL of Texas</p>
@@ -436,11 +456,13 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// BIG PRELOADER - 3 seconds then fade out
+// PRELOADER - EXACTLY 3 SECONDS, NO ANIMATION, CLEAN FADE OUT
 setTimeout(() => {
   const preloader = document.getElementById('preloader');
   preloader.classList.add('fade-out');
-  setTimeout(() => preloader.remove(), 1000);
+  setTimeout(() => {
+    preloader.remove();
+  }, 1000); // matches 1s fade-out transition
   document.getElementById('mainContent').classList.add('visible');
 }, 3000);
 
@@ -460,7 +482,7 @@ window.addEventListener('scroll', () => {
 });
 document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
-// Mobile Menu Toggle
+// Mobile Menu
 document.getElementById('menuBtn').addEventListener('click', () => {
   const menu = document.getElementById('mobileMenu');
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
@@ -478,4 +500,3 @@ document.getElementById('lightbox').onclick = e => { if(e.target === e.currentTa
 </script>
 </body>
 </html>
-
