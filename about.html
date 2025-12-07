@@ -11,14 +11,18 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
 <style>
-/* PRELOADER + FLYING LOGO */
-#preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 1.2s ease 1.8s,visibility 0s 3s;}
-#preloader.hidden{opacity:0;visibility:hidden;}
-.preloader-logo{width:200px;opacity:0;animation:zoomIn 1.8s ease-out forwards;}
-.preloader-logo img{width:100%;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,0.25);}
-@keyframes zoomIn{0%{transform:scale(0.4);opacity:0;}70%{transform:scale(1.1);opacity:1;}100%{transform:scale(1);opacity:1;}}
-#flyingLogo{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;z-index:9998;pointer-events:none;opacity:0;animation:flyToCorner 1.6s cubic-bezier(0.77,0,0.18,1) 2s forwards;}
-@keyframes flyToCorner{0%{opacity:1;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);}100%{opacity:0;top:12px;left:12px;transform:translate(0,0) scale(0.28);}}
+/* BIG RESPONSIVE PRELOADER - SAME AS WORK.HTML & SERVICES.HTML */
+#preloader{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;
+  display:grid;place-items:center;transition:opacity 1s ease;
+}
+#preloader.fade-out{opacity:0;pointer-events:none;}
+#preloader img{
+  width:70vmin;max-width:420px;min-width:220px;
+  border-radius:50%;box-shadow:0 30px 100px rgba(0,0,0,0.2);
+  animation:gentlePulse 2s infinite alternate;
+}
+@keyframes gentlePulse{from{transform:scale(0.95);}to{transform:scale(1.02);}}
 
 /* GENERAL */
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -79,7 +83,7 @@ h2 span{background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-cli
 .story-text p{font-size:1.18rem;color:#444;margin-bottom:24px;line-height:1.85;}
 .story-text strong{color:#c8102e;}
 
-/* TEAM, TIMELINE, REVIEWS, CTA, FOOTER */
+/* TEAM */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:45px;max-width:1400px;margin:0 auto;}
 .member{background:#fff;padding:45px 25px;border-radius:32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.11);transition:transform .6s;}
 .member:hover{transform:translateY(-14px);}
@@ -87,26 +91,34 @@ h2 span{background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-cli
 .member h3{font-size:1.75rem;}
 .member .role{font-size:1.15rem;}
 
+/* TIMELINE */
 .timeline{background:#c8102e;color:#fff;text-align:center;padding:100px 18px;}
 .timeline h2{color:#fbbf24;}
 .timeline-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px;max-width:1300px;margin:0 auto;}
 .milestone{padding:40px 20px;background:rgba(255,255,255,0.12);border-radius:30px;}
 .milestone span{font-size:4.5rem;}
 
+/* REVIEWS */
 .reviews{padding:100px 18px;background:#f8f9fa;}
-.review{padding:40px 30px;border-radius:30px;}
-.review .stars{font-size:2rem;}
-.review p{font-size:1.2rem;}
-.review cite{font-size:1.05rem;}
+.review{padding:40px 30px;border-radius:30px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,0.1);}
+.review .stars{font-size:2rem;color:#fbbf24;margin-bottom:12px;}
+.review p{font-size:1.2rem;margin-bottom:18px;}
+.review cite{font-size:1.05rem;color:#c8102e;font-weight:600;}
 
+/* CTA */
 .cta-final{background:#c8102e;color:#fff;text-align:center;padding:100px 18px;}
 .cta-final h2{font-size:3.4rem;}
-.cta-final p{font-size:1.5rem;}
-.cta-final a{padding:22px 70px;font-size:1.45rem;}
+.cta-final p{font-size:1.5rem;margin:20px 0 40px;}
+.cta-final a{background:#fff;color:#c8102e;padding:22px 70px;border-radius:50px;font-weight:800;font-size:1.45rem;text-decoration:none;box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:.5s;}
+.cta-final a:hover{transform:scale(1.08);}
 
-footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;}
-.footer-logo{font-size:4rem;}
-.footer-links a{font-size:1.25rem;}
+/* FOOTER */
+footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;background:#fff;}
+.footer-inner{max-width:1200px;margin:auto;}
+.footer-logo{font-family:'Cinzel',serif;font-size:4rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.footer-links a{margin:0 18px;color:#111;font-weight:600;font-size:1.25rem;text-decoration:none;transition:.3s;}
+.footer-links a:hover{color:#c8102e;}
+.footer-bottom{color:#777;font-size:1.1rem;margin-top:40px;}
 
 /* FLOATING BUTTONS */
 .whatsapp-btn,.back-to-top{
@@ -118,7 +130,7 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;}
 .back-to-top{right:16px;background:#c8102e;display:none;}
 .back-to-top.show{display:grid;}
 
-/* MOBILE OPTIMIZATIONS – EVEN SMALLER & CLEANER */
+/* MOBILE OPTIMIZATIONS */
 @media (max-width:992px){
   .desktop-nav{display:none;}
   .hamburger{display:grid;}
@@ -147,13 +159,10 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;}
 </head>
 <body>
 
-<!-- PRELOADER + FLYING LOGO -->
+<!-- BIG BEAUTIFUL PRELOADER - SAME AS WORK & SERVICES -->
 <div id="preloader">
-  <div class="preloader-logo">
-    <img src="assets/images/logo.jpg" alt="Direct Build Group">
-  </div>
+  <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
-<div id="flyingLogo"><img src="assets/images/logo.jpg" alt=""></div>
 
 <div class="main-content">
 
@@ -252,36 +261,37 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;}
     </div>
   </section>
 
-  <!-- TIMELINE, REVIEWS, CTA, FOOTER – FULL CONTENT INCLUDED -->
-  <!-- (All remaining sections 100% complete – same as previous version) -->
-
+  <!-- TIMELINE -->
   <section class="timeline">
     <h2>Our Journey</h2>
     <div class="timeline-container">
-      <div class="milestone"><h3>Founded</h3><p>Started with 3 crew members</p></div>
-      <div class="milestone"><h3>100+ Projects</h3><p>Expanded statewide</p></div>
-      <div class="milestone"><h3>147+ Homes</h3><p>Transformed with pride</p></div>
+      <div class="milestone"><h3>2015</h3><span>Founded</span><p>Started with 3 crew members</p></div>
+      <div class="milestone"><h3>2019</h3><span>100+ Projects</span><p>Expanded statewide</p></div>
+      <div class="milestone"><h3>2025</h3><span>147+ Homes</span><p>Transformed with pride</p></div>
     </div>
   </section>
 
+  <!-- REVIEWS -->
   <section class="reviews">
     <h2>What Texas Homeowners <span>Say</span></h2>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="review"><div class="stars">5 stars</div><p>“Full kitchen remodel in Austin — stunning results! The team was clean, respectful, and finished early.”</p><cite>— Jennifer & Mark L., Austin</cite></div></div>
-        <div class="swiper-slide"><div class="review"><div class="stars">5 stars</div><p>“Exterior painting + new deck in Dallas. Best contractor experience we’ve ever had.”</p><cite>— Robert G., Dallas</cite></div></div>
-        <div class="swiper-slide"><div class="review"><div class="stars">5 stars</div><p>“Screened porch in Houston — perfect execution!”</p><cite>— Lisa K., Houston</cite></div></div>
+        <div class="swiper-slide"><div class="review"><div class="stars">★★★★★</div><p>“Full kitchen remodel in Austin — stunning results! The team was clean, respectful, and finished early.”</p><cite>— Jennifer & Mark L., Austin</cite></div></div>
+        <div class="swiper-slide"><div class="review"><div class="stars">★★★★★</div><p>“Exterior painting + new deck in Dallas. Best contractor experience we’ve ever had.”</p><cite>— Robert G., Dallas</cite></div></div>
+        <div class="swiper-slide"><div class="review"><div class="stars">★★★★★</div><p>“Screened porch in Houston — perfect execution!”</p><cite>— Lisa K., Houston</cite></div></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </section>
 
+  <!-- FINAL CTA -->
   <section class="cta-final">
     <h2>Ready to Transform Your Texas Home?</h2>
     <p>Licensed contractor • Free quotes • Serving all of Texas</p>
     <a href="contact.html">Get Your Free Quote Now</a>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">DIRECT BUILD GROUP</div>
@@ -302,43 +312,58 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;}
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// PRELOADER
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('preloader').classList.add('hidden');
-    document.getElementById('flyingLogo').style.opacity = '1';
-  }, 2400);
-});
+// BIG PRELOADER - 3 seconds then smooth fade out
+setTimeout(() => {
+  const preloader = document.getElementById('preloader');
+  preloader.classList.add('fade-out');
+  setTimeout(() => preloader.remove(), 1000);
+}, 3000);
 
-// HAMBURGER MENU
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-
-menuBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  mobileMenu.classList.toggle('open');
-  menuBtn.classList.toggle('active');
-  menuBtn.innerHTML = mobileMenu.classList.contains('open') 
+// Mobile Menu
+document.getElementById('menuBtn').onclick = () => {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  document.getElementById('menuBtn').innerHTML = menu.classList.contains('open') 
     ? '<i class="fas fa-times"></i>' 
     : '<i class="fas fa-bars"></i>';
-});
+};
 
+// Close menu when clicking outside
 document.addEventListener('click', (e) => {
-  if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-    mobileMenu.classList.remove('open');
-    menuBtn.classList.remove('active');
-    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('open');
+    btn.innerHTML = '<i class="fas fa-bars"></i>';
   }
 });
 
-// BACK TO TOP + SWIPERS (unchanged – perfect)
+// Back to top
 window.addEventListener('scroll', () => {
   document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
 });
 document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
-new Swiper('.hero-slideshow .swiper', {loop:true,autoplay:{delay:5000},pagination:{el:'.swiper-pagination',clickable:true},effect:'fade',speed:1400});
-new Swiper('.reviews .swiper', {loop:true,autoplay:{delay:6000},pagination:{el:'.swiper-pagination',clickable:true},slidesPerView:1,spaceBetween:30,breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}}});
+// Swipers
+new Swiper('.hero-slideshow .swiper', {
+  loop: true,
+  autoplay: { delay: 5000 },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  effect: 'fade',
+  speed: 1400
+});
+
+new Swiper('.reviews .swiper', {
+  loop: true,
+  autoplay: { delay: 6000 },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  slidesPerView: 1,
+  spaceBetween: 30,
+  breakpoints: {
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  }
+});
 </script>
 </body>
 </html>
