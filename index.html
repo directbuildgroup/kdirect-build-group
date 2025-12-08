@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Direct Build Group — Texas Painting, Remodeling, Decks & Porches Contractor</title>
+<title>Direct Build Group — Texas Painting, Remodeling, Decks & Porches in Texas</title>
 
 <!-- SEO -->
 <meta name="description" content="Licensed Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Expert painting, kitchen/bath remodels, custom porches, decks, flooring. Free estimates." />
-<meta name="keywords" content="painting contractor Austin TX, kitchen remodel Dallas, bathroom remodeling Houston, deck builder San Antonio, porch construction Texas, flooring installation Austin, home remodeling Texas" />
+<meta name="keywords" content="painting contractor Austin TX, kitchen remodel Dallas, bathroom remodeling Houston, deck builder San Antonio, porch construction Texas, flooring installation Austin" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://directbuildgroup.com/" />
 
@@ -51,13 +51,16 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Satoshi',sans-serif;line-height:1.6;color:#1a1a1a;background:#fff;}
 
-/* PRELOADER */
-#preloader{position:fixed;inset:0;background:#fff;z-index:9999;display:grid;place-items:center;}
+/* LOGO 3 SECONDS ONLY */
+#preloader{
+  position:fixed;inset:0;background:#fff;z-index:9999;
+  display:grid;place-items:center;
+}
 #preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
-#preloader img{width:70vmin;max-width:320px;border-radius:50%;box-shadow:0 20px 80px rgba(0,0,0,0.15);}
+#preloader img{width:280px;height:auto;border-radius:0;box-shadow:none;animation:none;}
 
 /* MAIN FADE IN */
-.main-content{opacity:0;transition:opacity 1.5s ease 0.3s;}
+.main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
 .main-content.visible{opacity:1;}
 
 /* HEADER */
@@ -69,29 +72,42 @@ header{
 }
 .logo{display:flex;align-items:center;gap:14px;}
 .logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
-.logo span{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;color:#1a1a1a;}
+.logo span{
+  font-family:'Cinzel',serif;font-size:2rem;font-weight:900;
+  color:#000; /* BLACK TEXT */
+}
+
+/* NAV */
 .desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;margin:0 20px;position:relative;}
 .desktop-nav a::after{content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;background:#fbbf24;transition:width .4s;}
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
 .desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
-.hamburger{display:none;width:58px;height:58px;background:#fbbf24;color:#1a1a1a;border-radius:50%;font-size:1.9rem;cursor:pointer;box-shadow:0 10px 30px rgba(251,191,36,0.4);display:grid;place-items:center;}
 
-/* HERO — FULL IMAGE, PERFECTLY FRAMED & SUPER CLEAR TEXT */
+/* HAMBURGER - THREE LINES */
+.hamburger{
+  display:none;width:58px;height:58px;background:#fbbf24;
+  border-radius:50%;cursor:pointer;position:relative;
+  box-shadow:0 10px 30px rgba(251,191,36,0.4);
+}
+.hamburger span{
+  position:absolute;left:50%;width:26px;height:3px;background:#1a1a1a;
+  border-radius:3px;transform:translate(-50%,-50%);transition:all .4s;
+}
+.hamburger span:nth-child(1){top:30%;}
+.hamburger span:nth-child(2){top:50%;}
+.hamburger span:nth-child(3){top:70%;}
+.hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
+
+/* HERO - PERFECT BALANCE & POSITIONING */
 .hero-carousel{
-  height:100vh;
-  min-height:620px;
-  max-height:1000px;
-  position:relative;
-  margin-top:0; /* header is fixed, so no margin needed */
-  overflow:hidden;
+  height:100vh;min-height:620px;max-height:1000px;
+  position:relative;margin-top:0;overflow:hidden;
 }
 .swiper{width:100%;height:100%;}
-.swiper-slide{position:relative;}
 .swiper-slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 35%; /* perfect focus on main subject (faces, kitchens, decks) */
+  width:100%;height:100%;object-fit:cover;object-position:center 35%;
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -103,39 +119,41 @@ header{
 }
 .hero-content h1{
   font-family:'Cinzel',serif;
-  font-size:clamp(4rem,9vw,8.5rem);
+  font-size:clamp(3.2rem,7vw,6rem); /* REDUCED SIZE - ELEGANT */
   color:#fff;font-weight:900;
-  margin-bottom:16px;line-height:1.05;
-  text-shadow:0 5px 25px rgba(0,0,0,0.9);
+  margin-bottom:20px;line-height:1.1;
+  text-shadow:0 4px 20px rgba(0,0,0,0.9);
 }
 .hero-content .tagline{
-  font-size:clamp(1.8rem,5vw,3rem);
+  font-size:clamp(2rem,6vw,4.2rem);
   color:#fbbf24;font-weight:800;
-  margin-bottom:12px;
-  text-shadow:0 4px 15px rgba(0,0,0,0.9);
+  margin-bottom:16px;
+  text-shadow:0 4px 16px rgba(0,0,0,0.9);
+  letter-spacing:1px;
 }
 .hero-content .services{
-  font-size:clamp(1.2rem,3.5vw,2rem);
+  font-size:clamp(1.3rem,4vw,2.4rem);
   color:#fff;font-weight:500;
-  margin-bottom:48px;
+  margin-bottom:60px;
   text-shadow:0 3px 12px rgba(0,0,0,0.8);
+  max-width:900px;margin-left:auto;margin-right:auto;
 }
 .hero-buttons{
-  display:flex;flex-direction:column;gap:20px;align-items:center;
+  display:flex;flex-direction:column;gap:22px;align-items:center;
 }
 .hero-buttons a{
-  background:#c8102e;color:#fff;padding:18px 60px;border-radius:50px;
-  font-weight:700;font-size:1.3rem;text-decoration:none;
-  box-shadow:0 18px 50px rgba(200,16,46,0.6);transition:all .4s;
-  min-width:280px;
+  background:#c8102e;color:#fff;padding:20px 70px;border-radius:50px;
+  font-weight:700;font-size:1.4rem;text-decoration:none;
+  box-shadow:0 20px 60px rgba(200,16,46,0.6);transition:all .4s;
+  min-width:300px;
 }
 .hero-buttons a.ghost{
   background:transparent;border:4px solid #fbbf24;
-  box-shadow:0 18px 50px rgba(251,191,36,0.4);
+  box-shadow:0 20px 60px rgba(251,191,36,0.4);
 }
 .hero-buttons a:hover{transform:translateY(-10px) scale(1.06);}
 
-/* MAIN */
+/* REST OF PAGE - CLEAN & CONSISTENT */
 main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
 .section{padding:90px 30px;text-align:center;background:#f8f9fa;margin:40px 0;border-radius:36px;}
 .section h2{
@@ -157,7 +175,6 @@ main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
 .proj:hover img{transform:scale(1.14);}
 .proj .tag{position:absolute;left:20px;bottom:20px;background:#c8102e;color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;}
 
-/* CTA */
 .cta-block{
   background:#c8102e;color:#fff;padding:90px 40px;border-radius:50px;
   text-align:center;margin:80px auto;max-width:1100px;
@@ -167,28 +184,22 @@ main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
 .cta-block p{font-size:1.35rem;margin-bottom:40px;}
 .cta-block a{background:#fff;color:#c8102e;padding:22px 70px;border-radius:50px;font-weight:800;font-size:1.4rem;}
 
-/* FOOTER */
 footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text-align:center;}
 .footer-logo{font-family:'Cinzel',serif;font-size:3.8rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .footer-links{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:50px 0;}
-.footer-links a{color:#111;font-weight:600;text-decoration:none;}
+.footer-links a{color:#111;font-weight:600;text-decoration:none;font-size:1.3rem;transition:.3s;}
+.footer-links a:hover{color:#c8102e;}
 
 /* FLOATING BUTTONS */
-.whatsapp-btn,.back-to-top{
-  position:fixed;bottom:30px;z-index:1000;width:68px;height:68px;border-radius:50%;
-  display:grid;place-items:center;font-size:2.4rem;color:#fff;
+.whatsapp-btn{
+  position:fixed;bottom:30px;left:24px;z-index:1000;
+  width:68px;height:68px;border-radius:50%;background:#25D366;
+  color:#fff;display:grid;place-items:center;font-size:2.4rem;
   box-shadow:0 15px 50px rgba(0,0,0,0.5);transition:.4s;
 }
-.whatsapp-btn{left:24px;background:#25D366;}
-.back-to-top{right:24px;background:#c8102e;display:none;}
-.back-to-top.show{display:grid;}
+.whatsapp-btn:hover{transform:scale(1.15);}
 
-/* LIGHTBOX */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);display:none;align-items:center;justify-content:center;z-index:1400;padding:20px;}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:96%;max-height:90vh;border-radius:18px;}
-
-/* MOBILE MENU – NO LINE */
+/* MOBILE MENU */
 #mobileMenu{
   position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
   transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
@@ -203,28 +214,31 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   header{padding:14px 20px;}
   .logo span{font-size:1.6rem;}
   .hero-carousel{height:75vh;min-height:560px;}
-  .hero-content h1{font-size:clamp(3rem,10vw,5.8rem)!important;}
-  .hero-content .tagline{font-size:1.9rem!important;}
-  .hero-content .services{font-size:1.3rem!important;}
-  .hero-buttons a{min-width:85%;padding:18px 40px;font-size:1.2rem;}
-  main{padding:50px 20px 100px;}
+  .hero-content h1{font-size:3.6rem !important;}
+  .hero-content .tagline{font-size:2.4rem !important;}
+  .hero-content .services{font-size:1.6rem !important;}
+  .hero-buttons a{min-width:85%;padding:18px 40px;font-size:1.3rem;}
+  main{padding:60px 20px 100px;}
   .section{padding:70px 25px;}
-  .section h2{font-size:2.6rem!important;}
+  .section h2{font-size:2.6rem !important;}
+}
+@media (max-width:480px){
+  .hero-content h1{font-size:3.2rem !important;}
+  .hero-content .tagline{font-size:2.1rem !important;}
 }
 </style>
 </head>
 <body>
 
-<!-- PRELOADER -->
+<!-- LOGO 3 SECONDS ONLY -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
 <div class="main-content" id="mainContent">
 
-  <!-- Floating Buttons -->
-  <a href="https://wa.me/14695710545" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <!-- WhatsApp Only -->
+  <a href="https://wa.me/14695710545" class="whatsapp-btn" target="_blank">WhatsApp Icon</a>
 
   <!-- Mobile Menu -->
   <div id="mobileMenu">
@@ -248,10 +262,15 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <a href="work.html">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <!-- THREE-LINE HAMBURGER -->
+    <button class="hamburger" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
-  <!-- HERO – FULL SCREEN & PERFECTLY FRAMED -->
+  <!-- HERO - BEAUTIFULLY BALANCED -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -262,31 +281,28 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
         <div class="swiper-slide"><img src="assets/images/h4.jpg" alt="Luxury Flooring"></div>
         <div class="swiper-slide"><img src="assets/images/h5.jpg" alt="Classic Texas Porch"></div>
       </div>
+      <div class="swiper-pagination"></div>
+    </div>
 
-      <!-- Text Overlay (same on all slides) -->
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1>DIRECT BUILD GROUP</h1>
-          <p class="tagline">Texas Elite Remodeling & Construction</p>
-          <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
-          <div class="hero-buttons">
-            <a href="contact.html">Free Texas Quote</a>
-            <a href="work.html" class="ghost">View Gallery</a>
-          </div>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>DIRECT BUILD GROUP</h1>
+        <p class="tagline">Texas Elite Remodeling & Construction</p>
+        <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
+        <div class="hero-buttons">
+          <a href="contact.html">Free Texas Quote</a>
+          <a href="work.html" class="ghost">View Gallery</a>
         </div>
       </div>
-      </div>
-
-      <div class="swiper-pagination"></div>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- REST OF PAGE (same as before) -->
   <main>
     <section class="section" id="about">
       <h2>Licensed Texas Contractor – Statewide Service</h2>
       <p style="max-width:900px;margin:0 auto 40px;font-size:1.2rem;line-height:1.8;">We proudly serve <strong>all of Texas</strong>: Austin, Dallas, Houston, San Antonio, Fort Worth, El Paso, Corpus Christi, Lubbock, and everywhere in between.</p>
-      <div style="background:rgba(251,191,36,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
+      <div style="background:rgba(251,191,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
         <p style="font-size:1.3rem;font-weight:600;color:#c8102e;">Serving ALL of Texas. Out-of-state by invitation only.</p>
       </div>
     </section>
@@ -353,14 +369,14 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
-    <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:#fff;width:60px;height:60px;border-radius:50%;font-size:2.2rem;border:none;cursor:pointer;">×</button>
+    <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:#fff;width:60px;height:60px;border-radius:50%;font-size:2.2rem;border:none;cursor:pointer;">X</button>
     <img id="lbImg" src="" alt="Project">
   </div>
 </div>
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// Preloader
+// Logo 3 seconds only
 setTimeout(() => {
   document.getElementById('preloader').classList.add('fade-out');
   setTimeout(() => document.getElementById('preloader').remove(), 1000);
@@ -376,15 +392,11 @@ new Swiper('.hero-carousel .swiper', {
   speed: 1400
 });
 
-// Back to top
-window.addEventListener('scroll', () => {
-  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
-});
-document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
-
-// Mobile Menu
+// Mobile Menu (three lines to X)
 document.getElementById('menuBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  btn.classList.toggle('active');
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
