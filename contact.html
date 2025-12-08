@@ -6,151 +6,164 @@
 <title>Contact | Direct Build Group – Free Quote Texas</title>
 <meta name="description" content="Free consultation. Licensed Texas contractor. Same-day response." />
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Satoshi',sans-serif;background:#fafafa;color:#1a1a1a;overflow-x:hidden;}
+body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;}
 
-/* BIG RESPONSIVE PRELOADER */
+/* LOGO FOR 3 SECONDS ONLY */
 #preloader{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;
-  display:grid;place-items:center;transition:opacity 1s ease;
+  position:fixed;inset:0;background:#fff;z-index:9999;
+  display:grid;place-items:center;
 }
-#preloader.fade-out{opacity:0;pointer-events:none;}
-#preloader img{
-  width:70vmin;max-width:420px;min-width:220px;
-  border-radius:50%;box-shadow:0 30px 100px rgba(0,0,0,0.2);
-  animation:gentlePulse 2s infinite alternate;
-}
-@keyframes gentlePulse{from{transform:scale(0.95);}to{transform:scale(1.02);}}
+#preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
+#preloader img{width:280px;height:auto;border-radius:0;box-shadow:none;animation:none;}
 
-/* HEADER - NAV NOW ON THE RIGHT */
+/* MAIN FADE IN */
+.main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
+.main-content.visible{opacity:1;}
+
+/* HEADER */
 header{
-  position:fixed;top:0;left:0;right:0;
-  padding:18px 40px;
-  background:rgba(255,255,255,0.98);
-  backdrop-filter:blur(20px);
-  display:flex;
-  justify-content:space-between;   /* logo left, nav right */
-  align-items:center;
-  z-index:1100;
-  border-bottom:5px solid #fbbf24;
-  box-shadow:0 15px 60px rgba(0,0,0,0.12);
+  position:fixed;top:0;left:0;width:100%;padding:16px 32px;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;z-index:1100;
+  border-bottom:4px solid #fbbf24;box-shadow:0 8px 30px rgba(0,0,0,0.1);
 }
-
-/* Logo on the left */
-.logo{display:flex;align-items:center;gap:16px;}
-.logo img{width:72px;border-radius:18px;border:5px solid #fbbf24;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
 .logo span{
-  font-family:'Cinzel',serif;font-size:2.1rem;font-weight:900;color:#000;
+  font-family:'Cinzel',serif;font-size:2rem;font-weight:900;
+  color:#000 !important; /* BLACK TEXT */
+  background:none;-webkit-text-fill-color:#000;
 }
 
-/* Gradient text animation */
-@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
-.logo span{
-  background:linear-gradient(var(--angle),#c8102e 0%,#f59e0b 15%,#fbbf24 30%,#fde047 50%,#fbbf24 70%,#f59e0b 85%,#c8102e 100%);
-  background-size:300% 300%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  animation:gradientFlow 8s ease infinite;
-}
-@keyframes gradientFlow{0%,100%{--angle:0deg}50%{--angle:360deg}}
-
-/* Desktop Navigation - pushed to the right */
-.desktop-nav{
-  display:flex;
-  align-items:center;
-}
+/* DESKTOP NAV */
 .desktop-nav a{
-  color:#1a1a1a;font-weight:700;font-size:1.1rem;margin:0 20px;position:relative;
+  color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;
+  margin:0 20px;position:relative;
 }
 .desktop-nav a::after{
-  content:'';position:absolute;bottom:-14px;left:0;width:0;height:5px;background:#fbbf24;transition:.5s;
+  content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;
+  background:#fbbf24;transition:width .4s;
 }
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
-.desktop-nav a.active,.desktop-nav a:hover{color:#c8102e;}
+.desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
 
-/* Hamburger (mobile only) */
+/* HAMBURGER - THREE CLEAN LINES */
 .hamburger{
-  display:none;width:64px;height:64px;background:#fbbf24;border-radius:50%;cursor:pointer;
-  place-items:center;font-size:2.4rem;color:#fff;box-shadow:0 15px 40px rgba(251,191,36,0.5);transition:all .4s;
+  display:none;width:58px;height:58px;background:#fbbf24;
+  border-radius:50%;cursor:pointer;position:relative;
+  box-shadow:0 10px 30px rgba(251,191,36,0.4);
 }
-.hamburger.active{background:#c8102e;transform:rotate(90deg);}
-
-/* Mobile Menu */
-.mobile-menu{
-  position:fixed;inset:0;background:#fff;z-index:1199;display:flex;flex-direction:column;
-  justify-content:center;align-items:center;gap:40px;transform:translateY(-100%);opacity:0;transition:all .6s ease;
+.hamburger span{
+  position:absolute;left:50%;width:26px;height:3px;background:#1a1a1a;
+  border-radius:3px;transform:translate(-50%,-50%);transition:all .4s;
 }
-.mobile-menu.active{transform:translateY(0);opacity:1;}
-.mobile-menu a{font-family:'Cinzel',serif;font-size:3.5rem;font-weight:900;color:#1a1a1a;transition:.4s;}
-.mobile-menu a:hover,.mobile-menu a.active{color:#c8102e;transform:scale(1.15);}
+.hamburger span:nth-child(1){top:30%;}
+.hamburger span:nth-child(2){top:50%;}
+.hamburger span:nth-child(3){top:70%;}
 
-main{margin-top:100px;padding:60px 20px 120px;text-align:center;}
+/* Turn into X when active */
+.hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
+
+/* MOBILE MENU */
+#mobileMenu{
+  position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
+  transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
+}
+
+/* MAIN CONTENT */
+main{
+  margin-top:100px;padding:80px 30px 140px;text-align:center;
+}
 .page-title{
-  font-family:'Cinzel',serif;font-size:clamp(4rem,10vw,7rem);font-weight:900;margin-bottom:20px;
-  background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  font-family:'Cinzel',serif;
+  font-size:clamp(3.8rem,9vw,7rem);
+  font-weight:900;margin-bottom:20px;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-.page-subtitle{font-size:1.8rem;color:#555;margin-bottom:60px;}
+.page-subtitle{
+  font-size:1.6rem;color:#444;margin-bottom:60px;
+}
 
+/* CONTACT CARD */
 .contact-card{
-  max-width:1000px;margin:0 auto;background:#fff;padding:90px 70px;border-radius:60px;
-  box-shadow:0 90px 250px rgba(0,0,0,0.22);border:8px solid #fbbf24;position:relative;overflow:hidden;
+  max-width:1000px;margin:0 auto;background:#fff;padding:90px 70px;
+  border-radius:60px;box-shadow:0 80px 220px rgba(0,0,0,0.18);
+  border:8px solid #fbbf24;position:relative;overflow:hidden;
 }
-.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:14px;
-  background:linear-gradient(90deg,#c8102e,#fbbf24);}
+.contact-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:12px;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+}
 
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;}
 .form-group.full{grid-column:1/-1;}
-.form-group label{font-weight:700;font-size:1.2rem;margin-bottom:14px;display:block;}
+.form-group label{font-weight:700;font-size:1.18rem;margin-bottom:12px;display:block;color:#222;}
 .form-group input,.form-group select,.form-group textarea{
-  width:100%;padding:24px 28px;border-radius:24px;border:3px solid #eee;font-size:1.15rem;background:#fafafa;transition:.5s;}
+  width:100%;padding:22px 26px;border-radius:24px;
+  border:3px solid #eee;font-size:1.1rem;background:#fafafa;
+  transition:.4s;
+}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
-  outline:none;border-color:#fbbf24;box-shadow:0 0 0 10px rgba(251,191,36,0.22);}
+  outline:none;border-color:#fbbf24;
+  box-shadow:0 0 0 10px rgba(251,191,36,0.2);
+}
 textarea{height:160px;resize:none;}
 
 .submit-btn{
-  width:100%;background:#c8102e;color:#fff;padding:30px;font-size:2.1rem;font-weight:900;
-  border:none;border-radius:70px;box-shadow:0 40px 120px rgba(200,16,46,0.6);transition:.6s;cursor:pointer;
+  width:100%;background:#c8102e;color:#fff;padding:28px;
+  font-size:1.9rem;font-weight:900;border:none;border-radius:70px;
+  box-shadow:0 35px 100px rgba(200,16,46,0.55);transition:.5s;cursor:pointer;
 }
-.submit-btn:hover{transform:translateY(-12px);background:#a10e28;box-shadow:0 60px 160px rgba(200,16,46,0.7);}
+.submit-btn:hover{
+  transform:translateY(-10px);background:#b00e28;
+  box-shadow:0 50px 140px rgba(200,16,46,0.7);
+}
 .submit-btn:disabled{background:#999;cursor:not-allowed;transform:none;}
 
+/* SUCCESS MESSAGE */
 .success-msg{
   position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:#fff;padding:60px 80px;border-radius:30px;box-shadow:0 30px 100px rgba(0,0,0,0.4);
-  font-size:2.4rem;font-weight:700;color:#c8102e;z-index:10000;text-align:center;line-height:1.4;
+  background:#fff;padding:60px 80px;border-radius:30px;
+  box-shadow:0 30px 100px rgba(0,0,0,0.4);z-index:10000;
+  font-size:2.2rem;font-weight:700;color:#c8102e;text-align:center;
   opacity:0;pointer-events:none;transition:opacity .6s;
 }
 .success-msg.show{opacity:1;pointer-events:all;}
 
-.back-to-top{
-  position:fixed;bottom:25px;right:20px;z-index:1000;width:70px;height:70px;border-radius:50%;
-  display:none;place-items:center;font-size:2.6rem;color:#fff;background:#c8102e;
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:.4s;cursor:pointer;
-}
-.back-to-top.show{display:grid;}
-
-/* RESPONSIVE */
-@media(max-width:992px){
-  header{padding:18px 20px;}
+/* RESPONSIVE - CLEAN MOBILE FONTS */
+@media (max-width:992px){
   .desktop-nav{display:none;}
   .hamburger{display:grid;}
-  .form-grid{grid-template-columns:1fr;}
-  .contact-card{padding:70px 40px;}
 }
-@media(max-width:640px){
-  .contact-card{padding:60px 30px;border-radius:40px;}
-  .page-title{font-size:4.5rem;}
-  .submit-btn{font-size:1.9rem;padding:26px;}
+@media (max-width:768px){
+  header{padding:14px 20px;}
+  .logo span{font-size:1.6rem;}
+  main{padding:60px 20px 100px;}
+  .page-title{font-size:3.6rem !important;}
+  .page-subtitle{font-size:1.4rem !important;}
+  .contact-card{padding:60px 35px;border-radius:40px;}
+  .form-grid{grid-template-columns:1fr;gap:28px;}
+  .form-group input,.form-group select,.form-group textarea{padding:20px;font-size:1.05rem;}
+  .submit-btn{font-size:1.7rem;padding:24px;}
+}
+@media (max-width:480px){
+  .page-title{font-size:3.2rem !important;}
+  .submit-btn{font-size:1.55rem;}
 }
 </style>
 </head>
 <body>
 
-<!-- BIG PRELOADER - 3 seconds -->
+<!-- LOGO 3 SECONDS ONLY -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
@@ -161,10 +174,16 @@ textarea{height:160px;resize:none;}
   <span style="font-size:1.4rem;color:#555;">Your message was sent successfully.<br>We’ll contact you very soon!</span>
 </div>
 
-<!-- Back to Top -->
-<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<!-- Mobile Menu -->
+<div id="mobileMenu">
+  <a href="index.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Home</a>
+  <a href="about.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">About</a>
+  <a href="services.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Services</a>
+  <a href="work.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Gallery</a>
+  <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
+</div>
 
-<!-- HEADER - Nav on the right -->
+<!-- HEADER -->
 <header>
   <div class="logo">
     <img src="assets/images/logo.jpg" alt="Direct Build Group">
@@ -175,23 +194,19 @@ textarea{height:160px;resize:none;}
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="work.html">Our Work</a>
+    <a href="work.html">Gallery</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
 
-  <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+  <!-- HAMBURGER WITH THREE LINES -->
+  <button class="hamburger" id="hamburgerBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="work.html">Our Work</a>
-  <a href="contact.html" class="active">Contact</a>
-</div>
-
-<main>
+<main class="main-content" id="mainContent">
   <h1 class="page-title">Get Your Free Quote</h1>
   <p class="page-subtitle">We reply in minutes • Serving every city in Texas</p>
 
@@ -201,8 +216,9 @@ textarea{height:160px;resize:none;}
         <div class="form-group"><label>Name *</label><input type="text" name="name" required placeholder="John Doe"></div>
         <div class="form-group"><label>Phone *</label><input type="tel" name="phone" required placeholder="(469) 571-0545"></div>
         <div class="form-group"><label>Email (optional)</label><input type="email" name="email" placeholder="john@example.com"></div>
-        <div class="form-group"><label>Call Date & Time *</label><input type="text" name="call_time" id="callTime" placeholder="Pick date & time" required></div>
-        <div class="form-group full"><label>Project Type</label>
+        <div class="form-group"><label>Preferred Call Date & Time *</label><input type="text" name="call_time" id="callTime" placeholder="Pick date & time" required></div>
+        <div class="form-group full">
+          <label>Project Type</label>
           <select name="service">
             <option>Kitchen</option>
             <option>Bathroom</option>
@@ -213,7 +229,8 @@ textarea{height:160px;resize:none;}
             <option>Other</option>
           </select>
         </div>
-        <div class="form-group full"><label>Tell Us More (optional)</label>
+        <div class="form-group full">
+          <label>Tell Us More (optional)</label>
           <textarea name="message" placeholder="Budget • Timeline • Location..."></textarea>
         </div>
       </div>
@@ -224,68 +241,60 @@ textarea{height:160px;resize:none;}
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-// PRELOADER - 3 seconds then fade out
+// Logo 3 seconds only
 setTimeout(() => {
-  const preloader = document.getElementById('preloader');
-  preloader.classList.add('fade-out');
-  setTimeout(() => preloader.remove(), 1000);
+  document.getElementById('preloader').classList.add('fade-out');
+  setTimeout(() => document.getElementById('preloader').remove(), 1000);
+  document.getElementById('mainContent').classList.add('visible');
 }, 3000);
 
-// Mobile Menu
+// Hamburger menu (three lines → X)
 document.getElementById('hamburgerBtn').onclick = () => {
-  document.getElementById('hamburgerBtn').classList.toggle('active');
-  document.getElementById('mobileMenu').classList.toggle('active');
-  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  btn.classList.toggle('active');
+  menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
 // Calendar
 flatpickr("#callTime", {
   enableTime: true,
-  dateFormat: "M j, Y \\at h:i K",
+  dateFormat: "M j, Y at h:i K",
   minDate: "today",
   minTime: "08:00",
   maxTime: "19:00",
   disable: [d => d.getDay() === 0]
 });
 
-// FORM → ONLY FORMSPREE
+// Form submission
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.submit-btn');
-  const originalText = btn.innerHTML;
+  const original = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = 'Sending...';
 
-  const formData = new FormData(this);
-
   try {
-    const response = await fetch(this.action, {
+    const res = await fetch(this.action, {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
+      body: new FormData(this),
+      headers: {'Accept': 'application/json'}
     });
-
-    if (response.ok) {
+    if (res.ok) {
       document.getElementById('successMsg').classList.add('show');
       this.reset();
       setTimeout(() => {
         document.getElementById('successMsg').classList.remove('show');
         btn.disabled = false;
-        btn.innerHTML = originalText;
+        btn.innerHTML = original;
       }, 4000);
-    } else {
-      throw new Error();
     }
-  } catch (err) {
-    alert('Oops! Something went wrong. Please try again.');
+  } catch {
+    alert('Error. Please try again.');
     btn.disabled = false;
-    btn.innerHTML = originalText;
+    btn.innerHTML = original;
   }
 });
-
-// Back to top
-window.onscroll = () => document.getElementById('backToTop').classList.toggle('show', scrollY > 500);
-document.getElementById('backToTop').onclick = () => scrollTo({top:0,behavior:'smooth'});
 </script>
 </body>
 </html>
