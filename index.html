@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Direct Build Group — Texas Painting, Remodeling, Decks & Porches Contractor</title>
 
-<!-- MAXIMUM TEXAS SEO -->
-<meta name="description" content="Licensed Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Expert interior/exterior painting, kitchen & bathroom remodeling, custom porches, composite decks, hardwood & vinyl flooring. Free estimates." />
-<meta name="keywords" content="painting contractor Austin TX, kitchen remodel Dallas, bathroom remodeling Houston, deck builder San Antonio, porch construction Texas, flooring installation Austin, home remodeling Texas, exterior painting Dallas, interior painter Houston, composite deck Texas, screened porch Austin, luxury vinyl plank flooring Dallas, hardwood flooring installation Texas, licensed contractor Austin, insured remodeling company Texas" />
+<!-- SEO -->
+<meta name="description" content="Licensed Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Expert painting, kitchen/bath remodels, custom porches, decks, flooring. Free estimates." />
+<meta name="keywords" content="painting contractor Austin TX, kitchen remodel Dallas, bathroom remodeling Houston, deck builder San Antonio, porch construction Texas, flooring installation Austin, home remodeling Texas" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://directbuildgroup.com/" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="Direct Build Group – Licensed Texas Remodeling & Construction" />
-<meta property="og:description" content="Top-rated painting, kitchen/bath remodels, custom decks & porches across Austin, Dallas, Houston, San Antonio & all of Texas. Free quotes." />
+<meta property="og:description" content="Top-rated painting, kitchen/bath remodels, custom decks & porches across all of Texas. Free quotes." />
 <meta property="og:image" content="https://directbuildgroup.com/assets/images/logo.jpg" />
 <meta property="og:url" content="https://directbuildgroup.com/" />
 <meta property="og:type" content="website" />
@@ -25,10 +25,10 @@
   "@type": "HomeAndConstructionBusiness",
   "name": "Direct Build Group",
   "image": "https://directbuildgroup.com/assets/images/logo.jpg",
-  "telephone": "+1(469) 571 0545",
+  "telephone": "+1(469) 571-0545",
   "email": "info@directbuildgroup.com",
   "url": "https://directbuildgroup.com",
-  "description": "Licensed & insured Texas contractor specializing in interior/exterior painting, kitchen & bathroom remodeling, custom porches, composite & wood decks, and premium flooring installation. Proudly serving Austin, Dallas, Houston, San Antonio and all of Texas.",
+  "description": "Licensed & insured Texas contractor specializing in painting, kitchen & bathroom remodeling, custom porches, composite decks, and premium flooring. Serving all of Texas.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1711 W Irving Blvd St. 205",
@@ -37,7 +37,6 @@
     "postalCode": "75062",
     "addressCountry": "US"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 30.2711, "longitude": -97.7431 },
   "areaServed": { "@type": "State", "name": "Texas" },
   "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-16:00",
   "priceRange": "$$"
@@ -49,288 +48,191 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
 <style>
-/* PRELOADER - NO ANIMATION, FIXED 3 SECONDS, ALWAYS FITS IN FRAME */
-#preloader{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
-  background:#fff;
-  z-index:9999;
-  display:grid;
-  place-items:center;
-  transition:opacity 1s ease;
-  overflow:hidden;
-}
-#preloader.fade-out{
-  opacity:0;
-  pointer-events:none;
-}
-#preloader img{
-  width:70vmin;
-  max-width:380px;
-  min-width:180px;
-  height:auto;
-  border-radius:50%;
-  box-shadow:0 30px 100px rgba(0,0,0,0.2);
-  /* ALL ANIMATION REMOVED */
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Satoshi',sans-serif;line-height:1.6;color:#1a1a1a;background:#fff;}
 
-/* MAIN CONTENT FADE IN */
-.main-content {
-  opacity:0;
-  transition:opacity 1.8s ease 0.4s;
-}
-.main-content.visible {
-  opacity:1;
-}
+/* PRELOADER */
+#preloader{position:fixed;inset:0;background:#fff;z-index:9999;display:grid;place-items:center;}
+#preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
+#preloader img{width:70vmin;max-width:320px;border-radius:50%;box-shadow:0 20px 80px rgba(0,0,0,0.15);}
+
+/* MAIN FADE IN */
+.main-content{opacity:0;transition:opacity 1.5s ease 0.3s;}
+.main-content.visible{opacity:1;}
 
 /* HEADER */
-header {
-  position:fixed; top:0; left:0; width:100%; padding:20px 30px;
-  background:rgba(255,255,255,0.98); backdrop-filter:blur(20px);
-  display:flex; justify-content:space-between; align-items:center;
-  z-index:1100; border-bottom:2px solid #fbbf24;
-  box-shadow:0 10px 50px rgba(0,0,0,0.12);
+header{
+  position:fixed;top:0;left:0;width:100%;padding:16px 32px;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;z-index:1100;
+  border-bottom:4px solid #fbbf24;box-shadow:0 8px 30px rgba(0,0,0,0.1);
 }
-.logo { display:flex; align-items:center; gap:16px; }
-.logo img { width:76px; border-radius:16px; border:4px solid #fbbf24; }
-.logo span { font-family:'Cinzel',serif; font-size:2.2rem; font-weight:900; color:#1a1a1a; }
-.desktop-nav a { color:#1a1a1a; text-decoration:none; font-weight:600; font-size:1.1rem; margin:0 20px; position:relative; }
-.desktop-nav a::after { content:''; position:absolute; bottom:-12px; left:0; width:0; height:4px; background:#fbbf24; transition:width .4s; }
-.desktop-nav a:hover::after, .desktop-nav a.active::after { width:100%; }
-.desktop-nav a.active, .desktop-nav a:hover { color:#c8102e; }
-.hamburger { display:none; place-items:center; background:#fbbf24; color:#1a1a1a; width:76px; height:76px; border-radius:50%; font-size:2.4rem; cursor:pointer; box-shadow:0 12px 40px rgba(251,191,36,0.5); transition:all .4s; }
-.hamburger:hover { transform:scale(1.18); }
+.logo{display:flex;align-items:center;gap:14px;}
+.logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
+.logo span{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;color:#1a1a1a;}
+.desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;margin:0 20px;position:relative;}
+.desktop-nav a::after{content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;background:#fbbf24;transition:width .4s;}
+.desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
+.desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
+.hamburger{display:none;width:58px;height:58px;background:#fbbf24;color:#1a1a1a;border-radius:50%;font-size:1.9rem;cursor:pointer;box-shadow:0 10px 30px rgba(251,191,36,0.4);display:grid;place-items:center;}
 
-/* HERO CAROUSEL - FULLY MOBILE-OPTIMIZED */
-.hero-carousel {
-  height:80vh; min-height:620px; max-height:800px;
-  position:relative; margin-top:90px; overflow:hidden;
+/* HERO — FULL IMAGE, PERFECTLY FRAMED & SUPER CLEAR TEXT */
+.hero-carousel{
+  height:100vh;
+  min-height:620px;
+  max-height:1000px;
+  position:relative;
+  margin-top:0; /* header is fixed, so no margin needed */
+  overflow:hidden;
 }
-.swiper { width:100%; height:100%; }
-.swiper-slide img { width:100%; height:100%; object-fit:cover; }
-.hero-overlay {
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center;
+.swiper{width:100%;height:100%;}
+.swiper-slide{position:relative;}
+.swiper-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 35%; /* perfect focus on main subject (faces, kitchens, decks) */
 }
-.hero-content {
-  padding:20px;
-  max-width:95%;
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.75));
+  display:flex;align-items:center;justify-content:center;text-align:center;
 }
-.hero-content h1 {
+.hero-content{
+  position:relative;z-index:2;padding:30px;max-width:95%;
+}
+.hero-content h1{
   font-family:'Cinzel',serif;
-  font-size:clamp(4.2rem,10vw,9.5rem);
-  margin-bottom:16px;
-  color:#ffffff;
-  font-weight:900;
-  -webkit-text-stroke: 3px #000;
-  text-stroke: 3px #000;
-  paint-order: stroke fill;
-  text-shadow: 
-    0 0 30px rgba(0,0,0,0.9),
-    0 8px 20px rgba(0,0,0,0.8);
-  line-height:1.1;
+  font-size:clamp(4rem,9vw,8.5rem);
+  color:#fff;font-weight:900;
+  margin-bottom:16px;line-height:1.05;
+  text-shadow:0 5px 25px rgba(0,0,0,0.9);
 }
-.hero-content .tagline { 
-  font-size:2.4rem; 
-  font-weight:800; 
-  color:#fbbf24; 
+.hero-content .tagline{
+  font-size:clamp(1.8rem,5vw,3rem);
+  color:#fbbf24;font-weight:800;
   margin-bottom:12px;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+  text-shadow:0 4px 15px rgba(0,0,0,0.9);
 }
-.hero-content .services { 
-  font-size:1.7rem; 
-  color:#ffffff; 
-  font-weight:600; 
-  margin-bottom:50px;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.9);
-  padding:0 20px;
+.hero-content .services{
+  font-size:clamp(1.2rem,3.5vw,2rem);
+  color:#fff;font-weight:500;
+  margin-bottom:48px;
+  text-shadow:0 3px 12px rgba(0,0,0,0.8);
 }
-.hero-buttons {
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  align-items:center;
+.hero-buttons{
+  display:flex;flex-direction:column;gap:20px;align-items:center;
 }
-.hero-buttons a {
-  background:#c8102e; color:white; padding:24px 80px; border-radius:50px;
-  font-weight:900; font-size:1.7rem; text-decoration:none;
-  box-shadow:0 30px 80px rgba(200,16,46,0.6); transition:all .5s;
+.hero-buttons a{
+  background:#c8102e;color:#fff;padding:18px 60px;border-radius:50px;
+  font-weight:700;font-size:1.3rem;text-decoration:none;
+  box-shadow:0 18px 50px rgba(200,16,46,0.6);transition:all .4s;
   min-width:280px;
 }
-.hero-buttons a.ghost { 
-  background:transparent; 
-  color:#ffffff; 
-  border:4px solid #fbbf24;
-  box-shadow:0 30px 80px rgba(251,191,36,0.4);
+.hero-buttons a.ghost{
+  background:transparent;border:4px solid #fbbf24;
+  box-shadow:0 18px 50px rgba(251,191,36,0.4);
 }
-.hero-buttons a:hover { 
-  transform:translateY(-12px) scale(1.06); 
-  box-shadow:0 40px 100px rgba(200,16,46,0.8); 
-}
+.hero-buttons a:hover{transform:translateY(-10px) scale(1.06);}
 
-/* MAIN CONTENT */
-main { max-width:1800px; margin:0 auto; padding:80px 30px 160px; }
-.section { padding:120px 0; text-align:center; background:#f8f9fa; margin:40px 0; border-radius:40px; }
-.section h2 {
-  font-family:'Cinzel',serif; font-size:4.2rem;
+/* MAIN */
+main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
+.section{padding:90px 30px;text-align:center;background:#f8f9fa;margin:40px 0;border-radius:36px;}
+.section h2{
+  font-family:'Cinzel',serif;font-size:3.2rem;
   background:linear-gradient(90deg,#c8102e,#fbbf24);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  margin-bottom:60px;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:50px;
 }
-.service-grid, .why-grid, .testimonials, .projects-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px;
+.service-grid,.why-grid,.projects-grid,.testimonials{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;
 }
-.service-card, .why-card, .testimonial {
-  background:white; padding:48px 30px; border-radius:36px;
-  box-shadow:0 25px 70px rgba(0,0,0,0.1); transition:all .6s;
+.service-card,.why-card,.testimonial{
+  background:#fff;padding:45px 30px;border-radius:32px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);transition:transform .5s;
 }
-.service-card:hover, .why-card:hover { transform:translateY(-18px); }
-.proj { position:relative; overflow:hidden; border-radius:36px; cursor:pointer; }
-.proj img { width:100%; height:380px; object-fit:cover; transition:transform 1s; }
-.proj:hover img { transform:scale(1.15); }
-.proj .tag { position:absolute; left:20px; bottom:20px; background:#c8102e; color:white; padding:10px 20px; border-radius:50px; font-weight:800; }
+.service-card:hover,.why-card:hover{transform:translateY(-15px);}
+.proj{position:relative;overflow:hidden;border-radius:32px;cursor:pointer;}
+.proj img{width:100%;height:380px;object-fit:cover;object-position:center;transition:transform .9s;}
+.proj:hover img{transform:scale(1.14);}
+.proj .tag{position:absolute;left:20px;bottom:20px;background:#c8102e;color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;}
 
-/* START YOUR PROJECT CTA */
-.cta-block {
-  background:#c8102e; color:white; padding:100px 40px; border-radius:50px; text-align:center; margin:80px auto; max-width:1100px;
-  box-shadow:0 30px 90px rgba(200,16,46,0.4);
+/* CTA */
+.cta-block{
+  background:#c8102e;color:#fff;padding:90px 40px;border-radius:50px;
+  text-align:center;margin:80px auto;max-width:1100px;
+  box-shadow:0 25px 80px rgba(200,16,46,0.4);
 }
-.cta-block h3 { 
-  font-family:'Cinzel',serif; 
-  font-size:4.5rem; 
-  margin-bottom:24px;
-  line-height:1.2;
-}
-.cta-block p { 
-  font-size:1.9rem; 
-  margin:24px auto 50px; 
-  max-width:900px;
-  line-height:1.6;
-}
-.cta-block a { 
-  background:white; color:#c8102e; padding:28px 90px; border-radius:50px; 
-  font-weight:900; font-size:2rem; text-decoration:none;
-  box-shadow:0 25px 70px rgba(0,0,0,0.4);
-  transition:all .5s;
-}
-.cta-block a:hover { 
-  transform:scale(1.08); 
-  box-shadow:0 35px 90px rgba(0,0,0,0.6);
-}
+.cta-block h3{font-family:'Cinzel',serif;font-size:3rem;margin-bottom:20px;}
+.cta-block p{font-size:1.35rem;margin-bottom:40px;}
+.cta-block a{background:#fff;color:#c8102e;padding:22px 70px;border-radius:50px;font-weight:800;font-size:1.4rem;}
 
 /* FOOTER */
-footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf24; text-align:center; }
-.footer-inner { max-width:1200px; margin:0 auto; }
-.footer-logo { font-family:'Cinzel',serif; font-size:5.2rem; font-weight:900; background:linear-gradient(90deg,#c8102e,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:16px; }
-.footer-tagline { font-size:1.5rem; color:#555; margin-bottom:50px; }
-.footer-links { display:flex; flex-wrap:wrap; gap:40px; justify-content:center; margin-bottom:50px; }
-.footer-links a { color:#111; font-weight:600; font-size:1.3rem; text-decoration:none; transition:.3s; }
-.footer-links a:hover { color:#c8102e; }
+footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text-align:center;}
+.footer-logo{font-family:'Cinzel',serif;font-size:3.8rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.footer-links{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:50px 0;}
+.footer-links a{color:#111;font-weight:600;text-decoration:none;}
 
 /* FLOATING BUTTONS */
-.whatsapp-btn, .back-to-top {
-  position:fixed; bottom:30px; z-index:1000; width:76px; height:76px; border-radius:50%;
-  display:grid; place-items:center; font-size:2.7rem; color:white; box-shadow:0 18px 60px rgba(0,0,0,0.5);
-  transition:all .4s;
+.whatsapp-btn,.back-to-top{
+  position:fixed;bottom:30px;z-index:1000;width:68px;height:68px;border-radius:50%;
+  display:grid;place-items:center;font-size:2.4rem;color:#fff;
+  box-shadow:0 15px 50px rgba(0,0,0,0.5);transition:.4s;
 }
-.whatsapp-btn { left:30px; background:#25D366; }
-.back-to-top { right:30px; background:#c8102e; display:none; }
-.back-to-top.show { display:grid; }
-.whatsapp-btn:hover, .back-to-top:hover { transform:scale(1.2); }
+.whatsapp-btn{left:24px;background:#25D366;}
+.back-to-top{right:24px;background:#c8102e;display:none;}
+.back-to-top.show{display:grid;}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);display:none;align-items:center;justify-content:center;z-index:1400;padding:20px;}
 .lightbox.open{display:flex;}
-.lightbox img{max-width:100%;max-height:88vh;border-radius:14px;box-shadow:0 20px 80px rgba(0,0,0,0.7);}
+.lightbox img{max-width:96%;max-height:90vh;border-radius:18px;}
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 992px) {
-  .desktop-nav { display:none; }
-  .hamburger { display:grid; }
+/* MOBILE MENU – NO LINE */
+#mobileMenu{
+  position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
+  transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
 }
 
-@media (max-width: 768px) {
-  body { font-size: 14.5px; }
-  header { padding:14px 18px; }
-  .logo span { font-size:1.6rem; }
-  .hamburger { width:56px; height:56px; font-size:1.9rem; }
-  .hero-carousel { height:70vh; min-height:520px; margin-top:76px; }
-
-  .hero-content h1 { 
-    font-size: clamp(3.2rem, 9vw, 5.5rem) !important; 
-    -webkit-text-stroke: 2px #000;
-  }
-  .hero-content .tagline { font-size:1.9rem !important; }
-  .hero-content .services { font-size:1.4rem !important; margin-bottom:40px !important; }
-  .hero-buttons a { 
-    padding:20px 60px !important; 
-    font-size:1.5rem !important; 
-    margin:12px auto !important; 
-    display:block; 
-    width:85%; 
-  }
-
-  main { padding:50px 18px 100px !important; }
-  .section { padding:70px 20px !important; margin:20px 0 !important; border-radius:28px !important; }
-  .section h2 { font-size:2.8rem !important; }
-
-  .cta-block {
-    padding:70px 24px !important;
-    border-radius:36px !important;
-    margin:50px 16px !important;
-  }
-  .cta-block h3 { font-size:2.8rem !important; }
-  .cta-block p { font-size:1.5rem !important; margin:20px auto 40px !important; }
-  .cta-block a { 
-    padding:22px 60px !important; 
-    font-size:1.6rem !important; 
-    display:block; 
-    width:90%; 
-    margin:0 auto;
-  }
-
-  .footer-logo { font-size:3.5rem !important; }
-  .footer-links { flex-direction:column; gap:20px !important; }
-  .footer-links a { font-size:1.2rem !important; }
-
-  .whatsapp-btn, .back-to-top { width:60px; height:60px; font-size:2.2rem; bottom:20px; }
-  .whatsapp-btn { left:20px; } .back-to-top { right:20px; }
+/* RESPONSIVE */
+@media (max-width:992px){
+  .desktop-nav{display:none;}
+  .hamburger{display:grid;}
 }
-
-@media (max-width: 480px) {
-  .hero-content h1 { font-size: clamp(2.8rem, 10vw, 4.2rem) !important; }
-  .hero-content .tagline { font-size:1.6rem !important; }
-  .hero-content .services { font-size:1.2rem !important; }
-  .hero-buttons a { padding:18px 40px !important; font-size:1.3rem !important; }
-
-  .cta-block h3 { font-size:2.4rem !important; }
-  .cta-block p { font-size:1.35rem !important; }
-  .cta-block a { padding:20px 50px !important; font-size:1.5rem !important; }
+@media (max-width:768px){
+  header{padding:14px 20px;}
+  .logo span{font-size:1.6rem;}
+  .hero-carousel{height:75vh;min-height:560px;}
+  .hero-content h1{font-size:clamp(3rem,10vw,5.8rem)!important;}
+  .hero-content .tagline{font-size:1.9rem!important;}
+  .hero-content .services{font-size:1.3rem!important;}
+  .hero-buttons a{min-width:85%;padding:18px 40px;font-size:1.2rem;}
+  main{padding:50px 20px 100px;}
+  .section{padding:70px 25px;}
+  .section h2{font-size:2.6rem!important;}
 }
 </style>
 </head>
 <body>
 
-<!-- PRELOADER - 3 SECONDS, NO ANIMATION, ALWAYS FITS -->
+<!-- PRELOADER -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="main-content" id="mainContent">
+
   <!-- Floating Buttons -->
   <a href="https://wa.me/14695710545" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
   <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" style="position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;transition:left .5s ease;padding:100px 40px 40px;text-align:center;box-shadow:2px 0 20px rgba(0,0,0,0.2);overflow-y:auto;">
-    <a href="index.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Home</a>
-    <a href="about.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">About</a>
-    <a href="services.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Services</a>
-    <a href="work.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Our Work</a>
-    <a href="contact.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
+  <div id="mobileMenu">
+    <a href="index.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Home</a>
+    <a href="about.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">About</a>
+    <a href="services.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Services</a>
+    <a href="work.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Gallery</a>
+    <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
   </div>
 
   <!-- HEADER -->
@@ -343,52 +245,56 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="work.html">Our Work</a>
+      <a href="work.html">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
     <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- HERO CAROUSEL -->
+  <!-- HERO – FULL SCREEN & PERFECTLY FRAMED -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="assets/images/remodel.jpeg" alt="Luxury Kitchen Remodel">
-          <div class="hero-overlay"><div class="hero-content">
-            <h1>DIRECT BUILD GROUP</h1>
-            <p class="tagline">Texas Elite Remodeling & Construction</p>
-            <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
-            <div class="hero-buttons">
-              <a href="contact.html">Free Texas Quote</a>
-              <a href="work.html" class="ghost">View Our Work</a>
-            </div>
-          </div></div>
-        </div>
-        <div class="swiper-slide"><img src="assets/images/h2.jpg" alt="Spa Bathroom"><div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div></div>
-        <div class="swiper-slide"><img src="assets/images/h1.jpg" alt="Custom Deck & Porch"><div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div></div>
-        <div class="swiper-slide"><img src="assets/images/h3.jpg" alt="Premium Painting"><div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div></div>
-        <div class="swiper-slide"><img src="assets/images/h4.jpg" alt="Luxury Flooring"><div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div></div>
-        <div class="swiper-slide"><img src="assets/images/h5.jpg" alt="Classic Texas Porch"><div class="hero-overlay"><div class="hero-content"><h1>DIRECT BUILD GROUP</h1><p class="tagline">Texas Elite Remodeling & Construction</p><p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p><div class="hero-buttons"><a href="contact.html">Free Texas Quote</a><a href="work.html" class="ghost">View Our Work</a></div></div></div></div>
+        <div class="swiper-slide"><img src="assets/images/remodel.jpeg" alt="Luxury Kitchen"></div>
+        <div class="swiper-slide"><img src="assets/images/h2.jpg" alt="Spa Bathroom"></div>
+        <div class="swiper-slide"><img src="assets/images/h1.jpg" alt="Custom Deck & Porch"></div>
+        <div class="swiper-slide"><img src="assets/images/h3.jpg" alt="Premium Painting"></div>
+        <div class="swiper-slide"><img src="assets/images/h4.jpg" alt="Luxury Flooring"></div>
+        <div class="swiper-slide"><img src="assets/images/h5.jpg" alt="Classic Texas Porch"></div>
       </div>
+
+      <!-- Text Overlay (same on all slides) -->
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>DIRECT BUILD GROUP</h1>
+          <p class="tagline">Texas Elite Remodeling & Construction</p>
+          <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
+          <div class="hero-buttons">
+            <a href="contact.html">Free Texas Quote</a>
+            <a href="work.html" class="ghost">View Gallery</a>
+          </div>
+        </div>
+      </div>
+      </div>
+
       <div class="swiper-pagination"></div>
     </div>
   </div>
 
   <!-- MAIN CONTENT -->
-  albany
   <main>
     <section class="section" id="about">
       <h2>Licensed Texas Contractor – Statewide Service</h2>
-      <p style="max-width:900px;margin:0 auto 40px;font-size:1.3rem;line-height:1.8;">We proudly serve <strong>all of Texas</strong>: Austin, Dallas, Houston, San Antonio, Fort Worth, El Paso, Corpus Christi, Lubbock, and everywhere in between. From Hill Country ranches to Gulf Coast homes, we bring premium craftsmanship to every corner of the Lone Star State.</p>
+      <p style="max-width:900px;margin:0 auto 40px;font-size:1.2rem;line-height:1.8;">We proudly serve <strong>all of Texas</strong>: Austin, Dallas, Houston, San Antonio, Fort Worth, El Paso, Corpus Christi, Lubbock, and everywhere in between.</p>
       <div style="background:rgba(251,191,36,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
-        <p style="font-size:1.25rem;font-weight:600;color:#c8102e;">We proudly serve all of Texas. Out-of-state projects by special invitation only.</p>
+        <p style="font-size:1.3rem;font-weight:600;color:#c8102e;">Serving ALL of Texas. Out-of-state by invitation only.</p>
       </div>
     </section>
 
     <section class="section">
-      <h2>Our Texas Services</h2>
+      <h2>Our Services</h2>
       <div class="service-grid">
-        <div class="service-card"><h3>Painting</h3><p>Interior & exterior painting – flawless finishes</p></div>
+        <div class="service-card"><h3>Painting</h3><p>Interior & exterior – flawless finishes</p></div>
         <div class="service-card"><h3>Remodeling</h3><p>Kitchen & bathroom transformations</p></div>
         <div class="service-card"><h3>Porches</h3><p>Custom screened & timber porches</p></div>
         <div class="service-card"><h3>Decks</h3><p>Composite decks built for Texas</p></div>
@@ -396,34 +302,34 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
     </section>
 
     <section class="section">
-      <h2>Recent Projects Across Texas</h2>
+      <h2>Gallery</h2>
       <div class="projects-grid">
         <div class="proj" data-src="assets/images/custom deck1.jpg"><img src="assets/images/custom deck1.jpg" alt="Custom Deck"><div class="tag">Deck</div></div>
-        <div class="proj" data-src="assets/images/remodel.jpeg"><img src="assets/images/remodel.jpeg" alt="Kitchen Remodel"><div class="tag">Kitchen</div></div>
-        <div class="proj" data-src="assets/images/porch3.jpg"><img src="assets/images/porch3.jpg" alt="Custom Porch"><div class="tag">Porch</div></div>
+        <div class="proj" data-src="assets/images/remodel.jpeg"><img src="assets/images/remodel.jpeg" alt="Kitchen"><div class="tag">Kitchen</div></div>
+        <div class="proj" data-src="assets/images/porch3.jpg"><img src="assets/images/porch3.jpg" alt="Porch"><div class="tag">Porch</div></div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Why Texas Homeowners Trust Us</h2>
+      <h2>Why Choose Us</h2>
       <div class="why-grid">
         <div class="why-card"><h3>Licensed & Insured</h3><p>Fully compliant in Texas</p></div>
-        <div class="why-card"><h3>Transparent Pricing</h3><p>No surprises, ever</p></div>
+        <div class="why-card"><h3>Transparent Pricing</h3><p>No surprises</p></div>
         <div class="why-card"><h3>Premium Materials</h3><p>Sherwin-Williams, Trex, LVP</p></div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Texas Client Reviews</h2>
+      <h2>Client Reviews</h2>
       <div class="testimonials">
         <div class="testimonial"><p>“Best painting crew in Austin — transformed our home!”</p><cite>— Sarah K., Austin</cite></div>
         <div class="testimonial"><p>“Stunning deck in Dallas — worth every penny.”</p><cite>— Mike R., Dallas</cite></div>
-        <div class="testimonial"><p>“Professional porch build in Houston — on time & on budget.”</p><cite>— Lisa M., Houston</cite></div>
+        <div class="testimonial"><p>“Professional porch build in Houston — on time & budget.”</p><cite>— Lisa M., Houston</cite></div>
       </div>
     </section>
 
     <div class="cta-block">
-      <h3>Start Your Texas Project Today</h3>
+      <h3>Start Your Project Today</h3>
       <p>Licensed contractor • Free quote in 24h • Serving ALL of Texas</p>
       <a href="contact.html">Get Your Free Quote Now</a>
     </div>
@@ -433,70 +339,66 @@ footer { background:#ffffff; padding:120px 20px 80px; border-top:6px solid #fbbf
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">DIRECT BUILD GROUP</div>
-      <p class="footer-tagline">Texas Elite Remodeling • Licensed & Insured Since 2018</p>
+      <p class="footer-tagline">Texas Elite Remodeling • Licensed & Insured</p>
       <div class="footer-links">
-        <a href="services.html">Our Services</a>
-        <a href="work.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Gallery</a>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Get Free Quote</a>
+        <a href="contact.html">Free Quote</a>
         <a href="tel:+14695710545">Call (469) 571-0545</a>
       </div>
-      <div style="color:#777;font-size:1.1rem;margin-top:40px;">
-        © 2025 Direct Build Group • Proudly Serving All of Texas
-      </div>
+      <div style="color:#777;margin-top:50px;">© 2025 Direct Build Group • Proudly Serving All of Texas</div>
     </div>
   </footer>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
-    <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:white;width:60px;height:60px;border-radius:50%;font-size:2rem;border:none;cursor:pointer;z-index:10;">×</button>
-    <img id="lbImg" src="" alt="Enlarged project">
+    <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:#fff;width:60px;height:60px;border-radius:50%;font-size:2.2rem;border:none;cursor:pointer;">×</button>
+    <img id="lbImg" src="" alt="Project">
   </div>
 </div>
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// PRELOADER - EXACTLY 3 SECONDS, NO ANIMATION, CLEAN FADE OUT
+// Preloader
 setTimeout(() => {
-  const preloader = document.getElementById('preloader');
-  preloader.classList.add('fade-out');
-  setTimeout(() => {
-    preloader.remove();
-  }, 1000); // matches 1s fade-out transition
+  document.getElementById('preloader').classList.add('fade-out');
+  setTimeout(() => document.getElementById('preloader').remove(), 1000);
   document.getElementById('mainContent').classList.add('visible');
 }, 3000);
 
-// Swiper Carousel
+// Swiper
 new Swiper('.hero-carousel .swiper', {
   loop: true,
-  autoplay: { delay: 6000, disableOnInteraction: false },
+  autoplay: { delay: 6000 },
   pagination: { el: '.swiper-pagination', clickable: true },
   effect: 'fade',
-  fadeEffect: { crossFade: true },
-  speed: 1200
+  speed: 1400
 });
 
-// Back to Top
+// Back to top
 window.addEventListener('scroll', () => {
   document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
 });
 document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
 // Mobile Menu
-document.getElementById('menuBtn').addEventListener('click', () => {
+document.getElementById('menuBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
-});
+};
 
 // Lightbox
 document.querySelectorAll('.proj').forEach(p => {
-  p.addEventListener('click', () => {
+  p.onclick = () => {
     document.getElementById('lbImg').src = p.dataset.src || p.querySelector('img').src;
     document.getElementById('lightbox').classList.add('open');
-  });
+  };
 });
 document.querySelector('#lightbox button').onclick = () => document.getElementById('lightbox').classList.remove('open');
-document.getElementById('lightbox').onclick = e => { if(e.target === e.currentTarget) e.target.querySelector('button').click(); };
+document.getElementById('lightbox').onclick = e => {
+  if (e.target === e.currentTarget) e.target.querySelector('button').click();
+};
 </script>
 </body>
 </html>
