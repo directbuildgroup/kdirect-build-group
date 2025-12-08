@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Work | Direct Build Group – Texas Luxury Portfolio</title>
+<title>Gallery | Direct Build Group – Texas Luxury Portfolio</title>
 <meta name="description" content="179+ luxury kitchen remodels, bathrooms, custom decks, porches & painting across Texas. View our masterpiece gallery." />
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,420 +11,373 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  font-family: 'Satoshi', sans-serif;
-  background:#ffffff;
-  color:#1a1a1a;
-  line-height:1.7;
-  overflow-x:hidden;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;overflow-x:hidden;}
+
+/* LOGO FOR 3 SECONDS ONLY */
+#preloader{
+  position:fixed;inset:0;background:#fff;z-index:9999;
+  display:grid;place-items:center;
+}
+#preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
+#preloader img{width:280px;height:auto;border-radius:0;box-shadow:none;animation:none;}
+
+/* MAIN FADE IN */
+.main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
+.main-content.visible{opacity:1;}
+
+/* HEADER - CLEAN & SMALL ON MOBILE */
+header{
+  position:fixed;top:0;left:0;width:100%;padding:12px 20px;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;z-index:1100;
+  border-bottom:3px solid #fbbf24;box-shadow:0 6px 25px rgba(0,0,0,0.1);
+}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{
+  width:60px;height:60px;
+  border-radius:12px;
+  border:none !important;        /* YELLOW RING REMOVED */
+  box-shadow:none !important;    /* NO SHADOW */
+}
+.logo span{
+  font-family:'Cinzel',serif;font-size:1.8rem;font-weight:900;
+  color:#000;
 }
 
-/* RAINBOW BANNER */
-#topQuoteBanner {
-  position:relative;
-  background:linear-gradient(90deg,#ff4d4d,#ff8c1a,#ffd11a,#4dff4d,#1ad1ff,#9966ff,#ff4da6);
-  background-size:300% 300%;
-  animation:rainbowFlow 14s ease infinite;
-  color:#fff;
-  text-align:center;
-  padding:20px 20px;
-  font-weight:900;
-  font-size:1.3rem;
-  letter-spacing:1.4px;
-  z-index:1290;
-  box-shadow:0 8px 40px rgba(0,0,0,0.4);
-  overflow:hidden;
+/* DESKTOP NAV */
+.desktop-nav a{
+  color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1rem;
+  margin:0 16px;position:relative;
 }
-#topQuoteBanner.hidden { transform:translateY(-120%); opacity:0; pointer-events:none; transition:all .6s ease; }
-#topQuoteBanner::before {
-  content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);
-  animation:shine 5s infinite;
+.desktop-nav a::after{
+  content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;
+  background:#fbbf24;transition:width .4s;
 }
-.banner-content { display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap; max-width:1200px; margin:0 auto; position:relative; }
-.banner-text strong { color:#000; text-shadow:0 0 16px rgba(255,255,255,0.95); font-size:1.6rem; }
-.banner-btn {
-  background:#000; color:#fff; padding:16px 40px; border-radius:50px; font-weight:900; font-size:1.2rem;
-  text-decoration:none; box-shadow:0 10px 30px rgba(0,0,0,0.6); transition:all .4s;
-}
-.banner-btn:hover { transform:scale(1.2) translateY(-6px); background:#fff; color:#000; }
-.banner-close {
-  position:absolute; top:50%; right:20px; transform:translateY(-50%);
-  background:rgba(0,0,0,0.6); color:white; border:none; width:44px; height:44px; border-radius:50%;
-  font-size:2rem; cursor:pointer; transition:.3s;
-}
-.banner-close:hover { background:#c8102e; transform:translateY(-50%) rotate(180deg); }
-@keyframes rainbowFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-@keyframes shine { 0%{left:-100%} 100%{left:100%} }
+.desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
+.desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
 
-/* HEADER */
-header {
-  position:fixed; top:0; left:0; width:100%; padding:18px 30px;
-  background:rgba(255,255,255,0.97); backdrop-filter:blur(20px);
-  display:flex; justify-content:space-between; align-items:center;
-  z-index:1100; border-bottom:1px solid rgba(251,191,36,0.25);
-  box-shadow:0 6px 40px rgba(0,0,0,0.1);
+/* HAMBURGER - THREE LINES → X (100% WORKING) */
+.hamburger{
+  display:none;width:50px;height:50px;background:#fbbf24;
+  border-radius:50%;cursor:pointer;position:relative;
+  box-shadow:0 8px 25px rgba(251,191,36,0.4);
 }
-.logo { display:flex; align-items:center; gap:14px; }
-.logo img { width:72px; border-radius:16px; border:4px solid #fbbf24; }
-.logo span { font-family:'Cinzel',serif; font-size:2rem; font-weight:900; color:#1a1a1a; }
-.desktop-nav a {
-  color:#1a1a1a; text-decoration:none; font-weight:600; font-size:1.05rem; margin:0 18px; position:relative;
+.hamburger span{
+  position:absolute;left:50%;width:22px;height:2px;background:#1a1a1a;
+  border-radius:2px;transform:translate(-50%,-50%);transition:all .4s ease;
 }
-.desktop-nav a::after {
-  content:''; position:absolute; bottom:-10px; left:0; width:0; height:3px; background:#fbbf24; transition:width .4s;
-}
-.desktop-nav a:hover::after, .desktop-nav a.active::after { width:100%; }
-.desktop-nav a:hover, .desktop-nav a.active { color:#c8102e; }
-.hamburger {
-  display:none; place-items:center; background:#fbbf24; color:#1a1a1a;
-  width:72px; height:72px; border-radius:50%; font-size:2.2rem; cursor:pointer;
-  box-shadow:0 10px 40px rgba(251,191,36,0.4); transition:all .4s;
-}
-.hamburger:hover { transform:scale(1.15); box-shadow:0 0 50px rgba(251,191,36,0.8); }
+.hamburger span:nth-child(1){top:28%;}
+.hamburger span:nth-child(2){top:50%;}
+.hamburger span:nth-child(3){top:72%;}
+.hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
 
-/* HERO CAROUSEL */
-.hero-carousel {
-  height:92vh; min-height:680px; position:relative; margin-top:90px; overflow:hidden;
+/* MOBILE MENU */
+#mobileMenu{
+  position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
+  transition:left .5s ease;padding:120px 30px 40px;text-align:center;overflow-y:auto;
 }
-.swiper { width:100%; height:100%; }
-.swiper-slide img { width:100%; height:100%; object-fit:cover; }
-.slide-overlay {
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center; text-align:center;
-  padding:20px;
+
+/* HERO */
+.hero-carousel{
+  height:100vh;min-height:620px;max-height:1000px;
+  position:relative;margin-top:0;overflow:hidden;
 }
-.slide-content h2 {
-  font-family:'Cinzel',serif;
-  font-size:clamp(4.5rem,11vw,10rem);
-  margin-bottom:16px;
-  font-weight:900;
-  color:#ffffff;
-  text-shadow: 
-    0 0 20px rgba(0,0,0,0.9),
-    0 4px 10px rgba(0,0,0,0.8),
-    0 0 40px rgba(0,0,0,0.6);
-  -webkit-text-stroke: 2px #000;
-  paint-order: stroke fill;
+.swiper{width:100%;height:100%;}
+.swiper-slide img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+.hero-overlay{
+  position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.75));
+  display:flex;align-items:center;justify-content:center;text-align:center;
 }
-.slide-content p {
-  font-size:1.8rem;
-  margin-bottom:40px;
-  color:#ffffff;
-  font-weight:700;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+.hero-content{
+  position:relative;z-index:2;padding:30px;max-width:95%;
 }
-.slide-content a {
-  background:#c8102e;
-  color:white;
-  padding:24px 70px;
-  border-radius:50px;
-  font-weight:800;
-  font-size:1.5rem;
-  text-decoration:none;
-  box-shadow:0 25px 70px rgba(200,16,46,0.6);
-  transition:all .4s;
+.hero-content h2{
+  font-family:'Cinzel',serif;font-size:clamp(3.8rem,9vw,7.5rem);
+  color:#fff;font-weight:900;margin-bottom:20px;line-height:1.1;
+  text-shadow:0 5px 25px rgba(0,0,0,0.9);
 }
-.slide-content a:hover {
-  background:#a10e28;
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 35px 90px rgba(200,16,46,0.7);
+.hero-content p{
+  font-size:clamp(1.6rem,5vw,2.8rem);color:#fbbf24;font-weight:800;
+  margin-bottom:40px;text-shadow:0 4px 15px rgba(0,0,0,0.9);
 }
+.hero-content a{
+  background:#c8102e;color:#fff;padding:20px 70px;border-radius:50px;
+  font-weight:700;font-size:1.4rem;text-decoration:none;
+  box-shadow:0 20px 60px rgba(200,16,46,0.6);transition:all .4s;
+}
+.hero-content a:hover{transform:translateY(-10px) scale(1.06);}
 
 /* FILTER BAR */
-.filter-bar {
-  position:sticky; top:90px; background:white; padding:30px 20px 20px; text-align:center;
-  z-index:1000; box-shadow:0 10px 40px rgba(0,0,0,0,0.08); margin-bottom:40px;
+.filter-bar{
+  position:sticky;top:0;background:#fff;padding:24px 20px 18px;
+  text-align:center;z-index:1000;box-shadow:0 8px 30px rgba(0,0,0,0.1);
 }
-.filter-btn {
-  margin:0 10px 12px; padding:14px 32px; border-radius:50px; background:rgba(251,191,36,0.15);
-  color:#1a1a1a; font-weight:700; font-size:1rem; cursor:pointer; transition:all .4s;
+.filter-btn{
+  margin:6px 10px;padding:12px 28px;border-radius:50px;
+  background:rgba(251,191,36,0.12);color:#1a1a1a;font-weight:700;
+  font-size:1rem;cursor:pointer;transition:all .4s;border:none;
 }
-.filter-btn.active, .filter-btn:hover {
-  background:#fbbf24; color:#1a1a1a; transform:translateY(-4px); box-shadow:0 10px 30px rgba(251,191,36,0.4);
+.filter-btn.active,.filter-btn:hover{
+  background:#fbbf24;color:#1a1a1a;transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(251,191,36,0.4);
 }
 
 /* GALLERY */
-.gallery-container { max-width:1800px; margin:0 auto 160px; padding:0 30px; }
-.gallery { columns:4 340px; column-gap:36px; }
-.gallery-item {
-  break-inside:avoid; margin-bottom:36px; border-radius:32px; overflow:hidden; cursor:pointer;
-  position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.12); transition:all .7s cubic-bezier(0.23,1,0.32,1);
+.gallery-container{max-width:1800px;margin:0 auto 140px;padding:0 30px;}
+.gallery{columns:4 340px;column-gap:36px;}
+.gallery-item{
+  break-inside:avoid;margin-bottom:36px;border-radius:32px;overflow:hidden;
+  cursor:pointer;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.12);
+  transition:all .6s;
 }
-.gallery-item:hover { transform:translateY(-24px); box-shadow:0 50px 100px rgba(251,191,36,0.35); }
-.gallery-item img { width:100%; display:block; transition:transform 1.2s ease; }
-.gallery-item:hover img { transform:scale(1.16); }
-.badge {
-  position:absolute; top:18px; left:18px; background:#fbbf24; color:#1a1a1a;
-  padding:8px 18px; border-radius:50px; font-weight:800; font-size:0.9rem; z-index:3;
+.gallery-item:hover{transform:translateY(-20px);box-shadow:0 40px 90px rgba(251,191,36,0.3);}
+.gallery-item img{width:100%;display:block;transition:transform 1s;}
+.gallery-item:hover img{transform:scale(1.14);}
+.badge{
+  position:absolute;top:18px;left:18px;background:#fbbf24;color:#1a1a1a;
+  padding:8px 18px;border-radius:50px;font-weight:800;font-size:0.9rem;
   box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
-.gallery-caption {
-  position:absolute; bottom:0; left:0; right:0;
-  background:linear-gradient(0deg,rgba(0,0,0,0.92),transparent);
-  color:white; padding:60px 30px 30px; font-weight:700; font-size:1.25rem;
-  text-shadow:0 4px 16px rgba(0,0,0,0.8);
+.gallery-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(0deg,rgba(0,0,0,0.9),transparent);
+  color:#fff;padding:60px 30px 30px;font-weight:700;
+  font-size:1.3rem;text-shadow:0 4px 16px rgba(0,0,0,0.8);
 }
 
-/* MODAL */
-.project-modal {
-  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.97); z-index:2000;
-  align-items:center; justify-content:center; padding:20px; overflow-y:auto;
+/* MODAL & LIGHTBOX */
+.project-modal,.lightbox{display:none;}
+.project-modal.active,.lightbox.active{display:flex;}
+.project-modal{
+  position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2000;
+  align-items:center;justify-content:center;padding:20px;overflow-y:auto;
 }
-.project-modal.active { display:flex; }
-.modal-content {
-  max-width:1200px; width:100%; background:white; border-radius:36px; overflow:hidden;
-  position:relative; box-shadow:0 40px 120px rgba(0,0,0,0.7);
+.modal-content{
+  max-width:1200px;width:100%;background:#fff;border-radius:36px;
+  overflow:hidden;position:relative;box-shadow:0 40px 120px rgba(0,0,0,0.7);
 }
-.modal-close {
-  position:absolute; top:20px; right:20px; background:rgba(0,0,0,0.7); color:white;
-  width:64px; height:64px; border-radius:50%; font-size:2.8rem; cursor:pointer; z-index:10;
-  transition:all .4s;
+.modal-close{
+  position:absolute;top:20px;right:20px;background:rgba(0,0,0,0.7);color:#fff;
+  width:64px;height:64px;border-radius:50%;font-size:2.8rem;
+  cursor:pointer;transition:.4s;z-index:10;
 }
-.modal-close:hover { background:#c8102e; transform:rotate(90deg) scale(1.1); }
-.modal-header {
-  padding:50px 50px 30px; text-align:center; background:#f8f8f8;
+.modal-close:hover{background:#c8102e;transform:rotate(90deg) scale(1.1);}
+.modal-header{
+  padding:50px 50px 30px;text-align:center;background:#f8f8f8;
 }
-.modal-header h3 { font-family:'Cinzel',serif; font-size:3.2rem; color:#c8102e; margin-bottom:10px; }
-.modal-header p { font-size:1.3rem; color:#555; font-weight:500; }
-.modal-gallery {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; padding:40px;
+.modal-header h3{font-family:'Cinzel',serif;font-size:3.2rem;color:#c8102e;margin-bottom:10px;}
+.modal-header p{font-size:1.3rem;color:#555;font-weight:500;}
+.modal-gallery{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:40px;
 }
-.modal-gallery img {
-  width:100%; height:190px; object-fit:cover; border-radius:20px; cursor:zoom-in;
-  transition:transform .5s; box-shadow:0 10px 30px rgba(0,0,0,0.15);
+.modal-gallery img{
+  width:100%;height:200px;object-fit:cover;border-radius:20px;
+  cursor:zoom-in;transition:transform .5s;box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
-.modal-gallery img:hover { transform:scale(1.06); }
+.modal-gallery img:hover{transform:scale(1.06);}
 
-/* NEW: FULL-SCREEN PHOTO VIEWER */
-.lightbox {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0,0.98);
-  z-index:3000;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
-  cursor:zoom-out;
+.lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,0.98);z-index:3000;
+  align-items:center;justify-content:center;padding:40px;cursor:zoom-out;
 }
-.lightbox.active {
-  display:flex;
-}
-.lightbox img {
-  max-width:95vw;
-  max-height:95vh;
-  border-radius:20px;
+.lightbox img{
+  max-width:95vw;max-height:95vh;border-radius:20px;
   box-shadow:0 30px 100px rgba(0,0,0,0.8);
-  animation:zoomIn 0.6s ease;
 }
-@keyframes zoomIn {
-  from { transform:scale(0.7); opacity:0; }
-  to   { transform:scale(1); opacity:1; }
+.lightbox-close{
+  position:absolute;top:30px;right:40px;background:rgba(255,255,255,0.2);color:#fff;
+  width:60px;height:60px;border-radius:50%;font-size:3rem;
+  cursor:pointer;transition:.3s;
 }
-.lightbox-close {
-  position:absolute;
-  top:30px; right:40px;
-  background:rgba(255,255,255,0.2);
-  color:white;
-  width:60px; height:60px;
-  border-radius:50%;
-  font-size:3rem;
-  cursor:pointer;
-  transition:.3s;
-}
-.lightbox-close:hover {
-  background:#c8102e;
-  transform:scale(1.2);
-}
-
-/* FLOATING BUTTONS */
-.whatsapp-btn, .back-to-top {
-  position:fixed; bottom:30px; z-index:1000; width:72px; height:72px; border-radius:50%;
-  display:grid; place-items:center; font-size:2.5rem; color:white; box-shadow:0 15px 50px rgba(0,0,0,0.4);
-  transition:all .4s;
-}
-.whatsapp-btn { left:30px; background:#25D366; }
-.back-to-top { right:30px; background:#c8102e; display:none; }
-.back-to-top.show { display:grid; }
-.whatsapp-btn:hover, .back-to-top:hover { transform:scale(1.15); }
+.lightbox-close:hover{background:#c8102e;transform:scale(1.2);}
 
 /* FOOTER */
-footer {
-  background:#ffffff;
-  padding:100px 20px 70px;
-  border-top:4px solid #fbbf24;
-  text-align:center;
+footer{
+  background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text-align:center;
 }
-.footer-inner { max-width:1200px; margin:0 auto; }
-.footer-logo {
-  font-family:'Cinzel',serif;
-  font-size:4.2rem;
-  font-weight:900;
+.footer-inner{max-width:1200px;margin:auto;}
+.footer-logo{
+  font-family:'Cinzel',serif;font-size:3.8rem;font-weight:900;
   background:linear-gradient(90deg,#c8102e,#fbbf24);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:12px;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-.footer-tagline { font-size:1.35rem; color:#555; margin-bottom:40px; font-weight:500; }
-.footer-links { display:flex; flex-wrap:wrap; gap:36px; justify-content:center; margin-bottom:40px; }
-.footer-links a { color:#111; font-weight:600; font-size:1.2rem; text-decoration:none; transition:.3s; }
-.footer-links a:hover { color:#c8102e; }
-.footer-bottom { color:#777; font-size:1rem; padding-top:24px; border-top:1px solid #eee; }
+.footer-links{
+  display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:50px 0;
+}
+.footer-links a{color:#111;font-weight:600;text-decoration:none;font-size:1.3rem;transition:.3s;}
+.footer-links a:hover{color:#c8102e;}
 
-/* RESPONSIVE */
-@media (max-width:1400px) { .gallery { columns:3; } }
-@media (max-width:992px) { .desktop-nav { display:none; } .hamburger { display:grid; } .gallery { columns:2; } }
-@media (max-width:640px) {
-  .gallery { columns:1; padding:0 15px; }
-  .slide-content h2 { font-size:4rem !important; }
-  .slide-content p { font-size:1.4rem; }
+/* MOBILE - PERFECT SMALL HEADER */
+@media (max-width:992px){
+  .desktop-nav{display:none;}
+  .hamburger{display:grid;}
+}
+@media (max-width:768px){
+  header{padding:10px 16px;}
+  .logo span{font-size:1.5rem;}
+  .logo img{width:52px;height:52px;}
+  .hamburger{width:48px;height:48px;}
+  .hero-carousel{height:70vh;min-height:520px;}
+  .hero-content h2{font-size:3.6rem !important;}
+  .hero-content p{font-size:1.9rem !important;}
+}
+@media (max-width:480px){
+  header{padding:8px 12px;}
+  .logo span{font-size:1.35rem;}
+  .logo img{width:48px;height:48px;}
+  .hero-content h2{font-size:3.2rem !important;}
 }
 </style>
 </head>
 <body>
 
-<!-- RAINBOW BANNER -->
-<div id="topQuoteBanner">
-  <div class="banner-content">
-    <span class="banner-text"><strong>FREE QUOTE THIS WEEK ONLY</strong> – Texas Spots Filling Fast!</span>
-    <a href="contact.html" class="banner-btn">GET QUOTE</a>
-    <button class="banner-close">×</button>
-  </div>
+<!-- LOGO 3 SECONDS ONLY -->
+<div id="preloader">
+  <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
-<a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<div class="main-content" id="mainContent">
 
-<header>
-  <div class="logo">
-    <img src="assets/images/logo.jpg" alt="Direct Build Group">
-    <span>DIRECT BUILD GROUP</span>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu">
+    <a href="index.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Home</a>
+    <a href="about.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">About</a>
+    <a href="services.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Services</a>
+    <a href="work.html" style="display:block;font-size:2.1rem;margin:32px 0;color:#c8102e;font-weight:800;">Gallery</a>
+    <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
   </div>
-  <nav class="desktop-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="work.html" class="active">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
-</header>
 
-<!-- HERO CAROUSEL -->
-<div class="hero-carousel">
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="assets/images/h2.jpg" alt="Luxury Kitchen Dallas">
-        <div class="slide-overlay">
-          <div class="slide-content">
-            <h2>Modern Kitchen</h2>
-            <p>Dallas, TX • 2025</p>
-            <a href="contact.html">Start Your Project</a>
-          </div>
-        </div>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.jpg" alt="Direct Build Group">
+      <span>DIRECT BUILD GROUP</span>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <!-- THREE-LINE HAMBURGER (WORKING) -->
+    <button class="hamburger" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-carousel">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/images/remodel.jpeg" alt="Luxury Kitchen"></div>
+        <div class="swiper-slide"><img src="assets/images/bathroom4.jpg" alt="Spa Bathroom"></div>
+        <div class="swiper-slide"><img src="assets/images/custom build.jpg" alt="Custom Deck"></div>
+        <div class="swiper-slide"><img src="assets/images/ex2.webp" alt="Painting"></div>
+        <div class="swiper-slide"><img src="assets/images/floor3.jpg" alt="Flooring"></div>
+        <div class="swiper-slide"><img src="assets/images/porch.jpeg" alt="Porch"></div>
       </div>
-      <div class="swiper-slide">
-        <img src="assets/images/h1.jpg" alt="Spa Bathroom Austin">
-        <div class="slide-overlay">
-          <div class="slide-content">
-            <h2>Spa Retreat</h2>
-            <p>Austin, TX • 2025</p>
-            <a href="contact.html">Transform Your Bath</a>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="assets/images/h3.jpg" alt="Custom Deck Houston">
-        <div class="slide-overlay">
-          <div class="slide-content">
-            <h2>Elevated Living</h2>
-            <p>Houston, TX • 2025</p>
-            <a href="contact.html">Build Your Deck</a>
-          </div>
-        </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h2>Our Gallery</h2>
+        <p>179+ Luxury Projects Across Texas</p>
+        <a href="contact.html">Start Your Project</a>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
-</div>
 
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <button class="filter-btn active" data-filter="all">All Projects</button>
-  <button class="filter-btn" data-filter="kitchen">Kitchen</button>
-  <button class="filter-btn" data-filter="bathroom">Bathroom</button>
-  <button class="filter-btn" data-filter="deck">Deck & Porch</button>
-  <button class="filter-btn" data-filter="painting">Painting</button>
-  <button class="filter-btn" data-filter="flooring">Flooring</button>
-</div>
-
-<!-- GALLERY -->
-<div class="gallery-container">
-  <div class="gallery" id="gallery"></div>
-</div>
-
-<!-- MODAL (PROJECT DETAILS) -->
-<div class="project-modal" id="projectModal">
-  <div class="modal-content">
-    <button class="modal-close">×</button>
-    <div class="modal-header">
-      <h3 id="modalTitle">Project Title</h3>
-      <p id="modalLocation">Location • Year</p>
-    </div>
-    <div class="modal-gallery" id="modalGallery"></div>
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+    <button class="filter-btn" data-filter="bathroom">Bathroom</button>
+    <button class="filter-btn" data-filter="deck">Deck & Porch</button>
+    <button class="filter-btn" data-filter="painting">Painting</button>
+    <button class="filter-btn" data-filter="flooring">Flooring</button>
   </div>
-</div>
 
-<!-- NEW: FULL-SCREEN LIGHTBOX FOR BIG PHOTOS -->
-<div class="lightbox" id="lightbox">
-  <img src="" alt="Full screen photo">
-  <div class="lightbox-close">×</div>
-</div>
+  <!-- GALLERY -->
+  <div class="gallery-container">
+    <div class="gallery" id="gallery"></div>
+  </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">DIRECT BUILD GROUP</div>
-    <p class="footer-tagline">Texas Elite Remodeling • Licensed & Insured Since 2018</p>
-    <div class="footer-links">
-      <a href="services.html">Our Services</a>
-      <a href="work.html">Portfolio</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Get Free Quote</a>
-      <a href="tel:+15125550198">Call (512) 555-0198</a>
-    </div>
-    <div class="footer-bottom">
-      © 2025 Direct Build Group • Proudly Serving All of Texas
+  <!-- MODAL -->
+  <div class="project-modal" id="projectModal">
+    <div class="modal-content">
+      <button class="modal-close">X</button>
+      <div class="modal-header">
+        <h3 id="modalTitle">Project Title</h3>
+        <p id="modalLocation">Location • Year</p>
+      </div>
+      <div class="modal-gallery" id="modalGallery"></div>
     </div>
   </div>
-</footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Full view">
+    <div class="lightbox-close">X</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">DIRECT BUILD GROUP</div>
+      <p>Texas Elite Remodeling • Licensed & Insured</p>
+      <div class="footer-links">
+        <a href="services.html">Services</a>
+        <a href="work.html">Gallery</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Free Quote</a>
+        <a href="tel:+14695710545">Call (469) 571-0545</a>
+      </div>
+      <div style="color:#777;margin-top:50px;">© 2025 Direct Build Group • Proudly Serving All of Texas</div>
+    </div>
+  </footer>
+</div>
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// Banner close
-document.querySelector('.banner-close').onclick = () => document.getElementById('topQuoteBanner').classList.add('hidden');
+// Logo 3 seconds only
+setTimeout(() => {
+  document.getElementById('preloader').classList.add('fade-out');
+  setTimeout(() => document.getElementById('preloader').remove(), 1000);
+  document.getElementById('mainContent').classList.add('visible');
+}, 3000);
+
+// HAMBURGER MENU - FULLY WORKING
+document.getElementById('hamburgerBtn').onclick = () => {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  btn.classList.toggle('active');
+  menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
+};
 
 // Swiper
-new Swiper('.swiper', {
+new Swiper('.hero-carousel .swiper', {
   loop: true,
-  autoplay: { delay: 5500, disableOnInteraction: false },
+  autoplay: { delay: 6000 },
   pagination: { el: '.swiper-pagination', clickable: true },
   effect: 'fade',
-  fadeEffect: { crossFade: true }
+  speed: 1400
 });
 
-// Gallery Data
+// Gallery Projects
 const projects = [
-  {title:"Modern Open-Concept Kitchen",location:"Dallas, TX",year:"2025",category:"kitchen",thumb:"assets/images/remodel.jpeg",gallery:["assets/images/kitchen remodel5.jpg","assets/images/kitchen remodel6.jpg","assets/images/kitchen remodel2.jpg","assets/images/kitchen remodel3.jpg"]},
-  {title:"Spa-Inspired Master Bath",location:"Austin, TX",year:"2025",category:"bathroom",thumb:"assets/images/bathroom4.jpg",gallery:["assets/images/bathroom4.jpg","assets/images/bathroom1.jpg","assets/images/bathroom2.jpg","assets/images/bathroom3.jpg"]},
-  {title:"Custom Timber Deck",location:"Houston, TX",year:"2025",category:"deck",thumb:"assets/images/composite desks1.jpeg",gallery:["assets/images/composite desks2.jpeg","assets/images/custom outdoor decks2.jpg","assets/images/composite desks4.jpeg"]},
-  {title:"Complete Exterior Transformation",location:"San Antonio, TX",year:"2025",category:"painting",thumb:"assets/images/ex2.webp",gallery:["assets/images/ex2.webp","assets/images/exterior1.jpg","assets/images/exterior2.jpg"]},
-  {title:"Luxury Vinyl Flooring",location:"The Woodlands, TX",year:"2025",category:"flooring",thumb:"assets/images/hardwood flooring4.jpg",gallery:["assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg","assets/images/hardwood flooring4.jpg"]},
-  {title:"Classic Texas Porch",location:"Fort Worth, TX",year:"2024",category:"deck",thumb:"assets/images/porch.jpeg",gallery:["assets/images/porch.jpeg","assets/images/porch1.jpg","assets/images/porch2.jpg"]},
+  {title:"Modern Open-Concept Kitchen",location:"Dallas, TX",year:"2025",category:"kitchen",thumb:"assets/images/remodel.jpeg",gallery:["assets/images/kitchen remodel5.jpg","assets/images/kitchen remodel6.jpg","assets/images/kitchen remodel2.jpg"]},
+  {title:"Spa-Inspired Master Bath",location:"Austin, TX",year:"2025",category:"bathroom",thumb:"assets/images/bathroom4.jpg",gallery:["assets/images/bathroom4.jpg","assets/images/bathroom1.jpg","assets/images/bathroom2.jpg"]},
+  {title:"Custom Timber Deck",location:"Houston, TX",year:"2025",category:"deck",thumb:"assets/images/composite desks1.jpeg",gallery:["assets/images/composite desks2.jpeg","assets/images/custom outdoor decks2.jpg"]},
+  {title:"Complete Exterior Transformation",location:"San Antonio, TX",year:"2025",category:"painting",thumb:"assets/images/ex2.webp",gallery:["assets/images/ex2.webp","assets/images/exterior1.jpg"]},
+  {title:"Luxury Vinyl Flooring",location:"The Woodlands, TX",year:"2025",category:"flooring",thumb:"assets/images/hardwood flooring4.jpg",gallery:["assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg"]},
+  {title:"Classic Texas Porch",location:"Fort Worth, TX",year:"2024",category:"deck",thumb:"assets/images/porch.jpeg",gallery:["assets/images/porch.jpeg","assets/images/porch1.jpg"]},
 ];
 
 const gallery = document.getElementById('gallery');
@@ -434,7 +387,6 @@ const modalLocation = document.getElementById('modalLocation');
 const modalGallery = document.getElementById('modalGallery');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
-const lightboxClose = document.querySelector('.lightbox-close');
 
 function render(filter = 'all') {
   gallery.innerHTML = '';
@@ -445,7 +397,6 @@ function render(filter = 'all') {
       <div class="badge">${p.location} • ${p.year}</div>
       <div class="gallery-caption">${p.title}</div>`;
     
-    // Open modal on click
     item.onclick = () => {
       modalTitle.textContent = p.title;
       modalLocation.textContent = `${p.location} • ${p.year}`;
@@ -469,10 +420,10 @@ function render(filter = 'all') {
   });
 }
 
-// Filter buttons
+// Filter
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.onclick = () => {
-    document.querySelector('.filter-btn.active').classList.remove('active');
+    document.querySelector('.filter-btn.active')?.classList.remove('active');
     btn.classList.add('active');
     render(btn.dataset.filter);
   };
@@ -485,22 +436,15 @@ document.querySelector('.modal-close').onclick = () => {
 };
 modal.onclick = e => e.target === modal && (modal.classList.remove('active'), document.body.style.overflow = '');
 
-// Lightbox close
-lightboxClose.onclick = lightbox.onclick = () => {
+// Close lightbox
+document.querySelector('.lightbox-close').onclick = lightbox.onclick = () => {
   lightbox.classList.remove('active');
   document.body.style.overflow = '';
   lightboxImg.src = '';
 };
-
-// Back to top
-window.addEventListener('scroll', () => {
-  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
-});
-document.getElementById('backToTop').onclick = () => window.scrollTo({top:0, behavior:'smooth'});
 
 // Initial render
 render();
 </script>
 </body>
 </html>
-
