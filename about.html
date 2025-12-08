@@ -11,172 +11,245 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
 <style>
-/* BIG RESPONSIVE PRELOADER - SAME AS WORK.HTML & SERVICES.HTML */
-#preloader{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:9999;
-  display:grid;place-items:center;transition:opacity 1s ease;
-}
-#preloader.fade-out{opacity:0;pointer-events:none;}
-#preloader img{
-  width:70vmin;max-width:420px;min-width:220px;
-  border-radius:50%;box-shadow:0 30px 100px rgba(0,0,0,0.2);
-  animation:gentlePulse 2s infinite alternate;
-}
-@keyframes gentlePulse{from{transform:scale(0.95);}to{transform:scale(1.02);}}
-
-/* GENERAL */
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Satoshi',sans-serif;background:#fff;color:#1a1a1a;line-height:1.8;overflow-x:hidden;}
+body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;}
 
-/* HEADER – SUPER SMALL & CLEAN ON MOBILE */
+/* SIMPLE LOGO FOR 3 SECONDS - NO ANIMATION, NO CIRCLE */
+#preloader{
+  position:fixed;inset:0;background:#fff;z-index:9999;
+  display:grid;place-items:center;
+}
+#preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
+#preloader img{
+  width:280px; /* clean size, no huge logo */
+  height:auto;
+  border-radius:0; /* no circle */
+  box-shadow:none; /* no shadow */
+  animation:none; /* no pulse */
+}
+
+/* MAIN CONTENT */
+.main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
+.main-content.visible{opacity:1;}
+
+/* HEADER - CLEAN & CONSISTENT */
 header{
-  position:fixed;top:0;left:0;width:100%;padding:8px 14px;
-  background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);
-  display:flex;justify-content:space-between;align-items:center;
-  z-index:1100;border-bottom:3px solid #fbbf24;
-  box-shadow:0 6px 30px rgba(0,0,0,0.1);
+  position:fixed;top:0;left:0;width:100%;padding:16px 32px;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;z-index:1100;
+  border-bottom:4px solid #fbbf24;box-shadow:0 8px 30px rgba(0,0,0,0.1);
 }
-.logo{display:flex;align-items:center;gap:8px;}
-.logo img{width:44px;height:44px;border-radius:10px;border:2.5px solid #fbbf24;object-fit:cover;}
-.logo span{font-family:'Cinzel',serif;font-size:1.45rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.5px;}
-
-.desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.02rem;margin:0 14px;position:relative;}
-.desktop-nav a::after{content:'';position:absolute;bottom:-7px;left:0;width:0;height:3px;background:#fbbf24;transition:width .4s;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
+.logo span{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;color:#1a1a1a;}
+.desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;margin:0 20px;position:relative;}
+.desktop-nav a::after{content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;background:#fbbf24;transition:width .4s;}
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
-.desktop-nav a.active,.desktop-nav a:hover{color:#c8102e;}
+.desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
+.hamburger{display:none;width:58px;height:58px;background:#fbbf24;color:#1a1a1a;border-radius:50%;font-size:1.9rem;cursor:pointer;box-shadow:0 10px 30px rgba(251,191,36,0.4);display:grid;place-items:center;}
 
-.hamburger{
-  display:none;place-items:center;background:#fbbf24;color:#1a1a1a;
-  width:50px;height:50px;border-radius:50%;font-size:1.8rem;cursor:pointer;
-  box-shadow:0 6px 25px rgba(251,191,36,0.5);transition:all .3s;
+/* HERO - FULL SCREEN & CLEAN TEXT */
+.hero-slideshow{
+  height:100vh;min-height:620px;max-height:1000px;
+  position:relative;margin-top:0;overflow:hidden;
 }
-.hamburger.active{background:#c8102e;color:#fff;}
-
-/* MOBILE MENU */
-.mobile-menu{
-  position:fixed;top:0;right:-100%;width:100%;height:100vh;
-  background:rgba(26,26,26,0.98);backdrop-filter:blur(20px);
-  z-index:1099;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  transition:right 0.6s cubic-bezier(0.77,0,0.18,1);
+.swiper{width:100%;height:100%;}
+.swiper-slide img{
+  width:100%;height:100%;object-fit:cover;object-position:center 35%;
 }
-.mobile-menu.open{right:0;}
-.mobile-menu a{color:#fff;font-size:2.4rem;font-weight:700;margin:16px 0;text-decoration:none;transition:all .4s;}
-.mobile-menu a:hover,.mobile-menu a.active{color:#fbbf24;transform:translateX(14px);}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.75));
+  display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.hero-content{
+  position:relative;z-index:2;padding:30px;max-width:95%;
+}
+.hero-content h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(3.8rem,8vw,7.5rem);
+  color:#fff;font-weight:900;
+  margin-bottom:14px;line-height:1.1;
+  text-shadow:0 4px 20px rgba(0,0,0,0.9);
+}
+.hero-content .subtitle{
+  font-size:clamp(1.6rem,4.5vw,2.6rem);
+  color:#fbbf24;font-weight:800;
+  margin-bottom:12px;
+  text-shadow:0 3px 12px rgba(0,0,0,0.9);
+}
+.hero-content .license{
+  font-size:clamp(1rem,3vw,1.5rem);
+  color:#fff;
+  background:rgba(0,0,0,0.6);
+  padding:12px 34px;
+  border-radius:50px;
+  display:inline-block;
+  backdrop-filter:blur(8px);
+  font-weight:600;
+}
 
-/* HERO */
-.hero-slideshow{height:88vh;min-height:620px;position:relative;margin-top:68px;overflow:hidden;}
-.hero-slideshow .swiper{width:100%;height:100%;}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;}
-.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;}
-.hero-content h1{font-family:'Cinzel',serif;font-size:clamp(3.4rem,9vw,9rem);color:#fff;font-weight:900;margin-bottom:14px;text-shadow:0 6px 30px rgba(0,0,0,0.9);}
-.hero-content .subtitle{font-size:1.5rem;color:#fbbf24;font-weight:700;margin-bottom:12px;}
-.hero-content .license{font-size:1.18rem;color:#fff;background:rgba(0,0,0,0.6);padding:10px 30px;border-radius:50px;display:inline-block;backdrop-filter:blur(10px);}
-
-/* SECTIONS & FONTS REDUCED ON MOBILE */
-section{padding:90px 18px;max-width:1700px;margin:0 auto;}
-h2{font-family:'Cinzel',serif;text-align:center;font-size:3.2rem;margin-bottom:60px;color:#1a1a1a;}
-h2 span{background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+/* SECTIONS */
+section{padding:90px 30px;max-width:1700px;margin:0 auto;}
+h2{
+  font-family:'Cinzel',serif;text-align:center;font-size:3rem;
+  margin-bottom:55px;
+}
+h2 span{
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
 
 /* STORY */
-.story{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;background:#f9f9f9;padding:80px 60px;border-radius:36px;}
-.story-text p{font-size:1.18rem;color:#444;margin-bottom:24px;line-height:1.85;}
+.story{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;background:#f9f9f9;padding:90px 70px;
+  border-radius:40px;box-shadow:0 20px 70px rgba(0,0,0,0.08);
+}
+.story-text p{
+  font-size:1.18rem;color:#333;margin-bottom:24px;line-height:1.85;
+}
 .story-text strong{color:#c8102e;}
 
 /* TEAM */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:45px;max-width:1400px;margin:0 auto;}
-.member{background:#fff;padding:45px 25px;border-radius:32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.11);transition:transform .6s;}
+.team-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:50px;
+  max-width:1400px;margin:0 auto;
+}
+.member{
+  background:#fff;padding:48px 30px;border-radius:36px;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.1);transition:transform .5s;
+}
 .member:hover{transform:translateY(-14px);}
-.member img{width:180px;height:180px;object-fit:cover;border-radius:50%;margin-bottom:24px;border:5px solid #fbbf24;box-shadow:0 12px 35px rgba(0,0,0,0.2);}
-.member h3{font-size:1.75rem;}
-.member .role{font-size:1.15rem;}
+.member img{
+  width:180px;height:180px;object-fit:cover;border-radius:50%;
+  margin-bottom:24px;border:5px solid #fbbf24;
+  box-shadow:0 12px 35px rgba(0,0,0,0.18);
+}
+.member h3{font-size:1.8rem;margin-bottom:6px;}
+.member .role{font-size:1.15rem;color:#c8102e;font-weight:600;}
 
 /* TIMELINE */
-.timeline{background:#c8102e;color:#fff;text-align:center;padding:100px 18px;}
+.timeline{
+  background:#c8102e;color:#fff;text-align:center;padding:110px 30px;
+}
 .timeline h2{color:#fbbf24;}
-.timeline-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px;max-width:1300px;margin:0 auto;}
-.milestone{padding:40px 20px;background:rgba(255,255,255,0.12);border-radius:30px;}
-.milestone span{font-size:4.5rem;}
+.timeline-container{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;
+  max-width:1300px;margin:0 auto;
+}
+.milestone{
+  padding:48px 25px;background:rgba(255,255,255,0.15);
+  border-radius:36px;backdrop-filter:blur(10px);
+}
+.milestone h3{font-size:2.1rem;margin-bottom:10px;}
+.milestone span{font-size:4.8rem;font-weight:900;display:block;margin:8px 0;}
 
 /* REVIEWS */
-.reviews{padding:100px 18px;background:#f8f9fa;}
-.review{padding:40px 30px;border-radius:30px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,0.1);}
-.review .stars{font-size:2rem;color:#fbbf24;margin-bottom:12px;}
-.review p{font-size:1.2rem;margin-bottom:18px;}
-.review cite{font-size:1.05rem;color:#c8102e;font-weight:600;}
+.reviews{padding:110px 30px;background:#f8f9fa;}
+.review{
+  background:#fff;padding:42px 32px;border-radius:34px;
+  box-shadow:0 18px 55px rgba(0,0,0,0.09);
+}
+.review .stars{font-size:2.1rem;color:#fbbf24;margin-bottom:14px;}
+.review p{font-size:1.22rem;margin-bottom:18px;line-height:1.8;}
+.review cite{font-size:1.12rem;color:#c8102e;font-weight:700;}
 
 /* CTA */
-.cta-final{background:#c8102e;color:#fff;text-align:center;padding:100px 18px;}
-.cta-final h2{font-size:3.4rem;}
-.cta-final p{font-size:1.5rem;margin:20px 0 40px;}
-.cta-final a{background:#fff;color:#c8102e;padding:22px 70px;border-radius:50px;font-weight:800;font-size:1.45rem;text-decoration:none;box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:.5s;}
-.cta-final a:hover{transform:scale(1.08);}
+.cta-final{
+  background:#c8102e;color:#fff;text-align:center;padding:110px 30px;
+}
+.cta-final h2{font-size:3.2rem;margin-bottom:18px;}
+.cta-final p{font-size:1.45rem;margin-bottom:42px;opacity:0.95;}
+.cta-final a{
+  background:#fff;color:#c8102e;padding:22px 76px;border-radius:50px;
+  font-weight:800;font-size:1.45rem;text-decoration:none;
+  box-shadow:0 22px 65px rgba(0,0,0,0.4);transition:.5s;
+}
+.cta-final a:hover{transform:scale(1.07);}
 
 /* FOOTER */
-footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;background:#fff;}
-.footer-inner{max-width:1200px;margin:auto;}
-.footer-logo{font-family:'Cinzel',serif;font-size:4rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.footer-links a{margin:0 18px;color:#111;font-weight:600;font-size:1.25rem;text-decoration:none;transition:.3s;}
+footer{
+  background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text-align:center;
+}
+.footer-logo{
+  font-family:'Cinzel',serif;font-size:3.7rem;font-weight:900;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.footer-links{
+  display:flex;flex-wrap:wrap;gap:38px;justify-content:center;margin:48px 0;
+}
+.footer-links a{color:#111;font-weight:600;text-decoration:none;font-size:1.28rem;transition:.3s;}
 .footer-links a:hover{color:#c8102e;}
-.footer-bottom{color:#777;font-size:1.1rem;margin-top:40px;}
 
 /* FLOATING BUTTONS */
 .whatsapp-btn,.back-to-top{
-  position:fixed;bottom:18px;z-index:1000;width:58px;height:58px;
-  border-radius:50%;display:grid;place-items:center;font-size:2.1rem;
-  color:#fff;box-shadow:0 12px 45px rgba(0,0,0,0.5);transition:.4s;
+  position:fixed;bottom:28px;z-index:1000;width:66px;height:66px;border-radius:50%;
+  display:grid;place-items:center;font-size:2.3rem;color:#fff;
+  box-shadow:0 14px 48px rgba(0,0,0,0.5);transition:.4s;
 }
-.whatsapp-btn{left:16px;background:#25D366;}
-.back-to-top{right:16px;background:#c8102e;display:none;}
+.whatsapp-btn{left:22px;background:#25D366;}
+.back-to-top{right:22px;background:#c8102e;display:none;}
 .back-to-top.show{display:grid;}
 
-/* MOBILE OPTIMIZATIONS */
+/* MOBILE MENU - NO LINE */
+#mobileMenu{
+  position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
+  transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
+}
+
+/* MOBILE - NO BIG FONTS */
 @media (max-width:992px){
   .desktop-nav{display:none;}
   .hamburger{display:grid;}
-  header{padding:7px 12px;}
-  .logo img{width:40px;height:40px;}
-  .logo span{font-size:1.38rem;}
-  .hamburger{width:46px;height:46px;font-size:1.7rem;}
 }
-@media (max-width:640px){
-  .hero-slideshow{height:76vh;margin-top:62px;}
-  .hero-content h1{font-size:3.1rem !important;}
-  .hero-content .subtitle{font-size:1.35rem;}
-  .hero-content .license{font-size:1.1rem;padding:9px 26px;}
-  section{padding:75px 14px;}
-  h2{font-size:2.7rem;margin-bottom:45px;}
-  .story{grid-template-columns:1fr;padding:55px 18px;gap:35px;border-radius:26px;}
-  .story-text p{font-size:1.12rem;}
+@media (max-width:768px){
+  header{padding:12px 18px;}
+  .logo span{font-size:1.55rem;}
+  .hero-slideshow{height:72vh;min-height:540px;}
+  .hero-content h1{font-size:3.4rem !important;}
+  .hero-content .subtitle{font-size:1.7rem !important;}
+  .hero-content .license{font-size:1.15rem !important;padding:10px 28px;}
+  section{padding:65px 18px;}
+  h2{font-size:2.4rem !important;margin-bottom:40px;}
+  .story{grid-template-columns:1fr;padding:50px 20px;gap:35px;}
+  .story-text p{font-size:1.1rem;}
   .member img{width:150px;height:150px;}
-  .member h3{font-size:1.6rem;}
-  .timeline h2{font-size:2.9rem;}
+  .member h3{font-size:1.65rem;}
+  .timeline h2{font-size:2.7rem;}
   .milestone span{font-size:4rem;}
-  .cta-final h2{font-size:3rem;}
-  .footer-logo{font-size:3.5rem;}
+  .cta-final h2{font-size:2.7rem;}
+  .cta-final a{padding:18px 60px;font-size:1.3rem;}
+  .footer-logo{font-size:3rem;}
+}
+@media (max-width:480px){
+  .hero-content h1{font-size:2.9rem !important;}
+  .hero-content .subtitle{font-size:1.55rem !important;}
 }
 </style>
 </head>
 <body>
 
-<!-- BIG BEAUTIFUL PRELOADER - SAME AS WORK & SERVICES -->
+<!-- LOGO SHOWS FOR 3 SECONDS ONLY -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
-<div class="main-content">
+<div class="main-content" id="mainContent">
 
-  <a href="https://wa.me/15125550198" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <!-- Floating Buttons -->
+  <a href="https://wa.me/14695710545" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
   <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-  <!-- MOBILE MENU -->
-  <nav class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="services.html">Services</a>
-    <a href="work.html">Our Work</a>
-    <a href="contact.html">Get Free Quote</a>
-  </nav>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu">
+    <a href="index.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Home</a>
+    <a href="about.html" style="display:block;font-size:2.1rem;margin:30px 0;color:#c8102e;font-weight:800;">About</a>
+    <a href="services.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Services</a>
+    <a href="work.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Gallery</a>
+    <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
+  </div>
 
   <!-- HEADER -->
   <header>
@@ -188,13 +261,13 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
       <a href="services.html">Services</a>
-      <a href="work.html">Our Work</a>
+      <a href="work.html">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
     <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- HERO SLIDESHOW -->
+  <!-- HERO -->
   <div class="hero-slideshow">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -207,10 +280,11 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
       </div>
       <div class="swiper-pagination"></div>
     </div>
+
     <div class="hero-overlay">
       <div class="hero-content">
         <h1>About Us</h1>
-        <div class="subtitle">Licensed Texas Remodeling Experts</div>
+        <p class="subtitle">Licensed Texas Remodeling Experts</p>
         <div class="license">Texas Contractor License #TACLB021345C</div>
       </div>
     </div>
@@ -220,42 +294,44 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
   <section class="story">
     <div class="story-text">
       <h2>We Build More Than Homes – We Build <span>Trust</span></h2>
-      <p><strong>Direct Build Group</strong></p>
-      <p>At Direct Build Group, we believe every home deserves high-quality craftsmanship, honest communication, and lasting results. Based in the Dallas–Fort Worth metroplex, our team proudly serves homeowners across North Texas — and we’re always ready to go the extra mile for our clients, even beyond the area.</p>
-      <p>Our mission is simple: to turn your vision into reality with professionalism, precision, and care. Whether it’s a kitchen remodel, bathroom renovation, new addition, or outdoor project, our skilled team handles every step with attention to detail and respect for your home.</p>
-      <p>With a dedicated crew of experienced professionals, we ensure each project is completed efficiently and up to the highest standard. From the first consultation to the final walkthrough, we keep you informed, involved, and confident every step of the way.</p>
-      <p>We are licensed and insured, giving our clients peace of mind knowing their home is in safe, qualified hands.</p>
-      <p>At Direct Build Group, we don’t just build projects — we build trust, relationships, and spaces you’ll love for years to come.</p>
-      <p>Let’s build something great together.</p>
-      <p>Today, we’re one of the most trusted names in residential remodeling across Austin, Dallas, Houston, San Antonio — and every corner of Texas.</p>
-      <p>Fully licensed, insured, and backed by hundreds of 5-star reviews, we treat every project like it’s our own home.</p>
+      <p><strong>Direct Build Group</strong> was born from a simple idea: treat every home like our own.</p>
+      <p>Founded in Texas with Texas values, we’ve grown from a small crew into one of the most trusted remodeling companies serving <strong>all of Texas</strong> — Austin, Dallas, Houston, San Antonio, and beyond.</p>
+      <p>Our team combines decades of experience with genuine care. We show up on time, keep job sites clean, communicate clearly, and never cut corners.</p>
+      <p>Licensed, insured, and backed by hundreds of 5-star reviews  we don’t just build projects.</p>
+      <p>We build relationships. We build confidence. We build homes that last.</p>
+      <p>Let’s create something beautiful together.</p>
     </div>
     <div class="story-text">
-      <h2 style="color:#c8102e;">Our Promise</h2>
-      <p>Premium materials • Transparent pricing • On-time completion • 100% satisfaction guaranteed</p>
+      <h2 style="color:#c8102e;">Our Promise to You</h2>
+      <p>• Premium materials only<br>
+         • Transparent, upfront pricing<br>
+         • On-time & on-budget delivery<br>
+         • 100% satisfaction guaranteed<br>
+         • Clean job sites daily<br>
+         • Full warranty on all work</p>
     </div>
   </section>
 
   <!-- TEAM -->
   <section>
-    <h2>Meet Your <span>Team</span></h2>
+    <h2>Meet Your <span>Texas Team</span></h2>
     <div class="team-grid">
       <div class="member">
-        <img src="assets/images/founder1.jpg" alt="Omar Mohammed">
+        <img src="assets/images/founder1.jpg" alt="Omar Mohamed">
         <h3>Omar Mohamed</h3>
         <p class="role">Founder & Managing Director</p>
         <p>15+ years leading luxury remodeling projects across Texas with vision and integrity.</p>
       </div>
       <div class="member">
-        <img src="assets/images/founder2.jpg" alt="Project development manager">
+        <img src="assets/images/founder2.jpg" alt="Chase Reeves">
         <h3>Chase Reeves</h3>
-        <p class="role">Project development manager</p>
+        <p class="role">Project Development Manager</p>
         <p>Creator of 200+ award-winning kitchens and bathrooms. Texas elegance is her signature.</p>
       </div>
       <div class="member">
-        <img src="assets/images/founder.jpg" alt="Director Of Operations">
+        <img src="assets/images/founder.jpg" alt="Sergio Molina">
         <h3>Sergio Molina</h3>
-        <p class="role">Director Of Operations</p>
+        <p class="role">Director of Operations</p>
         <p>20+ years ensuring every build is safe, on-time, and built to last generations.</p>
       </div>
     </div>
@@ -263,11 +339,23 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
 
   <!-- TIMELINE -->
   <section class="timeline">
-    <h2>Our Journey</h2>
+    <h2>Our Journey in Texas</h2>
     <div class="timeline-container">
-      <div class="milestone"><h3>2015</h3><span>Founded</span><p>Started with 3 crew members</p></div>
-      <div class="milestone"><h3>2019</h3><span>100+ Projects</span><p>Expanded statewide</p></div>
-      <div class="milestone"><h3>2025</h3><span>147+ Homes</span><p>Transformed with pride</p></div>
+      <div class="milestone">
+        <h3>2023</h3>
+        <span>Founded</span>
+        <p>Humble beginnings with just 3 crew members and one goal: excellence.</p>
+      </div>
+      <div class="milestone">
+        <h3>2024</h3>
+        <span>64+ Projects</span>
+        <p>Expanded statewide across Texas with growing reputation.</p>
+      </div>
+      <div class="milestone">
+        <h3>2025</h3>
+        <span>147+ Homes</span>
+        <p>Transformed with pride — and counting!</p>
+      </div>
     </div>
   </section>
 
@@ -276,9 +364,9 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
     <h2>What Texas Homeowners <span>Say</span></h2>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="review"><div class="stars">★★★★★</div><p>“Full kitchen remodel in Austin — stunning results! The team was clean, respectful, and finished early.”</p><cite>— Jennifer & Mark L., Austin</cite></div></div>
-        <div class="swiper-slide"><div class="review"><div class="stars">★★★★★</div><p>“Exterior painting + new deck in Dallas. Best contractor experience we’ve ever had.”</p><cite>— Robert G., Dallas</cite></div></div>
-        <div class="swiper-slide"><div class="review"><div class="stars">★★★★★</div><p>“Screened porch in Houston — perfect execution!”</p><cite>— Lisa K., Houston</cite></div></div>
+        <div class="swiper-slide"><div class="review"><div class="stars">5 stars</div><p>“Full kitchen remodel in Austin — stunning results! The team was clean, respectful, and finished early.”</p><cite>— Jennifer & Mark L., Austin</cite></div></div>
+        <div class="swiper-slide"><div class="review"><div class="stars">5 stars</div><p>“Exterior painting + new deck in Dallas. Best contractor experience we’ve ever had.”</p><cite>— Robert G., Dallas</cite></div></div>
+        <div class="swiper-slide"><div class="review"><div class="stars">5 stars</div><p>“Screened porch in Houston — perfect execution!”</p><cite>— Lisa K., Houston</cite></div></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -287,7 +375,7 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
   <!-- FINAL CTA -->
   <section class="cta-final">
     <h2>Ready to Transform Your Texas Home?</h2>
-    <p>Licensed contractor • Free quotes • Serving all of Texas</p>
+    <p>Licensed contractor • Free quotes in 24h • Serving ALL of Texas</p>
     <a href="contact.html">Get Your Free Quote Now</a>
   </section>
 
@@ -297,57 +385,43 @@ footer{padding:90px 18px 60px;border-top:5px solid #fbbf24;text-align:center;bac
       <div class="footer-logo">DIRECT BUILD GROUP</div>
       <p>Texas Elite Remodeling • Licensed & Insured Since 2015</p>
       <div class="footer-links">
-        <a href="services.html">Our Services</a>
-        <a href="work.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Gallery</a>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Get Free Quote</a>
-        <a href="tel:+15125550198">Call (512) 555-0198</a>
+        <a href="contact.html">Free Quote</a>
+        <a href="tel:+14695710545">Call (469) 571-0545</a>
       </div>
-      <div style="color:#777;margin-top:40px;font-size:1.1rem;">
-        © 2025 Direct Build Group • Proudly Serving All of Texas
-      </div>
+      <div style="color:#777;margin-top:50px;">© 2025 Direct Build Group • Proudly Serving All of Texas</div>
     </div>
   </footer>
+
 </div>
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// BIG PRELOADER - 3 seconds then smooth fade out
+// Logo shows for exactly 3 seconds then disappears
 setTimeout(() => {
-  const preloader = document.getElementById('preloader');
-  preloader.classList.add('fade-out');
-  setTimeout(() => preloader.remove(), 1000);
+  document.getElementById('preloader').classList.add('fade-out');
+  setTimeout(() => document.getElementById('preloader').remove(), 1000);
+  document.getElementById('mainContent').classList.add('visible');
 }, 3000);
 
 // Mobile Menu
 document.getElementById('menuBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
-  menu.classList.toggle('open');
-  document.getElementById('menuBtn').innerHTML = menu.classList.contains('open') 
-    ? '<i class="fas fa-times"></i>' 
-    : '<i class="fas fa-bars"></i>';
+  menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('menuBtn');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
-    menu.classList.remove('open');
-    btn.innerHTML = '<i class="fas fa-bars"></i>';
-  }
-});
 
 // Back to top
 window.addEventListener('scroll', () => {
-  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
 });
 document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
 // Swipers
 new Swiper('.hero-slideshow .swiper', {
   loop: true,
-  autoplay: { delay: 5000 },
+  autoplay: { delay: 6000 },
   pagination: { el: '.swiper-pagination', clickable: true },
   effect: 'fade',
   speed: 1400
