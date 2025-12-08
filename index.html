@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Direct Build Group — Texas Painting, Remodeling, Decks & Porches in Texas</title>
+<title>Direct Build Group — Texas Painting, Remodeling, Decks & Porches Contractor</title>
 
 <!-- SEO -->
 <meta name="description" content="Licensed Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Expert painting, kitchen/bath remodels, custom porches, decks, flooring. Free estimates." />
@@ -51,7 +51,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Satoshi',sans-serif;line-height:1.6;color:#1a1a1a;background:#fff;}
 
-/* LOGO 3 SECONDS ONLY */
+/* LOGO FOR 3 SECONDS ONLY */
 #preloader{
   position:fixed;inset:0;background:#fff;z-index:9999;
   display:grid;place-items:center;
@@ -68,7 +68,7 @@ header{
   position:fixed;top:0;left:0;width:100%;padding:16px 32px;
   background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
   display:flex;justify-content:space-between;align-items:center;z-index:1100;
-  border-bottom:4px solid #fbbf24;box-shadow:0 8px 30px rgba(0,0,0,0.1);
+  border-bottom:4px solid #fbbf24;box-shadow:0 0 8px 30px rgba(0,0,0,0.1);
 }
 .logo{display:flex;align-items:center;gap:14px;}
 .logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
@@ -78,12 +78,18 @@ header{
 }
 
 /* NAV */
-.desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;margin:0 20px;position:relative;}
-.desktop-nav a::after{content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;background:#fbbf24;transition:width .4s;}
+.desktop-nav a{
+  color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;
+  margin:0 20px;position:relative;
+}
+.desktop-nav a::after{
+  content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;
+  background:#fbbf24;transition:width .4s;
+}
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
 .desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
 
-/* HAMBURGER - THREE LINES */
+/* HAMBURGER - THREE LINES → X */
 .hamburger{
   display:none;width:58px;height:58px;background:#fbbf24;
   border-radius:50%;cursor:pointer;position:relative;
@@ -100,7 +106,7 @@ header{
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
 
-/* HERO - PERFECT BALANCE & POSITIONING */
+/* HERO - PERFECTLY BALANCED & ELEGANT */
 .hero-carousel{
   height:100vh;min-height:620px;max-height:1000px;
   position:relative;margin-top:0;overflow:hidden;
@@ -119,7 +125,7 @@ header{
 }
 .hero-content h1{
   font-family:'Cinzel',serif;
-  font-size:clamp(3.2rem,7vw,6rem); /* REDUCED SIZE - ELEGANT */
+  font-size:clamp(3.2rem,7vw,6rem); /* ELEGANT SIZE */
   color:#fff;font-weight:900;
   margin-bottom:20px;line-height:1.1;
   text-shadow:0 4px 20px rgba(0,0,0,0.9);
@@ -153,7 +159,7 @@ header{
 }
 .hero-buttons a:hover{transform:translateY(-10px) scale(1.06);}
 
-/* REST OF PAGE - CLEAN & CONSISTENT */
+/* MAIN CONTENT */
 main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
 .section{padding:90px 30px;text-align:center;background:#f8f9fa;margin:40px 0;border-radius:36px;}
 .section h2{
@@ -175,6 +181,7 @@ main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
 .proj:hover img{transform:scale(1.14);}
 .proj .tag{position:absolute;left:20px;bottom:20px;background:#c8102e;color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;}
 
+/* CTA */
 .cta-block{
   background:#c8102e;color:#fff;padding:90px 40px;border-radius:50px;
   text-align:center;margin:80px auto;max-width:1100px;
@@ -184,20 +191,12 @@ main{max-width:1400px;margin:0 auto;padding:80px 30px 140px;}
 .cta-block p{font-size:1.35rem;margin-bottom:40px;}
 .cta-block a{background:#fff;color:#c8102e;padding:22px 70px;border-radius:50px;font-weight:800;font-size:1.4rem;}
 
+/* FOOTER */
 footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text-align:center;}
 .footer-logo{font-family:'Cinzel',serif;font-size:3.8rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .footer-links{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:50px 0;}
 .footer-links a{color:#111;font-weight:600;text-decoration:none;font-size:1.3rem;transition:.3s;}
 .footer-links a:hover{color:#c8102e;}
-
-/* FLOATING BUTTONS */
-.whatsapp-btn{
-  position:fixed;bottom:30px;left:24px;z-index:1000;
-  width:68px;height:68px;border-radius:50%;background:#25D366;
-  color:#fff;display:grid;place-items:center;font-size:2.4rem;
-  box-shadow:0 15px 50px rgba(0,0,0,0.5);transition:.4s;
-}
-.whatsapp-btn:hover{transform:scale(1.15);}
 
 /* MOBILE MENU */
 #mobileMenu{
@@ -205,7 +204,7 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE - CLEAN MOBILE */
 @media (max-width:992px){
   .desktop-nav{display:none;}
   .hamburger{display:grid;}
@@ -237,9 +236,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
 
 <div class="main-content" id="mainContent">
 
-  <!-- WhatsApp Only -->
-  <a href="https://wa.me/14695710545" class="whatsapp-btn" target="_blank">WhatsApp Icon</a>
-
   <!-- Mobile Menu -->
   <div id="mobileMenu">
     <a href="index.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Home</a>
@@ -270,7 +266,7 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     </button>
   </header>
 
-  <!-- HERO - BEAUTIFULLY BALANCED -->
+  <!-- HERO -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -297,12 +293,12 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     </div>
   </div>
 
-  <!-- REST OF PAGE (same as before) -->
+  <!-- MAIN CONTENT -->
   <main>
     <section class="section" id="about">
       <h2>Licensed Texas Contractor – Statewide Service</h2>
       <p style="max-width:900px;margin:0 auto 40px;font-size:1.2rem;line-height:1.8;">We proudly serve <strong>all of Texas</strong>: Austin, Dallas, Houston, San Antonio, Fort Worth, El Paso, Corpus Christi, Lubbock, and everywhere in between.</p>
-      <div style="background:rgba(251,191,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
+      <div style="background:rgba(251,191,36,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
         <p style="font-size:1.3rem;font-weight:600;color:#c8102e;">Serving ALL of Texas. Out-of-state by invitation only.</p>
       </div>
     </section>
@@ -392,7 +388,7 @@ new Swiper('.hero-carousel .swiper', {
   speed: 1400
 });
 
-// Mobile Menu (three lines to X)
+// Mobile Menu (three lines → X)
 document.getElementById('menuBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
   const btn = document.getElementById('menuBtn');
