@@ -12,9 +12,9 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;}
+body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;overflow-x:hidden;}
 
-/* LOGO FOR 3 SECONDS ONLY */
+/* PRELOADER */
 #preloader{
   position:fixed;inset:0;background:#fff;z-index:9999;
   display:grid;place-items:center;
@@ -37,11 +37,11 @@ header{
 .logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
 .logo span{
   font-family:'Cinzel',serif;font-size:2rem;font-weight:900;
-  color:#000 !important; /* BLACK TEXT */
+  color:#000 !important;
   background:none;-webkit-text-fill-color:#000;
 }
 
-/* DESKTOP NAV */
+/* NAV */
 .desktop-nav a{
   color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;
   margin:0 20px;position:relative;
@@ -53,7 +53,7 @@ header{
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
 .desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
 
-/* HAMBURGER - THREE CLEAN LINES */
+/* HAMBURGER */
 .hamburger{
   display:none;width:58px;height:58px;background:#fbbf24;
   border-radius:50%;cursor:pointer;position:relative;
@@ -66,8 +66,6 @@ header{
 .hamburger span:nth-child(1){top:30%;}
 .hamburger span:nth-child(2){top:50%;}
 .hamburger span:nth-child(3){top:70%;}
-
-/* Turn into X when active */
 .hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
@@ -90,7 +88,25 @@ main{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 .page-subtitle{
-  font-size:1.6rem;color:#444;margin-bottom:60px;
+  font-size:1.6rem;color:#444;margin-bottom:40px;
+}
+
+/* CALL NOW BUTTON ABOVE FORM */
+.call-now-banner{
+  margin: 40px auto 60px;
+  max-width: 600px;
+}
+.call-now-btn{
+  display:inline-flex;align-items:center;gap:18px;
+  background:linear-gradient(135deg,#c8102e,#e91e3e);
+  color:#fff;padding:26px 50px;border-radius:80px;
+  font-size:2.1rem;font-weight:900;text-decoration:none;
+  box-shadow:0 25px 80px rgba(200,16,46,0.5);
+  transition:all .5s;animation:pulse 2s infinite;
+}
+.call-now-btn i{font-size:2.8rem;animation:ring 1.5s ease-in-out infinite;}
+.call-now-btn:hover{
+  transform:scale(1.08);box-shadow:0 35px 100px rgba(200,16,46,0.7);
 }
 
 /* CONTACT CARD */
@@ -139,7 +155,40 @@ textarea{height:160px;resize:none;}
 }
 .success-msg.show{opacity:1;pointer-events:all;}
 
-/* RESPONSIVE - CLEAN MOBILE FONTS */
+/* ANIMATED FLOATING CALL BUTTON (BOTTOM RIGHT) */
+.call-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 24px;
+  width: 76px;
+  height: 76px;
+  background: linear-gradient(135deg, #c8102e, #e91e3e);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.8rem;
+  box-shadow: 0 15px 45px rgba(200, 16, 46, 0.5);
+  z-index: 1001;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: pulse 2s infinite;
+  text-decoration: none;
+}
+.call-btn:hover {transform: scale(1.15);box-shadow: 0 20px 60px rgba(200,16,46,0.7);}
+.call-btn i {animation: ring 1.5s ease-in-out infinite;}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7); }
+  70% { box-shadow: 0 0 0 18px rgba(200, 16, 46, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0); }
+}
+@keyframes ring {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* RESPONSIVE */
 @media (max-width:992px){
   .desktop-nav{display:none;}
   .hamburger{display:grid;}
@@ -150,6 +199,8 @@ textarea{height:160px;resize:none;}
   main{padding:60px 20px 100px;}
   .page-title{font-size:3.6rem !important;}
   .page-subtitle{font-size:1.4rem !important;}
+  .call-now-btn{font-size:1.8rem;padding:22px 40px;gap:14px;}
+  .call-now-btn i{font-size:2.4rem;}
   .contact-card{padding:60px 35px;border-radius:40px;}
   .form-grid{grid-template-columns:1fr;gap:28px;}
   .form-group input,.form-group select,.form-group textarea{padding:20px;font-size:1.05rem;}
@@ -157,13 +208,14 @@ textarea{height:160px;resize:none;}
 }
 @media (max-width:480px){
   .page-title{font-size:3.2rem !important;}
+  .call-now-btn{font-size:1.6rem;padding:20px 32px;}
   .submit-btn{font-size:1.55rem;}
 }
 </style>
 </head>
 <body>
 
-<!-- LOGO 3 SECONDS ONLY -->
+<!-- PRELOADER -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
@@ -173,6 +225,11 @@ textarea{height:160px;resize:none;}
   Thank You!<br>
   <span style="font-size:1.4rem;color:#555;">Your message was sent successfully.<br>We’ll contact you very soon!</span>
 </div>
+
+<!-- FLOATING CALL BUTTON -->
+<a href="tel:+18888908546" class="call-btn" aria-label="Call Now">
+  <i class="fas fa-phone-alt"></i>
+</a>
 
 <!-- Mobile Menu -->
 <div id="mobileMenu">
@@ -198,7 +255,6 @@ textarea{height:160px;resize:none;}
     <a href="contact.html" class="active">Contact</a>
   </nav>
 
-  <!-- HAMBURGER WITH THREE LINES -->
   <button class="hamburger" id="hamburgerBtn">
     <span></span>
     <span></span>
@@ -208,7 +264,15 @@ textarea{height:160px;resize:none;}
 
 <main class="main-content" id="mainContent">
   <h1 class="page-title">Get Your Free Quote</h1>
-  <p class="page-subtitle">We reply in minutes • Serving every city in Texas</p>
+  <p class="page-subtitle">We reply in one business day • Serving every city in Texas</p>
+
+  <!-- CALL NOW BUTTON ABOVE FORM -->
+  <div class="call-now-banner">
+    <a href="tel:+18888908546" class="call-now-btn">
+      <i class="fas fa-phone-alt"></i>
+      Call Now: (888) 890-8546
+    </a>
+  </div>
 
   <div class="contact-card">
     <form id="contactForm" action="https://formspree.io/f/xpwkaaap" method="POST">
@@ -240,15 +304,16 @@ textarea{height:160px;resize:none;}
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// Logo 3 seconds only
+// Preloader 3 seconds
 setTimeout(() => {
   document.getElementById('preloader').classList.add('fade-out');
   setTimeout(() => document.getElementById('preloader').remove(), 1000);
   document.getElementById('mainContent').classList.add('visible');
 }, 3000);
 
-// Hamburger menu (three lines → X)
+// Hamburger menu
 document.getElementById('hamburgerBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
   const btn = document.getElementById('hamburgerBtn');
@@ -256,21 +321,21 @@ document.getElementById('hamburgerBtn').onclick = () => {
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
-// Calendar
+// Flatpickr calendar
 flatpickr("#callTime", {
   enableTime: true,
   dateFormat: "M j, Y at h:i K",
   minDate: "today",
   minTime: "08:00",
   maxTime: "19:00",
-  disable: [d => d.getDay() === 0]
+  disable: [d => d.getDay() === 0] // no Sundays
 });
 
-// Form submission
+// Form submission with success message
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.submit-btn');
-  const original = btn.innerHTML;
+  const originalText = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = 'Sending...';
 
@@ -278,21 +343,24 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const res = await fetch(this.action, {
       method: 'POST',
       body: new FormData(this),
-      headers: {'Accept': 'application/json'}
+      headers: { 'Accept': 'application/json' }
     });
+
     if (res.ok) {
       document.getElementById('successMsg').classList.add('show');
       this.reset();
       setTimeout(() => {
         document.getElementById('successMsg').classList.remove('show');
         btn.disabled = false;
-        btn.innerHTML = original;
+        btn.innerHTML = originalText;
       }, 4000);
+    } else {
+      throw new Error();
     }
   } catch {
-    alert('Error. Please try again.');
+    alert('Error sending message. Please try again.');
     btn.disabled = false;
-    btn.innerHTML = original;
+    btn.innerHTML = originalText;
   }
 });
 </script>
