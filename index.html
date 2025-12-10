@@ -7,7 +7,7 @@
 
 <!-- SEO -->
 <meta name="description" content="Licensed Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Expert painting, kitchen/bath remodels, custom porches, decks, flooring. Free estimates." />
-<meta name="keywords" content="painting contractor Austin TX, kitchen remodel Dallas, bathroom remodeling Houston, deck builder San Antonio, porch construction Texas, flooring installation Austin" />
+<meta name="keywords" content="painting contractor Austin TX, kitchen remodel Dallas, bathroom remodeling Houston, deck builder San Antonio, porch construction Texas, flooring Austin" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://directbuildgroup.com/" />
 
@@ -25,7 +25,7 @@
   "@type": "HomeAndConstructionBusiness",
   "name": "Direct Build Group",
   "image": "https://directbuildgroup.com/assets/images/logo.jpg",
-  "telephone": "+1(469) 571-0545",
+  "telephone": "+18888908546",
   "email": "info@directbuildgroup.com",
   "url": "https://directbuildgroup.com",
   "description": "Licensed & insured Texas contractor specializing in painting, kitchen & bathroom remodeling, custom porches, composite decks, and premium flooring. Serving all of Texas.",
@@ -51,7 +51,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Satoshi',sans-serif;line-height:1.6;color:#1a1a1a;background:#fff;overflow-x:hidden;}
 
-/* LOGO 3 SECONDS ONLY */
+/* PRELOADER */
 #preloader{
   position:fixed;inset:0;background:#fff;z-index:9999;
   display:grid;place-items:center;
@@ -63,7 +63,7 @@ body{font-family:'Satoshi',sans-serif;line-height:1.6;color:#1a1a1a;background:#
 .main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
 .main-content.visible{opacity:1;}
 
-/* HEADER - SMALL & CLEAN */
+/* HEADER */
 header{
   position:fixed;top:0;left:0;width:100%;padding:12px 20px;
   background:rgba(255,255,255,.97);backdrop-filter:blur(16px);
@@ -74,7 +74,7 @@ header{
 .logo img{width:54px;height:54px;border-radius:12px;border:none;}
 .logo span{font-family:'Cinzel',serif;font-size:1.7rem;font-weight:900;color:#000;}
 
-/* DESKTOP NAV */
+/* NAV */
 .desktop-nav a{
   color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1rem;
   margin:0 14px;position:relative;
@@ -86,7 +86,7 @@ header{
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
 .desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
 
-/* HAMBURGER - THREE LINES TO X */
+/* HAMBURGER */
 .hamburger{
   display:none;width:50px;height:50px;background:#fbbf24;
   border-radius:50%;cursor:pointer;position:relative;
@@ -103,7 +103,7 @@ header{
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
 
-/* HERO - PERFECTLY CENTERED, NO EXTRA TEXT */
+/* HERO */
 .hero-carousel{
   height:100vh;min-height:580px;position:relative;overflow:hidden;
 }
@@ -115,31 +115,16 @@ header{
   display:flex;align-items:center;justify-content:center;
 }
 .hero-content{
-  position:relative;z-index:2;
-  padding:20px;
-  max-width:100%;
-  width:100%;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  height:100%;
+  position:relative;z-index:2;padding:20px;max-width:100%;width:100%;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;
 }
 .hero-content h1{
-  font-family:'Cinzel',serif;
-  font-size:clamp(3.2rem,9vw,6.5rem);
-  color:#fff;font-weight:900;
-  margin:0 0 30px 0;
-  line-height:1.05;
-  text-shadow:0 5px 30px rgba(0,0,0,.9);
+  font-family:'Cinzel',serif;font-size:clamp(3.2rem,9vw,6.5rem);color:#fff;font-weight:900;
+  margin:0 0 30px 0;line-height:1.05;text-shadow:0 5px 30px rgba(0,0,0,.9);
 }
 .hero-content .services{
-  font-size:clamp(1.2rem,4vw,2.2rem);
-  color:#fff;font-weight:500;
-  margin:0 0 60px 0;
-  text-shadow:0 4px 16px rgba(0,0,0,.9);
-  max-width:90%;
+  font-size:clamp(1.2rem,4vw,2.2rem);color:#fff;font-weight:500;
+  margin:0 0 60px 0;text-shadow:0 4px 16px rgba(0,0,0,.9);max-width:90%;
 }
 .hero-buttons{
   display:flex;flex-direction:column;gap:20px;align-items:center;width:100%;max-width:400px;
@@ -188,12 +173,32 @@ main{max-width:1400px;margin:0 auto;padding:70px 20px 120px;}
 .cta-block p{font-size:1.3rem;margin-bottom:36px;}
 .cta-block a{background:#fff;color:#c8102e;padding:20px 65px;border-radius:50px;font-weight:800;font-size:1.35rem;}
 
-/* FOOTER */
-footer{background:#fff;padding:110px 25px 70px;border-top:6px solid #fbbf24;text-align:center;}
-.footer-logo{font-family:'Cinzel',serif;font-size:3.6rem;font-weight:900;background:linear-gradient(90deg,#c8102e,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.footer-links{display:flex;flex-wrap:wrap;gap:36px;justify-content:center;margin:45px 0;}
-.footer-links a{color:#111;font-weight:600;text-decoration:none;font-size:1.25rem;transition:.3s;}
+/* FOOTER - 100% CLEAN, NO IMAGES AT ALL */
+footer{
+  background:#fff;padding:110px 25px 70px;border-top:6px solid #fbbf24;text-align:center;
+}
+.footer-inner{
+  max-width:900px;margin:0 auto;
+}
+.footer-logo{
+  font-family:'Cinzel',serif;font-size:3.6rem;font-weight:900;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:20px;
+}
+.footer-text{
+  font-size:1.1rem;color:#555;margin-bottom:30px;
+}
+.footer-links{
+  display:flex;flex-wrap:wrap;gap:36px;justify-content:center;margin:45px 0;
+}
+.footer-links a{
+  color:#111;font-weight:600;text-decoration:none;font-size:1.25rem;transition:.3s;
+}
 .footer-links a:hover{color:#c8102e;}
+.copyright{
+  color:#777;margin-top:50px;font-size:1rem;
+}
 
 /* MOBILE MENU */
 #mobileMenu{
@@ -259,7 +264,7 @@ footer{background:#fff;padding:110px 25px 70px;border-top:6px solid #fbbf24;text
     </button>
   </header>
 
-  <!-- HERO - ONLY "DIRECT BUILD GROUP" + SERVICES + BUTTONS -->
+  <!-- HERO -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -339,26 +344,25 @@ footer{background:#fff;padding:110px 25px 70px;border-top:6px solid #fbbf24;text
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER - TEXT ONLY, NO IMAGES OR ICONS -->
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">DIRECT BUILD GROUP</div>
-      <p>Texas Elite Remodeling • Licensed & Insured</p>
+      <p class="footer-text">Texas Elite Remodeling • Licensed & Insured</p>
       <div class="footer-links">
         <a href="services.html">Services</a>
         <a href="work.html">Gallery</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Free Quote</a>
-        <a href="tel:+14695710545">Call (469) 571-0545</a>
+        <a href="tel:+18888908546">Call (888) 890-8546</a>
       </div>
-      <div style="color:#777;margin-top:50px;">© 2025 Direct Build Group • Proudly Serving All of Texas</div>
+      <div class="copyright">© Direct Build Group • Proudly Serving All of Texas</div>
     </div>
   </footer>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button style="position:absolute;top:20px;right:20px;background:#c8102e;color:#fff;width:60px;height:60px;border-radius:50%;font-size:2.2rem;border:none;cursor:pointer;">X</button>
-    <img id="lbImg" src="" alt="Project">
   </div>
 </div>
 
