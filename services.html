@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Direct Build Group | Premium Remodeling Services in Texas</title>
 <meta name="description" content="Top-rated licensed Texas contractor. Expert kitchen & bath remodels, interior/exterior painting, custom porches, decks & premium flooring." />
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;overflow-x:hidden;}
-
 /* PRELOADER */
 #preloader{
   position:fixed;inset:0;background:#fff;z-index:9999;
@@ -21,11 +18,9 @@ body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#
 }
 #preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
 #preloader img{width:280px;height:auto;}
-
 /* MAIN FADE IN */
 .main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
 .main-content.visible{opacity:1;}
-
 /* HEADER */
 header{
   position:fixed;top:0;left:0;width:100%;padding:12px 20px;
@@ -36,13 +31,11 @@ header{
 .logo{display:flex;align-items:center;gap:12px;}
 .logo img{width:60px;height:60px;border-radius:12px;}
 .logo span{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:900;color:#000;}
-
 /* NAVIGATION */
 .desktop-nav a{color:#1a1a1a;text-decoration:none;font-weight:600;margin:0 16px;position:relative;}
 .desktop-nav a::after{content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;background:#fbbf24;transition:.4s;}
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
 .desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
-
 /* HAMBURGER */
 .hamburger{display:none;width:50px;height:50px;background:#fbbf24;border-radius:50%;cursor:pointer;position:relative;box-shadow:0 8px 25px rgba(251,191,36,0.4);}
 .hamburger span{position:absolute;left:50%;width:22px;height:2px;background:#1a1a1a;border-radius:2px;transform:translate(-50%,-50%);transition:.4s;}
@@ -52,12 +45,10 @@ header{
 .hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
-
 #mobileMenu{
   position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
   transition:left .5s ease;padding:120px 30px 40px;text-align:center;overflow-y:auto;
 }
-
 /* HERO */
 .hero-carousel{height:100vh;min-height:620px;max-height:1000px;position:relative;overflow:hidden;}
 .swiper{width:100%;height:100%;}
@@ -70,7 +61,6 @@ header{
 .hero-content p{font-size:clamp(1.6rem,5vw,2.8rem);color:#fbbf24;font-weight:800;margin-bottom:40px;}
 .hero-content a{background:#c8102e;color:#fff;padding:20px 70px;border-radius:50px;font-weight:700;font-size:1.4rem;text-decoration:none;box-shadow:0 20px 60px rgba(200,16,46,0.6);transition:.4s;}
 .hero-content a:hover{transform:translateY(-10px) scale(1.06);}
-
 /* FILTER BAR */
 .filter-bar{
   position:sticky;top:0;background:#fff;padding:20px;z-index:1000;text-align:center;
@@ -85,7 +75,6 @@ header{
   background:#fbbf24;color:#1a1a1a;transform:translateY(-4px);
   box-shadow:0 10px 30px rgba(251,191,36,0.4);
 }
-
 /* SERVICES GRID */
 .gallery-container{
   max-width:1800px;margin:0 auto 140px;padding:0 20px;
@@ -119,7 +108,6 @@ header{
   color:#fff;padding:60px 30px 30px;font-weight:700;
   font-size:1.3rem;text-shadow:0 4px 16px #000;
 }
-
 /* SUB SERVICES MODAL */
 .subservices-modal{
   position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2500;
@@ -155,11 +143,9 @@ header{
   font-size:3rem;line-height:60px;text-align:center;cursor:pointer;transition:.3s;
 }
 .subservices-close:hover{background:#c8102e;transform:scale(1.1);}
-
 /* PROJECT MODAL */
 .project-modal,.lightbox{display:none;}
 .project-modal.active,.lightbox.active{display:flex;}
-
 .project-modal{
   position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2000;
   align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;
@@ -192,7 +178,6 @@ header{
   cursor:zoom-in;transition:transform .5s;box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 .modal-gallery img:hover{transform:scale(1.06);}
-
 /* LIGHTBOX */
 .lightbox{
   position:fixed;inset:0;background:rgba(0,0,0,0.98);z-index:3000;
@@ -208,7 +193,6 @@ header{
   font-size:3rem;line-height:60px;text-align:center;cursor:pointer;transition:.3s;
 }
 .lightbox-close:hover{background:#c8102e;transform:scale(1.2);}
-
 /* ANIMATED CALL BUTTON */
 .call-btn {
   position: fixed;
@@ -233,31 +217,26 @@ header{
 .call-btn i {animation: ring 1.5s ease-in-out infinite;}
 @keyframes pulse {0% {box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7);} 70% {box-shadow: 0 0 0 18px rgba(200, 16, 46, 0);} 100% {box-shadow: 0 0 0 0 rgba(200, 16, 46, 0);}}
 @keyframes ring {0%,100% {transform: translateY(0);} 50% {transform: translateY(-8px);}}
-
 /* SECTIONS */
 .stats{background:#c8102e;padding:110px 30px;text-align:center;color:#fff;}
 .stats-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:50px;}
 .stat-item h3{font-size:4.8rem;color:#fbbf24;font-weight:900;margin-bottom:8px;}
 .stat-item p{font-size:1.3rem;opacity:0.95;}
-
 .testimonials{padding:110px 30px;background:#f8f9fa;}
 .testimonials h2{text-align:center;font-family:'Cinzel',serif;font-size:3.2rem;margin-bottom:70px;
   background:linear-gradient(90deg,#c8102e,#fbbf24);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .testimonial{background:#fff;padding:45px 35px;border-radius:36px;box-shadow:0 20px 60px rgba(0,0,0,0.09);text-align:center;font-size:1.25rem;}
 .testimonial cite{color:#c8102e;font-weight:700;margin-top:16px;display:block;}
-
 .cta{background:#c8102e;text-align:center;padding:110px 30px;color:#fff;}
 .cta h2{font-family:'Cinzel',serif;font-size:3.4rem;margin-bottom:20px;}
 .cta p{font-size:1.5rem;margin-bottom:45px;opacity:0.95;}
 .cta a{background:#fff;color:#c8102e;padding:24px 80px;border-radius:50px;font-weight:800;font-size:1.5rem;text-decoration:none;box-shadow:0 25px 70px rgba(0,0,0,0.4);transition:.5s;}
 .cta a:hover{transform:scale(1.07);}
-
 footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text-align:center;}
 .footer-logo{font-family:'Cinzel',serif;font-size:3.8rem;font-weight:900;
   background:linear-gradient(90deg,#c8102e,#fbbf24);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-
 /* RESPONSIVE */
 @media (max-width:992px){
   .desktop-nav{display:none;}
@@ -279,13 +258,11 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   .gallery-item img{border-radius:24px;}
   .gallery-caption{font-size:1rem;padding:40px 16px 16px;}
   .badge{top:12px;left:12px;padding:6px 14px;font-size:0.8rem;}
-
   .modal-close{width:70px;height:70px;font-size:3.6rem;top:12px;right:12px;background:#c8102e;box-shadow:0 10px 30px rgba(200,16,46,0.6);}
   .modal-header{padding:100px 20px 20px;}
   .modal-header h3{font-size:2.2rem;}
   .modal-gallery{grid-template-columns:1fr;gap:14px;padding:20px;}
   .modal-gallery img{height:180px;border-radius:16px;}
-
   .subservices-content h2{font-size:2.4rem;margin-bottom:30px;}
   .subservices-grid{grid-template-columns:1fr;gap:25px;}
   .subservice-card img{height:220px;}
@@ -293,19 +270,15 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
 </style>
 </head>
 <body>
-
 <!-- PRELOADER -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
-
 <div class="main-content" id="mainContent">
-
   <!-- CALL BUTTON -->
   <a href="tel:+18888908546" class="call-btn" aria-label="Call Now">
     <i class="fas fa-phone-alt"></i>
   </a>
-
   <!-- MOBILE MENU -->
   <div id="mobileMenu">
     <a href="index.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Home</a>
@@ -314,7 +287,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     <a href="work.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Gallery</a>
     <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
   </div>
-
   <!-- HEADER -->
   <header>
     <div class="logo">
@@ -332,7 +304,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <span></span><span></span><span></span>
     </button>
   </header>
-
   <!-- HERO -->
   <div class="hero-carousel">
     <div class="swiper">
@@ -354,7 +325,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       </div>
     </div>
   </div>
-
   <!-- FILTER BAR -->
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All Services</button>
@@ -364,12 +334,10 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     <button class="filter-btn" data-filter="decks">Decks</button>
     <button class="filter-btn" data-filter="flooring">Flooring</button>
   </div>
-
   <!-- MAIN SERVICES GRID -->
   <div class="gallery-container">
     <div class="gallery" id="servicesGallery"></div>
   </div>
-
   <!-- SUB SERVICES MODAL -->
   <div class="subservices-modal" id="subservicesModal">
     <div class="subservices-close">×</div>
@@ -378,7 +346,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <div class="subservices-grid" id="subservicesGrid"></div>
     </div>
   </div>
-
   <!-- PROJECT MODAL -->
   <div class="project-modal" id="projectModal">
     <div class="modal-content">
@@ -390,13 +357,11 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <div class="modal-gallery" id="modalGallery"></div>
     </div>
   </div>
-
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <img src="" alt="Full view">
     <div class="lightbox-close">×</div>
   </div>
-
   <!-- STATS -->
   <section class="stats">
     <div class="stats-grid">
@@ -405,7 +370,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <div class="stat-item"><h3 class="counter" data-target="147">0</h3><p>Positive Reviews</p></div>
     </div>
   </section>
-
   <!-- TESTIMONIALS -->
   <section class="testimonials">
     <h2>What Texas Homeowners Say</h2>
@@ -418,14 +382,12 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <div class="swiper-pagination"></div>
     </div>
   </section>
-
   <!-- CTA -->
   <div class="cta">
     <h2>Ready to Transform Your Texas Home?</h2>
     <p>Licensed contractor</p>
     <a href="contact.html">CONTACT US NOW</a>
   </div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
@@ -442,7 +404,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     </div>
   </footer>
 </div>
-
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
 // Preloader & Hamburger
@@ -451,14 +412,12 @@ setTimeout(() => {
   setTimeout(() => document.getElementById('preloader').remove(), 1000);
   document.getElementById('mainContent').classList.add('visible');
 }, 3000);
-
 document.getElementById('hamburgerBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
   const btn = document.getElementById('hamburgerBtn');
   btn.classList.toggle('active');
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
-
 // Swipers
 new Swiper('.hero-carousel .swiper', {
   loop: true, autoplay: { delay: 6000 }, pagination: { el: '.swiper-pagination', clickable: true }, effect: 'fade', speed: 1400
@@ -468,7 +427,6 @@ new Swiper('.testimonials .swiper', {
   slidesPerView: 1, spaceBetween: 30,
   breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
 });
-
 // All Sub-services Data
 const subservices = {
   painting: [
@@ -492,16 +450,14 @@ const subservices = {
     {title:"Luxury Vinyl Flooring", thumb:"assets/images/Luxury vinyl flooring cover.jpeg", gallery:["assets/images/luxury finishes1.jpg","assets/images/luxury finishes2.jpg","assets/images/luxury finishes3.jpg","assets/images/luxury finishes4.jpg","assets/images/luxury finishes5.jpg"]}
   ]
 };
-
 // Main Service Groups
 const mainServices = [
-  {title:"Painting", category:"painting", thumb:"assets/images/ex2.webp"},
+  {title:"Painting", category:"painting", thumb:"assets/images/interior2.jpg"},
   {title:"Remodeling", category:"remodels", thumb:"assets/images/remodel.jpeg"},
   {title:"Porches", category:"porches", thumb:"assets/images/porch.jpeg"},
-  {title:"Decks", category:"decks", thumb:"assets/images/custom build.jpg"},
+  {title:"Decks", category:"decks", thumb:"assets/images/custom deck2.jpg"},
   {title:"Flooring", category:"flooring", thumb:"assets/images/hardwoord flooring cover photo.jpeg"}
 ];
-
 const gallery = document.getElementById('servicesGallery');
 const subservicesModal = document.getElementById('subservicesModal');
 const subservicesTitle = document.getElementById('subservicesTitle');
@@ -520,7 +476,12 @@ function openProjectModal(service) {
   service.gallery.forEach(src => {
     const img = document.createElement('img');
     img.src = src; img.alt = service.title; img.loading = 'lazy';
-    img.onclick = (e) => { e.stopPropagation(); lightboxImg.src = src; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    img.onclick = (e) => { 
+      e.stopPropagation(); 
+      lightboxImg.src = src; 
+      lightbox.classList.add('active'); 
+      document.body.style.overflow = 'hidden'; 
+    };
     modalGallery.appendChild(img);
   });
   projectModal.classList.add('active');
@@ -568,43 +529,38 @@ function renderMainServices(filter = 'all') {
     });
 }
 
-// Close Subservices Modal
-document.querySelector('.subservices-close').onclick = () => {
+// Close Subservices Modal → back to main grid
+document.querySelector('.subservices-close').onclick = closeSubservices;
+subservicesModal.onclick = (e) => {
+  if (e.target === subservicesModal) closeSubservices();
+};
+function closeSubservices() {
   subservicesModal.classList.remove('active');
   document.body.style.overflow = '';
-};
-subservicesModal.onclick = (e) => {
-  if (e.target === subservicesModal) {
-    subservicesModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-};
+}
 
-// Close Project Modal
-document.querySelector('.modal-close').onclick = () => {
-  projectModal.classList.remove('active');
-  document.body.style.overflow = '';
-};
+// Close Project Modal → back to subservices modal
+document.querySelector('.modal-close').onclick = closeProject;
 projectModal.onclick = (e) => {
-  if (e.target === projectModal) {
-    projectModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+  if (e.target === projectModal) closeProject();
 };
-
-// Close Lightbox
-document.querySelector('.lightbox-close').onclick = () => {
-  lightbox.classList.remove('active');
-  document.body.style.overflow = '';
+function closeProject() {
+  projectModal.classList.remove('active');
+  lightbox.classList.remove('active'); // just in case
   lightboxImg.src = '';
-};
+  document.body.style.overflow = '';
+}
+
+// Close Lightbox → back to project modal (grid stays open)
+document.querySelector('.lightbox-close').onclick = closeLightbox;
 lightbox.onclick = (e) => {
-  if (e.target === lightbox || e.target === lightboxImg) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-    lightboxImg.src = '';
-  }
+  if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
 };
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  lightboxImg.src = '';
+  // projectModal stays open, overflow stays hidden
+}
 
 // Filter Buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -636,4 +592,3 @@ renderMainServices();
 </script>
 </body>
 </html>
-
