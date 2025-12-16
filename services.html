@@ -86,7 +86,7 @@ header{
   box-shadow:0 10px 30px rgba(251,191,36,0.4);
 }
 
-/* SERVICES GRID - PERFECT IMAGE FIT */
+/* SERVICES GRID */
 .gallery-container{
   max-width:1800px;margin:0 auto 140px;padding:0 20px;
 }
@@ -102,20 +102,12 @@ header{
   transform:translateY(-20px);
   box-shadow:0 40px 90px rgba(251,191,36,0.3);
 }
-
-/* IMAGES FIT PERFECTLY - 4:5 RATIO */
 .gallery-item img{
-  width:100%;
-  height:auto;
-  display:block;
-  aspect-ratio: 4 / 5;
-  object-fit:cover;
-  object-position:center;
-  border-radius:32px;
-  transition:transform 1s ease;
+  width:100%;height:auto;display:block;
+  aspect-ratio: 4 / 5;object-fit:cover;object-position:center;
+  border-radius:32px;transition:transform 1s ease;
 }
 .gallery-item:hover img{transform:scale(1.14);}
-
 .badge{
   position:absolute;top:16px;left:16px;background:#fbbf24;color:#1a1a1a;
   padding:8px 18px;border-radius:50px;font-weight:800;font-size:0.9rem;
@@ -128,7 +120,43 @@ header{
   font-size:1.3rem;text-shadow:0 4px 16px #000;
 }
 
-/* MODAL - HUGE X ON MOBILE */
+/* SUB SERVICES MODAL */
+.subservices-modal{
+  position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2500;
+  display:none;align-items:center;justify-content:center;padding:20px;overflow-y:auto;
+}
+.subservices-modal.active{display:flex;}
+.subservices-content{
+  max-width:1100px;width:100%;padding:40px 20px;
+}
+.subservices-content h2{
+  font-family:'Cinzel',serif;font-size:3rem;color:#fbbf24;text-align:center;margin-bottom:40px;
+}
+.subservices-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;
+}
+.subservice-card{
+  background:#fff;border-radius:32px;overflow:hidden;
+  box-shadow:0 30px 90px rgba(0,0,0,0.4);cursor:pointer;
+  transition:transform .5s;
+}
+.subservice-card:hover{transform:translateY(-15px);}
+.subservice-card img{width:100%;height:280px;object-fit:cover;}
+.subservice-card h3{
+  font-family:'Cinzel',serif;font-size:2rem;text-align:center;padding:25px 20px 15px;
+  color:#c8102e;
+}
+.subservice-card p{
+  text-align:center;padding:0 30px 35px;font-size:1.1rem;color:#555;
+}
+.subservices-close{
+  position:absolute;top:30px;right:30px;width:60px;height:60px;
+  background:rgba(200,16,46,0.8);color:#fff;border-radius:50%;
+  font-size:3rem;line-height:60px;text-align:center;cursor:pointer;transition:.3s;
+}
+.subservices-close:hover{background:#c8102e;transform:scale(1.1);}
+
+/* PROJECT MODAL */
 .project-modal,.lightbox{display:none;}
 .project-modal.active,.lightbox.active{display:flex;}
 
@@ -230,11 +258,11 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   background:linear-gradient(90deg,#c8102e,#fbbf24);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-/* MOBILE RESPONSIVE - SAME AS GALLERY PAGE */
+/* RESPONSIVE */
 @media (max-width:992px){
   .desktop-nav{display:none;}
   .hamburger{display:grid;}
-  .gallery{columns:2;column-gap:24px;}
+  .gallery{columns:3;}
 }
 @media (max-width:768px){
   header{padding:10px 16px;}
@@ -243,8 +271,6 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   .hamburger{width:48px;height:48px;}
   .hero-carousel{height:70vh;min-height:520px;}
   .gallery{columns:2;}
-  .gallery-item{margin-bottom:28px;}
-  .gallery-caption{font-size:1.1rem;padding:50px 20px 20px;}
 }
 @media (max-width:480px){
   .gallery{columns:1;}
@@ -254,17 +280,15 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   .gallery-caption{font-size:1rem;padding:40px 16px 16px;}
   .badge{top:12px;left:12px;padding:6px 14px;font-size:0.8rem;}
 
-  /* GIANT RED X ON MOBILE */
-  .modal-close{
-    width:70px !important;height:70px !important;
-    font-size:3.6rem !important;top:12px !important;right:12px !important;
-    background:#c8102e !important;box-shadow:0 10px 30px rgba(200,16,46,0.6);
-  }
-  .modal-header{padding:100px 20px 20px !important;}
-  .modal-header h3{font-size:2.2rem !important;}
+  .modal-close{width:70px;height:70px;font-size:3.6rem;top:12px;right:12px;background:#c8102e;box-shadow:0 10px 30px rgba(200,16,46,0.6);}
+  .modal-header{padding:100px 20px 20px;}
+  .modal-header h3{font-size:2.2rem;}
   .modal-gallery{grid-template-columns:1fr;gap:14px;padding:20px;}
- .modal-gallery img{height:180px;border-radius:16px;}
-  .filter-btn{margin:4px 6px;padding:10px 20px;font-size:0.95rem;}
+  .modal-gallery img{height:180px;border-radius:16px;}
+
+  .subservices-content h2{font-size:2.4rem;margin-bottom:30px;}
+  .subservices-grid{grid-template-columns:1fr;gap:25px;}
+  .subservice-card img{height:220px;}
 }
 </style>
 </head>
@@ -277,17 +301,17 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
 
 <div class="main-content" id="mainContent">
 
-  <!-- ANIMATED CALL BUTTON -->
+  <!-- CALL BUTTON -->
   <a href="tel:+18888908546" class="call-btn" aria-label="Call Now">
     <i class="fas fa-phone-alt"></i>
   </a>
 
-  <!-- Mobile Menu -->
+  <!-- MOBILE MENU -->
   <div id="mobileMenu">
     <a href="index.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Home</a>
     <a href="about.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">About</a>
     <a href="services.html" style="display:block;font-size:2.1rem;margin:32px 0;color:#c8102e;font-weight:800;">Services</a>
-    <a href="work.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a;font-weight:600;">Gallery</a>
+    <a href="work.html" style="display:block;font-size:1.9rem;margin:32px 0;color:#1a1a1a;font-weight:600;">Gallery</a>
     <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
   </div>
 
@@ -326,7 +350,7 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
       <div class="hero-content">
         <h2>Our Services</h2>
         <p>Premium Remodeling Across All of Texas</p>
-        <a href="contact.html">Get Your Free Quote</a>
+        <a href="contact.html">CONTACT US NOW</a>
       </div>
     </div>
   </div>
@@ -341,12 +365,21 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     <button class="filter-btn" data-filter="flooring">Flooring</button>
   </div>
 
-  <!-- SERVICES GRID -->
+  <!-- MAIN SERVICES GRID -->
   <div class="gallery-container">
     <div class="gallery" id="servicesGallery"></div>
   </div>
 
-  <!-- MODAL WITH BIG X -->
+  <!-- SUB SERVICES MODAL -->
+  <div class="subservices-modal" id="subservicesModal">
+    <div class="subservices-close">×</div>
+    <div class="subservices-content">
+      <h2 id="subservicesTitle">Our Services</h2>
+      <div class="subservices-grid" id="subservicesGrid"></div>
+    </div>
+  </div>
+
+  <!-- PROJECT MODAL -->
   <div class="project-modal" id="projectModal">
     <div class="modal-content">
       <button class="modal-close">×</button>
@@ -367,9 +400,9 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   <!-- STATS -->
   <section class="stats">
     <div class="stats-grid">
-      <div class="stat-item"><h3 class="counter" data-target="179">0</h3><p>Projects Completed</p></div>
+      <div class="stat-item"><h3 class="counter" data-target="147">0</h3><p>Projects Completed</p></div>
       <div class="stat-item"><h3 class="counter" data-target="100">0</h3><p>Happy Clients</p></div>
-      <div class="stat-item"><h3 class="counter" data-target="10">0</h3<p>Years Serving Texas</p></div>
+      <div class="stat-item"><h3 class="counter" data-target="147">0</h3><p>Positive Reviews</p></div>
     </div>
   </section>
 
@@ -378,9 +411,9 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
     <h2>What Texas Homeowners Say</h2>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="testimonial"><p>"Best remodeling team in Texas!"</p><cite>— Sarah M., Austin</cite></div></div>
-        <div class="swiper-slide"><div class="testimonial"><p>"Our new kitchen is a dream come true."</p><cite>— Robert G., Dallas</cite></div></div>
-        <div class="swiper-slide"><div class="testimonial"><p>"Flawless work and amazing service!"</p><cite>— Lisa K., Houston</cite></div></div>
+        <div class="swiper-slide"><div class="testimonial"><p>"Best remodeling team in Texas!"</p><cite>— Sarah M.</cite></div></div>
+        <div class="swiper-slide"><div class="testimonial"><p>"Our new kitchen is a dream come true."</p><cite>— Robert G.</cite></div></div>
+        <div class="swiper-slide"><div class="testimonial"><p>"Flawless work and amazing service!"</p><cite>— Lisa K.</cite></div></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -389,15 +422,15 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
   <!-- CTA -->
   <div class="cta">
     <h2>Ready to Transform Your Texas Home?</h2>
-    <p>Licensed contractor • Free quotes • Serving ALL of Texas</p>
-    <a href="contact.html">Get Your Free Quote Now</a>
+    <p>Licensed contractor</p>
+    <a href="contact.html">CONTACT US NOW</a>
   </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">DIRECT BUILD GROUP</div>
-      <p>Texas Elite Remodeling • Licensed & Insured Since 2015</p>
+      <p>Texas Elite Remodeling • Licensed & Insured</p>
       <div class="footer-links">
         <a href="services.html">Services</a>
         <a href="work.html">Gallery</a>
@@ -412,14 +445,13 @@ footer{background:#fff;padding:120px 30px 80px;border-top:6px solid #fbbf24;text
 
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// Preloader
+// Preloader & Hamburger
 setTimeout(() => {
   document.getElementById('preloader').classList.add('fade-out');
   setTimeout(() => document.getElementById('preloader').remove(), 1000);
   document.getElementById('mainContent').classList.add('visible');
 }, 3000);
 
-// Hamburger
 document.getElementById('hamburgerBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
   const btn = document.getElementById('hamburgerBtn');
@@ -427,7 +459,7 @@ document.getElementById('hamburgerBtn').onclick = () => {
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
-// Hero & Testimonials Swiper
+// Swipers
 new Swiper('.hero-carousel .swiper', {
   loop: true, autoplay: { delay: 6000 }, pagination: { el: '.swiper-pagination', clickable: true }, effect: 'fade', speed: 1400
 });
@@ -437,74 +469,125 @@ new Swiper('.testimonials .swiper', {
   breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
 });
 
-// Services Data
-const services = [
-  {title:"Exterior Painting", location:"Texas Wide", category:"painting", thumb:"assets/images/ex2.webp", gallery:["assets/images/Exterior home finishes.jpeg","assets/images/Exterior home finishes1.jpeg","assets/images/Exterior home finishes2.jpeg","assets/images/Exterior home finishes3.jpeg","assets/images/Exterior home finishes4.jpeg","assets/images/Exterior home finishes5.jpeg"]},
-  {title:"Interior Painting", location:"Texas Wide", category:"painting", thumb:"assets/images/interior painting.jpg", gallery:["assets/images/interior1.jpg","assets/images/interior2.jpg","assets/images/interior3.jpg","assets/images/interior4.jpg","assets/images/interior5.jpg"]},
-  {title:"Kitchen Remodeling", location:"Texas Wide", category:"remodels", thumb:"assets/images/remodel.jpeg", gallery:["assets/images/kitchen remodel1.jpg","assets/images/kitchen remodel2.jpg","assets/images/kitchen remodel3.jpg","assets/images/kitchen remodel4.jpg","assets/images/kitchen remodel5.jpg","assets/images/kitchen remodel6.jpg"]},
-  {title:"Bathroom Remodeling", location:"Texas Wide", category:"remodels", thumb:"assets/images/bathroom4.jpg", gallery:["assets/images/bathroom remodel.jpg","assets/images/bathroom remodel1.jpg","assets/images/bathroom remodel2.jpg","assets/images/bathroom remodel3.jpg","assets/images/bathroom remodel4.jpg"]},
-  {title:"Timber Porches", location:"Texas Wide", category:"porches", thumb:"assets/images/porch.jpeg", gallery:["assets/images/timber porch1.jpeg","assets/images/timber porch2.jpeg","assets/images/timber porch3.jpeg","assets/images/timber porch4.jpeg","assets/images/timber porch5.jpeg"]},
-  {title:"Screened Porches", location:"Texas Wide", category:"porches", thumb:"assets/images/screened porches.jpg", gallery:["assets/images/screened porches.jpg","assets/images/screened porches1.jpg","assets/images/screened porches2.jpg","assets/images/screened porches3.jpg","assets/images/screened porches4.jpg"]},
-  {title:"Composite Decks", location:"Texas Wide", category:"decks", thumb:"assets/images/deck.jpeg", gallery:["assets/images/composite desks.jpeg","assets/images/composite desks1.jpeg","assets/images/composite desks2.jpeg","assets/images/composite desks3.jpeg","assets/images/composite desks4.jpeg"]},
-  {title:"Custom Deck Builds", location:"Texas Wide", category:"decks", thumb:"assets/images/custom build.jpg", gallery:["assets/images/custom deck1.jpg","assets/images/custom deck2.jpg","assets/images/custom deck3.jpg","assets/images/custom deck4.jpg","assets/images/custom deck5.jpg"]},
-  {title:"Hardwood Flooring", location:"Texas Wide", category:"flooring", thumb:"assets/images/hardwoord flooring cover photo.jpeg", gallery:["assets/images/hardwood flooring1.jpg","assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg","assets/images/hardwood flooring4.jpg","assets/images/hardwood flooring5.jpg"]},
-  {title:"Luxury Vinyl Flooring", location:"Texas Wide", category:"flooring", thumb:"assets/images/Luxury vinyl flooring cover.jpeg", gallery:["assets/images/luxury finishes1.jpg","assets/images/luxury finishes2.jpg","assets/images/luxury finishes3.jpg","assets/images/luxury finishes4.jpg","assets/images/luxury finishes5.jpg"]}
+// All Sub-services Data
+const subservices = {
+  painting: [
+    {title:"Exterior Painting", thumb:"assets/images/ex2.webp", gallery:["assets/images/Exterior home finishes.jpeg","assets/images/Exterior home finishes1.jpeg","assets/images/Exterior home finishes2.jpeg","assets/images/Exterior home finishes3.jpeg","assets/images/Exterior home finishes4.jpeg","assets/images/Exterior home finishes5.jpeg"]},
+    {title:"Interior Painting", thumb:"assets/images/interior painting.jpg", gallery:["assets/images/interior1.jpg","assets/images/interior2.jpg","assets/images/interior3.jpg","assets/images/interior4.jpg","assets/images/interior5.jpg"]}
+  ],
+  remodels: [
+    {title:"Kitchen Remodeling", thumb:"assets/images/remodel.jpeg", gallery:["assets/images/kitchen remodel1.jpg","assets/images/kitchen remodel2.jpg","assets/images/kitchen remodel3.jpg","assets/images/kitchen remodel4.jpg","assets/images/kitchen remodel5.jpg","assets/images/kitchen remodel6.jpg"]},
+    {title:"Bathroom Remodeling", thumb:"assets/images/bathroom4.jpg", gallery:["assets/images/bathroom remodel.jpg","assets/images/bathroom remodel1.jpg","assets/images/bathroom remodel2.jpg","assets/images/bathroom remodel3.jpg","assets/images/bathroom remodel4.jpg"]}
+  ],
+  porches: [
+    {title:"Timber Porches", thumb:"assets/images/porch.jpeg", gallery:["assets/images/timber porch1.jpeg","assets/images/timber porch2.jpeg","assets/images/timber porch3.jpeg","assets/images/timber porch4.jpeg","assets/images/timber porch5.jpeg"]},
+    {title:"Screened Porches", thumb:"assets/images/screened porches.jpg", gallery:["assets/images/screened porches.jpg","assets/images/screened porches1.jpg","assets/images/screened porches2.jpg","assets/images/screened porches3.jpg","assets/images/screened porches4.jpg"]}
+  ],
+  decks: [
+    {title:"Composite Decks", thumb:"assets/images/deck.jpeg", gallery:["assets/images/composite desks.jpeg","assets/images/composite desks1.jpeg","assets/images/composite desks2.jpeg","assets/images/composite desks3.jpeg","assets/images/composite desks4.jpeg"]},
+    {title:"Custom Deck Builds", thumb:"assets/images/custom build.jpg", gallery:["assets/images/custom deck1.jpg","assets/images/custom deck2.jpg","assets/images/custom deck3.jpg","assets/images/custom deck4.jpg","assets/images/custom deck5.jpg"]}
+  ],
+  flooring: [
+    {title:"Hardwood Flooring", thumb:"assets/images/hardwoord flooring cover photo.jpeg", gallery:["assets/images/hardwood flooring1.jpg","assets/images/hardwood flooring2.jpg","assets/images/hardwood flooring3.jpg","assets/images/hardwood flooring4.jpg","assets/images/hardwood flooring5.jpg"]},
+    {title:"Luxury Vinyl Flooring", thumb:"assets/images/Luxury vinyl flooring cover.jpeg", gallery:["assets/images/luxury finishes1.jpg","assets/images/luxury finishes2.jpg","assets/images/luxury finishes3.jpg","assets/images/luxury finishes4.jpg","assets/images/luxury finishes5.jpg"]}
+  ]
+};
+
+// Main Service Groups
+const mainServices = [
+  {title:"Painting", category:"painting", thumb:"assets/images/ex2.webp"},
+  {title:"Remodeling", category:"remodels", thumb:"assets/images/remodel.jpeg"},
+  {title:"Porches", category:"porches", thumb:"assets/images/porch.jpeg"},
+  {title:"Decks", category:"decks", thumb:"assets/images/custom build.jpg"},
+  {title:"Flooring", category:"flooring", thumb:"assets/images/hardwoord flooring cover photo.jpeg"}
 ];
 
 const gallery = document.getElementById('servicesGallery');
-const modal = document.getElementById('projectModal');
+const subservicesModal = document.getElementById('subservicesModal');
+const subservicesTitle = document.getElementById('subservicesTitle');
+const subservicesGrid = document.getElementById('subservicesGrid');
+const projectModal = document.getElementById('projectModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalLocation = document.getElementById('modalLocation');
 const modalGallery = document.getElementById('modalGallery');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 
-function renderServices(filter = 'all') {
+function openProjectModal(service) {
+  modalTitle.textContent = service.title;
+  modalLocation.textContent = "Texas Wide Service";
+  modalGallery.innerHTML = '';
+  service.gallery.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src; img.alt = service.title; img.loading = 'lazy';
+    img.onclick = (e) => { e.stopPropagation(); lightboxImg.src = src; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    modalGallery.appendChild(img);
+  });
+  projectModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderSubservices(category) {
+  subservicesGrid.innerHTML = '';
+  const items = subservices[category];
+  items.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'subservice-card';
+    card.innerHTML = `
+      <img src="${s.thumb}" alt="${s.title}">
+      <h3>${s.title}</h3>
+      <p>Professional ${s.title.toLowerCase()} across Texas</p>
+    `;
+    card.onclick = () => {
+      subservicesModal.classList.remove('active');
+      openProjectModal(s);
+    };
+    subservicesGrid.appendChild(card);
+  });
+}
+
+function renderMainServices(filter = 'all') {
   gallery.innerHTML = '';
-  services
+  mainServices
     .filter(s => filter === 'all' || s.category === filter)
     .forEach(s => {
       const item = document.createElement('div');
       item.className = 'gallery-item';
       item.innerHTML = `
         <img src="${s.thumb}" alt="${s.title}" loading="lazy">
-        <div class="badge">${s.location}</div>
+        <div class="badge">Texas Wide</div>
         <div class="gallery-caption">${s.title}</div>
       `;
       item.onclick = () => {
-        modalTitle.textContent = s.title;
-        modalLocation.textContent = s.location;
-        modalGallery.innerHTML = '';
-        s.gallery.forEach(src => {
-          const img = document.createElement('img');
-          img.src = src; img.alt = s.title; img.loading = 'lazy';
-          img.onclick = (e) => { e.stopPropagation(); lightboxImg.src = src; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; };
-          modalGallery.appendChild(img);
-        });
-        modal.classList.add('active');
+        subservicesTitle.textContent = s.title + " Services";
+        renderSubservices(s.category);
+        subservicesModal.classList.add('active');
         document.body.style.overflow = 'hidden';
       };
       gallery.appendChild(item);
     });
 }
 
-// Filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.onclick = () => {
-    document.querySelector('.filter-btn.active')?.classList.remove('active');
-    btn.classList.add('active');
-    renderServices(btn.dataset.filter);
-  };
-});
-
-// Close Modal
-document.querySelector('.modal-close').onclick = () => {
-  modal.classList.remove('active');
+// Close Subservices Modal
+document.querySelector('.subservices-close').onclick = () => {
+  subservicesModal.classList.remove('active');
   document.body.style.overflow = '';
 };
-modal.onclick = (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('active');
+subservicesModal.onclick = (e) => {
+  if (e.target === subservicesModal) {
+    subservicesModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+// Close Project Modal
+document.querySelector('.modal-close').onclick = () => {
+  projectModal.classList.remove('active');
+  document.body.style.overflow = '';
+};
+projectModal.onclick = (e) => {
+  if (e.target === projectModal) {
+    projectModal.classList.remove('active');
     document.body.style.overflow = '';
   }
 };
@@ -523,6 +606,15 @@ lightbox.onclick = (e) => {
   }
 };
 
+// Filter Buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelector('.filter-btn.active')?.classList.remove('active');
+    btn.classList.add('active');
+    renderMainServices(btn.dataset.filter);
+  };
+});
+
 // Counter Animation
 document.querySelectorAll('.counter').forEach(c => {
   const update = () => {
@@ -540,7 +632,7 @@ document.querySelectorAll('.counter').forEach(c => {
 });
 
 // Initial Render
-renderServices();
+renderMainServices();
 </script>
 </body>
 </html>
