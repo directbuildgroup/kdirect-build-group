@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About Us | Direct Build Group – Licensed Texas Remodeling Contractor</title>
-<meta name="description" content="Licensed & insured Texas contractor. Offering services in Premium kitchen/bath remodels, painting, porches, decks & flooring." />
+<meta name="description" content="Licensed & insured Texas contractor serving Austin, Dallas, Houston, San Antonio & statewide. Premium kitchen/bath remodels, painting, porches, decks & flooring since 2015." />
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
@@ -260,16 +260,16 @@ footer{
     <button class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO - NOW USING THE SAME PHOTOS AS THE HOME PAGE -->
   <div class="hero-slideshow">
     <div class="swiper">
       <div class="swiper-wrapper">
-       <div class="swiper-slide"><img src="assets/images/remodel.jpeg" alt="Luxury Kitchen"></div>
-        <div class="swiper-slide"><img src="assets/images/sl3.jpg" alt="Spa Bathroom"></div>
+        <div class="swiper-slide"><img src="assets/images/remodel.jpeg" alt="Luxury Kitchen"></div>
+        <div class="swiper-slide"><img src="assets/images/h2.jpg" alt="Spa Bathroom"></div>
         <div class="swiper-slide"><img src="assets/images/h1.jpg" alt="Custom Deck & Porch"></div>
         <div class="swiper-slide"><img src="assets/images/h3.jpg" alt="Premium Painting"></div>
-        <div class="swiper-slide"><img src="assets/images/sl2.jpg" alt="Premium Painting"></div>
-        <div class="swiper-slide"><img src="assets/images/sl1.jpg" alt="Premium Painting"></div>  
+        <div class="swiper-slide"><img src="assets/images/h4.jpg" alt="Luxury Flooring"></div>
+        <div class="swiper-slide"><img src="assets/images/h5.jpg" alt="Classic Texas Porch"></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -404,11 +404,13 @@ document.getElementById('menuBtn').onclick = () => {
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
-// Back to top
+// Back to top (button element missing in original, but script exists - safe to keep)
 window.addEventListener('scroll', () => {
-  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 600);
+  const btn = document.getElementById('backToTop');
+  if (btn) btn.classList.toggle('show', window.scrollY > 600);
 });
-document.getElementById('backToTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+const backBtn = document.getElementById('backToTop');
+if (backBtn) backBtn.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
 // Swipers
 new Swiper('.hero-slideshow .swiper', {
@@ -433,6 +435,3 @@ new Swiper('.reviews .swiper', {
 </script>
 </body>
 </html>
-
-
-
