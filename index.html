@@ -92,24 +92,34 @@ header{
 .hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
-/* HERO */
+
+/* HERO - UPDATED FOR FULL FIT & VISIBLE DOTS */
 .hero-carousel{
-  height:100vh;min-height:580px;position:relative;overflow:hidden;
+  height:100vh;min-height:580px;position:relative;overflow:hidden;width:100%;
 }
-.swiper{width:100%;height:100%;}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+.hero-carousel .swiper{width:100%;height:100%;}
+.hero-carousel .swiper-slide{
+  width:100%;height:100%;position:relative;
+}
+.hero-carousel .swiper-slide img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:center 30%;display:block;
+}
 .hero-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.85));
+  background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.85));
   display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
 }
 .hero-content{
   position:relative;z-index:2;padding:20px;max-width:100%;width:100%;text-align:center;
   display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;
+  pointer-events:none;
 }
+.hero-content > *{pointer-events:auto;}
 .hero-content h1{
   font-family:'Cinzel',serif;font-size:clamp(3.2rem,9vw,6.5rem);color:#fff;font-weight:900;
-  margin:0 0 30px 0;line-height:1.05;text-shadow:0 5px 30px rgba(0,0,0,.9);
+  margin:0 0 30px 0;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.9);
 }
 .hero-content .services{
   font-size:clamp(1.2rem,4vw,2.2rem);color:#fff;font-weight:500;
@@ -129,6 +139,20 @@ header{
   box-shadow:0 20px 60px rgba(251,191,36,.4);
 }
 .hero-buttons a:hover{transform:translateY(-8px) scale(1.05);}
+
+/* HERO PAGINATION DOTS - HIGHLY VISIBLE */
+.hero-carousel .swiper-pagination{
+  bottom:40px !important;z-index:10;
+}
+.hero-carousel .swiper-pagination-bullet{
+  width:14px;height:14px;background:rgba(255,255,255,0.6);
+  opacity:0.8;transition:all 0.4s ease;margin:0 6px !important;
+}
+.hero-carousel .swiper-pagination-bullet-active{
+  background:#fbbf24;opacity:1;transform:scale(1.3);
+  box-shadow:0 0 15px rgba(251,191,36,0.8);
+}
+
 /* GALLERY SLIDESHOW */
 .gallery-slideshow{
   position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:1200;
@@ -153,13 +177,12 @@ header{
   cursor:pointer;transition:all .3s;
 }
 .gallery-close:hover{background:#a50d25;}
-.gallery-pagination{
-  bottom:40px !important;
-}
+.gallery-pagination{bottom:40px !important;}
 .gallery-pagination .swiper-pagination-bullet{
   background:#fff;opacity:.5;width:12px;height:12px;
 }
 .gallery-pagination .swiper-pagination-bullet-active{opacity:1;background:#fbbf24;}
+
 /* MAIN CONTENT */
 main{max-width:1400px;margin:0 auto;padding:70px 20px 120px;}
 .section{padding:80px 25px;text-align:center;background:#f8f9fa;margin:35px 0;border-radius:34px;}
@@ -181,6 +204,7 @@ main{max-width:1400px;margin:0 auto;padding:70px 20px 120px;}
 .proj img{width:100%;height:360px;object-fit:cover;transition:transform .9s;}
 .proj:hover img{transform:scale(1.14);}
 .proj .tag{position:absolute;left:18px;bottom:18px;background:#c8102e;color:#fff;padding:9px 20px;border-radius:50px;font-weight:800;}
+
 /* CTA */
 .cta-block{
   background:#c8102e;color:#fff;padding:80px 35px;border-radius:48px;
@@ -190,22 +214,19 @@ main{max-width:1400px;margin:0 auto;padding:70px 20px 120px;}
 .cta-block h3{font-family:'Cinzel',serif;font-size:2.8rem;margin-bottom:18px;}
 .cta-block p{font-size:1.3rem;margin-bottom:36px;}
 .cta-block a{background:#fff;color:#c8102e;padding:20px 65px;border-radius:50px;font-weight:800;font-size:1.35rem;}
-/* FOOTER - 100% CLEAN, NO IMAGES AT ALL */
+
+/* FOOTER */
 footer{
   background:#fff;padding:110px 25px 70px;border-top:6px solid #fbbf24;text-align:center;
 }
-.footer-inner{
-  max-width:900px;margin:0 auto;
-}
+.footer-inner{max-width:900px;margin:0 auto;}
 .footer-logo{
   font-family:'Cinzel',serif;font-size:3.6rem;font-weight:900;
   background:linear-gradient(90deg,#c8102e,#fbbf24);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   margin-bottom:20px;
 }
-.footer-text{
-  font-size:1.1rem;color:#555;margin-bottom:30px;
-}
+.footer-text{font-size:1.1rem;color:#555;margin-bottom:30px;}
 .footer-links{
   display:flex;flex-wrap:wrap;gap:36px;justify-content:center;margin:45px 0;
 }
@@ -213,14 +234,14 @@ footer{
   color:#111;font-weight:600;text-decoration:none;font-size:1.25rem;transition:.3s;
 }
 .footer-links a:hover{color:#c8102e;}
-.copyright{
-  color:#777;margin-top:50px;font-size:1rem;
-}
+.copyright{color:#777;margin-top:50px;font-size:1rem;}
+
 /* MOBILE MENU */
 #mobileMenu{
   position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
   transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
 }
+
 /* RESPONSIVE */
 @media (max-width:992px){
   .desktop-nav{display:none;}
@@ -231,7 +252,12 @@ footer{
   .logo span{font-size:1.5rem;}
   .logo img{width:50px;height:50px;}
   .hamburger{width:48px;height:48px;}
-  .hero-carousel{height:70vh;min-height:520px;}
+  
+  .hero-carousel{height:80vh;min-height:520px;}
+  .hero-carousel .swiper-slide img{object-position:center 25%;}
+  .hero-carousel .swiper-pagination{bottom:30px !important;}
+  .hero-carousel .swiper-pagination-bullet{width:12px;height:12px;}
+  
   .gallery-slideshow{padding:10px;}
   .gallery-prev{left:10px;}
   .gallery-next{right:10px;}
@@ -241,13 +267,19 @@ footer{
   header{padding:8px 12px;}
   .logo span{font-size:1.35rem;}
   .logo img{width:46px;height:46px;}
-  .hero-content h1{font-size:3rem !important;}
+  
+  .hero-carousel{height:75vh;min-height:480px;}
+  .hero-content h1{font-size:2.8rem !important;}
+  .hero-content .services{font-size:1.4rem;}
+  .hero-buttons{gap:16px;}
+  .hero-buttons a{padding:18px 50px;font-size:1.25rem;}
+  
   .gallery-swiper .swiper-slide img{max-height:70vh;}
 }
 </style>
 </head>
 <body>
-<!-- LOGO 3 SECONDS ONLY -->
+<!-- PRELOADER -->
 <div id="preloader">
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
@@ -279,7 +311,7 @@ footer{
       <span></span>
     </button>
   </header>
-  <!-- HERO -->
+  <!-- HERO CAROUSEL -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -352,7 +384,7 @@ footer{
       <a href="contact.html">CONTACT US</a>
     </div>
   </main>
-  <!-- FOOTER - TEXT ONLY, NO IMAGES OR ICONS -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">DIRECT BUILD GROUP</div>
@@ -380,14 +412,16 @@ footer{
     <button class="gallery-close">×</button>
   </div>
 </div>
+
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// Logo 3 seconds
+// Logo preloader 3 seconds
 setTimeout(() => {
   document.getElementById('preloader').classList.add('fade-out');
   setTimeout(() => document.getElementById('preloader').remove(), 1000);
   document.getElementById('mainContent').classList.add('visible');
 }, 3000);
+
 // Hamburger menu
 document.getElementById('menuBtn').onclick = () => {
   const menu = document.getElementById('mobileMenu');
@@ -395,6 +429,7 @@ document.getElementById('menuBtn').onclick = () => {
   btn.classList.toggle('active');
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
+
 // Hero Swiper
 new Swiper('.hero-carousel .swiper', {
   loop: true,
@@ -403,18 +438,20 @@ new Swiper('.hero-carousel .swiper', {
   effect: 'fade',
   speed: 1400
 });
-// Gallery Slideshow - Collect all project images
+
+// Gallery Slideshow - Images list (update if you add more)
 const allProjectImages = [
   'assets/images/custom deck1.jpg',
   'assets/images/remodel.jpeg',
   'assets/images/porch3.jpg',
-  'assets/images/h1.jpg',
-  'assets/images/h2.jpg',
+  'assets/images/custom outdoor decks.jpg',
+  'assets/images/bathroom2.jpg',
   'assets/images/h3.jpg',
-  'assets/images/h4.jpg',
-  'assets/images/h5.jpg'
+  'assets/images/hardwood flooring7.jpeg',
+  'assets/images/porch5.jpg'
 ];
-// Populate gallery slideshow
+
+// Populate gallery
 const galleryWrapper = document.getElementById('gallerySwiperWrapper');
 allProjectImages.forEach(src => {
   const slide = document.createElement('div');
@@ -422,60 +459,51 @@ allProjectImages.forEach(src => {
   slide.innerHTML = `<img src="${src}" alt="Gallery Image">`;
   galleryWrapper.appendChild(slide);
 });
-// Initialize gallery swiper - FIXED VERSION
+
+// Initialize gallery swiper
 const gallerySwiper = new Swiper('.gallery-swiper', {
   loop: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    dynamicBullets: false   // ← Fixed: now shows ALL bullets
-  },
-  navigation: {             // ← Added: connects your arrow buttons
+  pagination: { el: '.swiper-pagination', clickable: true },
+  navigation: {
     nextEl: '.gallery-next',
     prevEl: '.gallery-prev',
   },
-  keyboard: {
-    enabled: true,
-  },
-  a11y: {
-    enabled: true,
-  }
+  keyboard: { enabled: true },
+  a11y: { enabled: true }
 });
-// Open gallery from project thumbnails
+
+// Open gallery on thumbnail click
 document.querySelectorAll('.proj').forEach((proj, index) => {
   proj.onclick = () => {
     const imgSrc = proj.querySelector('img').src;
     const slideIndex = allProjectImages.indexOf(imgSrc);
     if (slideIndex !== -1) {
       document.getElementById('gallerySlideshow').classList.add('show');
-      gallerySwiper.slideToLoop(slideIndex);  // Use slideToLoop because loop: true
+      gallerySwiper.slideToLoop(slideIndex);
     }
   };
 });
+
 // Close gallery
 document.querySelector('.gallery-close').onclick = () => {
   document.getElementById('gallerySlideshow').classList.remove('show');
 };
+
 // Close on background click
 document.getElementById('gallerySlideshow').onclick = e => {
   if (e.target.id === 'gallerySlideshow') {
     e.target.classList.remove('show');
   }
 };
-// Keyboard navigation
+
+// Keyboard support
 document.addEventListener('keydown', e => {
   if (document.getElementById('gallerySlideshow').classList.contains('show')) {
-    if (e.key === 'Escape') {
-      document.getElementById('gallerySlideshow').classList.remove('show');
-    } else if (e.key === 'ArrowLeft') {
-      gallerySwiper.slidePrev();
-    } else if (e.key === 'ArrowRight') {
-      gallerySwiper.slideNext();
-    }
+    if (e.key === 'Escape') document.getElementById('gallerySlideshow').classList.remove('show');
+    if (e.key === 'ArrowLeft') gallerySwiper.slidePrev();
+    if (e.key === 'ArrowRight') gallerySwiper.slideNext();
   }
 });
 </script>
 </body>
 </html>
-
-
