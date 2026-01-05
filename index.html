@@ -93,7 +93,7 @@ header{
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
 
-/* HERO - UPDATED FOR FULL FIT & VISIBLE DOTS */
+/* HERO - ZOOMED IN & NO DOTS */
 .hero-carousel{
   height:100vh;min-height:580px;position:relative;overflow:hidden;width:100%;
 }
@@ -102,8 +102,15 @@ header{
   width:100%;height:100%;position:relative;
 }
 .hero-carousel .swiper-slide img{
-  width:100%;height:100%;object-fit:cover;
-  object-position:center 30%;display:block;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 20%; /* More zoomed in - focuses higher on the image */
+  display:block;
+  transform:scale(1.15); /* Additional zoom effect for a closer, more impactful view */
+  transition:transform 8s ease;
+}
+.hero-carousel .swiper-slide-active img{
+  transform:scale(1.25); /* Slightly more zoom on active slide for drama */
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -140,17 +147,9 @@ header{
 }
 .hero-buttons a:hover{transform:translateY(-8px) scale(1.05);}
 
-/* HERO PAGINATION DOTS - HIGHLY VISIBLE */
+/* REMOVE ALL PAGINATION DOTS FROM HERO */
 .hero-carousel .swiper-pagination{
-  bottom:40px !important;z-index:10;
-}
-.hero-carousel .swiper-pagination-bullet{
-  width:14px;height:14px;background:rgba(255,255,255,0.6);
-  opacity:0.8;transition:all 0.4s ease;margin:0 6px !important;
-}
-.hero-carousel .swiper-pagination-bullet-active{
-  background:#fbbf24;opacity:1;transform:scale(1.3);
-  box-shadow:0 0 15px rgba(251,191,36,0.8);
+  display:none !important;
 }
 
 /* GALLERY SLIDESHOW */
@@ -254,9 +253,13 @@ footer{
   .hamburger{width:48px;height:48px;}
   
   .hero-carousel{height:80vh;min-height:520px;}
-  .hero-carousel .swiper-slide img{object-position:center 25%;}
-  .hero-carousel .swiper-pagination{bottom:30px !important;}
-  .hero-carousel .swiper-pagination-bullet{width:12px;height:12px;}
+  .hero-carousel .swiper-slide img{
+    object-position:center 15%; /* Even more zoomed on mobile */
+    transform:scale(1.2);
+  }
+  .hero-carousel .swiper-slide-active img{
+    transform:scale(1.3);
+  }
   
   .gallery-slideshow{padding:10px;}
   .gallery-prev{left:10px;}
@@ -311,15 +314,15 @@ footer{
       <span></span>
     </button>
   </header>
-  <!-- HERO CAROUSEL -->
+  <!-- HERO CAROUSEL - NO DOTS + ZOOMED -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="assets/images/custom outdoor decks2.jpeg" alt="Luxury Kitchen"></div>
-        <div class="swiper-slide"><img src="assets/images/home2.jpeg" alt="Spa Bathroom"></div>
-        <div class="swiper-slide"><img src="assets/images/home1.jpeg" alt="Custom Deck & Porch"></div>
+        <div class="swiper-slide"><img src="assets/images/custom outdoor decks2.jpeg" alt="Custom Outdoor Living"></div>
+        <div class="swiper-slide"><img src="assets/images/home2.jpeg" alt="Modern Remodeled Home"></div>
+        <div class="swiper-slide"><img src="assets/images/home1.jpeg" alt="Beautiful Texas Home"></div>
       </div>
-      <div class="swiper-pagination"></div>
+      <!-- Pagination removed completely - no dots -->
     </div>
     <div class="hero-overlay">
       <div class="hero-content">
@@ -337,7 +340,7 @@ footer{
       <h2>Licensed Texas Contractor – Statewide Service</h2>
       <p style="max-width:900px;margin:0 auto 40px;font-size:1.2rem;line-height:1.8;">We are proudly <strong>Serving</strong>: The Dallas-Fort Worth metroplex and Communities Across Texas</p>
       <div style="background:rgba(251,191,36,0.1);padding:35px;border-radius:30px;max-width:800px;margin:40px auto;border:2px solid #fbbf24;">
-        <p style="font-size:1.3rem;font-weight:600;color:#c8102e;">Serving all of Dallas-Forth Worth and cities in between</p>
+        <p style="font-size:1.3rem;font-weight:600;color:#c8102e;">Serving all of Dallas-Fort Worth and cities in between</p>
       </div>
     </section>
     <section class="section">
@@ -430,16 +433,16 @@ document.getElementById('menuBtn').onclick = () => {
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
-// Hero Swiper
+// Hero Swiper - NO PAGINATION
 new Swiper('.hero-carousel .swiper', {
   loop: true,
   autoplay: { delay: 6000 },
-  pagination: { el: '.swiper-pagination', clickable: true },
   effect: 'fade',
-  speed: 1400
+  speed: 1400,
+  // pagination removed entirely
 });
 
-// Gallery Slideshow - Images list (update if you add more)
+// Gallery Slideshow Images
 const allProjectImages = [
   'assets/images/custom deck1.jpg',
   'assets/images/remodel.jpeg',
@@ -472,8 +475,8 @@ const gallerySwiper = new Swiper('.gallery-swiper', {
   a11y: { enabled: true }
 });
 
-// Open gallery on thumbnail click
-document.querySelectorAll('.proj').forEach((proj, index) => {
+// Open gallery on click
+document.querySelectorAll('.proj').forEach((proj) => {
   proj.onclick = () => {
     const imgSrc = proj.querySelector('img').src;
     const slideIndex = allProjectImages.indexOf(imgSrc);
@@ -488,15 +491,13 @@ document.querySelectorAll('.proj').forEach((proj, index) => {
 document.querySelector('.gallery-close').onclick = () => {
   document.getElementById('gallerySlideshow').classList.remove('show');
 };
-
-// Close on background click
 document.getElementById('gallerySlideshow').onclick = e => {
   if (e.target.id === 'gallerySlideshow') {
     e.target.classList.remove('show');
   }
 };
 
-// Keyboard support
+// Keyboard support for gallery
 document.addEventListener('keydown', e => {
   if (document.getElementById('gallerySlideshow').classList.contains('show')) {
     if (e.key === 'Escape') document.getElementById('gallerySlideshow').classList.remove('show');
