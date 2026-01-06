@@ -93,49 +93,57 @@ header{
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
 
-/* HERO - SLIDE ONE BY ONE (NO OVERLAY/Fade) + YELLOW BG */
+/* HERO - FULL COVER WITH REDUCED "BIG" FEELING */
 .hero-carousel{
   height:100vh;min-height:580px;position:relative;overflow:hidden;width:100%;
-  background:#fbbf24; /* Brand yellow */
 }
 .hero-carousel .swiper{width:100%;height:100%;}
 .hero-carousel .swiper-slide{
   width:100%;height:100%;position:relative;
-  display:flex;align-items:center;justify-content:center;
 }
 .hero-carousel .swiper-slide img{
-  max-width:90%;   /* ~90% of hero area */
-  max-height:90%;
-  width:auto;height:auto;
-  object-fit:contain;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
   display:block;
-  box-shadow:none; /* No shadow */
-  border-radius:12px;
+  transform:scale(1.05); /* Very subtle zoom - reduces "too big/close" feeling */
+  transition:transform 12s ease;
+}
+.hero-carousel .swiper-slide-active img{
+  transform:scale(1.08); /* Minimal additional zoom for gentle movement */
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.75));
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
 }
 .hero-content{
-  position:absolute;bottom:60px;left:50%;transform:translateX(-50%);
-  z-index:2;padding:20px;max-width:90%;width:100%;text-align:center;
+  position:relative;z-index:2;padding:30px;max-width:1100px;width:100%;text-align:center;
+  pointer-events:none;
 }
+.hero-content > *{pointer-events:auto;}
 .hero-content .services{
   font-size:clamp(1.2rem,4vw,2.2rem);
-  color:#000;
+  color:#fff;
   font-weight:600;
-  margin-bottom:40px;
-  text-shadow:0 3px 12px rgba(255,255,255,0.7);
+  margin-bottom:50px;
+  text-shadow:0 4px 20px rgba(0,0,0,0.9);
 }
 .hero-buttons{
-  display:flex;flex-direction:column;gap:20px;align-items:center;
-  max-width:400px;margin:0 auto;
+  display:flex;flex-direction:column;gap:24px;align-items:center;
+  max-width:420px;margin:0 auto;
 }
 .hero-buttons a{
-  background:#c8102e;color:#fff;padding:20px 60px;border-radius:50px;
-  font-weight:700;font-size:1.35rem;text-decoration:none;
-  box-shadow:0 20px 60px rgba(200,16,46,0.6);transition:all .4s;
-  width:100%;max-width:340px;text-align:center;
+  background:#c8102e;color:#fff;padding:22px 70px;border-radius:50px;
+  font-weight:800;font-size:1.45rem;text-decoration:none;
+  box-shadow:0 25px 70px rgba(200,16,46,0.6);
+  transition:all .4s;width:100%;max-width:360px;text-align:center;
 }
-.hero-buttons a:hover{transform:translateY(-8px) scale(1.05);}
+.hero-buttons a:hover{transform:translateY(-10px) scale(1.06);}
 
-/* NO DOTS & NO OVERLAY GRADIENT */
+/* NO DOTS */
 .hero-carousel .swiper-pagination{display:none !important;}
 
 /* GALLERY SLIDESHOW */
@@ -241,11 +249,11 @@ footer{
   .hero-carousel{height:80vh;min-height:520px;}
   
   .hero-carousel .swiper-slide img{
-    max-width:92%;
-    max-height:92%;
+    transform:scale(1.0); /* No zoom on mobile */
   }
-  
-  .hero-content{bottom:40px;}
+  .hero-carousel .swiper-slide-active img{
+    transform:scale(1.0);
+  }
 }
 @media (max-width:480px){
   header{padding:8px 12px;}
@@ -253,14 +261,10 @@ footer{
   .logo img{width:46px;height:46px;}
   
   .hero-carousel{height:75vh;min-height:480px;}
+  .hero-content{padding:20px;}
   .hero-content .services{font-size:1.4rem;}
   .hero-buttons{gap:16px;}
   .hero-buttons a{padding:18px 50px;font-size:1.25rem;}
-  
-  .hero-carousel .swiper-slide img{
-    max-width:94%;
-    max-height:94%;
-  }
   
   .gallery-swiper .swiper-slide img{max-height:70vh;}
 }
@@ -299,7 +303,7 @@ footer{
       <span></span>
     </button>
   </header>
-  <!-- HERO CAROUSEL - SLIDE ONE BY ONE (SLIDE EFFECT) -->
+  <!-- HERO CAROUSEL - FULL COVER WITH MINIMAL ZOOM -->
   <div class="hero-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -308,11 +312,13 @@ footer{
         <div class="swiper-slide"><img src="assets/images/home1.jpeg" alt="Beautiful Texas Home"></div>
       </div>
     </div>
-    <div class="hero-content">
-      <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
-      <div class="hero-buttons">
-        <a href="contact.html">CONTACT US</a>
-        <a href="work.html">VIEW GALLERY</a>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <p class="services">Painting • Kitchen & Bath • Custom Porches • Composite Decks • Premium Flooring</p>
+        <div class="hero-buttons">
+          <a href="contact.html">CONTACT US</a>
+          <a href="work.html">VIEW GALLERY</a>
+        </div>
       </div>
     </div>
   </div>
@@ -414,13 +420,13 @@ document.getElementById('menuBtn').onclick = () => {
   menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
 };
 
-// Hero Swiper - SLIDE EFFECT (one by one, no fade overlay)
+// Hero Swiper - FULL COVER WITH VERY MINIMAL ZOOM
 new Swiper('.hero-carousel .swiper', {
   loop: true,
   autoplay: { delay: 6000 },
-  effect: 'slide', // Changed from 'fade' to 'slide' → one image at a time
-  speed: 1000,
-  allowTouchMove: true // Users can swipe on mobile
+  effect: 'fade',
+  fadeEffect: { crossFade: true },
+  speed: 1200
 });
 
 // Gallery Slideshow
