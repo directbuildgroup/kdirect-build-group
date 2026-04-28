@@ -2,809 +2,257 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Contact Us | Direct Build Group – Free Quote Texas Remodeling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Direct Build Group – Free Quote Texas</title>
+<meta name="description" content="Free consultation. Licensed Texas contractor. Same-day response." />
 
-<!-- SEO Meta Tags -->
-<meta name="description" content="Get your free remodeling quote from Direct Build Group. Licensed Texas contractor serving Dallas, Fort Worth, Austin, Houston & all of Texas. Call (888) 890-8546 or fill out our form." />
-<meta name="keywords" content="contact Texas remodeling, free quote Dallas, kitchen remodel estimate, bathroom renovation cost, deck builder quote, painting contractor Texas" />
-<meta name="robots" content="index, follow" />
-<meta name="geo.region" content="US-TX" />
-<meta name="geo.placename" content="Irving" />
-<link rel="canonical" href="https://www.ddirectbuildgroup.com/contact.html" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Contact Direct Build Group – Free Quote Texas Remodeling" />
-<meta property="og:description" content="Request your free remodeling quote today. Licensed Texas contractor ready to transform your home." />
-<meta property="og:image" content="assets/images/logo.jpg" />
-<meta property="og:url" content="https://www.ddirectbuildgroup.com/contact.html" />
-<meta property="og:type" content="website" />
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 <style>
-/* ========== RESET & BASE ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Satoshi',sans-serif;line-height:1.7;color:#1a1a1a;background:#fff;overflow-x:hidden;}
+
+/* PRELOADER */
+#preloader{
+  position:fixed;inset:0;background:#fff;z-index:9999;
+  display:grid;place-items:center;
+}
+#preloader.fade-out{opacity:0;transition:opacity 1s ease;pointer-events:none;}
+#preloader img{width:280px;height:auto;border-radius:0;box-shadow:none;animation:none;}
+
+/* MAIN FADE IN */
+.main-content{opacity:0;transition:opacity 1.5s ease 0.4s;}
+.main-content.visible{opacity:1;}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;width:100%;padding:16px 32px;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;z-index:1100;
+  border-bottom:4px solid #fbbf24;box-shadow:0 8px 30px rgba(0,0,0,0.1);
+}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo img{width:68px;border-radius:14px;border:4px solid #fbbf24;}
+.logo span{
+  font-family:'Cinzel',serif;font-size:2rem;font-weight:900;
+  color:#000 !important;
+  background:none;-webkit-text-fill-color:#000;
+}
+
+/* NAV */
+.desktop-nav a{
+  color:#1a1a1a;text-decoration:none;font-weight:600;font-size:1.05rem;
+  margin:0 20px;position:relative;
+}
+.desktop-nav a::after{
+  content:'';position:absolute;bottom:-12px;left:0;width:0;height:4px;
+  background:#fbbf24;transition:width .4s;
+}
+.desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%;}
+.desktop-nav a:hover,.desktop-nav a.active{color:#c8102e;}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;width:58px;height:58px;background:#fbbf24;
+  border-radius:50%;cursor:pointer;position:relative;
+  box-shadow:0 10px 30px rgba(251,191,36,0.4);
+}
+.hamburger span{
+  position:absolute;left:50%;width:26px;height:3px;background:#1a1a1a;
+  border-radius:3px;transform:translate(-50%,-50%);transition:all .4s;
+}
+.hamburger span:nth-child(1){top:30%;}
+.hamburger span:nth-child(2){top:50%;}
+.hamburger span:nth-child(3){top:70%;}
+.hamburger.active span:nth-child(1){top:50%;transform:translate(-50%,-50%) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){top:50%;transform:translate(-50%,-50%) rotate(-45deg);}
+
+/* MOBILE MENU */
+#mobileMenu{
+  position:fixed;top:0;left:-100%;width:100%;height:100%;background:#fff;z-index:1099;
+  transition:left .5s ease;padding:100px 40px 40px;text-align:center;overflow-y:auto;
+}
+
+/* MAIN CONTENT */
+main{
+  margin-top:100px;padding:80px 30px 140px;text-align:center;
+}
+.page-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(3.8rem,9vw,7rem);
+  font-weight:900;margin-bottom:20px;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.page-subtitle{
+  font-size:1.6rem;color:#444;margin-bottom:40px;
+}
+
+/* CALL NOW BUTTON ABOVE FORM */
+.call-now-banner{
+  margin: 40px auto 60px;
+  max-width: 600px;
+}
+.call-now-btn{
+  display:inline-flex;align-items:center;gap:18px;
+  background:linear-gradient(135deg,#c8102e,#e91e3e);
+  color:#fff;padding:26px 50px;border-radius:80px;
+  font-size:2.1rem;font-weight:900;text-decoration:none;
+  box-shadow:0 25px 80px rgba(200,16,46,0.5);
+  transition:all .5s;animation:pulse 2s infinite;
+}
+.call-now-btn i{font-size:2.8rem;animation:ring 1.5s ease-in-out infinite;}
+.call-now-btn:hover{
+  transform:scale(1.08);box-shadow:0 35px 100px rgba(200,16,46,0.7);
+}
+
+/* CONTACT CARD */
+.contact-card{
+  max-width:1000px;margin:0 auto;background:#fff;padding:90px 70px;
+  border-radius:60px;box-shadow:0 80px 220px rgba(0,0,0,0.18);
+  border:8px solid #fbbf24;position:relative;overflow:hidden;
 }
-
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  color: #1A1A1A;
-  background: linear-gradient(135deg, #FDF8F0 0%, #F4EDE0 100%);
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
-
-/* Subtle noise texture */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-}
-
-/* ========== PRELOADER ========== */
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: #FDF8F0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease;
-}
-
-#preloader.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#preloader img {
-  width: 130px;
-  height: auto;
-  animation: pulse 1s ease-in-out infinite;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
-}
-
-.main-content {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.main-content.visible {
-  opacity: 1;
-}
-
-/* ========== TYPOGRAPHY ========== */
-h1, h2, h3, .logo-text, .footer-logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-/* ========== HEADER ========== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1100;
-  transition: all 0.3s ease;
-  background: rgba(253, 248, 240, 0.98);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(196, 84, 44, 0.15);
-}
-
-header.scrolled {
-  padding: 0.7rem 5%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-header.scrolled .logo img {
-  width: 45px;
-  height: 45px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo img {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  transition: all 0.3s ease;
-}
-
-.logo-text {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #1A3A2A;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.desktop-nav a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #1A3A2A;
-  transition: color 0.3s;
-  position: relative;
-}
-
-.desktop-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #C4542C;
-  transition: width 0.3s;
-}
-
-.desktop-nav a:hover::after,
-.desktop-nav a.active::after {
-  width: 100%;
-}
-
-.desktop-nav a:hover,
-.desktop-nav a.active {
-  color: #C4542C;
-}
-
-.quote-btn {
-  background: #C4542C;
-  color: white !important;
-  padding: 0.6rem 1.5rem;
-  border-radius: 40px;
-  font-weight: 700 !important;
-}
-
-.quote-btn::after {
-  display: none !important;
-}
-
-.quote-btn:hover {
-  background: #A8431F;
-  transform: translateY(-2px);
-}
-
-.call-btn-nav {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1.5px solid #C4542C;
-  padding: 0.6rem 1.2rem;
-  border-radius: 40px;
-  font-weight: 600;
-}
-
-.call-btn-nav i {
-  color: #C4542C;
-}
-
-/* Mobile Menu */
-.hamburger {
-  display: none;
-  width: 48px;
-  height: 48px;
-  background: #C4542C;
-  border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(196, 84, 44, 0.3);
-}
-
-.hamburger span {
-  position: absolute;
-  left: 50%;
-  width: 22px;
-  height: 2px;
-  background: white;
-  border-radius: 2px;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-}
-
-.hamburger span:nth-child(1) { top: 30%; }
-.hamburger span:nth-child(2) { top: 50%; }
-.hamburger span:nth-child(3) { top: 70%; }
-
-.hamburger.active span:nth-child(1) {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-#mobileMenu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 85%;
-  max-width: 350px;
-  height: 100%;
-  background: #FDF8F0;
-  z-index: 1099;
-  transition: right 0.4s ease-out;
-  padding: 100px 30px 40px;
-  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-}
-
-#mobileMenu a {
-  display: block;
-  font-size: 1.3rem;
-  padding: 15px 0;
-  color: #1A1A1A;
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px solid #E0D5C8;
-}
-
-#mobileMenu .mobile-quote {
-  background: #C4542C;
-  color: white;
-  text-align: center;
-  border-radius: 40px;
-  margin-top: 20px;
-  font-weight: 700;
-}
-
-#mobileMenu .mobile-call {
-  color: #C4542C;
-  font-weight: 700;
-}
-
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1098;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ========== HERO SECTION ========== */
-.hero {
-  height: 45vh;
-  min-height: 350px;
-  position: relative;
-  background: linear-gradient(135deg, #1A3A2A 0%, #0F281C 100%);
-  margin-top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 0 0 40px 40px;
-}
-
-.hero-content h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  color: white;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-}
-
-.hero-content h1::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: #C4542C;
-  margin: 1rem auto 0;
-  border-radius: 4px;
-}
-
-.hero-content p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #F5C4A1;
-  margin-top: 1rem;
-}
-
-/* ========== MAIN CONTENT ========== */
-.main-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 3rem 5% 5rem;
-}
-
-/* Contact Grid */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-}
-
-/* Info Cards */
-.info-card {
-  background: white;
-  border-radius: 28px;
-  padding: 2rem;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-  transition: transform 0.3s;
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-}
-
-.info-icon {
-  width: 70px;
-  height: 70px;
-  background: #FDF8F0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.info-icon i {
-  font-size: 2rem;
-  color: #C4542C;
-}
-
-.info-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: #1A3A2A;
-}
-
-.info-card p, .info-card a {
-  color: #555;
-  text-decoration: none;
-  line-height: 1.5;
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.info-card a:hover {
-  color: #C4542C;
-}
-
-/* Hours Section */
-.hours-list {
-  list-style: none;
-  margin-top: 1rem;
-}
-
-.hours-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #EEE5DC;
+.contact-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:12px;
+  background:linear-gradient(90deg,#c8102e,#fbbf24);
 }
 
-.hours-list li span:first-child {
-  font-weight: 600;
-  color: #1A3A2A;
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-weight:700;font-size:1.18rem;margin-bottom:12px;display:block;color:#222;}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:22px 26px;border-radius:24px;
+  border:3px solid #eee;font-size:1.1rem;background:#fafafa;
+  transition:.4s;
 }
-
-.hours-list li span:last-child {
-  color: #666;
-}
-
-/* Social Links */
-.social-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-link {
-  width: 45px;
-  height: 45px;
-  background: #FDF8F0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #C4542C;
-  font-size: 1.2rem;
-  transition: all 0.3s;
-}
-
-.social-link:hover {
-  background: #C4542C;
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* Map Card */
-.map-card {
-  background: white;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
-}
-
-.map-card iframe {
-  width: 100%;
-  height: 250px;
-  border: none;
-}
-
-.map-card .map-info {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.map-card .map-info a {
-  color: #C4542C;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* Form Card */
-.form-card {
-  background: white;
-  border-radius: 28px;
-  padding: 2rem;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
-}
-
-.form-card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: #1A3A2A;
-}
-
-.form-card h2 .accent {
-  color: #C4542C;
-}
-
-.form-card > p {
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-/* Form Styles */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1A3A2A;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem 1.2rem;
-  border: 1.5px solid #E0D5C8;
-  border-radius: 16px;
-  font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.3s;
-  background: #FDF8F0;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #C4542C;
-  box-shadow: 0 0 0 3px rgba(196, 84, 44, 0.1);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:#fbbf24;
+  box-shadow:0 0 0 10px rgba(251,191,36,0.2);
 }
+textarea{height:160px;resize:none;}
 
-/* Radio Group */
+/* NEW: Radio button styling */
 .radio-group {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
 }
-
 .radio-option {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.radio-option input[type="radio"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #C4542C;
-}
-
-.radio-option span {
-  font-weight: 500;
-}
-
-/* Submit Button */
-.submit-btn {
-  width: 100%;
-  background: #C4542C;
-  color: white;
-  border: none;
-  padding: 1rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.submit-btn:hover {
-  background: #A8431F;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(196, 84, 44, 0.3);
-}
-
-.submit-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Trust Badge */
-.trust-badge {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #FDF8F0;
-  border-radius: 16px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.trust-badge span {
-  font-size: 0.85rem;
-  color: #666;
-}
-
-.trust-badge i {
-  color: #F5A623;
-}
-
-/* Floating Call Button */
-.floating-call {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 65px;
-  height: 65px;
-  background: #C4542C;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.8rem;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(196, 84, 44, 0.5);
-  z-index: 100;
-  transition: all 0.3s;
-  animation: floatPulse 2s infinite;
-}
-
-.floating-call:hover {
-  transform: scale(1.1);
-  background: #A8431F;
-}
-
-@keyframes floatPulse {
-  0%, 100% { box-shadow: 0 8px 25px rgba(196, 84, 44, 0.5); }
-  50% { box-shadow: 0 8px 35px rgba(196, 84, 44, 0.8); }
-}
-
-/* Success Message Modal */
-.success-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 2000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.success-modal.active {
-  display: flex;
-}
-
-.success-content {
-  background: white;
-  border-radius: 28px;
-  padding: 3rem;
-  text-align: center;
-  max-width: 400px;
-  animation: modalPop 0.3s ease;
-}
-
-@keyframes modalPop {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.success-content i {
-  font-size: 4rem;
-  color: #4CAF50;
-  margin-bottom: 1rem;
-}
-
-.success-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #1A3A2A;
-}
-
-.success-content p {
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
-.success-close {
-  background: #C4542C;
-  color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
+  gap: 12px;
+  font-size: 1.15rem;
   font-weight: 600;
   cursor: pointer;
 }
-
-/* Footer */
-footer {
-  background: #1A2A1E;
-  color: #D4C9BC;
-  padding: 4rem 5% 2rem;
-  margin-top: 3rem;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.footer-col h4 {
-  color: white;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.footer-col a, .footer-col span {
-  display: block;
-  color: #D4C9BC;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s;
-  font-size: 0.9rem;
-}
-
-.footer-col a:hover {
-  color: #F5C4A1;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-icons a {
-  background: rgba(255, 255, 255, 0.1);
-  width: 38px;
-  height: 38px;
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border: 4px solid #eee;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #fafafa;
+  transition: all .3s;
+  position: relative;
+}
+.radio-option input[type="radio"]:checked {
+  border-color: #fbbf24;
+  background: #fbbf24;
+}
+.radio-option input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
 }
 
-.social-icons a:hover {
-  background: #C4542C;
+.submit-btn{
+  width:100%;background:#c8102e;color:#fff;padding:28px;
+  font-size:1.9rem;font-weight:900;border:none;border-radius:70px;
+  box-shadow:0 35px 100px rgba(200,16,46,0.55);transition:.5s;cursor:pointer;
+}
+.submit-btn:hover{
+  transform:translateY(-10px);background:#b00e28;
+  box-shadow:0 50px 140px rgba(200,16,46,0.7);
+}
+.submit-btn:disabled{background:#999;cursor:not-allowed;transform:none;}
+
+/* SUCCESS MESSAGE */
+.success-msg{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:#fff;padding:60px 80px;border-radius:30px;
+  box-shadow:0 30px 100px rgba(0,0,0,0.4);z-index:10000;
+  font-size:2.2rem;font-weight:700;color:#c8102e;text-align:center;
+  opacity:0;pointer-events:none;transition:opacity .6s;
+}
+.success-msg.show{opacity:1;pointer-events:all;}
+
+/* ANIMATED FLOATING CALL BUTTON (BOTTOM RIGHT) */
+.call-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 24px;
+  width: 76px;
+  height: 76px;
+  background: linear-gradient(135deg, #c8102e, #e91e3e);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.8rem;
+  box-shadow: 0 15px 45px rgba(200, 16, 46, 0.5);
+  z-index: 1001;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: pulse 2s infinite;
+  text-decoration: none;
+}
+.call-btn:hover {transform: scale(1.15);box-shadow: 0 20px 60px rgba(200,16,46,0.7);}
+.call-btn i {animation: ring 1.5s ease-in-out infinite;}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7); }
+  70% { box-shadow: 0 0 0 18px rgba(200, 16, 46, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0); }
+}
+@keyframes ring {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-.footer-bottom {
-  text-align: center;
-  padding-top: 3rem;
-  margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
+/* RESPONSIVE */
+@media (max-width:992px){
+  .desktop-nav{display:none;}
+  .hamburger{display:grid;}
 }
-
-/* Responsive */
-@media (max-width: 992px) {
-  .desktop-nav { display: none; }
-  .hamburger { display: block; }
-  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+@media (max-width:768px){
+  header{padding:14px 20px;}
+  .logo span{font-size:1.6rem;}
+  main{padding:60px 20px 100px;}
+  .page-title{font-size:3.6rem !important;}
+  .page-subtitle{font-size:1.4rem !important;}
+  .call-now-btn{font-size:1.8rem;padding:22px 40px;gap:14px;}
+  .call-now-btn i{font-size:2.4rem;}
+  .contact-card{padding:60px 35px;border-radius:40px;}
+  .form-grid{grid-template-columns:1fr;gap:28px;}
+  .form-group input,.form-group select,.form-group textarea{padding:20px;font-size:1.05rem;}
+  .submit-btn{font-size:1.7rem;padding:24px;}
+  .radio-group {gap: 30px; flex-wrap: wrap;}
 }
-
-@media (max-width: 768px) {
-  .hero { height: 35vh; min-height: 280px; border-radius: 0 0 20px 20px; }
-  .main-container { padding: 2rem 1.5rem; }
-  .info-card, .form-card { padding: 1.5rem; }
-  .form-group input, .form-group select, .form-group textarea { padding: 0.8rem 1rem; }
-  .radio-group { gap: 1rem; }
-  .footer-grid { grid-template-columns: 1fr; text-align: center; }
-  .social-icons { justify-content: center; }
-  .floating-call { width: 55px; height: 55px; font-size: 1.5rem; bottom: 20px; right: 20px; }
-}
-
-@media (max-width: 480px) {
-  .logo-text { font-size: 0.9rem; }
-  .logo img { width: 40px; height: 40px; }
-  .hero-content h1 { font-size: 2rem; }
-  .form-card h2 { font-size: 1.4rem; }
-  .submit-btn { padding: 0.8rem; }
+@media (max-width:480px){
+  .page-title{font-size:3.2rem !important;}
+  .call-now-btn{font-size:1.6rem;padding:20px 32px;}
+  .submit-btn{font-size:1.55rem;}
+  .radio-group {gap: 20px;}
 }
 </style>
 </head>
@@ -815,343 +263,166 @@ footer {
   <img src="assets/images/logo.jpg" alt="Direct Build Group">
 </div>
 
-<div class="main-content" id="mainContent">
+<!-- SUCCESS MESSAGE -->
+<div class="success-msg" id="successMsg">
+  Thank You!<br>
+  <span style="font-size:1.4rem;color:#555;">Your message was sent successfully.<br>We’ll contact you very soon!</span>
+</div>
 
-<!-- Mobile Menu Overlay -->
-<div id="menuOverlay" class="menu-overlay"></div>
+<!-- FLOATING CALL BUTTON -->
+<a href="tel:+18888908546" class="call-btn" aria-label="Call Now">
+  <i class="fas fa-phone-alt"></i>
+</a>
 
 <!-- Mobile Menu -->
 <div id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="work.html">Gallery</a>
-  <a href="contact.html" class="mobile-quote">📋 Get Free Quote</a>
-  <a href="tel:+18888908546" class="mobile-call">📞 Call (888) 890-8546</a>
+  <a href="index.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Home</a>
+  <a href="about.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">About</a>
+  <a href="services.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Services</a>
+  <a href="work.html" style="display:block;font-size:1.9rem;margin:30px 0;color:#1a1a1a;font-weight:600;">Gallery</a>
+  <a href="contact.html" style="display:block;font-size:2.2rem;margin:40px 0;color:#c8102e;font-weight:800;">Get Free Quote</a>
 </div>
 
 <!-- HEADER -->
-<header id="header">
+<header>
   <div class="logo">
-    <img src="assets/images/logo.jpg" alt="Direct Build Group Logo">
-    <span class="logo-text">DIRECT BUILD GROUP</span>
+    <img src="assets/images/logo.jpg" alt="Direct Build Group">
+    <span>DIRECT BUILD GROUP</span>
   </div>
+
   <nav class="desktop-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="work.html">Gallery</a>
     <a href="contact.html" class="active">Contact</a>
-    <a href="tel:+18888908546" class="call-btn-nav"><i class="fas fa-phone-alt"></i> (888) 890-8546</a>
-    <a href="contact.html" class="quote-btn">Free Quote</a>
   </nav>
-  <button class="hamburger" id="menuBtn">
+
+  <button class="hamburger" id="hamburgerBtn">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </header>
 
-<!-- Floating Call Button -->
-<a href="tel:+18888908546" class="floating-call" aria-label="Call Now">
-  <i class="fas fa-phone-alt"></i>
-</a>
+<main class="main-content" id="mainContent">
+  <h1 class="page-title">Get Your Free Quote</h1>
+  <p class="page-subtitle">We reply in one business day • Serving ALL of Dallas-Fort Worth</p>
 
-<!-- HERO SECTION -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>Contact Us</h1>
-    <p>Get your free quote — We reply within 24 hours</p>
+  <!-- CALL NOW BUTTON ABOVE FORM -->
+  <div class="call-now-banner">
+    <a href="tel:+18888908546" class="call-now-btn">
+      <i class="fas fa-phone-alt"></i>
+      Call Now: (888) 890-8546
+    </a>
   </div>
-</div>
 
-<!-- MAIN CONTENT -->
-<div class="main-container">
-  <div class="contact-grid">
-    
-    <!-- LEFT SIDE: INFO CARDS -->
-    <div>
-      <!-- Call Card -->
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fas fa-phone-alt"></i>
-        </div>
-        <h3>Call Us Directly</h3>
-        <p>Speak with a project specialist</p>
-        <a href="tel:+18888908546"><strong>(888) 890-8546</strong></a>
-        <p style="margin-top: 0.5rem;">Mon-Fri: 8am-6pm • Sat: 8am-4pm</p>
-      </div>
-
-      <!-- Email Card -->
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <h3>Email Us</h3>
-        <p>Send us your project details</p>
-        <a href="mailto:info@directbuildgroup.com">info@directbuildgroup.com</a>
-        <p style="margin-top: 0.5rem;">We respond within 24 hours</p>
-      </div>
-
-      <!-- Hours Card -->
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fas fa-clock"></i>
-        </div>
-        <h3>Business Hours</h3>
-        <ul class="hours-list">
-          <li><span>Monday - Friday</span><span>8:00 AM - 6:00 PM</span></li>
-          <li><span>Saturday</span><span>8:00 AM - 4:00 PM</span></li>
-          <li><span>Sunday</span><span>Closed</span></li>
-        </ul>
-      </div>
-
-      <!-- Social Card -->
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fas fa-share-alt"></i>
-        </div>
-        <h3>Follow Us</h3>
-        <p>See our latest projects and reviews</p>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-houzz"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-google"></i></a>
-        </div>
-      </div>
-
-      <!-- Map Card -->
-      <div class="map-card">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429587.6607915325!2d-97.141149!3d32.820352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e85d3135a9f0f%3A0x4e7a5b5b5b5b5b5b!2sIrving%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        <div class="map-info">
-          <a href="https://maps.google.com/?q=1711+W+Irving+Blvd+Irving+TX" target="_blank">
-            <i class="fas fa-map-marker-alt"></i> 1711 W Irving Blvd, Ste 205, Irving, TX 75062
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE: CONTACT FORM -->
-    <div class="form-card">
-      <h2>Get Your <span class="accent">Free Quote</span></h2>
-      <p>Fill out the form and we'll get back to you within 24 hours</p>
-
-      <form id="contactForm" action="https://formspree.io/f/xpwkaaap" method="POST">
-        <div class="form-group">
-          <label>Full Name *</label>
-          <input type="text" name="name" required placeholder="John Doe">
-        </div>
-
-        <div class="form-group">
-          <label>Phone Number *</label>
-          <input type="tel" name="phone" required placeholder="(888) 890-8546">
-        </div>
-
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="john@example.com">
-        </div>
-
-        <div class="form-group">
-          <label>Service Needed *</label>
-          <select name="service" required>
-            <option value="">Select a service</option>
-            <option value="Kitchen Remodel">Kitchen Remodel</option>
-            <option value="Bathroom Remodel">Bathroom Remodel</option>
-            <option value="Deck Building">Deck Building</option>
-            <option value="Porch Construction">Porch Construction</option>
-            <option value="Painting">Painting</option>
-            <option value="Flooring">Flooring</option>
-            <option value="Full Renovation">Full Renovation</option>
-            <option value="Other">Other</option>
+  <div class="contact-card">
+    <form id="contactForm" action="https://formspree.io/f/xpwkaaap" method="POST">
+      <div class="form-grid">
+        <div class="form-group"><label>Name *</label><input type="text" name="name" required placeholder="John Doe"></div>
+        <div class="form-group"><label>Phone *</label><input type="tel" name="phone" required placeholder="(469) 571-0545"></div>
+        <div class="form-group"><label>Email (optional)</label><input type="email" name="email" placeholder="john@example.com"></div>
+        <div class="form-group"><label>Preferred Call Date & Time *</label><input type="text" name="call_time" id="callTime" placeholder="Pick date & time" required></div>
+        <div class="form-group full">
+          <label>Project Type</label>
+          <select name="service">
+            <option>Kitchen</option>
+            <option>Bathroom</option>
+            <option>Deck / Porch</option>
+            <option>Painting</option>
+            <option>Flooring</option>
+            <option>Full Renovation</option>
+            <option>Other</option>
           </select>
         </div>
 
-        <div class="form-group">
-          <label>Project Location (City) *</label>
-          <input type="text" name="location" required placeholder="Dallas, Fort Worth, Austin, Houston...">
-        </div>
-
-        <div class="form-group">
-          <label>Preferred Contact Method *</label>
+        <!-- NEW YES/NO QUESTION -->
+        <div class="form-group full">
+          <label>OPT into messages</label>
           <div class="radio-group">
             <label class="radio-option">
-              <input type="radio" name="contact_method" value="Phone" required> <span>Phone Call</span>
+              <input type="radio" name="text_opt_in" value="Yes" required>
+              <span>Yes</span>
             </label>
             <label class="radio-option">
-              <input type="radio" name="contact_method" value="Email"> <span>Email</span>
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="contact_method" value="Text"> <span>Text Message</span>
+              <input type="radio" name="text_opt_in" value="No" required>
+              <span>No</span>
             </label>
           </div>
         </div>
 
-        <div class="form-group">
-          <label>Project Details</label>
-          <textarea name="message" placeholder="Tell us about your project, budget range, timeline, and any specific requests..."></textarea>
+        <div class="form-group full">
+          <label>Tell Us More (optional)</label>
+          <textarea name="message" placeholder="Budget • Timeline • Location..."></textarea>
         </div>
-
-        <div class="trust-badge">
-          <span><i class="fas fa-check-circle"></i> Free estimate</span>
-          <span><i class="fas fa-clock"></i> 24h response</span>
-          <span><i class="fas fa-shield-alt"></i> Licensed & insured</span>
-          <span><i class="fas fa-star"></i> 4.9 ★ (87 reviews)</span>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          Send Request <i class="fas fa-arrow-right"></i>
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h4>Direct Build Group</h4>
-      <p>Texas remodeling, done right.</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-houzz"></i></a>
-        <a href="#"><i class="fab fa-google"></i></a>
       </div>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="work.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <a href="services.html">Painting</a>
-      <a href="services.html">Kitchen Remodel</a>
-      <a href="services.html">Bathroom Remodel</a>
-      <a href="services.html">Decks</a>
-      <a href="services.html">Porches</a>
-      <a href="services.html">Flooring</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="tel:+18888908546"><i class="fas fa-phone"></i> (888) 890-8546</a>
-      <a href="mailto:info@directbuildgroup.com"><i class="fas fa-envelope"></i> info@directbuildgroup.com</a>
-      <span><i class="fas fa-map-marker-alt"></i> 1711 W Irving Blvd Ste 205<br>Irving, TX 75062</span>
-    </div>
+      <button type="submit" class="submit-btn">Send – Free Quote</button>
+    </form>
   </div>
-  <div class="footer-bottom">
-    <p>© 2025 Direct Build Group • Licensed Texas Contractor • Proudly Serving All of Texas</p>
-  </div>
-</footer>
-
-<!-- SUCCESS MODAL -->
-<div class="success-modal" id="successModal">
-  <div class="success-content">
-    <i class="fas fa-check-circle"></i>
-    <h3>Thank You!</h3>
-    <p>Your message has been sent successfully.<br>We'll contact you within 24 hours.</p>
-    <button class="success-close" onclick="closeSuccessModal()">Close</button>
-  </div>
-</div>
-
-</div>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
-// PRELOADER
+// Preloader 3 seconds
 setTimeout(() => {
-  const preloader = document.getElementById('preloader');
-  preloader.classList.add('fade-out');
-  setTimeout(() => {
-    preloader.style.display = 'none';
-    document.getElementById('mainContent').classList.add('visible');
-  }, 500);
-}, 1500);
+  document.getElementById('preloader').classList.add('fade-out');
+  setTimeout(() => document.getElementById('preloader').remove(), 1000);
+  document.getElementById('mainContent').classList.add('visible');
+}, 3000);
 
-// HEADER SCROLL EFFECT
-window.addEventListener('scroll', () => {
-  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+// Hamburger menu
+document.getElementById('hamburgerBtn').onclick = () => {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  btn.classList.toggle('active');
+  menu.style.left = menu.style.left === '0px' ? '-100%' : '0';
+};
+
+// Flatpickr calendar
+flatpickr("#callTime", {
+  enableTime: true,
+  dateFormat: "M j, Y at h:i K",
+  minDate: "today",
+  minTime: "08:00",
+  maxTime: "19:00",
+  disable: [d => d.getDay() === 0] // no Sundays
 });
 
-// MOBILE MENU
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const menuOverlay = document.getElementById('menuOverlay');
-
-function closeMenu() {
-  mobileMenu.style.right = '-100%';
-  menuBtn.classList.remove('active');
-  menuOverlay.classList.remove('active');
-}
-
-function openMenu() {
-  mobileMenu.style.right = '0';
-  menuBtn.classList.add('active');
-  menuOverlay.classList.add('active');
-}
-
-menuBtn.onclick = () => {
-  if (mobileMenu.style.right === '0px') closeMenu();
-  else openMenu();
-};
-menuOverlay.onclick = closeMenu;
-document.querySelectorAll('#mobileMenu a').forEach(link => link.onclick = closeMenu);
-
-// FORM SUBMISSION
-const successModal = document.getElementById('successModal');
-
-function closeSuccessModal() {
-  successModal.classList.remove('active');
-}
-
+// Form submission with success message
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.submit-btn');
   const originalText = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+  btn.innerHTML = 'Sending...';
 
   try {
-    const formData = new FormData(this);
     const res = await fetch(this.action, {
       method: 'POST',
-      body: formData,
+      body: new FormData(this),
       headers: { 'Accept': 'application/json' }
     });
 
     if (res.ok) {
+      document.getElementById('successMsg').classList.add('show');
       this.reset();
-      successModal.classList.add('active');
-      setTimeout(() => closeSuccessModal(), 4000);
+      setTimeout(() => {
+        document.getElementById('successMsg').classList.remove('show');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }, 4000);
     } else {
-      alert('There was an error. Please try again or call us directly.');
+      throw new Error();
     }
-  } catch (error) {
-    alert('Network error. Please check your connection and try again.');
-  } finally {
+  } catch {
+    alert('Error sending message. Please try again.');
     btn.disabled = false;
     btn.innerHTML = originalText;
   }
 });
-
-// Close modal on escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && successModal.classList.contains('active')) {
-    closeSuccessModal();
-  }
-});
 </script>
-
 </body>
 </html>
+
